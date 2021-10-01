@@ -1,4 +1,4 @@
-add_executable(01_initialize 01_initialize.c)
+add_executable(01_initialize 01_initialize.cpp)
 
 target_include_directories(
   01_initialize PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}

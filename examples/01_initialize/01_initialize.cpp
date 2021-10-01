@@ -1,5 +1,5 @@
 /**
- * 01_initialize.c
+ * 01_initialize.cpp
  * 
  * EPCC, The University of Edinburgh
  * 
@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-// #include <Morpheus_Core.hpp>
+#include <Morpheus_Core.hpp>
 #include "Fcl_Util.h"
 
 int main(){
@@ -32,22 +32,3 @@ int main(){
 
     return 0;
 }
-
-// extern "C" {
-
-//   void c_axpy_view( view_type **v_y, view_type **v_x, double *alpha ) {
-//     using flcl::view_from_ndarray;
-
-//     view_type y = **v_y;
-//     view_type x = **v_x;
-
-//     Kokkos::parallel_for( "axpy", y.extent(0), KOKKOS_LAMBDA( const size_t idx)
-//     {
-//       y(idx) += *alpha * x(idx);
-//     });
-
-//     return;
-//   }
-
-
-// }

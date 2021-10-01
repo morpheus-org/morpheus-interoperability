@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.19)
+cmake_minimum_required(VERSION 3.10)
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
 project(Fcl LANGUAGES C CXX)
 
