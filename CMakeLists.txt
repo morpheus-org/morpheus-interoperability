@@ -34,9 +34,11 @@ include(CheckCCompilerFlag)
 include(GNUInstallDirs)
 
 # Fcl-cxx library
-add_library(fcl-cxx OBJECT src/Fcl_Util.cpp)
-set(fcl-cxx-public-headers ${PROJECT_SOURCE_DIR}/src/Fcl_Types.hpp
+add_library(fcl-cxx OBJECT src/Fcl_Cxx.cpp src/Fcl_Util.cpp)
+set(fcl-cxx-public-headers ${PROJECT_SOURCE_DIR}/src/Fcl_Cxx.hpp
+                           ${PROJECT_SOURCE_DIR}/src/Fcl_Types.hpp
                            ${PROJECT_SOURCE_DIR}/src/Fcl_Util.h)
+
 set_property(TARGET fcl-cxx PROPERTY CXX_STANDARD 17)
 set_target_properties(fcl-cxx PROPERTIES PUBLIC_HEADER
                                          "${fcl-cxx-public-headers}")
