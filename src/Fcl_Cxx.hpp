@@ -30,14 +30,24 @@ namespace Morpheus {
 namespace Fcl { 
  
  typedef Morpheus::CooMatrix<r64_t, i32_t, Kokkos::LayoutRight, Kokkos::HostSpace> coomat_r64_i32_r_h;
+ typedef Morpheus::DenseVector<i32_t, i32_t, Kokkos::LayoutRight, Kokkos::HostSpace> vec_r64_i32_r_h;
   
- extern "C"{
+}
+}
+
+extern "C"{
+    void c_morpheus_allocate_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h** v, Morpheus::Fcl::i32_t n, Morpheus::Fcl::r64_t val);
+    void c_morpheus_deallocate_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h** v);
+    void c_morpheus_print_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h* v);
+
     void c_morpheus_allocate_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h** A, Morpheus::Fcl::i32_t nrows, Morpheus::Fcl::i32_t ncols, Morpheus::Fcl::i32_t nnnz);
     void c_morpheus_deallocate_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h** A);
     void c_morpheus_print_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h* A);
- }
+
+    void c_morpheus_multiply_coo_vec_vec_dirh_serial(Morpheus::Fcl::coomat_r64_i32_r_h *A, Morpheus::Fcl::vec_r64_i32_r_h *x, Morpheus::Fcl::vec_r64_i32_r_h *y);
+}
 
 //  typedef Morpheus::DynamicMatrix<r64_t, i32_t, Kokkos::LayoutRight, Kokkos::HostSpace> dynmat_r64_i32_r_h;
-}}
+
 
 #endif // FCL_CXX_HPP
