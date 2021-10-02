@@ -21,9 +21,9 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Core.hpp>
-#include "Fcl_Util.h"
-#include "Fcl_Cxx.hpp"
+#include "Fcl_C_Util.hpp"
+#include "Fcl_C_CooMatrix.hpp"
+#include "Fcl_C_DenseVector.hpp"
 
 using coomat = Morpheus::Fcl::coomat_r64_i32_r_h;
 using vec = Morpheus::Fcl::vec_r64_i32_r_h;
@@ -37,7 +37,7 @@ int main(){
         coomat *A;
         vec *x, *y;
 
-        c_morpheus_allocate_coomat_dirh(&A, 5, 3, 3);
+        c_morpheus_create_coomat_dirh(&A, 5, 3, 3);
         A->row_indices[0] = 0;
         A->column_indices[0] = 0;
         A->values[0] = 4;
@@ -49,8 +49,8 @@ int main(){
         A->values[2] = 2.5;
 
 
-        c_morpheus_allocate_vec_dirh(&x, 3, 3);
-        c_morpheus_allocate_vec_dirh(&y, 5, 0);
+        c_morpheus_create_vec_dirh(&x, 3, 3);
+        c_morpheus_create_vec_dirh(&y, 5, 0);
 
         c_morpheus_multiply_coo_vec_vec_dirh_serial(A,x,y);
 
@@ -58,9 +58,17 @@ int main(){
         c_morpheus_print_vec_dirh(x);
         c_morpheus_print_vec_dirh(y);
 
-        c_morpheus_deallocate_coomat_dirh(&A);
-        c_morpheus_deallocate_vec_dirh(&x);
-        c_morpheus_deallocate_vec_dirh(&y);
+        // shallow copy matrix
+        coomat *A_shallow;
+        c_morpheus_create_coomat_dirh_from_dirh(A, &A_shallow);
+        A->values[2] = -2.5;
+        c_morpheus_print_coomat_dirh(A_shallow);
+
+
+        c_morpheus_destroy_coomat_dirh(&A);
+        c_morpheus_destroy_coomat_dirh(&A_shallow);
+        c_morpheus_destroy_vec_dirh(&x);
+        c_morpheus_destroy_vec_dirh(&y);
     }
     c_morpheus_finalize();
 

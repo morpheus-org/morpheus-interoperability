@@ -1,5 +1,5 @@
 /**
- * Fcl_Cxx.cpp
+ * Fcl_C_CooMatrix.cpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,30 +21,19 @@
  * limitations under the License.
  */
 
-#include "Fcl_Cxx.hpp"
+#include "Fcl_C_CooMatrix.hpp"
 
 extern "C" {
-
-    void c_morpheus_allocate_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h** v, Morpheus::Fcl::i32_t n, Morpheus::Fcl::r64_t val)
-    {
-        *v = (new Morpheus::Fcl::vec_r64_i32_r_h("vec_iirh", n, val));
-    }
-
-    void c_morpheus_deallocate_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h** v)
-    {
-        delete(*v);
-    }
-
-    void c_morpheus_print_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h* v)
-    {
-        Morpheus::print(*v);
-    }
-
-    void c_morpheus_allocate_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h** A, Morpheus::Fcl::i32_t nrows, Morpheus::Fcl::i32_t ncols, Morpheus::Fcl::i32_t nnnz){
+    
+    void c_morpheus_create_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h** A, Morpheus::Fcl::i32_t nrows, Morpheus::Fcl::i32_t ncols, Morpheus::Fcl::i32_t nnnz){
         *A = (new Morpheus::Fcl::coomat_r64_i32_r_h("coomat_dirh", nrows, ncols, nnnz));
     }
 
-    void c_morpheus_deallocate_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h** A){
+    void c_morpheus_create_coomat_dirh_from_dirh(Morpheus::Fcl::coomat_r64_i32_r_h* src, Morpheus::Fcl::coomat_r64_i32_r_h** dst){
+        *dst = (new Morpheus::Fcl::coomat_r64_i32_r_h(*src));
+    }
+
+    void c_morpheus_destroy_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h** A){
         delete(*A);
     }
 

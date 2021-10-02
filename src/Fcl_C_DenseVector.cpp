@@ -1,5 +1,5 @@
 /**
- * Flc_Types.hpp
+ * Fcl_C_DenseVector.cpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -20,29 +20,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-#ifndef FCL_TYPES_HPP
-#define FCL_TYPES_HPP
 
-#include <cstdint>
-#include <cstddef>
+#include "Fcl_C_DenseVector.hpp"
 
-namespace Morpheus {
-namespace Fcl {
+extern "C" {
 
-// FLCL primary scalar types
-// - modify at this level to change ndarray, view, and dualview simultaneously
-// - ensure compatibility with F side
-typedef bool bool_t;
+    void c_morpheus_create_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h** v, Morpheus::Fcl::i32_t n, Morpheus::Fcl::r64_t val)
+    {
+        *v = (new Morpheus::Fcl::vec_r64_i32_r_h("vec_iirh", n, val));
+    }
 
-typedef int32_t i32_t;
-typedef int64_t i64_t;
+    void c_morpheus_create_vec_dirh_from_dirh(Morpheus::Fcl::vec_r64_i32_r_h* src, Morpheus::Fcl::vec_r64_i32_r_h** dst)
+    {
+        *dst = (new Morpheus::Fcl::vec_r64_i32_r_h(*src));
+    }
 
-typedef float r32_t;
-typedef double r64_t;
+    void c_morpheus_destroy_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h** v)
+    {
+        delete(*v);
+    }
 
-typedef std::size_t index_t;
-
-}  // namespace Fcl
-}  // namespace Morpheus
-
-#endif  // FCL_TYPES_HPP
+    void c_morpheus_print_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h* v)
+    {
+        Morpheus::print(*v);
+    }
+}

@@ -22,7 +22,7 @@
  */
 
 #include <Morpheus_Core.hpp>
-#include "Fcl_Util.h"
+#include "Fcl_C_Util.hpp"
 
 #include <iostream>
 #include <fstream>
