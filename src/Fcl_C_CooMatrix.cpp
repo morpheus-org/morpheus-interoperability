@@ -24,26 +24,32 @@
 #include "Fcl_C_CooMatrix.hpp"
 
 extern "C" {
-    
-    void c_morpheus_create_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h** A, Morpheus::Fcl::i32_t nrows, Morpheus::Fcl::i32_t ncols, Morpheus::Fcl::i32_t nnnz){
-        *A = (new Morpheus::Fcl::coomat_r64_i32_r_h("coomat_dirh", nrows, ncols, nnnz));
-    }
 
-    void c_morpheus_create_coomat_dirh_from_dirh(Morpheus::Fcl::coomat_r64_i32_r_h* src, Morpheus::Fcl::coomat_r64_i32_r_h** dst){
-        *dst = (new Morpheus::Fcl::coomat_r64_i32_r_h(*src));
-    }
+void c_morpheus_create_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h** A,
+                                   Morpheus::Fcl::i32_t nrows,
+                                   Morpheus::Fcl::i32_t ncols,
+                                   Morpheus::Fcl::i32_t nnnz) {
+  *A = (new Morpheus::Fcl::coomat_r64_i32_r_h("coomat_dirh", nrows, ncols,
+                                              nnnz));
+}
 
-    void c_morpheus_destroy_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h** A){
-        delete(*A);
-    }
+void c_morpheus_create_coomat_dirh_from_dirh(
+    Morpheus::Fcl::coomat_r64_i32_r_h* src,
+    Morpheus::Fcl::coomat_r64_i32_r_h** dst) {
+  *dst = (new Morpheus::Fcl::coomat_r64_i32_r_h(*src));
+}
 
-    void c_morpheus_print_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h* A)
-    {
-        Morpheus::print(*A);
-    }
+void c_morpheus_destroy_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h** A) {
+  delete (*A);
+}
 
-    void c_morpheus_multiply_coo_vec_vec_dirh_serial(Morpheus::Fcl::coomat_r64_i32_r_h *A, Morpheus::Fcl::vec_r64_i32_r_h *x, Morpheus::Fcl::vec_r64_i32_r_h *y)
-    {
-        Morpheus::multiply<Kokkos::Serial>(*A, *x, *y);
-    }
+void c_morpheus_print_coomat_dirh(Morpheus::Fcl::coomat_r64_i32_r_h* A) {
+  Morpheus::print(*A);
+}
+
+void c_morpheus_multiply_coo_vec_vec_dirh_serial(
+    Morpheus::Fcl::coomat_r64_i32_r_h* A, Morpheus::Fcl::vec_r64_i32_r_h* x,
+    Morpheus::Fcl::vec_r64_i32_r_h* y) {
+  Morpheus::multiply<Kokkos::Serial>(*A, *x, *y);
+}
 }
