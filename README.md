@@ -1,2 +1,2 @@
-# morpheus-fortran-interop
-API for Fortran to C and C to Fortran for interacting with C++ portions of Morpheus
+# Introduction
+API for interfacing C++ portions of Morpheus with C and Fortran.
