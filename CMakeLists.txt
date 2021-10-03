@@ -34,15 +34,19 @@ include(CheckCCompilerFlag)
 include(GNUInstallDirs)
 
 # Fcl-cxx library
-add_library(fcl-cxx OBJECT src/Fcl_C_CooMatrix.cpp src/Fcl_C_DenseVector.cpp
-                           src/Fcl_C_DynamicMatrix.cpp src/Fcl_C_Util.cpp)
+add_library(
+  fcl-cxx OBJECT
+  src/Fcl_C_CooMatrix.cpp src/Fcl_C_DenseVector.cpp src/Fcl_C_DynamicMatrix.cpp
+  src/Fcl_C_Multiply.cpp src/Fcl_C_Print.cpp src/Fcl_C.cpp)
 
 set(fcl-cxx-public-headers
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_CooMatrix.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_DenseVector.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_DynamicMatrix.hpp
+    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Multiply.hpp
+    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Print.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_Types.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Util.hpp)
+    ${PROJECT_SOURCE_DIR}/src/Fcl_C.hpp)
 
 set_property(TARGET fcl-cxx PROPERTY CXX_STANDARD 17)
 set_target_properties(fcl-cxx PROPERTIES PUBLIC_HEADER

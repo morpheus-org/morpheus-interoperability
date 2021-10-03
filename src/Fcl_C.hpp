@@ -1,5 +1,5 @@
 /**
- * Fcl_C_CooMatrix.cpp
+ * Fcl_C.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,24 +21,32 @@
  * limitations under the License.
  */
 
+#ifndef FCL_C_HPP
+#define FCL_C_HPP
+
 #include "Fcl_C_CooMatrix.hpp"
+#include "Fcl_C_DenseVector.hpp"
+#include "Fcl_C_DynamicMatrix.hpp"
 
+#include "Fcl_C_Multiply.hpp"
+#include "Fcl_C_Print.hpp"
+
+#ifdef __cplusplus
 extern "C" {
-void c_morpheus_create_mat_coo_r64_i32_r_h(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h** A, Morpheus::Fcl::i32_t nrows,
-    Morpheus::Fcl::i32_t ncols, Morpheus::Fcl::i32_t nnnz) {
-  *A = (new Morpheus::Fcl::mat_coo_r64_i32_r_h("mat_coo_r64_i32_r_h::", nrows,
-                                               ncols, nnnz));
-}
+#endif
 
-void c_morpheus_create_mat_coo_from_mat_coo_r64_i32_r_h(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h* src,
-    Morpheus::Fcl::mat_coo_r64_i32_r_h** dst) {
-  *dst = (new Morpheus::Fcl::mat_coo_r64_i32_r_h(*src));
-}
+#ifdef __cplusplus
+void c_morpheus_initialize(int* argc, char** argv);
+#else
 
-void c_morpheus_destroy_mat_coo_r64_i32_r_h(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h** A) {
-  delete (*A);
-}
-}
+#endif
+void c_morpheus_initialize_without_args(void);
+void c_morpheus_finalize(void);
+void c_morpheus_print_configuration(const char* prepend_name_in,
+                                    const char* file_name_in);
+
+#ifdef __cplusplus
+}  // extern "C"
+#endif
+
+#endif  // FCL_C_HPP

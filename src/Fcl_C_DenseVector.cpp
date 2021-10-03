@@ -25,22 +25,21 @@
 
 extern "C" {
 
-void c_morpheus_create_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h** v,
-                                Morpheus::Fcl::i32_t n,
-                                Morpheus::Fcl::r64_t val) {
-  *v = (new Morpheus::Fcl::vec_r64_i32_r_h("vec_iirh", n, val));
+void c_morpheus_create_vec_dense_r64_i32_r_h(
+    Morpheus::Fcl::vec_dense_r64_i32_r_h** v, Morpheus::Fcl::i32_t n,
+    Morpheus::Fcl::r64_t val) {
+  *v = (new Morpheus::Fcl::vec_dense_r64_i32_r_h("vec_dense_r64_i32_r_h::", n,
+                                                 val));
 }
 
-void c_morpheus_create_vec_dirh_from_dirh(
-    Morpheus::Fcl::vec_r64_i32_r_h* src, Morpheus::Fcl::vec_r64_i32_r_h** dst) {
-  *dst = (new Morpheus::Fcl::vec_r64_i32_r_h(*src));
+void c_morpheus_create_vec_from_vec_dense_r64_i32_r_h(
+    Morpheus::Fcl::vec_dense_r64_i32_r_h* src,
+    Morpheus::Fcl::vec_dense_r64_i32_r_h** dst) {
+  *dst = (new Morpheus::Fcl::vec_dense_r64_i32_r_h(*src));
 }
 
-void c_morpheus_destroy_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h** v) {
+void c_morpheus_destroy_vec_dense_r64_i32_r_h(
+    Morpheus::Fcl::vec_dense_r64_i32_r_h** v) {
   delete (*v);
-}
-
-void c_morpheus_print_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h* v) {
-  Morpheus::print(*v);
 }
 }

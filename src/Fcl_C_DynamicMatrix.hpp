@@ -33,28 +33,22 @@
 namespace Morpheus {
 namespace Fcl {
 
-typedef Morpheus::DynamicMatrix<r64_t, i32_t, right_t, host_t>
-    dynmat_r64_i32_r_h;
+typedef DynamicMatrix<r64_t, i32_t, right_t, host_t> mat_dyn_r64_i32_r_h;
 
 }  // namespace Fcl
 }  // namespace Morpheus
 
 extern "C" {
 
-void c_morpheus_create_dynmat_dirh_from_coomat_dirh(
-    Morpheus::Fcl::coomat_r64_i32_r_h* src,
-    Morpheus::Fcl::dynmat_r64_i32_r_h** dst);
+void c_morpheus_create_mat_dyn_from_mat_coo_r64_i32_r_h(
+    Morpheus::Fcl::mat_coo_r64_i32_r_h* src,
+    Morpheus::Fcl::mat_dyn_r64_i32_r_h** dst);
 
-void c_morpheus_destroy_dynmat_dirh(Morpheus::Fcl::dynmat_r64_i32_r_h** A);
+void c_morpheus_destroy_mat_dyn_r64_i32_r_h(
+    Morpheus::Fcl::mat_dyn_r64_i32_r_h** A);
 
-void c_morpheus_dynmat_dirh_activate(Morpheus::Fcl::dynmat_r64_i32_r_h* A,
-                                     const Morpheus::formats_e index);
-
-void c_morpheus_print_dynmat_dirh(Morpheus::Fcl::dynmat_r64_i32_r_h* A);
-
-void c_morpheus_multiply_dyn_vec_vec_dirh_serial(
-    Morpheus::Fcl::dynmat_r64_i32_r_h* A, Morpheus::Fcl::vec_r64_i32_r_h* x,
-    Morpheus::Fcl::vec_r64_i32_r_h* y);
+void c_morpheus_activate_mat_dyn_r64_i32_r_h(
+    Morpheus::Fcl::mat_dyn_r64_i32_r_h* A, const Morpheus::formats_e index);
 }
 
 #endif  // FCL_C_DYNAMICMATRIX_HPP

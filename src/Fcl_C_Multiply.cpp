@@ -1,5 +1,5 @@
 /**
- * Fcl_C_CooMatrix.cpp
+ * Fcl_C_Multiply.cpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,24 +21,18 @@
  * limitations under the License.
  */
 
-#include "Fcl_C_CooMatrix.hpp"
+#include "Fcl_C_Multiply.hpp"
 
-extern "C" {
-void c_morpheus_create_mat_coo_r64_i32_r_h(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h** A, Morpheus::Fcl::i32_t nrows,
-    Morpheus::Fcl::i32_t ncols, Morpheus::Fcl::i32_t nnnz) {
-  *A = (new Morpheus::Fcl::mat_coo_r64_i32_r_h("mat_coo_r64_i32_r_h::", nrows,
-                                               ncols, nnnz));
+void c_morpheus_multiply_mat_coo_vec_dense_vec_dense_r64_i32_r_h_serial(
+    Morpheus::Fcl::mat_coo_r64_i32_r_h* A,
+    Morpheus::Fcl::vec_dense_r64_i32_r_h* x,
+    Morpheus::Fcl::vec_dense_r64_i32_r_h* y) {
+  Morpheus::multiply<Morpheus::Fcl::serial_t>(*A, *x, *y);
 }
 
-void c_morpheus_create_mat_coo_from_mat_coo_r64_i32_r_h(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h* src,
-    Morpheus::Fcl::mat_coo_r64_i32_r_h** dst) {
-  *dst = (new Morpheus::Fcl::mat_coo_r64_i32_r_h(*src));
-}
-
-void c_morpheus_destroy_mat_coo_r64_i32_r_h(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h** A) {
-  delete (*A);
-}
+void c_morpheus_multiply_mat_dyn_vec_dense_vec_dense_r64_i32_r_h_serial(
+    Morpheus::Fcl::mat_dyn_r64_i32_r_h* A,
+    Morpheus::Fcl::vec_dense_r64_i32_r_h* x,
+    Morpheus::Fcl::vec_dense_r64_i32_r_h* y) {
+  Morpheus::multiply<Morpheus::Fcl::serial_t>(*A, *x, *y);
 }

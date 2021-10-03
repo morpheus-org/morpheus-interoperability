@@ -21,8 +21,7 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Core.hpp>
-#include "Fcl_C_Util.hpp"
+#include "Fcl_C.hpp"
 
 int main() {
   c_morpheus_initialize_without_args();

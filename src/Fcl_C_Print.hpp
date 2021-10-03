@@ -1,5 +1,5 @@
 /**
- * Flc_Util.h
+ * Fcl_C_Print.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,31 +21,22 @@
  * limitations under the License.
  */
 
-#ifndef FCL_UTIL_H
-#define FCL_UTIL_H
+#ifndef FCL_C_PRINT_HPP
+#define FCL_C_PRINT_HPP
 
-#ifdef __cplusplus
+#include "Fcl_C_CooMatrix.hpp"
+#include "Fcl_C_DynamicMatrix.hpp"
+#include "Fcl_C_DenseVector.hpp"
+
 extern "C" {
-#endif
+void c_morpheus_print_vec_dense_r64_i32_r_h(
+    Morpheus::Fcl::vec_dense_r64_i32_r_h* v);
 
-#ifdef __cplusplus
-void c_morpheus_initialize(int* argc, char** argv);
-#else
+void c_morpheus_print_mat_coo_r64_i32_r_h(
+    Morpheus::Fcl::mat_coo_r64_i32_r_h* A);
 
-#endif
-void c_morpheus_initialize_without_args(void);
-void c_morpheus_finalize(void);
-void c_morpheus_print_configuration(const char* prepend_name_in,
-                                    const char* file_name_in);
+void c_morpheus_print_mat_dyn_r64_i32_r_h(
+    Morpheus::Fcl::mat_dyn_r64_i32_r_h* A);
+}
 
-#ifdef __cplusplus
-bool c_morpheus_is_initialized(void);
-#else
-_Bool c_morpheus_is_initialized(void);
-#endif
-
-#ifdef __cplusplus
-}  // extern "C"
-#endif
-
-#endif  // FCL_UTIL_H
+#endif  // FCL_C_PRINT_HPP

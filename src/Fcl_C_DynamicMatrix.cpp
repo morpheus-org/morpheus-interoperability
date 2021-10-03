@@ -25,29 +25,20 @@
 
 extern "C" {
 
-void c_morpheus_create_dynmat_dirh_from_coomat_dirh(
-    Morpheus::Fcl::coomat_r64_i32_r_h* src,
-    Morpheus::Fcl::dynmat_r64_i32_r_h** dst) {
-  using Morpheus::Fcl;
-  *dst = (new dynmat_r64_i32_r_h(coomat_r64_i32_r_h(*src)));
+void c_morpheus_create_mat_dyn_from_mat_coo_r64_i32_r_h(
+    Morpheus::Fcl::mat_coo_r64_i32_r_h* src,
+    Morpheus::Fcl::mat_dyn_r64_i32_r_h** dst) {
+  using namespace Morpheus::Fcl;
+  *dst = (new mat_dyn_r64_i32_r_h(mat_coo_r64_i32_r_h(*src)));
 }
 
-void c_morpheus_destroy_dynmat_dirh(Morpheus::Fcl::dynmat_r64_i32_r_h** A) {
+void c_morpheus_destroy_mat_dyn_r64_i32_r_h(
+    Morpheus::Fcl::mat_dyn_r64_i32_r_h** A) {
   delete (*A);
 }
 
-void c_morpheus_print_dynmat_dirh(Morpheus::Fcl::dynmat_r64_i32_r_h* A) {
-  Morpheus::print(*A);
-}
-
-void c_morpheus_dynmat_dirh_activate(Morpheus::Fcl::dynmat_r64_i32_r_h* A,
-                                     const Morpheus::formats_e index) {
+void c_morpheus_activate_mat_dyn_r64_i32_r_h(
+    Morpheus::Fcl::mat_dyn_r64_i32_r_h* A, const Morpheus::formats_e index) {
   A->activate(index);
-}
-
-void c_morpheus_multiply_dyn_vec_vec_dirh_serial(
-    Morpheus::Fcl::dynmat_r64_i32_r_h* A, Morpheus::Fcl::vec_r64_i32_r_h* x,
-    Morpheus::Fcl::vec_r64_i32_r_h* y) {
-  Morpheus::multiply<Kokkos::Serial>(*A, *x, *y);
 }
 }

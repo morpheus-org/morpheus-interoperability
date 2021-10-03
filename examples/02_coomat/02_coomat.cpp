@@ -21,22 +21,20 @@
  * limitations under the License.
  */
 
-#include "Fcl_C_Util.hpp"
-#include "Fcl_C_CooMatrix.hpp"
-#include "Fcl_C_DenseVector.hpp"
+#include "Fcl_C.hpp"
 
-using coomat = Morpheus::Fcl::coomat_r64_i32_r_h;
-using vec    = Morpheus::Fcl::vec_r64_i32_r_h;
+using coo = Morpheus::Fcl::mat_coo_r64_i32_r_h;
+using vec = Morpheus::Fcl::vec_dense_r64_i32_r_h;
 
 extern "C" {
 
 int main() {
   c_morpheus_initialize_without_args();
   {
-    coomat *A;
+    coo *A;
     vec *x, *y;
 
-    c_morpheus_create_coomat_dirh(&A, 5, 3, 3);
+    c_morpheus_create_mat_coo_r64_i32_r_h(&A, 5, 3, 3);
     A->row_indices[0]    = 0;
     A->column_indices[0] = 0;
     A->values[0]         = 4;
@@ -47,25 +45,25 @@ int main() {
     A->column_indices[2] = 2;
     A->values[2]         = 2.5;
 
-    c_morpheus_create_vec_dirh(&x, 3, 3);
-    c_morpheus_create_vec_dirh(&y, 5, 0);
+    c_morpheus_create_vec_dense_r64_i32_r_h(&x, 3, 3);
+    c_morpheus_create_vec_dense_r64_i32_r_h(&y, 5, 0);
 
-    c_morpheus_multiply_coo_vec_vec_dirh_serial(A, x, y);
+    c_morpheus_multiply_mat_coo_vec_dense_vec_dense_r64_i32_r_h_serial(A, x, y);
 
-    c_morpheus_print_coomat_dirh(A);
-    c_morpheus_print_vec_dirh(x);
-    c_morpheus_print_vec_dirh(y);
+    c_morpheus_print_mat_coo_r64_i32_r_h(A);
+    c_morpheus_print_vec_dense_r64_i32_r_h(x);
+    c_morpheus_print_vec_dense_r64_i32_r_h(y);
 
     // shallow copy matrix
-    coomat *A_shallow;
-    c_morpheus_create_coomat_dirh_from_dirh(A, &A_shallow);
+    coo *A_shallow;
+    c_morpheus_create_mat_coo_from_mat_coo_r64_i32_r_h(A, &A_shallow);
     A->values[2] = -2.5;
-    c_morpheus_print_coomat_dirh(A_shallow);
+    c_morpheus_print_mat_coo_r64_i32_r_h(A_shallow);
 
-    c_morpheus_destroy_coomat_dirh(&A);
-    c_morpheus_destroy_coomat_dirh(&A_shallow);
-    c_morpheus_destroy_vec_dirh(&x);
-    c_morpheus_destroy_vec_dirh(&y);
+    c_morpheus_destroy_mat_coo_r64_i32_r_h(&A);
+    c_morpheus_destroy_mat_coo_r64_i32_r_h(&A_shallow);
+    c_morpheus_destroy_vec_dense_r64_i32_r_h(&x);
+    c_morpheus_destroy_vec_dense_r64_i32_r_h(&y);
   }
   c_morpheus_finalize();
 

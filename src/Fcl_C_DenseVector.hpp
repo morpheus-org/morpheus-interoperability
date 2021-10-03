@@ -30,20 +30,23 @@
 
 namespace Morpheus {
 namespace Fcl {
+// using namespace Morpheus;
+typedef DenseVector<i32_t, i32_t, right_t, host_t> vec_dense_r64_i32_r_h;
 
-typedef Morpheus::DenseVector<i32_t, i32_t, right_t, host_t> vec_r64_i32_r_h;
-
-}
+}  // namespace Fcl
 }  // namespace Morpheus
 
 extern "C" {
-void c_morpheus_create_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h** v,
-                                Morpheus::Fcl::i32_t n,
-                                Morpheus::Fcl::r64_t val);
-void c_morpheus_create_vec_dirh_from_dirh(Morpheus::Fcl::vec_r64_i32_r_h* src,
-                                          Morpheus::Fcl::vec_r64_i32_r_h** dst);
-void c_morpheus_destroy_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h** v);
-void c_morpheus_print_vec_dirh(Morpheus::Fcl::vec_r64_i32_r_h* v);
+void c_morpheus_create_vec_dense_r64_i32_r_h(
+    Morpheus::Fcl::vec_dense_r64_i32_r_h** v, Morpheus::Fcl::i32_t n,
+    Morpheus::Fcl::r64_t val);
+
+void c_morpheus_create_vec_from_vec_dense_r64_i32_r_h(
+    Morpheus::Fcl::vec_dense_r64_i32_r_h* src,
+    Morpheus::Fcl::vec_dense_r64_i32_r_h** dst);
+
+void c_morpheus_destroy_vec_dense_r64_i32_r_h(
+    Morpheus::Fcl::vec_dense_r64_i32_r_h** v);
 }
 
 #endif  // FCL_C_DENSEVECTOR_HPP
