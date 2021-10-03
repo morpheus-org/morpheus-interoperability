@@ -1,33 +1,8 @@
-/**
- * 01_initialize.cpp
- *
- * EPCC, The University of Edinburgh
- *
- * (c) 2021 The University of Edinburgh
- *
- * Contributing Authors:
- * Christodoulos Stylianou (c.stylianou@ed.ac.uk)
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * 	http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 #include "Fcl_C.hpp"
 
-using dyn = fcl_mat_dyn_r64_i32_r_h;
-using coo = fcl_mat_coo_r64_i32_r_h;
-using vec = fcl_vec_dense_r64_i32_r_h;
-
-extern "C" {
+typedef fcl_mat_dyn_r64_i32_r_h dyn;
+typedef fcl_mat_coo_r64_i32_r_h coo;
+typedef fcl_vec_dense_r64_i32_r_h vec;
 
 int main() {
   c_morpheus_initialize_without_args();
@@ -62,7 +37,7 @@ int main() {
     c_morpheus_print_vec_dense_r64_i32_r_h(x);
     c_morpheus_print_vec_dense_r64_i32_r_h(y);
 
-    c_morpheus_activate_mat_dyn_r64_i32_r_h(Adyn, Morpheus::CSR_FORMAT);
+    c_morpheus_activate_mat_dyn_r64_i32_r_h(Adyn, CSR_FORMAT);
     c_morpheus_print_mat_dyn_r64_i32_r_h(Adyn);
 
     c_morpheus_destroy_mat_dyn_r64_i32_r_h(&Adyn);
@@ -73,5 +48,4 @@ int main() {
   c_morpheus_finalize();
 
   return 0;
-}
 }

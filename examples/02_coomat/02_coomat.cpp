@@ -23,8 +23,8 @@
 
 #include "Fcl_C.hpp"
 
-using coo = Morpheus::Fcl::mat_coo_r64_i32_r_h;
-using vec = Morpheus::Fcl::vec_dense_r64_i32_r_h;
+using coo = fcl_mat_coo_r64_i32_r_h;
+using vec = fcl_vec_dense_r64_i32_r_h;
 
 extern "C" {
 
@@ -33,20 +33,22 @@ int main() {
   {
     coo *A;
     vec *x, *y;
+    fcl_r64_t *Aval, *xval, *yval;
+    fcl_i32_t *Arind, *Acind;
 
-    c_morpheus_create_mat_coo_r64_i32_r_h(&A, 5, 3, 3);
-    A->row_indices[0]    = 0;
-    A->column_indices[0] = 0;
-    A->values[0]         = 4;
-    A->row_indices[1]    = 2;
-    A->column_indices[1] = 1;
-    A->values[1]         = -2;
-    A->row_indices[2]    = 4;
-    A->column_indices[2] = 2;
-    A->values[2]         = 2.5;
+    c_morpheus_create_mat_coo_r64_i32_r_h(&A, &Arind, &Acind, &Aval, 5, 3, 3);
+    Arind[0] = 0;
+    Acind[0] = 0;
+    Aval[0]  = 4;
+    Arind[1] = 2;
+    Acind[1] = 1;
+    Aval[1]  = -2;
+    Arind[2] = 4;
+    Acind[2] = 2;
+    Aval[2]  = 2.5;
 
-    c_morpheus_create_vec_dense_r64_i32_r_h(&x, 3, 3);
-    c_morpheus_create_vec_dense_r64_i32_r_h(&y, 5, 0);
+    c_morpheus_create_vec_dense_r64_i32_r_h(&x, &xval, 3, 3);
+    c_morpheus_create_vec_dense_r64_i32_r_h(&y, &yval, 5, 0);
 
     c_morpheus_multiply_mat_coo_vec_dense_vec_dense_r64_i32_r_h_serial(A, x, y);
 
@@ -56,8 +58,11 @@ int main() {
 
     // shallow copy matrix
     coo *A_shallow;
-    c_morpheus_create_mat_coo_from_mat_coo_r64_i32_r_h(A, &A_shallow);
-    A->values[2] = -2.5;
+    fcl_i32_t *Arind_shallow, *Arcol_shallow;
+    fcl_r64_t *Aval_shallow;
+    c_morpheus_create_mat_coo_from_mat_coo_r64_i32_r_h(
+        A, &A_shallow, &Arind_shallow, &Arcol_shallow, &Aval_shallow);
+    Aval[2] = -2.5;
     c_morpheus_print_mat_coo_r64_i32_r_h(A_shallow);
 
     c_morpheus_destroy_mat_coo_r64_i32_r_h(&A);

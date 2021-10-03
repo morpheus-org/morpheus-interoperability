@@ -24,31 +24,37 @@
 #ifndef FCL_C_DYNAMICMATRIX_HPP
 #define FCL_C_DYNAMICMATRIX_HPP
 
-#include <Morpheus_Core.hpp>
-
 #include "Fcl_C_Types.hpp"
 #include "Fcl_C_CooMatrix.hpp"
 #include "Fcl_C_DenseVector.hpp"
 
-namespace Morpheus {
-namespace Fcl {
+#ifdef __cplusplus
+#include <Morpheus_Core.hpp>
 
-typedef DynamicMatrix<r64_t, i32_t, right_t, host_t> mat_dyn_r64_i32_r_h;
+typedef Morpheus::DynamicMatrix<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
+    fcl_mat_dyn_r64_i32_r_h;
 
-}  // namespace Fcl
-}  // namespace Morpheus
+typedef enum Morpheus::formats_e fcl_formats_e;
+#else
+typedef struct Morpheus_DynamicMatrix_r64_i32_r_h fcl_mat_dyn_r64_i32_r_h;
+// typedef enum formats_e fcl_formats_e;
+typedef enum formats_e { COO_FORMAT = 0, CSR_FORMAT, DIA_FORMAT } fcl_formats_e;
+#endif
 
+#ifdef __cplusplus
 extern "C" {
+#endif
 
 void c_morpheus_create_mat_dyn_from_mat_coo_r64_i32_r_h(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h* src,
-    Morpheus::Fcl::mat_dyn_r64_i32_r_h** dst);
+    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h** dst);
 
-void c_morpheus_destroy_mat_dyn_r64_i32_r_h(
-    Morpheus::Fcl::mat_dyn_r64_i32_r_h** A);
+void c_morpheus_destroy_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h** A);
 
-void c_morpheus_activate_mat_dyn_r64_i32_r_h(
-    Morpheus::Fcl::mat_dyn_r64_i32_r_h* A, const Morpheus::formats_e index);
+void c_morpheus_activate_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
+                                             const fcl_formats_e index);
+
+#ifdef __cplusplus
 }
+#endif
 
 #endif  // FCL_C_DYNAMICMATRIX_HPP

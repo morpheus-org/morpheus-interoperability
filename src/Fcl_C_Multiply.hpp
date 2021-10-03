@@ -28,16 +28,20 @@
 #include "Fcl_C_DynamicMatrix.hpp"
 #include "Fcl_C_DenseVector.hpp"
 
+#ifdef __cplusplus
 extern "C" {
+#endif
+
 void c_morpheus_multiply_mat_coo_vec_dense_vec_dense_r64_i32_r_h_serial(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h* A,
-    Morpheus::Fcl::vec_dense_r64_i32_r_h* x,
-    Morpheus::Fcl::vec_dense_r64_i32_r_h* y);
+    fcl_mat_coo_r64_i32_r_h* A, fcl_vec_dense_r64_i32_r_h* x,
+    fcl_vec_dense_r64_i32_r_h* y);
 
 void c_morpheus_multiply_mat_dyn_vec_dense_vec_dense_r64_i32_r_h_serial(
-    Morpheus::Fcl::mat_dyn_r64_i32_r_h* A,
-    Morpheus::Fcl::vec_dense_r64_i32_r_h* x,
-    Morpheus::Fcl::vec_dense_r64_i32_r_h* y);
+    fcl_mat_dyn_r64_i32_r_h* A, fcl_vec_dense_r64_i32_r_h* x,
+    fcl_vec_dense_r64_i32_r_h* y);
+
+#ifdef __cplusplus
 }
+#endif
 
 #endif  // FCL_C_MULTIPLY_HPP

@@ -35,11 +35,7 @@
 extern "C" {
 #endif
 
-#ifdef __cplusplus
 void c_morpheus_initialize(int* argc, char** argv);
-#else
-
-#endif
 void c_morpheus_initialize_without_args(void);
 void c_morpheus_finalize(void);
 void c_morpheus_print_configuration(const char* prepend_name_in,

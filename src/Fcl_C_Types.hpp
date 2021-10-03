@@ -23,30 +23,34 @@
 #ifndef FCL_TYPES_HPP
 #define FCL_TYPES_HPP
 
+#ifdef __cplusplus
 #include <cstdint>
-#include <cstddef>
+#else
+#include <stdint.h>
+#endif
 
-namespace Morpheus {
-namespace Fcl {
+// typedef bool fcl_bool_t;
 
-typedef bool bool_t;
+typedef int32_t fcl_i32_t;
+typedef int64_t fcl_i64_t;
 
-typedef int32_t i32_t;
-typedef int64_t i64_t;
+typedef float fcl_r32_t;
+typedef double fcl_r64_t;
 
-typedef float r32_t;
-typedef double r64_t;
-
-typedef std::size_t index_t;
-
+#ifdef __cplusplus
+#include <Morpheus_Core.hpp>
 // Kokkos Types
-typedef Kokkos::LayoutLeft left_t;
-typedef Kokkos::LayoutRight right_t;
+typedef Kokkos::LayoutLeft fcl_left_t;
+typedef Kokkos::LayoutRight fcl_right_t;
 
-typedef Kokkos::Serial serial_t;
-typedef Kokkos::HostSpace host_t;
+typedef Kokkos::Serial fcl_serial_t;
+typedef Kokkos::HostSpace fcl_host_t;
+#else
+typedef struct LayoutLeft fcl_left_t;
+typedef struct LayoutRight fcl_right_t;
 
-}  // namespace Fcl
-}  // namespace Morpheus
+typedef struct Serial fcl_serial_t;
+typedef struct HostSpace fcl_host_t;
+#endif
 
 #endif  // FCL_TYPES_HPP

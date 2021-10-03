@@ -1,3 +1,4 @@
 add_subdirectory(01_initialize)
 add_subdirectory(02_coomat)
 add_subdirectory(03_dynmat)
+add_subdirectory(04_c_compatibility)

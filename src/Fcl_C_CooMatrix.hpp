@@ -24,30 +24,38 @@
 #ifndef FCL_C_COOMATRIX_HPP
 #define FCL_C_COOMATRIX_HPP
 
-#include <Morpheus_Core.hpp>
-
 #include "Fcl_C_Types.hpp"
 #include "Fcl_C_DenseVector.hpp"
 
-namespace Morpheus {
-namespace Fcl {
+#ifdef __cplusplus
+#include <Morpheus_Core.hpp>
 
-typedef CooMatrix<r64_t, i32_t, right_t, host_t> mat_coo_r64_i32_r_h;
+typedef Morpheus::CooMatrix<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
+    fcl_mat_coo_r64_i32_r_h;
+#else
+typedef struct Morpheus_CooMatrix_r64_i32_r_h fcl_mat_coo_r64_i32_r_h;
+#endif
 
-}  // namespace Fcl
-}  // namespace Morpheus
-
+#ifdef __cplusplus
 extern "C" {
-void c_morpheus_create_mat_coo_r64_i32_r_h(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h** A, Morpheus::Fcl::i32_t nrows,
-    Morpheus::Fcl::i32_t ncols, Morpheus::Fcl::i32_t nnnz);
+#endif
+
+void c_morpheus_create_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h** A,
+                                           fcl_i32_t** A_row_indices,
+                                           fcl_i32_t** A_column_indices,
+                                           fcl_r64_t** A_values,
+                                           fcl_i32_t nrows, fcl_i32_t ncols,
+                                           fcl_i32_t nnnz);
 
 void c_morpheus_create_mat_coo_from_mat_coo_r64_i32_r_h(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h* src,
-    Morpheus::Fcl::mat_coo_r64_i32_r_h** dst);
+    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h** dst,
+    fcl_i32_t** dst_row_indices, fcl_i32_t** dst_column_indices,
+    fcl_r64_t** dst_values);
 
-void c_morpheus_destroy_mat_coo_r64_i32_r_h(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h** A);
+void c_morpheus_destroy_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h** A);
+
+#ifdef __cplusplus
 }
+#endif
 
 #endif  // FCL_C_COOMATRIX_HPP

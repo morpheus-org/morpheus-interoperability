@@ -26,19 +26,16 @@
 extern "C" {
 
 void c_morpheus_create_mat_dyn_from_mat_coo_r64_i32_r_h(
-    Morpheus::Fcl::mat_coo_r64_i32_r_h* src,
-    Morpheus::Fcl::mat_dyn_r64_i32_r_h** dst) {
-  using namespace Morpheus::Fcl;
-  *dst = (new mat_dyn_r64_i32_r_h(mat_coo_r64_i32_r_h(*src)));
+    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h** dst) {
+  *dst = (new fcl_mat_dyn_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h(*src)));
 }
 
-void c_morpheus_destroy_mat_dyn_r64_i32_r_h(
-    Morpheus::Fcl::mat_dyn_r64_i32_r_h** A) {
+void c_morpheus_destroy_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h** A) {
   delete (*A);
 }
 
-void c_morpheus_activate_mat_dyn_r64_i32_r_h(
-    Morpheus::Fcl::mat_dyn_r64_i32_r_h* A, const Morpheus::formats_e index) {
+void c_morpheus_activate_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
+                                             const fcl_formats_e index) {
   A->activate(index);
 }
 }
