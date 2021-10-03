@@ -1,5 +1,5 @@
 /**
- * Fcl_C_DenseVector.hpp
+ * Fcl_Fwd_C_DenseVector.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,28 +21,18 @@
  * limitations under the License.
  */
 
-#ifndef FCL_C_DENSEVECTOR_HPP
-#define FCL_C_DENSEVECTOR_HPP
+#ifndef FCL_C_FWD_DENSEVECTOR_HPP
+#define FCL_C_FWD_DENSEVECTOR_HPP
 
-#include "Fcl_C_Types.hpp"
-#include "fwd/Fcl_Fwd_C_DenseVector.hpp"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-void c_morpheus_create_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v,
-                                             fcl_r64_t** values, fcl_i32_t n,
-                                             fcl_r64_t val);
-
-void c_morpheus_create_vec_from_vec_dense_r64_i32_r_h(
-    fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h** dst,
-    fcl_r64_t** values);
-
-void c_morpheus_destroy_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v);
+#include "../Fcl_C_Types.hpp"
 
 #ifdef __cplusplus
-}
+#include <Morpheus_Core.hpp>
+
+typedef Morpheus::DenseVector<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
+    fcl_vec_dense_r64_i32_r_h;
+#else
+typedef struct Morpheus_DenseVector_r64_i32_r_h fcl_vec_dense_r64_i32_r_h;
 #endif
 
-#endif  // FCL_C_DENSEVECTOR_HPP
+#endif  // FCL_C_FWD_DENSEVECTOR_HPP

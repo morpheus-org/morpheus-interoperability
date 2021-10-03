@@ -25,16 +25,7 @@
 #define FCL_C_COOMATRIX_HPP
 
 #include "Fcl_C_Types.hpp"
-#include "Fcl_C_DenseVector.hpp"
-
-#ifdef __cplusplus
-#include <Morpheus_Core.hpp>
-
-typedef Morpheus::CooMatrix<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
-    fcl_mat_coo_r64_i32_r_h;
-#else
-typedef struct Morpheus_CooMatrix_r64_i32_r_h fcl_mat_coo_r64_i32_r_h;
-#endif
+#include "fwd/Fcl_Fwd_C_CooMatrix.hpp"
 
 #ifdef __cplusplus
 extern "C" {
