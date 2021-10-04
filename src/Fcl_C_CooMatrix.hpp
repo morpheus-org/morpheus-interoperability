@@ -76,6 +76,12 @@ void c_morpheus_set_ncols_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
 void c_morpheus_set_nnnz_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
                                              fcl_i32_t nnnz);
 // Format Specific Routines
+void c_morpheus_sort_by_row_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+void c_morpheus_sort_by_row_and_column_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A);
+fcl_bool_t c_morpheus_is_sorted_by_row_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A);
+fcl_bool_t c_morpheus_is_sorted_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
 
 #ifdef __cplusplus
 }

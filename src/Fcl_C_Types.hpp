@@ -30,7 +30,6 @@
 #include <stdint.h>
 #endif
 
-// typedef bool fcl_bool_t;
 typedef char fcl_char_t;
 
 typedef int32_t fcl_i32_t;
@@ -40,9 +39,11 @@ typedef float fcl_r32_t;
 typedef double fcl_r64_t;
 
 #ifdef __cplusplus
-typedef std::size_t index_t;
+typedef bool fcl_bool_t;
+typedef std::size_t fcl_index_t;
 #else
-typedef size_t index_t;
+typedef size_t fcl_index_t;
+typedef _Bool fcl_bool_t;
 #endif
 
 #ifdef __cplusplus
