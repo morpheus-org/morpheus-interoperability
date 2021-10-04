@@ -37,6 +37,15 @@ int main() {
     c_morpheus_print_vec_dense_r64_i32_r_h(x);
     c_morpheus_print_vec_dense_r64_i32_r_h(y);
 
+    coo *Afromdyn;
+    fcl_i32_t *Adrind, *Adcind;
+    fcl_r64_t *Adval;
+
+    c_morpheus_create_mat_coo_from_mat_dyn_r64_i32_r_h(Adyn, &Afromdyn, &Adrind, &Adcind, &Adval);
+    c_morpheus_print_mat_coo_r64_i32_r_h(Afromdyn);
+    Adval[2] = -22.5;
+    c_morpheus_print_mat_dyn_r64_i32_r_h(Adyn);
+
     c_morpheus_activate_mat_dyn_r64_i32_r_h(Adyn, CSR_FORMAT);
     c_morpheus_print_mat_dyn_r64_i32_r_h(Adyn);
 
