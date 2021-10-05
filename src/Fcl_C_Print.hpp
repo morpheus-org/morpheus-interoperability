@@ -26,6 +26,7 @@
 
 #include "Fcl_C_CooMatrix.hpp"
 #include "Fcl_C_CsrMatrix.hpp"
+#include "Fcl_C_DiaMatrix.hpp"
 #include "Fcl_C_DynamicMatrix.hpp"
 #include "Fcl_C_DenseVector.hpp"
 
@@ -38,6 +39,8 @@ void c_morpheus_print_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v);
 void c_morpheus_print_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
 
 void c_morpheus_print_mat_csr_r64_i32_r_h(fcl_mat_csr_r64_i32_r_h* A);
+
+void c_morpheus_print_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A);
 
 void c_morpheus_print_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A);
 
