@@ -11,7 +11,6 @@ int main() {
   {
     coo *A, *B;
     vec *x, *y;
-    fcl_r64_t  *xval, *yval;
 
     c_morpheus_create_mat_coo_r64_i32_r_h(&A, 5, 3, 3);
 
@@ -23,8 +22,8 @@ int main() {
     }
     c_morpheus_set_row_indices_at_coo_r64_i32_r_h(A, 0, 15);
 
-    c_morpheus_create_vec_dense_r64_i32_r_h(&x, &xval, 3, 3);
-    c_morpheus_create_vec_dense_r64_i32_r_h(&y, &yval, 5, 0);
+    c_morpheus_create_vec_dense_r64_i32_r_h(&x, 3, 3);
+    c_morpheus_create_vec_dense_r64_i32_r_h(&y, 5, 0);
 
     c_morpheus_multiply_mat_coo_vec_dense_vec_dense_r64_i32_r_h_serial(A, x,
                                                                        y);

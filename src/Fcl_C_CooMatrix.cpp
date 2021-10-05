@@ -95,7 +95,7 @@ fcl_i32_t c_morpheus_column_indices_at_coo_r64_i32_r_h(
   return A->column_indices[i];
 }
 
-fcl_i64_t c_morpheus_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+fcl_r64_t c_morpheus_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
                                                fcl_i32_t i) {
   return A->values[i];
 }

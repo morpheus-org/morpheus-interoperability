@@ -69,7 +69,7 @@ fcl_i32_t c_morpheus_row_indices_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
                                                     fcl_i32_t i);
 fcl_i32_t c_morpheus_column_indices_at_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A, fcl_i32_t i);
-fcl_i64_t c_morpheus_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+fcl_r64_t c_morpheus_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
                                                fcl_i32_t i);
 
 void c_morpheus_set_row_indices_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,

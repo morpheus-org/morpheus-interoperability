@@ -32,14 +32,18 @@ extern "C" {
 #endif
 
 void c_morpheus_create_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v,
-                                             fcl_r64_t** values, fcl_i32_t n,
-                                             fcl_r64_t val);
+                                             fcl_i32_t n, fcl_r64_t val);
 
 void c_morpheus_create_vec_from_vec_dense_r64_i32_r_h(
-    fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h** dst,
-    fcl_r64_t** values);
+    fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h** dst);
 
 void c_morpheus_destroy_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v);
+
+fcl_r64_t c_morpheus_values_at_vec_dense_r64_i32_r_h(
+    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i);
+
+void c_morpheus_set_values_at_vec_dense_r64_i32_r_h(
+    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i, fcl_i32_t val);
 
 #ifdef __cplusplus
 }

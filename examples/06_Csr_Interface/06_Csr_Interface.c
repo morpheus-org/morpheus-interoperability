@@ -11,7 +11,7 @@ int main() {
   {
     csr *A, *B;
     vec *x, *y;
-    fcl_r64_t *Aval, *xval, *yval;
+    fcl_r64_t *Aval;
     fcl_i32_t *Aroff, *Acind;
 
     c_morpheus_create_mat_csr_r64_i32_r_h(&A, &Aroff, &Acind, &Aval, 5, 3, 3);
@@ -24,8 +24,8 @@ int main() {
     }
     Aroff[0] = 15;
 
-    c_morpheus_create_vec_dense_r64_i32_r_h(&x, &xval, 3, 3);
-    c_morpheus_create_vec_dense_r64_i32_r_h(&y, &yval, 5, 0);
+    c_morpheus_create_vec_dense_r64_i32_r_h(&x, 3, 3);
+    c_morpheus_create_vec_dense_r64_i32_r_h(&y, 5, 0);
 
     c_morpheus_multiply_mat_csr_vec_dense_vec_dense_r64_i32_r_h_serial(A, x,
                                                                        y);

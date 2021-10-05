@@ -127,7 +127,7 @@ fcl_i32_t c_morpheus_diagonal_offests_at_dia_r64_i32_r_h(
   return A->diagonal_offsets[i];
 }
 
-fcl_i64_t c_morpheus_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
+fcl_r64_t c_morpheus_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
                                                fcl_i32_t i, fcl_i32_t j) {
   return A->values(i, j);
 }
