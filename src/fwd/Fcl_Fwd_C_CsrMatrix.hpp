@@ -1,5 +1,5 @@
 /**
- * Fcl_C.hpp
+ * Fcl_Fwd_C_CsrMatrix.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,29 +21,18 @@
  * limitations under the License.
  */
 
-#ifndef FCL_C_HPP
-#define FCL_C_HPP
+#ifndef FCL_C_FWD_CSRMATRIX_HPP
+#define FCL_C_FWD_CSRMATRIX_HPP
 
-#include "Fcl_C_CooMatrix.hpp"
-#include "Fcl_C_CsrMatrix.hpp"
-#include "Fcl_C_DenseVector.hpp"
-#include "Fcl_C_DynamicMatrix.hpp"
-
-#include "Fcl_C_Multiply.hpp"
-#include "Fcl_C_Print.hpp"
+#include "../Fcl_C_Types.hpp"
 
 #ifdef __cplusplus
-extern "C" {
+#include <Morpheus_Core.hpp>
+
+typedef Morpheus::CsrMatrix<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
+    fcl_mat_csr_r64_i32_r_h;
+#else
+typedef struct Morpheus_CsrMatrix_r64_i32_r_h fcl_mat_csr_r64_i32_r_h;
 #endif
 
-void c_morpheus_initialize(int* argc, char** argv);
-void c_morpheus_initialize_without_args(void);
-void c_morpheus_finalize(void);
-void c_morpheus_print_configuration(const char* prepend_name_in,
-                                    const char* file_name_in);
-
-#ifdef __cplusplus
-}  // extern "C"
-#endif
-
-#endif  // FCL_C_HPP
+#endif  // FCL_C_FWD_CSRMATRIX_HPP
