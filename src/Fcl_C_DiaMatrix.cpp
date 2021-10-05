@@ -74,63 +74,73 @@ void c_morpheus_destroy_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h** A) {
 }
 
 fcl_i32_t c_morpheus_nrows_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
-  return (*A).nrows();
+  return A->nrows();
 }
 
 fcl_i32_t c_morpheus_ncols_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
-  return (*A).ncols();
+  return A->ncols();
 }
 
 fcl_i32_t c_morpheus_nnnz_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
-  return (*A).nnnz();
+  return A->nnnz();
 }
 
 fcl_i32_t c_morpheus_ndiags_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
   // TODO: MorpheusCore:: Convert that into proper function
-  return (*A).ndiags;
+  return A->ndiags;
 }
 
 fcl_i32_t c_morpheus_alignment_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
   // TODO: MorpheusCore:: Convert that into proper function
-  return (*A).nalign;
+  return A->nalign;
 }
 
 void c_morpheus_set_nrows_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
                                               fcl_i32_t nrows) {
-  (*A).set_nrows(nrows);
+  A->set_nrows(nrows);
 }
 
 void c_morpheus_set_ncols_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
                                               fcl_i32_t ncols) {
-  (*A).set_ncols(ncols);
+  A->set_ncols(ncols);
 }
 
 void c_morpheus_set_nnnz_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
                                              fcl_i32_t nnnz) {
-  (*A).set_nnnz(nnnz);
+  A->set_nnnz(nnnz);
 }
 
 void c_morpheus_set_ndiags_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
                                                fcl_i32_t ndiags) {
   // TODO: MorpheusCore:: Convert that into proper function
-  (*A).ndiags = ndiags;
+  A->ndiags = ndiags;
 }
 
 void c_morpheus_set_alignment_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
                                                   fcl_i32_t alignment) {
   // TODO: MorpheusCore:: Convert that into proper function
-  (*A).nalign = alignment;
+  A->nalign = alignment;
+}
+
+fcl_i32_t c_morpheus_diagonal_offests_at_dia_r64_i32_r_h(
+    fcl_mat_dia_r64_i32_r_h* A, fcl_i32_t i) {
+  return A->diagonal_offsets[i];
+}
+
+fcl_i64_t c_morpheus_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
+                                               fcl_i32_t i, fcl_i32_t j) {
+  return A->values(i, j);
 }
 
 void c_morpheus_set_diagonal_offests_at_dia_r64_i32_r_h(
     fcl_mat_dia_r64_i32_r_h* A, fcl_i32_t i, fcl_i32_t val) {
-  (*A).diagonal_offsets[i] = val;
+  A->diagonal_offsets[i] = val;
 }
 
 void c_morpheus_set_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
                                               fcl_i32_t i, fcl_i32_t j,
                                               fcl_r64_t val) {
-  (*A).values(i, j) = val;
+  A->values(i, j) = val;
 }
 
 // fcl_bool_t c_morpheus_exceeds_tolerance_mat_dia_r64_i32_r_h(
@@ -141,10 +151,10 @@ void c_morpheus_set_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
 
 fcl_formats_e c_morpheus_format_enum_mat_dia_r64_i32_r_h(
     fcl_mat_dia_r64_i32_r_h* A) {
-  return (*A).format_enum();
+  return A->format_enum();
 }
 
 int c_morpheus_format_index_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
-  return (*A).format_index();
+  return A->format_index();
 }
 }

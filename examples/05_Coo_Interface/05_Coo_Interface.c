@@ -11,18 +11,17 @@ int main() {
   {
     coo *A, *B;
     vec *x, *y;
-    fcl_r64_t *Aval, *xval, *yval;
-    fcl_i32_t *Arind, *Acind;
+    fcl_r64_t  *xval, *yval;
 
-    c_morpheus_create_mat_coo_r64_i32_r_h(&A, &Arind, &Acind, &Aval, 5, 3, 3);
+    c_morpheus_create_mat_coo_r64_i32_r_h(&A, 5, 3, 3);
 
     int i;
     for(i=0; i<3; i++){
-      Arind[i] = i;
-      Acind[i] = i;
-      Aval[i] = i;
+      c_morpheus_set_row_indices_at_coo_r64_i32_r_h(A, i, i);
+      c_morpheus_set_column_indices_at_coo_r64_i32_r_h(A, i, i);
+      c_morpheus_set_values_at_coo_r64_i32_r_h(A, i, i);
     }
-    Arind[0] = 15;
+    c_morpheus_set_row_indices_at_coo_r64_i32_r_h(A, 0, 15);
 
     c_morpheus_create_vec_dense_r64_i32_r_h(&x, &xval, 3, 3);
     c_morpheus_create_vec_dense_r64_i32_r_h(&y, &yval, 5, 0);
@@ -30,19 +29,18 @@ int main() {
     c_morpheus_multiply_mat_coo_vec_dense_vec_dense_r64_i32_r_h_serial(A, x,
                                                                        y);
 
-    c_morpheus_resize_mat_coo_r64_i32_r_h(A, &Arind, &Acind, &Aval, 10, 10, 64);
+    c_morpheus_resize_mat_coo_r64_i32_r_h(A, 10, 10, 64);
 
-    fcl_r64_t *Bval;
-    fcl_i32_t *Brind, *Bcind;
-    c_morpheus_create_mat_coo_r64_i32_r_h(&B, &Brind, &Bcind, &Bval, 0,0,0);
-    c_morpheus_allocate_mat_coo_from_mat_coo_r64_i32_r_h(A, B, &Brind, &Bcind, &Bval);
+    c_morpheus_create_mat_coo_r64_i32_r_h(&B, 0,0,0);
+    c_morpheus_allocate_mat_coo_from_mat_coo_r64_i32_r_h(A, B);
+
     for(i=0; i<64; i++){
-      Brind[i] = i;
-      Bcind[i] = i;
-      Bval[i] = i;
+      c_morpheus_set_row_indices_at_coo_r64_i32_r_h(B, i, i);
+      c_morpheus_set_column_indices_at_coo_r64_i32_r_h(B, i, i);
+      c_morpheus_set_values_at_coo_r64_i32_r_h(B, i, i);
     }
+    c_morpheus_set_values_at_coo_r64_i32_r_h(B, 63, -55);
 
-    Bval[63] = -55;
     c_morpheus_print_mat_coo_r64_i32_r_h(B);
     c_morpheus_print_mat_coo_r64_i32_r_h(A);
     
