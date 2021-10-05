@@ -50,6 +50,10 @@ int main() {
     c_morpheus_set_ncols_mat_coo_r64_i32_r_h(A, 22);
     c_morpheus_set_nnnz_mat_coo_r64_i32_r_h(A, 111);
 
+    printf("Coo Enum: %d\n", c_morpheus_format_enum_mat_coo_r64_i32_r_h(A));
+
+    printf("Coo Index: %d\n", c_morpheus_format_index_mat_coo_r64_i32_r_h(A));
+
     c_morpheus_destroy_mat_coo_r64_i32_r_h(&A);
     c_morpheus_destroy_mat_coo_r64_i32_r_h(&B);
     c_morpheus_destroy_vec_dense_r64_i32_r_h(&x);

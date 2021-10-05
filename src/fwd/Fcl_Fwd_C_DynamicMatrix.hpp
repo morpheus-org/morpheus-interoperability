@@ -31,8 +31,12 @@
 
 typedef Morpheus::DynamicMatrix<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
     fcl_mat_dyn_r64_i32_r_h;
+typedef enum Morpheus::formats_e fcl_formats_e;
 #else
 typedef struct Morpheus_DynamicMatrix_r64_i32_r_h fcl_mat_dyn_r64_i32_r_h;
+// !FIXME: Check if Morpheus_FormatsRegistry.hpp can be made compatible with C
+// and avoid replicating formats_e here
+typedef enum formats_e { COO_FORMAT = 0, CSR_FORMAT, DIA_FORMAT } fcl_formats_e;
 #endif
 
 #endif  // FCL_FWD_C_DYNAMICMATRIX_HPP

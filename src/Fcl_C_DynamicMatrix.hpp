@@ -29,16 +29,6 @@
 #include "fwd/Fcl_Fwd_C_DynamicMatrix.hpp"
 
 #ifdef __cplusplus
-#include <Morpheus_Core.hpp>
-
-typedef enum Morpheus::formats_e fcl_formats_e;
-#else
-// !FIXME: Check if Morpheus_FormatsRegistry.hpp can be made compatible with C
-// and avoid replicating formats_e here
-typedef enum formats_e { COO_FORMAT = 0, CSR_FORMAT, DIA_FORMAT } fcl_formats_e;
-#endif
-
-#ifdef __cplusplus
 extern "C" {
 #endif
 

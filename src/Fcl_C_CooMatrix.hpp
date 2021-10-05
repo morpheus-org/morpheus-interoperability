@@ -83,6 +83,11 @@ fcl_bool_t c_morpheus_is_sorted_by_row_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A);
 fcl_bool_t c_morpheus_is_sorted_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
 
+// Other Routines
+fcl_formats_e c_morpheus_format_enum_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A);
+int c_morpheus_format_index_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+
 #ifdef __cplusplus
 }
 #endif

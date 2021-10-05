@@ -134,4 +134,13 @@ fcl_bool_t c_morpheus_is_sorted_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A) {
   return (*A).is_sorted();
 }
+
+fcl_formats_e c_morpheus_format_enum_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A) {
+  return (*A).format_enum();
+}
+
+int c_morpheus_format_index_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A) {
+  return (*A).format_index();
+}
 }
