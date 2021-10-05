@@ -41,11 +41,11 @@ void c_morpheus_destroy_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v) {
 
 fcl_r64_t c_morpheus_values_at_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i) {
-  return v->values[i];
+  return (*v)[i];
 }
 
 void c_morpheus_set_values_at_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i, fcl_i32_t val) {
-  v->values[i] = val;
+  (*v)[i] = val;
 }
 }
