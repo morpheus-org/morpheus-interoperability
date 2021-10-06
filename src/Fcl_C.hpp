@@ -34,6 +34,7 @@
 #include "Fcl_C_Multiply.hpp"
 #include "Fcl_C_Print.hpp"
 #include "Fcl_C_Reduction.hpp"
+#include "Fcl_C_Scan.hpp"
 #include "Fcl_C_WAXPBY.hpp"
 
 #ifdef __cplusplus

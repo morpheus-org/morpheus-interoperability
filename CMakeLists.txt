@@ -45,6 +45,7 @@ add_library(
   src/Fcl_C_Multiply.cpp
   src/Fcl_C_Print.cpp
   src/Fcl_C_Reduction.cpp
+  src/Fcl_C_Scan.cpp
   src/Fcl_C_WAXPBY.cpp
   src/Fcl_C.cpp)
 
@@ -58,6 +59,7 @@ set(fcl-cxx-public-headers
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_Multiply.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_Print.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_Reduction.hpp
+    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Scan.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_Types.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_WAXPBY.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C.hpp)
