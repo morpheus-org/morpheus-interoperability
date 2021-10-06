@@ -1,5 +1,5 @@
 /**
- * Fcl_C.hpp
+ * Fcl_C_Reduction.cpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,33 +21,9 @@
  * limitations under the License.
  */
 
-#ifndef FCL_C_HPP
-#define FCL_C_HPP
-
-#include "Fcl_C_CooMatrix.hpp"
-#include "Fcl_C_CsrMatrix.hpp"
-#include "Fcl_C_DiaMatrix.hpp"
-#include "Fcl_C_DenseVector.hpp"
-#include "Fcl_C_DynamicMatrix.hpp"
-
-#include "Fcl_C_Dot.hpp"
-#include "Fcl_C_Multiply.hpp"
-#include "Fcl_C_Print.hpp"
 #include "Fcl_C_Reduction.hpp"
-#include "Fcl_C_WAXPBY.hpp"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-void c_morpheus_initialize(int* argc, char** argv);
-void c_morpheus_initialize_without_args(void);
-void c_morpheus_finalize(void);
-void c_morpheus_print_configuration(const char* prepend_name_in,
-                                    const char* file_name_in);
-
-#ifdef __cplusplus
-}  // extern "C"
-#endif
-
-#endif  // FCL_C_HPP
+fcl_r64_t c_morpheus_reduce_vec_dense_vec_dense_r64_i32_r_h_serial(
+    const fcl_vec_dense_r64_i32_r_h* in, fcl_i32_t size) {
+  return Morpheus::reduce<fcl_serial_t>(*in, size);
+}

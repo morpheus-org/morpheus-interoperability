@@ -16,6 +16,8 @@ int main() {
     printf("<x,y> = %f\n", c_morpheus_dot_vec_dense_vec_dense_r64_i32_r_h_serial(10, x, y));
     c_morpheus_waxpby_vec_dense_vec_dense_r64_i32_r_h_serial(10, 1.0, x, 2.0, y, w);
     c_morpheus_print_vec_dense_r64_i32_r_h(w);
+
+    printf("Reduced(w) = %f\n", c_morpheus_reduce_vec_dense_vec_dense_r64_i32_r_h_serial(w, 10));
     
     c_morpheus_assign_vec_dense_r64_i32_r_h(y, 5, 2.5);
 
