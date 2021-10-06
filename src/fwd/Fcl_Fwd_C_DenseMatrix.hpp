@@ -1,5 +1,5 @@
 /**
- * Fcl_C_Print.cpp
+ * Fcl_Fwd_C_DenseMatrix.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,28 +21,18 @@
  * limitations under the License.
  */
 
-#include "Fcl_C_Print.hpp"
+#ifndef FCL_C_FWD_DENSEMATRIX_HPP
+#define FCL_C_FWD_DENSEMATRIX_HPP
 
-void c_morpheus_print_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v) {
-  Morpheus::print(*v);
-}
+#include "../Fcl_C_Types.hpp"
 
-void c_morpheus_print_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A) {
-  Morpheus::print(*A);
-}
+#ifdef __cplusplus
+#include <Morpheus_Core.hpp>
 
-void c_morpheus_print_mat_csr_r64_i32_r_h(fcl_mat_csr_r64_i32_r_h* A) {
-  Morpheus::print(*A);
-}
+typedef Morpheus::DenseMatrix<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
+    fcl_mat_dense_r64_i32_r_h;
+#else
+typedef struct Morpheus_DenseMatrix_r64_i32_r_h fcl_mat_dense_r64_i32_r_h;
+#endif
 
-void c_morpheus_print_mat_dense_r64_i32_r_h(fcl_mat_dense_r64_i32_r_h* A) {
-  Morpheus::print(*A);
-}
-
-void c_morpheus_print_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
-  Morpheus::print(*A);
-}
-
-void c_morpheus_print_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A) {
-  Morpheus::print(*A);
-}
+#endif  // FCL_C_FWD_DENSEMATRIX_HPP

@@ -38,6 +38,7 @@ add_library(
   fcl-cxx OBJECT
   src/Fcl_C_CooMatrix.cpp
   src/Fcl_C_CsrMatrix.cpp
+  src/Fcl_C_DenseMatrix.cpp
   src/Fcl_C_DenseVector.cpp
   src/Fcl_C_DiaMatrix.cpp
   src/Fcl_C_Dot.cpp
@@ -52,6 +53,7 @@ add_library(
 set(fcl-cxx-public-headers
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_CooMatrix.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_CsrMatrix.hpp
+    ${PROJECT_SOURCE_DIR}/src/Fcl_C_DenseMatrix.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_DenseVector.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_DiaMatrix.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_Dot.hpp
