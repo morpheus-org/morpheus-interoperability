@@ -33,12 +33,12 @@ void c_morpheus_create_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v,
   *v = (new fcl_vec_dense_r64_i32_r_h("fcl_vec_dense_r64_i32_r_h::", n, val));
 }
 
-void c_morpheus_create_vec_from_vec_dense_r64_i32_r_h(
+void c_morpheus_create_vec_dense_from_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h** dst) {
   *dst = (new fcl_vec_dense_r64_i32_r_h(*src));
 }
 
-void c_morpheus_allocate_vec_from_vec_dense_r64_i32_r_h(
+void c_morpheus_allocate_vec_dense_from_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h* dst) {
   dst->allocate("fcl_vec_dense_r64_i32_r_h::allocate::", *src);
 }

@@ -37,8 +37,10 @@ int main() {
     c_morpheus_resize_fill_vec_dense_r64_i32_r_h(x, 9, -8.2);
     c_morpheus_print_vec_dense_r64_i32_r_h(x);
 
-    vec *z = c_morpheus_create_default_vec_dense_r64_i32_r_h();
-    c_morpheus_allocate_vec_from_vec_dense_r64_i32_r_h(y, z);
+    vec *z;
+    
+    c_morpheus_create_default_vec_dense_r64_i32_r_h(&z);
+    c_morpheus_allocate_vec_dense_from_vec_dense_r64_i32_r_h(y, z);
     c_morpheus_print_vec_dense_r64_i32_r_h(z);
 
     c_morpheus_destroy_vec_dense_r64_i32_r_h(&x);
