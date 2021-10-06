@@ -31,13 +31,35 @@
 extern "C" {
 #endif
 
+fcl_vec_dense_r64_i32_r_h* c_morpheus_create_default_vec_dense_r64_i32_r_h();
+
 void c_morpheus_create_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v,
                                              fcl_i32_t n, fcl_r64_t val);
 
 void c_morpheus_create_vec_from_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h** dst);
 
+void c_morpheus_allocate_vec_from_vec_dense_r64_i32_r_h(
+    fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h* dst);
+
+void c_morpheus_assign_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
+                                             fcl_i32_t n, fcl_r64_t val);
+
+// TODO: Assign Random
+// void c_morpheus_assign_random_vec_dense_r64_i32_r_h(
+//     fcl_vec_dense_r64_i32_r_h* v, fcl_r64_t range_low, fcl_r64_t range_high);
+
+void c_morpheus_resize_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
+                                             fcl_i32_t n);
+
+void c_morpheus_resize_fill_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
+                                                  fcl_i32_t n, fcl_r64_t val);
+
 void c_morpheus_destroy_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v);
+
+fcl_i32_t c_morpheus_size_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v);
+
+fcl_r64_t* c_morpheus_data_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v);
 
 fcl_r64_t c_morpheus_values_at_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i);
