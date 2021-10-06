@@ -29,6 +29,18 @@ void c_morpheus_multiply_mat_coo_vec_dense_vec_dense_r64_i32_r_h_serial(
   Morpheus::multiply<fcl_serial_t>(*A, *x, *y);
 }
 
+void c_morpheus_multiply_mat_csr_vec_dense_vec_dense_r64_i32_r_h_serial(
+    fcl_mat_csr_r64_i32_r_h* A, fcl_vec_dense_r64_i32_r_h* x,
+    fcl_vec_dense_r64_i32_r_h* y) {
+  Morpheus::multiply<fcl_serial_t>(*A, *x, *y);
+}
+
+void c_morpheus_multiply_mat_dia_vec_dense_vec_dense_r64_i32_r_h_serial(
+    fcl_mat_dia_r64_i32_r_h* A, fcl_vec_dense_r64_i32_r_h* x,
+    fcl_vec_dense_r64_i32_r_h* y) {
+  Morpheus::multiply<fcl_serial_t>(*A, *x, *y);
+}
+
 void c_morpheus_multiply_mat_dyn_vec_dense_vec_dense_r64_i32_r_h_serial(
     fcl_mat_dyn_r64_i32_r_h* A, fcl_vec_dense_r64_i32_r_h* x,
     fcl_vec_dense_r64_i32_r_h* y) {

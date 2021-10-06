@@ -25,11 +25,17 @@
 #define FCL_C_HPP
 
 #include "Fcl_C_CooMatrix.hpp"
+#include "Fcl_C_CsrMatrix.hpp"
+#include "Fcl_C_DiaMatrix.hpp"
 #include "Fcl_C_DenseVector.hpp"
 #include "Fcl_C_DynamicMatrix.hpp"
 
+#include "Fcl_C_Dot.hpp"
 #include "Fcl_C_Multiply.hpp"
 #include "Fcl_C_Print.hpp"
+#include "Fcl_C_Reduction.hpp"
+#include "Fcl_C_Scan.hpp"
+#include "Fcl_C_WAXPBY.hpp"
 
 #ifdef __cplusplus
 extern "C" {

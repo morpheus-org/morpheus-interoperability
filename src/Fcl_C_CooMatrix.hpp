@@ -25,34 +25,73 @@
 #define FCL_C_COOMATRIX_HPP
 
 #include "Fcl_C_Types.hpp"
-#include "Fcl_C_DenseVector.hpp"
-
-#ifdef __cplusplus
-#include <Morpheus_Core.hpp>
-
-typedef Morpheus::CooMatrix<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
-    fcl_mat_coo_r64_i32_r_h;
-#else
-typedef struct Morpheus_CooMatrix_r64_i32_r_h fcl_mat_coo_r64_i32_r_h;
-#endif
+#include "fwd/Fcl_Fwd_C_CooMatrix.hpp"
+#include "fwd/Fcl_Fwd_C_DynamicMatrix.hpp"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
+void c_morpheus_create_default_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h** A);
+
 void c_morpheus_create_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h** A,
-                                           fcl_i32_t** A_row_indices,
-                                           fcl_i32_t** A_column_indices,
-                                           fcl_r64_t** A_values,
                                            fcl_i32_t nrows, fcl_i32_t ncols,
                                            fcl_i32_t nnnz);
 
 void c_morpheus_create_mat_coo_from_mat_coo_r64_i32_r_h(
-    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h** dst,
-    fcl_i32_t** dst_row_indices, fcl_i32_t** dst_column_indices,
-    fcl_r64_t** dst_values);
+    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h** dst);
+
+void c_morpheus_create_mat_coo_from_mat_dyn_r64_i32_r_h(
+    fcl_mat_dyn_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h** dst);
+
+void c_morpheus_resize_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                           const fcl_i32_t num_rows,
+                                           const fcl_i32_t num_cols,
+                                           const fcl_i32_t num_nnz);
+
+void c_morpheus_allocate_mat_coo_from_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h* dst);
 
 void c_morpheus_destroy_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h** A);
+
+// Base Routines
+fcl_i32_t c_morpheus_nrows_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+fcl_i32_t c_morpheus_ncols_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+fcl_i32_t c_morpheus_nnnz_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+
+void c_morpheus_set_nrows_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                              fcl_i32_t nrows);
+void c_morpheus_set_ncols_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                              fcl_i32_t ncols);
+void c_morpheus_set_nnnz_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                             fcl_i32_t nnnz);
+
+// Format Specific Routines
+fcl_i32_t c_morpheus_row_indices_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                                    fcl_i32_t i);
+fcl_i32_t c_morpheus_column_indices_at_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A, fcl_i32_t i);
+fcl_r64_t c_morpheus_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                               fcl_i32_t i);
+
+void c_morpheus_set_row_indices_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                                   fcl_i32_t i, fcl_i32_t val);
+void c_morpheus_set_column_indices_at_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A, fcl_i32_t i, fcl_i32_t val);
+void c_morpheus_set_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                              fcl_i32_t i, fcl_r64_t val);
+
+void c_morpheus_sort_by_row_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+void c_morpheus_sort_by_row_and_column_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A);
+fcl_bool_t c_morpheus_is_sorted_by_row_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A);
+fcl_bool_t c_morpheus_is_sorted_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+
+// Other Routines
+fcl_formats_e c_morpheus_format_enum_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A);
+int c_morpheus_format_index_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
 
 #ifdef __cplusplus
 }

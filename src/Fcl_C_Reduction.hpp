@@ -1,5 +1,5 @@
 /**
- * Fcl_C_DynamicMatrix.hpp
+ * Fcl_C_Reduction.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,29 +21,20 @@
  * limitations under the License.
  */
 
-#ifndef FCL_C_DYNAMICMATRIX_HPP
-#define FCL_C_DYNAMICMATRIX_HPP
+#ifndef FCL_C_REDUCTION_HPP
+#define FCL_C_REDUCTION_HPP
 
-#include "Fcl_C_Types.hpp"
-#include "fwd/Fcl_Fwd_C_CooMatrix.hpp"
-#include "fwd/Fcl_Fwd_C_DynamicMatrix.hpp"
+#include "Fcl_C_DenseVector.hpp"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void c_morpheus_create_default_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h** A);
-
-void c_morpheus_create_mat_dyn_from_mat_coo_r64_i32_r_h(
-    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h** dst);
-
-void c_morpheus_destroy_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h** A);
-
-void c_morpheus_activate_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                             const fcl_formats_e index);
+fcl_r64_t c_morpheus_reduce_vec_dense_vec_dense_r64_i32_r_h_serial(
+    const fcl_vec_dense_r64_i32_r_h* in, fcl_i32_t size);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif  // FCL_C_DYNAMICMATRIX_HPP
+#endif  // FCL_C_REDUCTION_HPP

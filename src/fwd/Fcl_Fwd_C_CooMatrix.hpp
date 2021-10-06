@@ -1,5 +1,5 @@
 /**
- * Fcl_C_DynamicMatrix.hpp
+ * Fcl_Fwd_C_CooMatrix.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,29 +21,18 @@
  * limitations under the License.
  */
 
-#ifndef FCL_C_DYNAMICMATRIX_HPP
-#define FCL_C_DYNAMICMATRIX_HPP
+#ifndef FCL_C_FWD_COOMATRIX_HPP
+#define FCL_C_FWD_COOMATRIX_HPP
 
-#include "Fcl_C_Types.hpp"
-#include "fwd/Fcl_Fwd_C_CooMatrix.hpp"
-#include "fwd/Fcl_Fwd_C_DynamicMatrix.hpp"
+#include "../Fcl_C_Types.hpp"
 
 #ifdef __cplusplus
-extern "C" {
+#include <Morpheus_Core.hpp>
+
+typedef Morpheus::CooMatrix<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
+    fcl_mat_coo_r64_i32_r_h;
+#else
+typedef struct Morpheus_CooMatrix_r64_i32_r_h fcl_mat_coo_r64_i32_r_h;
 #endif
 
-void c_morpheus_create_default_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h** A);
-
-void c_morpheus_create_mat_dyn_from_mat_coo_r64_i32_r_h(
-    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h** dst);
-
-void c_morpheus_destroy_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h** A);
-
-void c_morpheus_activate_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                             const fcl_formats_e index);
-
-#ifdef __cplusplus
-}
-#endif
-
-#endif  // FCL_C_DYNAMICMATRIX_HPP
+#endif  // FCL_C_FWD_COOMATRIX_HPP

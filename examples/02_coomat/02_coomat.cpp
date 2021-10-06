@@ -33,22 +33,23 @@ int main() {
   {
     coo *A;
     vec *x, *y;
-    fcl_r64_t *Aval, *xval, *yval;
-    fcl_i32_t *Arind, *Acind;
 
-    c_morpheus_create_mat_coo_r64_i32_r_h(&A, &Arind, &Acind, &Aval, 5, 3, 3);
-    Arind[0] = 0;
-    Acind[0] = 0;
-    Aval[0]  = 4;
-    Arind[1] = 2;
-    Acind[1] = 1;
-    Aval[1]  = -2;
-    Arind[2] = 4;
-    Acind[2] = 2;
-    Aval[2]  = 2.5;
+    c_morpheus_create_mat_coo_r64_i32_r_h(&A, 5, 3, 3);
 
-    c_morpheus_create_vec_dense_r64_i32_r_h(&x, &xval, 3, 3);
-    c_morpheus_create_vec_dense_r64_i32_r_h(&y, &yval, 5, 0);
+    c_morpheus_set_row_indices_at_coo_r64_i32_r_h(A, 0, 0);
+    c_morpheus_set_column_indices_at_coo_r64_i32_r_h(A, 0, 0);
+    c_morpheus_set_values_at_coo_r64_i32_r_h(A, 0, 4);
+
+    c_morpheus_set_row_indices_at_coo_r64_i32_r_h(A, 1, 2);
+    c_morpheus_set_column_indices_at_coo_r64_i32_r_h(A, 1, 1);
+    c_morpheus_set_values_at_coo_r64_i32_r_h(A, 1, -2);
+
+    c_morpheus_set_row_indices_at_coo_r64_i32_r_h(A, 2, 4);
+    c_morpheus_set_column_indices_at_coo_r64_i32_r_h(A, 2, 2);
+    c_morpheus_set_values_at_coo_r64_i32_r_h(A, 2, 2.5);
+
+    c_morpheus_create_vec_dense_r64_i32_r_h(&x, 3, 3);
+    c_morpheus_create_vec_dense_r64_i32_r_h(&y, 5, 0);
 
     c_morpheus_multiply_mat_coo_vec_dense_vec_dense_r64_i32_r_h_serial(A, x, y);
 
@@ -58,11 +59,10 @@ int main() {
 
     // shallow copy matrix
     coo *A_shallow;
-    fcl_i32_t *Arind_shallow, *Arcol_shallow;
-    fcl_r64_t *Aval_shallow;
-    c_morpheus_create_mat_coo_from_mat_coo_r64_i32_r_h(
-        A, &A_shallow, &Arind_shallow, &Arcol_shallow, &Aval_shallow);
-    Aval[2] = -2.5;
+    c_morpheus_create_mat_coo_from_mat_coo_r64_i32_r_h(A, &A_shallow);
+    // Change value to ensure shallow copy was made
+    c_morpheus_set_values_at_coo_r64_i32_r_h(A, 2, -2.5);
+
     c_morpheus_print_mat_coo_r64_i32_r_h(A_shallow);
 
     c_morpheus_destroy_mat_coo_r64_i32_r_h(&A);

@@ -25,29 +25,48 @@
 #define FCL_C_DENSEVECTOR_HPP
 
 #include "Fcl_C_Types.hpp"
-
-#ifdef __cplusplus
-#include <Morpheus_Core.hpp>
-
-typedef Morpheus::DenseVector<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
-    fcl_vec_dense_r64_i32_r_h;
-#else
-typedef struct Morpheus_DenseVector_r64_i32_r_h fcl_vec_dense_r64_i32_r_h;
-#endif
+#include "fwd/Fcl_Fwd_C_DenseVector.hpp"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void c_morpheus_create_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v,
-                                             fcl_r64_t** values, fcl_i32_t n,
-                                             fcl_r64_t val);
+void c_morpheus_create_default_vec_dense_r64_i32_r_h(
+    fcl_vec_dense_r64_i32_r_h** v);
 
-void c_morpheus_create_vec_from_vec_dense_r64_i32_r_h(
-    fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h** dst,
-    fcl_r64_t** values);
+void c_morpheus_create_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v,
+                                             fcl_i32_t n, fcl_r64_t val);
+
+void c_morpheus_create_vec_dense_from_vec_dense_r64_i32_r_h(
+    fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h** dst);
+
+void c_morpheus_allocate_vec_dense_from_vec_dense_r64_i32_r_h(
+    fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h* dst);
+
+void c_morpheus_assign_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
+                                             fcl_i32_t n, fcl_r64_t val);
+
+// TODO: Assign Random
+// void c_morpheus_assign_random_vec_dense_r64_i32_r_h(
+//     fcl_vec_dense_r64_i32_r_h* v, fcl_r64_t range_low, fcl_r64_t range_high);
+
+void c_morpheus_resize_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
+                                             fcl_i32_t n);
+
+void c_morpheus_resize_fill_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
+                                                  fcl_i32_t n, fcl_r64_t val);
 
 void c_morpheus_destroy_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v);
+
+fcl_i32_t c_morpheus_size_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v);
+
+fcl_r64_t* c_morpheus_data_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v);
+
+fcl_r64_t c_morpheus_values_at_vec_dense_r64_i32_r_h(
+    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i);
+
+void c_morpheus_set_values_at_vec_dense_r64_i32_r_h(
+    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i, fcl_i32_t val);
 
 #ifdef __cplusplus
 }

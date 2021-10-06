@@ -29,8 +29,6 @@
 #include <cstdio>
 #include <stddef.h>
 
-extern "C" {
-
 void c_morpheus_initialize(int* argc, char** argv) {
   Morpheus::initialize(*argc, argv);
 }
@@ -53,5 +51,3 @@ void c_morpheus_print_configuration(const char* prepend_name_in,
     std::cout << " to dump Morpheus::print_configuration to." << std::endl;
   }
 }
-
-}  // extern "C"
