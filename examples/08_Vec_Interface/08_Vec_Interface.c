@@ -7,11 +7,16 @@ typedef fcl_vec_dense_r64_i32_r_h vec;
 int main() {
   c_morpheus_initialize_without_args();
   {
-    vec *x, *y;
+    vec *x, *y, *w;
 
     c_morpheus_create_vec_dense_r64_i32_r_h(&x, 10, 3);
     c_morpheus_create_vec_dense_r64_i32_r_h(&y, 10, 5);
+    c_morpheus_create_vec_dense_r64_i32_r_h(&w, 10, 0);
 
+    printf("<x,y> = %f\n", c_morpheus_dot_vec_dense_vec_dense_r64_i32_r_h_serial(10, x, y));
+    c_morpheus_waxpby_vec_dense_vec_dense_r64_i32_r_h_serial(10, 1.0, x, 2.0, y, w);
+    c_morpheus_print_vec_dense_r64_i32_r_h(w);
+    
     c_morpheus_assign_vec_dense_r64_i32_r_h(y, 5, 2.5);
 
     c_morpheus_print_vec_dense_r64_i32_r_h(y);
@@ -36,6 +41,7 @@ int main() {
 
     c_morpheus_destroy_vec_dense_r64_i32_r_h(&x);
     c_morpheus_destroy_vec_dense_r64_i32_r_h(&y);
+    c_morpheus_destroy_vec_dense_r64_i32_r_h(&w);
     c_morpheus_destroy_vec_dense_r64_i32_r_h(&z);
   }
   c_morpheus_finalize();
