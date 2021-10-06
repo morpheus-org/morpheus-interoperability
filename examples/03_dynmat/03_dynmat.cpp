@@ -53,7 +53,8 @@ int main() {
     c_morpheus_create_vec_dense_r64_i32_r_h(&x, 3, 3);
     c_morpheus_create_vec_dense_r64_i32_r_h(&y, 5, 0);
 
-    c_morpheus_create_mat_dyn_from_mat_coo_r64_i32_r_h(A, &Adyn);
+    c_morpheus_create_mat_dyn_from_mat_r64_i32_r_h(A, Morpheus::COO_FORMAT,
+                                                   &Adyn);
     c_morpheus_print_mat_dyn_r64_i32_r_h(Adyn);
 
     c_morpheus_multiply_mat_dyn_vec_dense_vec_dense_r64_i32_r_h_serial(Adyn, x,
