@@ -23,8 +23,6 @@
 
 #include "Fcl_C_DenseVector.hpp"
 
-extern "C" {
-
 fcl_vec_dense_r64_i32_r_h* c_morpheus_create_default_vec_dense_r64_i32_r_h() {
   return new fcl_vec_dense_r64_i32_r_h();
 }
@@ -83,5 +81,4 @@ fcl_r64_t c_morpheus_values_at_vec_dense_r64_i32_r_h(
 void c_morpheus_set_values_at_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i, fcl_i32_t val) {
   (*v)[i] = val;
-}
 }

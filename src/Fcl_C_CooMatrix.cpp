@@ -23,7 +23,6 @@
 
 #include "Fcl_C_CooMatrix.hpp"
 
-extern "C" {
 void c_morpheus_create_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h** A,
                                            fcl_i32_t nrows, fcl_i32_t ncols,
                                            fcl_i32_t nnnz) {
@@ -141,5 +140,4 @@ fcl_formats_e c_morpheus_format_enum_mat_coo_r64_i32_r_h(
 
 int c_morpheus_format_index_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A) {
   return A->format_index();
-}
 }
