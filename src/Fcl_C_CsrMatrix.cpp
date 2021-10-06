@@ -23,6 +23,11 @@
 
 #include "Fcl_C_CsrMatrix.hpp"
 
+void c_morpheus_create_default_mat_csr_r64_i32_r_h(
+    fcl_mat_csr_r64_i32_r_h** A) {
+  *A = (new fcl_mat_csr_r64_i32_r_h());
+}
+
 void c_morpheus_create_mat_csr_r64_i32_r_h(fcl_mat_csr_r64_i32_r_h** A,
                                            fcl_i32_t nrows, fcl_i32_t ncols,
                                            fcl_i32_t nnnz) {

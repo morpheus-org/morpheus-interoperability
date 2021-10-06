@@ -23,6 +23,11 @@
 
 #include "Fcl_C_DynamicMatrix.hpp"
 
+void c_morpheus_create_default_mat_dyn_r64_i32_r_h(
+    fcl_mat_dyn_r64_i32_r_h** A) {
+  *A = (new fcl_mat_dyn_r64_i32_r_h());
+}
+
 void c_morpheus_create_mat_dyn_from_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h** dst) {
   *dst = (new fcl_mat_dyn_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h(*src)));

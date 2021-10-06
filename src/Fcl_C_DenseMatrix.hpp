@@ -31,7 +31,8 @@
 extern "C" {
 #endif
 
-fcl_mat_dense_r64_i32_r_h* c_morpheus_create_default_mat_dense_r64_i32_r_h();
+void c_morpheus_create_default_mat_dense_r64_i32_r_h(
+    fcl_mat_dense_r64_i32_r_h** A);
 
 void c_morpheus_create_mat_dense_r64_i32_r_h(fcl_mat_dense_r64_i32_r_h** A,
                                              fcl_i32_t num_rows,

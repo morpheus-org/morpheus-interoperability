@@ -31,7 +31,8 @@
 extern "C" {
 #endif
 
-fcl_vec_dense_r64_i32_r_h* c_morpheus_create_default_vec_dense_r64_i32_r_h();
+void c_morpheus_create_default_vec_dense_r64_i32_r_h(
+    fcl_vec_dense_r64_i32_r_h** v);
 
 void c_morpheus_create_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v,
                                              fcl_i32_t n, fcl_r64_t val);

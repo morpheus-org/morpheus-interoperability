@@ -32,6 +32,8 @@
 extern "C" {
 #endif
 
+void c_morpheus_create_default_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h** A);
+
 void c_morpheus_create_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h** A,
                                            fcl_i32_t nrows, fcl_i32_t ncols,
                                            fcl_i32_t nnnz, fcl_i32_t ndiags);
