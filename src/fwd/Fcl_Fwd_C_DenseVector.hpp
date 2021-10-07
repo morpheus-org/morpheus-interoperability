@@ -31,8 +31,11 @@
 
 typedef Morpheus::DenseVector<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
     fcl_vec_dense_r64_i32_r_h;
+typedef Morpheus::DenseVector<fcl_i32_t, fcl_i32_t, fcl_right_t, fcl_host_t>
+    fcl_vec_dense_i32_i32_r_h;
 #else
 typedef struct Morpheus_DenseVector_r64_i32_r_h fcl_vec_dense_r64_i32_r_h;
+typedef struct Morpheus_DenseVector_i32_i32_r_h fcl_vec_dense_i32_i32_r_h;
 #endif
 
 #endif  // FCL_C_FWD_DENSEVECTOR_HPP
