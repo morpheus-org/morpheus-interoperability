@@ -91,32 +91,32 @@ void c_morpheus_set_nnnz_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
 
 fcl_i32_t c_morpheus_row_indices_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
                                                     fcl_i32_t i) {
-  return A->row_indices[i];
+  return A->row_indices(i);
 }
 
 fcl_i32_t c_morpheus_column_indices_at_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A, fcl_i32_t i) {
-  return A->column_indices[i];
+  return A->column_indices(i);
 }
 
 fcl_r64_t c_morpheus_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
                                                fcl_i32_t i) {
-  return A->values[i];
+  return A->values(i);
 }
 
 void c_morpheus_set_row_indices_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
                                                    fcl_i32_t i, fcl_i32_t val) {
-  A->row_indices[i] = val;
+  A->row_indices(i) = val;
 }
 
 void c_morpheus_set_column_indices_at_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A, fcl_i32_t i, fcl_i32_t val) {
-  A->column_indices[i] = val;
+  A->column_indices(i) = val;
 }
 
 void c_morpheus_set_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
                                               fcl_i32_t i, fcl_r64_t val) {
-  A->values[i] = val;
+  A->values(i) = val;
 }
 
 void c_morpheus_sort_by_row_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A) {
