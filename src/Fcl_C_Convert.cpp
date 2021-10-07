@@ -128,6 +128,17 @@ void c_morpheus_convert_mat_dyn_to_mat_dyn_r64_i32_r_h_serial(
   Morpheus::convert(*src, *dst);
 }
 
+// in-place conversions for dynamic
+void c_morpheus_convert_mat_dyn_r64_i32_r_h_serial(fcl_mat_dyn_r64_i32_r_h* mat,
+                                                   const fcl_formats_e index) {
+  Morpheus::convert(*mat, index);
+}
+
+void c_morpheus_convert_index_mat_dyn_r64_i32_r_h_serial(
+    fcl_mat_dyn_r64_i32_r_h* mat, const int index) {
+  Morpheus::convert(*mat, index);
+}
+
 // desne vec -> dense vec
 void c_morpheus_convert_vec_dense_to_vec_dense_r64_i32_r_h_serial(
     const fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h* dst) {
