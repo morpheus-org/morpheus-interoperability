@@ -36,6 +36,7 @@ include(GNUInstallDirs)
 # Fcl-cxx library
 add_library(
   fcl-cxx OBJECT
+  src/Fcl_C_Convert.cpp
   src/Fcl_C_CooMatrix.cpp
   src/Fcl_C_CsrMatrix.cpp
   src/Fcl_C_DenseMatrix.cpp
@@ -51,6 +52,7 @@ add_library(
   src/Fcl_C.cpp)
 
 set(fcl-cxx-public-headers
+    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Convert.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_CooMatrix.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_CsrMatrix.hpp
     ${PROJECT_SOURCE_DIR}/src/Fcl_C_DenseMatrix.hpp

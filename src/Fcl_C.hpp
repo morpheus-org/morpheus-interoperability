@@ -30,6 +30,7 @@
 #include "Fcl_C_DenseVector.hpp"
 #include "Fcl_C_DynamicMatrix.hpp"
 
+#include "Fcl_C_Convert.hpp"
 #include "Fcl_C_Dot.hpp"
 #include "Fcl_C_Multiply.hpp"
 #include "Fcl_C_Print.hpp"
