@@ -6,3 +6,4 @@
 - `print`, `multiply`, `dot`, `waxpy`, `reduce` and `scan` algorithms used by the above containers enalbed in C.
 - Enabled interface for `DynamicMatrix` for format switching. Shallow constructors and assignments from concrete formats are supported.
 - Algorithms for concrete matrix containers are supported by dynamic interface too.
+- Enabled `convert` interface for concrete and dynamic containers.
