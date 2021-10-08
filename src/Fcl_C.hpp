@@ -33,6 +33,7 @@
 #include "Fcl_C_MirrorContainers.hpp"
 
 #include "Fcl_C_Convert.hpp"
+#include "Fcl_C_Copy.hpp"
 #include "Fcl_C_Dot.hpp"
 #include "Fcl_C_Multiply.hpp"
 #include "Fcl_C_Print.hpp"
