@@ -154,6 +154,20 @@ int main() {
       c_morpheus_destroy_mat_dia_r64_i32_r_h(&mirror);
     }
 
+    {
+      dyn *A;
+      c_morpheus_create_mat_dyn_from_mat_r64_i32_r_h(refcsr, CSR_FORMAT, &A);
+      mirror_dyn *mirror = c_morpheus_create_mirror_mat_dyn_r64_i32_r_h_serial(A);
+
+      c_morpheus_copy_mat_csr_to_mat_dyn_hostmirror_r64_i32_r_h_serial(refcsr, mirror);
+      c_morpheus_set_values_at_csr_r64_i32_r_h(refcsr, 5, -15);
+      c_morpheus_print_mat_dyn_r64_i32_r_h(mirror);
+      c_morpheus_set_values_at_csr_r64_i32_r_h(refcsr, 5, 60);
+
+      c_morpheus_destroy_mat_dyn_r64_i32_r_h(&A);
+      c_morpheus_destroy_mat_dyn_r64_i32_r_h(&mirror);
+    }
+
     c_morpheus_destroy_mat_coo_r64_i32_r_h(&refcoo);
     c_morpheus_destroy_mat_csr_r64_i32_r_h(&refcsr);
     c_morpheus_destroy_mat_dia_r64_i32_r_h(&refdia);
