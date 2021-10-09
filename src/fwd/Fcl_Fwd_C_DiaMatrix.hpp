@@ -31,8 +31,11 @@
 
 typedef Morpheus::DiaMatrix<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
     fcl_mat_dia_r64_i32_r_h;
+typedef typename fcl_mat_dia_r64_i32_r_h::HostMirror
+    fcl_mat_dia_hostmirror_r64_i32_r_h;
 #else
 typedef struct Morpheus_DiaMatrix_r64_i32_r_h fcl_mat_dia_r64_i32_r_h;
+typedef fcl_mat_dia_r64_i32_r_h fcl_mat_dia_hostmirror_r64_i32_r_h;
 #endif
 
 #endif  // FCL_C_FWD_DIAMATRIX_HPP

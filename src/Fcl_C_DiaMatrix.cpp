@@ -90,13 +90,11 @@ fcl_i32_t c_morpheus_nnnz_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
 }
 
 fcl_i32_t c_morpheus_ndiags_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
-  // TODO: MorpheusCore:: Convert that into proper function
-  return A->ndiags;
+  return A->ndiags();
 }
 
 fcl_i32_t c_morpheus_alignment_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
-  // TODO: MorpheusCore:: Convert that into proper function
-  return A->nalign;
+  return A->alignment();
 }
 
 void c_morpheus_set_nrows_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
@@ -116,19 +114,17 @@ void c_morpheus_set_nnnz_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
 
 void c_morpheus_set_ndiags_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
                                                fcl_i32_t ndiags) {
-  // TODO: MorpheusCore:: Convert that into proper function
-  A->ndiags = ndiags;
+  A->set_ndiags(ndiags);
 }
 
 void c_morpheus_set_alignment_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
                                                   fcl_i32_t alignment) {
-  // TODO: MorpheusCore:: Convert that into proper function
-  A->nalign = alignment;
+  A->set_alignment(alignment);
 }
 
 fcl_i32_t c_morpheus_diagonal_offests_at_dia_r64_i32_r_h(
     fcl_mat_dia_r64_i32_r_h* A, fcl_i32_t i) {
-  return A->diagonal_offsets[i];
+  return A->diagonal_offsets(i);
 }
 
 fcl_r64_t c_morpheus_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
@@ -136,9 +132,19 @@ fcl_r64_t c_morpheus_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
   return A->values(i, j);
 }
 
+fcl_vec_dense_i32_i32_r_h* c_morpheus_diagonal_offsets_dia_r64_i32_r_h(
+    fcl_mat_dia_r64_i32_r_h* A) {
+  return &(A->diagonal_offsets());
+}
+
+fcl_mat_dense_r64_i32_r_h* c_morpheus_values_dia_r64_i32_r_h(
+    fcl_mat_dia_r64_i32_r_h* A) {
+  return &(A->values());
+}
+
 void c_morpheus_set_diagonal_offests_at_dia_r64_i32_r_h(
     fcl_mat_dia_r64_i32_r_h* A, fcl_i32_t i, fcl_i32_t val) {
-  A->diagonal_offsets[i] = val;
+  A->diagonal_offsets(i) = val;
 }
 
 void c_morpheus_set_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,

@@ -27,6 +27,7 @@
 #include "Fcl_C_Types.hpp"
 #include "fwd/Fcl_Fwd_C_CooMatrix.hpp"
 #include "fwd/Fcl_Fwd_C_DynamicMatrix.hpp"
+#include "fwd/Fcl_Fwd_C_DenseVector.hpp"
 
 #ifdef __cplusplus
 extern "C" {
@@ -73,6 +74,13 @@ fcl_i32_t c_morpheus_column_indices_at_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A, fcl_i32_t i);
 fcl_r64_t c_morpheus_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
                                                fcl_i32_t i);
+
+fcl_vec_dense_i32_i32_r_h* c_morpheus_row_indices_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A);
+fcl_vec_dense_i32_i32_r_h* c_morpheus_column_indices_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A);
+fcl_vec_dense_r64_i32_r_h* c_morpheus_values_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A);
 
 void c_morpheus_set_row_indices_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
                                                    fcl_i32_t i, fcl_i32_t val);
