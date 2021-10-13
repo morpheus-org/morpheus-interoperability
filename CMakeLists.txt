@@ -1,124 +1,152 @@
-cmake_minimum_required(VERSION 3.10)
+# Disable in-source builds to prevent source tree corruption.
+if("${CMAKE_SOURCE_DIR}" STREQUAL "${CMAKE_BINARY_DIR}")
+  message(
+    FATAL_ERROR
+      "FATAL: In-source builds are not allowed. You should create a separate directory for build files."
+  )
+endif()
+
+# ~~~
+# We want to determine if options are given with the wrong case.
+# In order to detect which arguments are given to compare against the list of
+# valid arguments, at the beginning here we need to form a list of all the given variables.
+# If it begins with any case of McL, we add it to the list.
+# ~~~
+get_cmake_property(_variableNames VARIABLES)
+set(MCL_GIVEN_VARIABLES)
+foreach(var ${_variableNames})
+  string(TOUPPER ${var} UC_VAR)
+  string(FIND ${UC_VAR} MCL IDX)
+  if(${IDX} EQUAL 0)
+    list(APPEND MCL_GIVEN_VARIABLES ${var})
+  endif()
+endforeach()
+
+# Basic initialization
+set(Mcl_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(MCL_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(MCL_SRC_PATH ${Mcl_SOURCE_DIR})
+set(MCL_PATH ${Mcl_SOURCE_DIR})
+set(MCL_TOP_BUILD_DIR ${CMAKE_CURRENT_BINARY_DIR})
+set(MCL_TOP_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+
+# Needed to simplify syntax of if statements
+cmake_policy(SET CMP0054 NEW)
+# Needed to make IN_LIST a valid operator
+cmake_policy(SET CMP0057 NEW)
+
+# Is this build a subdirectory of another project
+get_directory_property(MCL_HAS_PARENT PARENT_DIRECTORY)
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
+                      "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Modules/")
+
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+set(CMAKE_DISABLE_SOURCE_CHANGES ON)
 set(CMAKE_DISABLE_IN_SOURCE_BUILD ON)
-project(Fcl LANGUAGES C CXX)
 
-set(default_build_type "RelWithDebInfo")
-set(BUILD_SHARED_LIBS OFF)
+project(Mcl LANGUAGES C CXX)
 
-set(Fcl_VERSION_MAJOR 0)
-set(Fcl_VERSION_MINOR 01)
-set(Fcl_VERSION_PATCH 00)
-set(Fcl_VERSION
-    "${Fcl_VERSION_MAJOR}.${Fcl_VERSION_MINOR}.${Fcl_VERSION_PATCH}")
+if(NOT MCL_HAS_PARENT)
+  if(NOT CMAKE_BUILD_TYPE)
+    set(DEFAULT_BUILD_TYPE "RelWithDebInfo")
+    message(
+      STATUS
+        "Setting build type to '${DEFAULT_BUILD_TYPE}' as none was specified.")
+    set(CMAKE_BUILD_TYPE
+        "${DEFAULT_BUILD_TYPE}"
+        CACHE
+          STRING
+          "Choose the type of build, options are: Debug, Release, RelWithDebInfo and MinSizeRel."
+          FORCE)
+  endif()
+endif()
+
+if(NOT CMAKE_SIZEOF_VOID_P)
+  string(FIND ${CMAKE_CXX_COMPILER} nvcc_wrapper FIND_IDX)
+  if(NOT FIND_IDX STREQUAL -1)
+    message(
+      FATAL_ERROR
+        "Mcl did not configure correctly and failed to validate compiler. The most likely cause is CUDA linkage using nvcc_wrapper. Please ensure your CUDA environment is correctly configured."
+    )
+  else()
+    message(
+      FATAL_ERROR
+        "Mcl did not configure correctly and failed to validate compiler. The most likely cause is linkage errors during CMake compiler validation. Please consult the CMake error log shown below for the exact error during compiler validation"
+    )
+  endif()
+elseif(NOT CMAKE_SIZEOF_VOID_P EQUAL 8)
+  message(
+    FATAL_ERROR
+      "Mcl assumes a 64-bit build; i.e., 8-byte pointers, but found ${CMAKE_SIZEOF_VOID_P}-byte pointers instead"
+  )
+endif()
+
+set(Mcl_VERSION_MAJOR 0)
+set(Mcl_VERSION_MINOR 01)
+set(Mcl_VERSION_PATCH 00)
+set(Mcl_VERSION
+    "${Mcl_VERSION_MAJOR}.${Mcl_VERSION_MINOR}.${Mcl_VERSION_PATCH}")
 math(
   EXPR
-  FCL_VERSION
-  "${Fcl_VERSION_MAJOR} * 10000 + ${Fcl_VERSION_MINOR} * 100 + ${Fcl_VERSION_PATCH}"
+  MCL_VERSION
+  "${Mcl_VERSION_MAJOR} * 10000 + ${Mcl_VERSION_MINOR} * 100 + ${Mcl_VERSION_PATCH}"
 )
 
-message(STATUS "${PROJECT_NAME} version is: v${Fcl_VERSION} (${FCL_VERSION})")
+message(
+  STATUS
+    "${PROJECT_NAME} (Morpheus Compatibility Layer) version is: v${Mcl_VERSION} (${MCL_VERSION})"
+)
 
 if(${CMAKE_VERSION} VERSION_GREATER_EQUAL "3.12.0")
   message(STATUS "Setting policy CMP0074 to use <Package>_ROOT variables")
   cmake_policy(SET CMP0074 NEW)
 endif()
 
-include(CMakeDetermineCCompiler)
-include(CMakeDetermineCXXCompiler)
+# load utility functions
+include(cmake/mcl_utils.cmake)
 
-find_package(Morpheus REQUIRED)
+# Place here variables we will append as we go
+global_set(MCL_TPL_EXPORTS)
 
-include(CheckCXXCompilerFlag)
-include(CheckCCompilerFlag)
+mcl_setup_build_environment() # TODO
+
+# Finish off the build
+#
+# 1. Recurse into subdirectories and configure individual libraries
+# 2. Export and install targets
+
+set(BUILD_SHARED_LIBS OFF)
+
+set(MCL_EXT_LIBRARIES Morpheus::mcl Morpheus::ccl)
+set(MCL_INT_LIBRARIES morpheus-mcl morpheus-ccl)
+set_property(GLOBAL PROPERTY MCL_INT_LIBRARIES ${MCL_INT_LIBRARIES})
 
 include(GNUInstallDirs)
-
-# Fcl-cxx library
-add_library(
-  fcl-cxx OBJECT
-  src/Fcl_C_Convert.cpp
-  src/Fcl_C_CooMatrix.cpp
-  src/Fcl_C_Copy.cpp
-  src/Fcl_C_CsrMatrix.cpp
-  src/Fcl_C_DenseMatrix.cpp
-  src/Fcl_C_DenseVector.cpp
-  src/Fcl_C_DiaMatrix.cpp
-  src/Fcl_C_Dot.cpp
-  src/Fcl_C_DynamicMatrix.cpp
-  src/Fcl_C_MirrorContainers.cpp
-  src/Fcl_C_Multiply.cpp
-  src/Fcl_C_Print.cpp
-  src/Fcl_C_Reduction.cpp
-  src/Fcl_C_Scan.cpp
-  src/Fcl_C_WAXPBY.cpp
-  src/Fcl_C.cpp)
-
-set(fcl-cxx-public-headers
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Convert.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_CooMatrix.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Copy.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_CsrMatrix.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_DenseMatrix.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_DenseVector.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_DiaMatrix.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Dot.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_DynamicMatrix.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_MirrorContainers.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Multiply.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Print.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Reduction.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Scan.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_Types.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C_WAXPBY.hpp
-    ${PROJECT_SOURCE_DIR}/src/Fcl_C.hpp)
-
-set_property(TARGET fcl-cxx PROPERTY CXX_STANDARD 17)
-set_target_properties(fcl-cxx PROPERTIES PUBLIC_HEADER
-                                         "${fcl-cxx-public-headers}")
-target_link_libraries(fcl-cxx PRIVATE Morpheus::morpheus)
-
-add_library(fcl STATIC $<TARGET_OBJECTS:fcl-cxx>)
-set_target_properties(fcl PROPERTIES PUBLIC_HEADER "${fcl-cxx-public-headers}")
-target_include_directories(
-  fcl INTERFACE $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/mod>
-                $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-target_link_libraries(fcl INTERFACE Morpheus::morpheus)
-
-# add Fcl library
-add_library(Fcl::fcl ALIAS fcl)
-
-# installation section
-include(CMakePackageConfigHelpers)
-configure_package_config_file(
-  "cmake/FclConfig.cmake.in" "${PROJECT_BINARY_DIR}/FclConfig.cmake"
-  INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake")
-
-write_basic_package_version_file(
-  "${PROJECT_BINARY_DIR}/FclConfigVersion.cmake"
-  VERSION "${Fcl_VERSION}"
-  COMPATIBILITY SameMinorVersion)
-
-# install Fcl cmake config files
-install(FILES "${PROJECT_BINARY_DIR}/FclConfigVersion.cmake"
-              "${PROJECT_BINARY_DIR}/FclConfig.cmake"
-        DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}")
-install(TARGETS fcl EXPORT FclTargets)
-install(
-  EXPORT FclTargets
-  DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
-  NAMESPACE Fcl::)
-
-# install Fcl library and headers
-install(
-  TARGETS fcl
-  ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
-  PUBLIC_HEADER DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}")
-
-# unit testing section and toggle
-if(Fcl_ENABLE_TESTS)
-  add_subdirectory(tests)
+if(MCL_HAS_PARENT)
+  set(MCL_HEADER_INSTALL_DIR "include/mcl")
+  set(MCL_IS_SUBDIRECTORY TRUE)
+else()
+  set(MCL_HEADER_INSTALL_DIR "${CMAKE_INSTALL_INCLUDEDIR}")
+  set(MCL_IS_SUBDIRECTORY FALSE)
 endif()
 
-if(Fcl_ENABLE_EXAMPLES)
-  add_subdirectory(examples)
+# Forward declare the package for certain options to be defined for subpackages
+mcl_package_decl() # TODO
+
+# Process the subpackages (subdirectories) for Morpheus
+mcl_process_subpackages() # TODO
+
+# If Morpheus itself is enabled, process the Morpheus package
+if(NOT Mcl_INSTALL_TESTING)
+  add_library(morpheus-mcl INTERFACE)
+  # ~~~
+  # Make sure in-tree projects can reference this as Morpheus::
+  # to match the installed target names
+  # ~~~
+  add_library(Morpheus::mcl ALIAS morpheus-mcl)
+  target_link_libraries(morpheus-mcl INTERFACE morpheus-ccl)
+  morpheus_internal_add_library_install(morpheus-mcl) # TODO
 endif()
+
+mcl_package_postprocess() # TODO
