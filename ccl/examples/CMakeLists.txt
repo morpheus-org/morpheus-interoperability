@@ -1,13 +1,25 @@
-add_subdirectory(01_initialize)
-add_subdirectory(02_coomat)
-add_subdirectory(03_dynmat)
-add_subdirectory(04_c_compatibility)
-add_subdirectory(05_Coo_Interface)
-add_subdirectory(06_Csr_Interface)
-add_subdirectory(07_Dia_Interface)
-add_subdirectory(08_Vec_Interface)
-add_subdirectory(09_Scan)
-add_subdirectory(10_DenseMatrix_Interface)
-add_subdirectory(11_Dynamic_Interface)
-add_subdirectory(12_Convert)
-add_subdirectory(13_Mirroring)
+message(STATUS "Morpheus Ccl Examples are enabled")
+
+mcl_include_directories(${CMAKE_CURRENT_BINARY_DIR})
+mcl_include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
+mcl_add_executable(Examples_01_initialize SOURCES Examples_01_initialize.cpp)
+mcl_add_executable(Examples_02_coomat SOURCES Examples_02_coomat.cpp)
+mcl_add_executable(Examples_03_dynmat SOURCES Examples_03_dynmat.cpp)
+mcl_add_executable(Examples_04_c_compatibility SOURCES
+                   Examples_04_c_compatibility.c)
+mcl_add_executable(Examples_05_Coo_Interface SOURCES
+                   Examples_05_Coo_Interface.c)
+mcl_add_executable(Examples_06_Csr_Interface SOURCES
+                   Examples_06_Csr_Interface.c)
+mcl_add_executable(Examples_07_Dia_Interface SOURCES
+                   Examples_07_Dia_Interface.c)
+mcl_add_executable(Examples_08_Vec_Interface SOURCES
+                   Examples_08_Vec_Interface.c)
+mcl_add_executable(Examples_09_Scan SOURCES Examples_09_Scan.c)
+mcl_add_executable(Examples_10_DenseMatrix_Interface SOURCES
+                   Examples_10_DenseMatrix_Interface.c)
+mcl_add_executable(Examples_11_Dynamic_Interface SOURCES
+                   Examples_11_Dynamic_Interface.c)
+mcl_add_executable(Examples_12_Convert SOURCES Examples_12_Convert.c)
+mcl_add_executable(Examples_13_Mirroring SOURCES Examples_13_Mirroring.c)

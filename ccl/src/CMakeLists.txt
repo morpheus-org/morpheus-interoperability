@@ -1,7 +1,7 @@
-mcl_configure_file(MorpheusCcl_config.hpp) # TODO
+mcl_configure_file(MorpheusCcl_config.hpp)
 
 mcl_include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}
-                        ${MCL_TOP_BUILD_DIR}) # TODO
+                        ${MCL_TOP_BUILD_DIR})
 
 install(
   DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/"
@@ -12,6 +12,7 @@ install(
 
 set(CCL_CORE_SOURCES)
 append_glob(CCL_CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/impl/*.cpp)
+append_glob(CCL_CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
 set(CCL_CORE_HEADERS)
 append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
@@ -33,26 +34,23 @@ if(MORPHEUS_ENABLE_CUDA)
 endif()
 
 append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_BINARY_DIR}/MorpheusCcl_config.hpp)
-# TODO
+
 foreach(HEADER ${CCL_CORE_HEADERS})
   get_filename_component(dirname ${HEADER} DIRECTORY)
   mcl_include_directories(${dirname})
 endforeach()
-# TODO
-mcl_add_library(
-  morpheus-ccl SOURCES ${CCL_CORE_SOURCES} HEADERS ${CCL_CORE_HEADERS}
-  ADD_BUILD_OPTIONS # core should be given all the necessary compiler/linker
-                    # flags
-)
+
+mcl_add_library(morpheus-ccl SOURCES ${CCL_CORE_SOURCES} HEADERS
+                ${CCL_CORE_HEADERS} ADD_BUILD_OPTIONS)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/MorpheusCcl_config.hpp
         DESTINATION ${MCL_HEADER_INSTALL_DIR})
-# TODO
+
 mcl_lib_include_directories(
   morpheus-ccl ${MCL_TOP_BUILD_DIR} ${CMAKE_CURRENT_BINARY_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR})
 
-# Link with Kokkos
+# Link with Morpheus
 target_link_libraries(morpheus-ccl PUBLIC Morpheus::morpheus)
 
 foreach(HEADER ${CCL_CORE_HEADERS})

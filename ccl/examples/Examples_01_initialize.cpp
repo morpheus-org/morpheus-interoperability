@@ -1,5 +1,5 @@
 /**
- * 01_initialize.cpp
+ * Examples_01_initialize.cpp
  *
  * EPCC, The University of Edinburgh
  *

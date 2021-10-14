@@ -109,12 +109,7 @@ include(cmake/mcl_utils.cmake)
 # Place here variables we will append as we go
 global_set(MCL_TPL_EXPORTS)
 
-mcl_setup_build_environment() # TODO
-
-# Finish off the build
-#
-# 1. Recurse into subdirectories and configure individual libraries
-# 2. Export and install targets
+mcl_setup_build_environment()
 
 set(BUILD_SHARED_LIBS OFF)
 
@@ -132,10 +127,10 @@ else()
 endif()
 
 # Forward declare the package for certain options to be defined for subpackages
-mcl_package_decl() # TODO
+mcl_package_decl()
 
 # Process the subpackages (subdirectories) for Morpheus
-mcl_process_subpackages() # TODO
+mcl_process_subpackages()
 
 # If Morpheus itself is enabled, process the Morpheus package
 if(NOT Mcl_INSTALL_TESTING)
@@ -146,7 +141,7 @@ if(NOT Mcl_INSTALL_TESTING)
   # ~~~
   add_library(Morpheus::mcl ALIAS morpheus-mcl)
   target_link_libraries(morpheus-mcl INTERFACE morpheus-ccl)
-  morpheus_internal_add_library_install(morpheus-mcl) # TODO
+  mcl_internal_add_library_install(morpheus-mcl)
 endif()
 
-mcl_package_postprocess() # TODO
+mcl_package_postprocess()

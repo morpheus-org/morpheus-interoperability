@@ -1,5 +1,5 @@
 /**
- * 01_initialize.cpp
+ * Examples_03_dynmat.cpp
  *
  * EPCC, The University of Edinburgh
  *
