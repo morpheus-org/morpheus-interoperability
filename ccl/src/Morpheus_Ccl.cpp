@@ -29,16 +29,16 @@
 #include <cstdio>
 #include <stddef.h>
 
-void c_morpheus_initialize(int* argc, char** argv) {
+void morpheus_ccl_initialize(int* argc, char** argv) {
   Morpheus::initialize(*argc, argv);
 }
 
-void c_morpheus_initialize_without_args() { Morpheus::initialize(); }
+void morpheus_ccl_initialize_without_args() { Morpheus::initialize(); }
 
-void c_morpheus_finalize() { Kokkos::finalize(); }
+void morpheus_ccl_finalize() { Kokkos::finalize(); }
 
-void c_morpheus_print_configuration(const char* prepend_name_in,
-                                    const char* file_name_in) {
+void morpheus_ccl_print_configuration(const char* prepend_name_in,
+                                      const char* file_name_in) {
   std::string prepend_name(prepend_name_in);
   std::string file_name(file_name_in);
   std::string output_filename = prepend_name + file_name;

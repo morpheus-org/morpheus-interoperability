@@ -23,7 +23,7 @@
 
 #include <Morpheus_Ccl_Dot.hpp>
 
-fcl_r64_t c_morpheus_dot_vec_dense_vec_dense_r64_i32_r_h_serial(
+fcl_r64_t morpheus_ccl_dot_vec_dense_vec_dense_r64_i32_r_h_serial(
     fcl_i32_t n, const fcl_vec_dense_r64_i32_r_h* x,
     const fcl_vec_dense_r64_i32_r_h* y) {
   return Morpheus::dot<fcl_serial_t>(n, *x, *y);

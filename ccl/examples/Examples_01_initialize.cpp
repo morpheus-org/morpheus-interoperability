@@ -24,9 +24,9 @@
 #include <Morpheus_Ccl.hpp>
 
 int main() {
-  c_morpheus_initialize_without_args();
+  morpheus_ccl_initialize_without_args();
 
-  c_morpheus_finalize();
+  morpheus_ccl_finalize();
 
   return 0;
 }

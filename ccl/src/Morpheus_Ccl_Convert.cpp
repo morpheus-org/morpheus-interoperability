@@ -24,123 +24,123 @@
 #include <Morpheus_Ccl_Convert.hpp>
 
 // coo -> coo
-void c_morpheus_convert_mat_coo_to_mat_coo_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_coo_to_mat_coo_r64_i32_r_h_serial(
     const fcl_mat_coo_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 
 // csr -> csr
-void c_morpheus_convert_mat_csr_to_mat_csr_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_csr_to_mat_csr_r64_i32_r_h_serial(
     const fcl_mat_csr_r64_i32_r_h* src, fcl_mat_csr_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 // csr -> coo
-void c_morpheus_convert_mat_csr_to_mat_coo_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_csr_to_mat_coo_r64_i32_r_h_serial(
     const fcl_mat_csr_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 // coo -> csr
-void c_morpheus_convert_mat_coo_to_mat_csr_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_coo_to_mat_csr_r64_i32_r_h_serial(
     const fcl_mat_coo_r64_i32_r_h* src, fcl_mat_csr_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 // csr -> dia
-void c_morpheus_convert_mat_csr_to_mat_dia_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_csr_to_mat_dia_r64_i32_r_h_serial(
     const fcl_mat_csr_r64_i32_r_h* src, fcl_mat_dia_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 
 // dia -> dia
-void c_morpheus_convert_mat_dia_to_mat_dia_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_dia_to_mat_dia_r64_i32_r_h_serial(
     const fcl_mat_dia_r64_i32_r_h* src, fcl_mat_dia_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 // dia -> coo
-void c_morpheus_convert_mat_dia_to_mat_coo_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_dia_to_mat_coo_r64_i32_r_h_serial(
     const fcl_mat_dia_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 // coo -> dia
-void c_morpheus_convert_mat_coo_to_mat_dia_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_coo_to_mat_dia_r64_i32_r_h_serial(
     const fcl_mat_coo_r64_i32_r_h* src, fcl_mat_dia_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 // dia -> csr
-void c_morpheus_convert_mat_dia_to_mat_csr_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_dia_to_mat_csr_r64_i32_r_h_serial(
     const fcl_mat_dia_r64_i32_r_h* src, fcl_mat_csr_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 
 // dense mat -> dense mat
-void c_morpheus_convert_mat_dense_to_mat_dense_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_dense_to_mat_dense_r64_i32_r_h_serial(
     const fcl_mat_dense_r64_i32_r_h* src, fcl_mat_dense_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 // dense mat -> dense vec
-void c_morpheus_convert_mat_dense_to_vec_dense_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_dense_to_vec_dense_r64_i32_r_h_serial(
     const fcl_mat_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 // dense mat -> coo
-void c_morpheus_convert_mat_dense_to_mat_coo_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_dense_to_mat_coo_r64_i32_r_h_serial(
     const fcl_mat_dense_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 // coo -> dense mat
-void c_morpheus_convert_mat_coo_to_mat_dense_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_coo_to_mat_dense_r64_i32_r_h_serial(
     const fcl_mat_coo_r64_i32_r_h* src, fcl_mat_dense_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 
 // dynamic -> concrete
-void c_morpheus_convert_mat_dyn_to_mat_coo_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_dyn_to_mat_coo_r64_i32_r_h_serial(
     const fcl_mat_dyn_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
-void c_morpheus_convert_mat_dyn_to_mat_csr_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_dyn_to_mat_csr_r64_i32_r_h_serial(
     const fcl_mat_dyn_r64_i32_r_h* src, fcl_mat_csr_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
-void c_morpheus_convert_mat_dyn_to_mat_dia_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_dyn_to_mat_dia_r64_i32_r_h_serial(
     const fcl_mat_dyn_r64_i32_r_h* src, fcl_mat_dia_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 
 // concrete -> dynamic
-void c_morpheus_convert_mat_coo_to_mat_dyn_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_coo_to_mat_dyn_r64_i32_r_h_serial(
     const fcl_mat_coo_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 
-void c_morpheus_convert_mat_csr_to_mat_dyn_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_csr_to_mat_dyn_r64_i32_r_h_serial(
     const fcl_mat_csr_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 
-void c_morpheus_convert_mat_dia_to_mat_dyn_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_dia_to_mat_dyn_r64_i32_r_h_serial(
     const fcl_mat_dia_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 
 // dynamic -> dynamic
-void c_morpheus_convert_mat_dyn_to_mat_dyn_r64_i32_r_h_serial(
+void morpheus_ccl_convert_mat_dyn_to_mat_dyn_r64_i32_r_h_serial(
     const fcl_mat_dyn_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }
 
 // in-place conversions for dynamic
-void c_morpheus_convert_mat_dyn_r64_i32_r_h_serial(fcl_mat_dyn_r64_i32_r_h* mat,
-                                                   const fcl_formats_e index) {
+void morpheus_ccl_convert_mat_dyn_r64_i32_r_h_serial(
+    fcl_mat_dyn_r64_i32_r_h* mat, const fcl_formats_e index) {
   Morpheus::convert(*mat, index);
 }
 
-void c_morpheus_convert_index_mat_dyn_r64_i32_r_h_serial(
+void morpheus_ccl_convert_index_mat_dyn_r64_i32_r_h_serial(
     fcl_mat_dyn_r64_i32_r_h* mat, const int index) {
   Morpheus::convert(*mat, index);
 }
 
 // desne vec -> dense vec
-void c_morpheus_convert_vec_dense_to_vec_dense_r64_i32_r_h_serial(
+void morpheus_ccl_convert_vec_dense_to_vec_dense_r64_i32_r_h_serial(
     const fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h* dst) {
   Morpheus::convert(*src, *dst);
 }

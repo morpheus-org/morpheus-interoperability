@@ -23,12 +23,12 @@
 
 #include <Morpheus_Ccl_DynamicMatrix.hpp>
 
-void c_morpheus_create_default_mat_dyn_r64_i32_r_h(
+void morpheus_ccl_create_default_mat_dyn_r64_i32_r_h(
     fcl_mat_dyn_r64_i32_r_h** A) {
   *A = (new fcl_mat_dyn_r64_i32_r_h());
 }
 
-void c_morpheus_create_mat_dyn_from_mat_r64_i32_r_h(
+void morpheus_ccl_create_mat_dyn_from_mat_r64_i32_r_h(
     void* src, fcl_formats_e index, fcl_mat_dyn_r64_i32_r_h** dst) {
   if (index == Morpheus::COO_FORMAT) {
     fcl_mat_coo_r64_i32_r_h* src_cast = (fcl_mat_coo_r64_i32_r_h*)src;
@@ -42,7 +42,7 @@ void c_morpheus_create_mat_dyn_from_mat_r64_i32_r_h(
   }
 }
 
-void c_morpheus_assign_mat_dyn_from_mat_r64_i32_r_h(
+void morpheus_ccl_assign_mat_dyn_from_mat_r64_i32_r_h(
     void* src, fcl_formats_e index, fcl_mat_dyn_r64_i32_r_h* dst) {
   if (index == Morpheus::COO_FORMAT) {
     *dst = *(fcl_mat_coo_r64_i32_r_h*)src;
@@ -53,91 +53,89 @@ void c_morpheus_assign_mat_dyn_from_mat_r64_i32_r_h(
   }
 }
 
-void c_morpheus_assign_mat_dyn_from_mat_dia_r64_i32_r_h(
+void morpheus_ccl_assign_mat_dyn_from_mat_dia_r64_i32_r_h(
     fcl_mat_dia_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h* dst) {
   *dst = *src;
 }
 
-void c_morpheus_resize_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                           const fcl_i32_t num_rows,
-                                           const fcl_i32_t num_cols,
-                                           const fcl_i32_t num_nnz) {
+void morpheus_ccl_resize_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
+                                             const fcl_i32_t num_rows,
+                                             const fcl_i32_t num_cols,
+                                             const fcl_i32_t num_nnz) {
   A->resize(num_rows, num_cols, num_nnz);
 }
 
-void c_morpheus_resize_diags_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                                 const fcl_i32_t num_rows,
-                                                 const fcl_i32_t num_cols,
-                                                 const fcl_i32_t num_nnz,
-                                                 const fcl_i32_t num_diags) {
-  A->resize(num_rows, num_cols, num_nnz, num_diags);
-}
-
-void c_morpheus_resize_aligned_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
+void morpheus_ccl_resize_diags_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
                                                    const fcl_i32_t num_rows,
                                                    const fcl_i32_t num_cols,
                                                    const fcl_i32_t num_nnz,
-                                                   const fcl_i32_t num_diags,
-                                                   const fcl_i32_t alignment) {
+                                                   const fcl_i32_t num_diags) {
+  A->resize(num_rows, num_cols, num_nnz, num_diags);
+}
+
+void morpheus_ccl_resize_aligned_mat_dyn_r64_i32_r_h(
+    fcl_mat_dyn_r64_i32_r_h* A, const fcl_i32_t num_rows,
+    const fcl_i32_t num_cols, const fcl_i32_t num_nnz,
+    const fcl_i32_t num_diags, const fcl_i32_t alignment) {
   A->resize(num_rows, num_cols, num_nnz, num_diags, alignment);
 }
 
-void c_morpheus_allocate_mat_dyn_from_mat_dyn_r64_i32_r_h(
+void morpheus_ccl_allocate_mat_dyn_from_mat_dyn_r64_i32_r_h(
     fcl_mat_dyn_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h* dst) {
   dst->allocate("fcl_mat_dyn_r64_i32_r_h::allocate::", *src);
 }
 
-void c_morpheus_destroy_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h** A) {
+void morpheus_ccl_destroy_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h** A) {
   delete (*A);
 }
 
-fcl_i32_t c_morpheus_nrows_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A) {
+fcl_i32_t morpheus_ccl_nrows_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A) {
   return A->nrows();
 }
 
-fcl_i32_t c_morpheus_ncols_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A) {
+fcl_i32_t morpheus_ccl_ncols_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A) {
   return A->ncols();
 }
 
-fcl_i32_t c_morpheus_nnnz_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A) {
+fcl_i32_t morpheus_ccl_nnnz_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A) {
   return A->nnnz();
 }
 
-void c_morpheus_set_nrows_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                              fcl_i32_t nrows) {
+void morpheus_ccl_set_nrows_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
+                                                fcl_i32_t nrows) {
   A->set_nrows(nrows);
 }
 
-void c_morpheus_set_ncols_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                              fcl_i32_t ncols) {
+void morpheus_ccl_set_ncols_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
+                                                fcl_i32_t ncols) {
   A->set_ncols(ncols);
 }
 
-void c_morpheus_set_nnnz_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                             fcl_i32_t nnnz) {
+void morpheus_ccl_set_nnnz_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
+                                               fcl_i32_t nnnz) {
   A->set_nnnz(nnnz);
 }
 
-void c_morpheus_activate_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                             const fcl_formats_e index) {
+void morpheus_ccl_activate_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
+                                               const fcl_formats_e index) {
   A->activate(index);
 }
 
-void c_morpheus_activate_index_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                                   const int index) {
+void morpheus_ccl_activate_index_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
+                                                     const int index) {
   A->activate(index);
 }
 
-int c_morpheus_active_index_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A) {
+int morpheus_ccl_active_index_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A) {
   return A->active_index();
 }
 
-fcl_formats_e c_morpheus_active_enum_mat_dyn_r64_i32_r_h(
+fcl_formats_e morpheus_ccl_active_enum_mat_dyn_r64_i32_r_h(
     fcl_mat_dyn_r64_i32_r_h* A) {
   return A->active_enum();
 }
 
-fcl_formats_e c_morpheus_format_enum_mat_dyn_r64_i32_r_h(
+fcl_formats_e morpheus_ccl_format_enum_mat_dyn_r64_i32_r_h(
     fcl_mat_dyn_r64_i32_r_h* A) {
   return A->format_enum();
 }

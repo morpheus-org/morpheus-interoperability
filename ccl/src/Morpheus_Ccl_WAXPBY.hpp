@@ -30,7 +30,7 @@
 extern "C" {
 #endif
 
-void c_morpheus_waxpby_vec_dense_vec_dense_r64_i32_r_h_serial(
+void morpheus_ccl_waxpby_vec_dense_vec_dense_r64_i32_r_h_serial(
     fcl_i32_t n, fcl_r64_t alpha, const fcl_vec_dense_r64_i32_r_h* x,
     fcl_r64_t beta, const fcl_vec_dense_r64_i32_r_h* y,
     fcl_vec_dense_r64_i32_r_h* w);

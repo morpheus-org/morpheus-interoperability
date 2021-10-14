@@ -33,73 +33,76 @@
 extern "C" {
 #endif
 
-void c_morpheus_create_default_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h** A);
+void morpheus_ccl_create_default_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h** A);
 
-void c_morpheus_create_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h** A,
-                                           fcl_i32_t nrows, fcl_i32_t ncols,
-                                           fcl_i32_t nnnz);
-
-void c_morpheus_create_mat_coo_from_mat_coo_r64_i32_r_h(
-    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h** dst);
-
-void c_morpheus_create_mat_coo_from_mat_dyn_r64_i32_r_h(
-    fcl_mat_dyn_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h** dst);
-
-void c_morpheus_resize_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
-                                           const fcl_i32_t num_rows,
-                                           const fcl_i32_t num_cols,
-                                           const fcl_i32_t num_nnz);
-
-void c_morpheus_allocate_mat_coo_from_mat_coo_r64_i32_r_h(
-    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h* dst);
-
-void c_morpheus_destroy_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h** A);
-
-// Base Routines
-fcl_i32_t c_morpheus_nrows_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
-fcl_i32_t c_morpheus_ncols_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
-fcl_i32_t c_morpheus_nnnz_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
-
-void c_morpheus_set_nrows_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
-                                              fcl_i32_t nrows);
-void c_morpheus_set_ncols_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
-                                              fcl_i32_t ncols);
-void c_morpheus_set_nnnz_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+void morpheus_ccl_create_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h** A,
+                                             fcl_i32_t nrows, fcl_i32_t ncols,
                                              fcl_i32_t nnnz);
 
+void morpheus_ccl_create_mat_coo_from_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h** dst);
+
+void morpheus_ccl_create_mat_coo_from_mat_dyn_r64_i32_r_h(
+    fcl_mat_dyn_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h** dst);
+
+void morpheus_ccl_resize_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                             const fcl_i32_t num_rows,
+                                             const fcl_i32_t num_cols,
+                                             const fcl_i32_t num_nnz);
+
+void morpheus_ccl_allocate_mat_coo_from_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* src, fcl_mat_coo_r64_i32_r_h* dst);
+
+void morpheus_ccl_destroy_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h** A);
+
+// Base Routines
+fcl_i32_t morpheus_ccl_nrows_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+fcl_i32_t morpheus_ccl_ncols_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+fcl_i32_t morpheus_ccl_nnnz_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+
+void morpheus_ccl_set_nrows_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                                fcl_i32_t nrows);
+void morpheus_ccl_set_ncols_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                                fcl_i32_t ncols);
+void morpheus_ccl_set_nnnz_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                               fcl_i32_t nnnz);
+
 // Format Specific Routines
-fcl_i32_t c_morpheus_row_indices_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
-                                                    fcl_i32_t i);
-fcl_i32_t c_morpheus_column_indices_at_coo_r64_i32_r_h(
+fcl_i32_t morpheus_ccl_row_indices_at_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A, fcl_i32_t i);
-fcl_r64_t c_morpheus_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
-                                               fcl_i32_t i);
+fcl_i32_t morpheus_ccl_column_indices_at_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A, fcl_i32_t i);
+fcl_r64_t morpheus_ccl_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                                 fcl_i32_t i);
 
-fcl_vec_dense_i32_i32_r_h* c_morpheus_row_indices_coo_r64_i32_r_h(
+fcl_vec_dense_i32_i32_r_h* morpheus_ccl_row_indices_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A);
-fcl_vec_dense_i32_i32_r_h* c_morpheus_column_indices_coo_r64_i32_r_h(
+fcl_vec_dense_i32_i32_r_h* morpheus_ccl_column_indices_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A);
-fcl_vec_dense_r64_i32_r_h* c_morpheus_values_coo_r64_i32_r_h(
+fcl_vec_dense_r64_i32_r_h* morpheus_ccl_values_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A);
 
-void c_morpheus_set_row_indices_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
-                                                   fcl_i32_t i, fcl_i32_t val);
-void c_morpheus_set_column_indices_at_coo_r64_i32_r_h(
+void morpheus_ccl_set_row_indices_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                                     fcl_i32_t i,
+                                                     fcl_i32_t val);
+void morpheus_ccl_set_column_indices_at_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A, fcl_i32_t i, fcl_i32_t val);
-void c_morpheus_set_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
-                                              fcl_i32_t i, fcl_r64_t val);
+void morpheus_ccl_set_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
+                                                fcl_i32_t i, fcl_r64_t val);
 
-void c_morpheus_sort_by_row_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
-void c_morpheus_sort_by_row_and_column_mat_coo_r64_i32_r_h(
+void morpheus_ccl_sort_by_row_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+void morpheus_ccl_sort_by_row_and_column_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A);
-fcl_bool_t c_morpheus_is_sorted_by_row_mat_coo_r64_i32_r_h(
+fcl_bool_t morpheus_ccl_is_sorted_by_row_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A);
-fcl_bool_t c_morpheus_is_sorted_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+fcl_bool_t morpheus_ccl_is_sorted_mat_coo_r64_i32_r_h(
+    fcl_mat_coo_r64_i32_r_h* A);
 
 // Other Routines
-fcl_formats_e c_morpheus_format_enum_mat_coo_r64_i32_r_h(
+fcl_formats_e morpheus_ccl_format_enum_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A);
-int c_morpheus_format_index_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
+int morpheus_ccl_format_index_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
 
 #ifdef __cplusplus
 }
