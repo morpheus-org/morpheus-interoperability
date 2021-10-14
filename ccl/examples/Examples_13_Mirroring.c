@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-#include "Fcl_C.hpp"
+#include <Morpheus_Ccl.hpp>
 
 #include <stdio.h>
 #include <string.h>

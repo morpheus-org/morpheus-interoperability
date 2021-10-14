@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-#include "Fcl_C.hpp"
+#include <Morpheus_Ccl.hpp>
 
 using dyn = fcl_mat_dyn_r64_i32_r_h;
 using coo = fcl_mat_coo_r64_i32_r_h;

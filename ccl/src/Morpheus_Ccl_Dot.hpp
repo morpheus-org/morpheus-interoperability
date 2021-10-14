@@ -1,5 +1,5 @@
 /**
- * Examples_01_initialize.cpp
+ * Morpheus_Ccl_Dot.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,12 +21,21 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl.hpp>
+#ifndef MORPHEUS_CCL_DOT_HPP
+#define MORPHEUS_CCL_DOT_HPP
 
-int main() {
-  c_morpheus_initialize_without_args();
+#include <Morpheus_Ccl_DenseVector.hpp>
 
-  c_morpheus_finalize();
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-  return 0;
+fcl_r64_t c_morpheus_dot_vec_dense_vec_dense_r64_i32_r_h_serial(
+    fcl_i32_t n, const fcl_vec_dense_r64_i32_r_h* x,
+    const fcl_vec_dense_r64_i32_r_h* y);
+
+#ifdef __cplusplus
 }
+#endif
+
+#endif  // MORPHEUS_CCL_DOT_HPP

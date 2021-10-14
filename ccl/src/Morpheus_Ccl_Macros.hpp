@@ -1,5 +1,5 @@
 /**
- * Examples_01_initialize.cpp
+ * Morpheus_Ccl_Macros.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,12 +21,9 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl.hpp>
+#ifndef MORPHEUS_CCL_MACROS_HPP
+#define MORPHEUS_CCL_MACROS_HPP
 
-int main() {
-  c_morpheus_initialize_without_args();
+#include <MorpheusCcl_config.hpp>
 
-  c_morpheus_finalize();
-
-  return 0;
-}
+#endif  // MORPHEUS_CCL_MACROS_HPP

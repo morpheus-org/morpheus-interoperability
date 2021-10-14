@@ -1,5 +1,5 @@
 /**
- * Examples_01_initialize.cpp
+ * Morpheus_Ccl_Fwd_CooMatrix.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,12 +21,21 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl.hpp>
+#ifndef MORPHEUS_CCL_FWD_COOMATRIX_HPP
+#define MORPHEUS_CCL_FWD_COOMATRIX_HPP
 
-int main() {
-  c_morpheus_initialize_without_args();
+#include <Morpheus_Ccl_Types.hpp>
 
-  c_morpheus_finalize();
+#ifdef __cplusplus
+#include <Morpheus_Core.hpp>
 
-  return 0;
-}
+typedef Morpheus::CooMatrix<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
+    fcl_mat_coo_r64_i32_r_h;
+typedef typename fcl_mat_coo_r64_i32_r_h::HostMirror
+    fcl_mat_coo_hostmirror_r64_i32_r_h;
+#else
+typedef struct Morpheus_CooMatrix_r64_i32_r_h fcl_mat_coo_r64_i32_r_h;
+typedef fcl_mat_coo_r64_i32_r_h fcl_mat_coo_hostmirror_r64_i32_r_h;
+#endif
+
+#endif  // MORPHEUS_CCL_FWD_COOMATRIX_HPP

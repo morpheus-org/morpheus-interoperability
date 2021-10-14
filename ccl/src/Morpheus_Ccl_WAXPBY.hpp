@@ -1,5 +1,5 @@
 /**
- * Examples_01_initialize.cpp
+ * Morpheus_Ccl_WAXPBY.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,12 +21,22 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl.hpp>
+#ifndef MORPHEUS_CCL_WAXPBY_HPP
+#define MORPHEUS_CCL_WAXPBY_HPP
 
-int main() {
-  c_morpheus_initialize_without_args();
+#include <Morpheus_Ccl_DenseVector.hpp>
 
-  c_morpheus_finalize();
+#ifdef __cplusplus
+extern "C" {
+#endif
 
-  return 0;
+void c_morpheus_waxpby_vec_dense_vec_dense_r64_i32_r_h_serial(
+    fcl_i32_t n, fcl_r64_t alpha, const fcl_vec_dense_r64_i32_r_h* x,
+    fcl_r64_t beta, const fcl_vec_dense_r64_i32_r_h* y,
+    fcl_vec_dense_r64_i32_r_h* w);
+
+#ifdef __cplusplus
 }
+#endif
+
+#endif  // MORPHEUS_CCL_WAXPBY_HPP

@@ -1,5 +1,5 @@
 /**
- * Examples_01_initialize.cpp
+ * Morpheus_Ccl_Print.cpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,12 +21,28 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl.hpp>
+#include <Morpheus_Ccl_Print.hpp>
 
-int main() {
-  c_morpheus_initialize_without_args();
+void c_morpheus_print_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v) {
+  Morpheus::print(*v);
+}
 
-  c_morpheus_finalize();
+void c_morpheus_print_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A) {
+  Morpheus::print(*A);
+}
 
-  return 0;
+void c_morpheus_print_mat_csr_r64_i32_r_h(fcl_mat_csr_r64_i32_r_h* A) {
+  Morpheus::print(*A);
+}
+
+void c_morpheus_print_mat_dense_r64_i32_r_h(fcl_mat_dense_r64_i32_r_h* A) {
+  Morpheus::print(*A);
+}
+
+void c_morpheus_print_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
+  Morpheus::print(*A);
+}
+
+void c_morpheus_print_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A) {
+  Morpheus::print(*A);
 }

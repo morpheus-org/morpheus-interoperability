@@ -1,5 +1,5 @@
 /**
- * Examples_01_initialize.cpp
+ * Morpheus_Ccl_Dot.cpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,12 +21,10 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl.hpp>
+#include <Morpheus_Ccl_Dot.hpp>
 
-int main() {
-  c_morpheus_initialize_without_args();
-
-  c_morpheus_finalize();
-
-  return 0;
+fcl_r64_t c_morpheus_dot_vec_dense_vec_dense_r64_i32_r_h_serial(
+    fcl_i32_t n, const fcl_vec_dense_r64_i32_r_h* x,
+    const fcl_vec_dense_r64_i32_r_h* y) {
+  return Morpheus::dot<fcl_serial_t>(n, *x, *y);
 }
