@@ -7,4 +7,4 @@ SET(Fcl_VERSION_MINOR   @Mcl_VERSION_MINOR@)
 SET(Fcl_VERSION_PATCH   @Mcl_VERSION_PATCH@)
 SET(FCL_VERSION  @MCL_VERSION@)
 
-check_required_components("@PROJECT_NAME@")
+INCLUDE("${Mcl_CMAKE_DIR}/MorpheusTargets.cmake")

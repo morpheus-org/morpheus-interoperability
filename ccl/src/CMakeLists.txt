@@ -1,3 +1,4 @@
+include(../../cmake/mcl_set_types.cmake)
 mcl_configure_file(MorpheusCcl_config.hpp)
 
 mcl_include_directories(${CMAKE_CURRENT_BINARY_DIR} ${CMAKE_CURRENT_SOURCE_DIR}
