@@ -30,12 +30,11 @@
 #include <Morpheus_Core.hpp>
 
 typedef Morpheus::CsrMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_host_t>
-    fcl_mat_csr_r64_i32_r_h;
-typedef typename fcl_mat_csr_r64_i32_r_h::HostMirror
-    fcl_mat_csr_hostmirror_r64_i32_r_h;
+    ccl_mat_csr;
+typedef typename ccl_mat_csr::HostMirror ccl_mat_csr_hostmirror;
 #else
-typedef struct Morpheus_CsrMatrix_r64_i32_r_h fcl_mat_csr_r64_i32_r_h;
-typedef fcl_mat_csr_r64_i32_r_h fcl_mat_csr_hostmirror_r64_i32_r_h;
+typedef struct Morpheus_CsrMatrix ccl_mat_csr;
+typedef ccl_mat_csr ccl_mat_csr_hostmirror;
 #endif
 
 #endif  // MORPHEUS_CCL_FWD_CSRMATRIX_HPP

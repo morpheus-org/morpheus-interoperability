@@ -30,21 +30,21 @@
 extern "C" {
 #endif
 
-void morpheus_ccl_inclusive_scan_vec_dense_vec_dense_r64_i32_r_h_serial(
-    const fcl_vec_dense_r64_i32_r_h* in, fcl_vec_dense_r64_i32_r_h* out,
+void morpheus_ccl_inclusive_scan_vec_dense_vec_dense_serial(
+    const ccl_vec_dense* in, ccl_vec_dense* out, ccl_index_t size,
+    ccl_index_t start);
+
+void morpheus_ccl_exclusive_scan_vec_dense_vec_dense_serial(
+    const ccl_vec_dense* in, ccl_vec_dense* out, ccl_index_t size,
+    ccl_index_t start);
+
+void morpheus_ccl_inclusive_scan_by_key_vec_dense_vec_dense_serial(
+    const ccl_vec_dense* keys, const ccl_vec_dense* in, ccl_vec_dense* out,
     ccl_index_t size, ccl_index_t start);
 
-void morpheus_ccl_exclusive_scan_vec_dense_vec_dense_r64_i32_r_h_serial(
-    const fcl_vec_dense_r64_i32_r_h* in, fcl_vec_dense_r64_i32_r_h* out,
+void morpheus_ccl_exclusive_scan_by_key_vec_dense_vec_dense_serial(
+    const ccl_vec_dense* keys, const ccl_vec_dense* in, ccl_vec_dense* out,
     ccl_index_t size, ccl_index_t start);
-
-void morpheus_ccl_inclusive_scan_by_key_vec_dense_vec_dense_r64_i32_r_h_serial(
-    const fcl_vec_dense_r64_i32_r_h* keys, const fcl_vec_dense_r64_i32_r_h* in,
-    fcl_vec_dense_r64_i32_r_h* out, ccl_index_t size, ccl_index_t start);
-
-void morpheus_ccl_exclusive_scan_by_key_vec_dense_vec_dense_r64_i32_r_h_serial(
-    const fcl_vec_dense_r64_i32_r_h* keys, const fcl_vec_dense_r64_i32_r_h* in,
-    fcl_vec_dense_r64_i32_r_h* out, ccl_index_t size, ccl_index_t start);
 
 #ifdef __cplusplus
 }

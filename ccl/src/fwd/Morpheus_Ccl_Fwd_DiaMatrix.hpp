@@ -30,12 +30,11 @@
 #include <Morpheus_Core.hpp>
 
 typedef Morpheus::DiaMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_host_t>
-    fcl_mat_dia_r64_i32_r_h;
-typedef typename fcl_mat_dia_r64_i32_r_h::HostMirror
-    fcl_mat_dia_hostmirror_r64_i32_r_h;
+    ccl_mat_dia;
+typedef typename ccl_mat_dia::HostMirror ccl_mat_dia_hostmirror;
 #else
-typedef struct Morpheus_DiaMatrix_r64_i32_r_h fcl_mat_dia_r64_i32_r_h;
-typedef fcl_mat_dia_r64_i32_r_h fcl_mat_dia_hostmirror_r64_i32_r_h;
+typedef struct Morpheus_DiaMatrix ccl_mat_dia;
+typedef ccl_mat_dia ccl_mat_dia_hostmirror;
 #endif
 
 #endif  // MORPHEUS_CCL_FWD_DIAMATRIX_HPP

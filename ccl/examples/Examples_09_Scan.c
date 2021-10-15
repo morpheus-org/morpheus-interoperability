@@ -25,51 +25,51 @@
 
 #include <stdio.h>
 #include <string.h>
-typedef fcl_vec_dense_r64_i32_r_h vec;
+typedef ccl_vec_dense vec;
 
 int main() {
   morpheus_ccl_initialize_without_args();
   {
     vec *in, *out, *keys;
     ccl_index_t size = 10;
-    morpheus_ccl_create_vec_dense_r64_i32_r_h(&in, size, 1);
-    morpheus_ccl_create_vec_dense_r64_i32_r_h(&out, size, 0);
-    morpheus_ccl_create_vec_dense_r64_i32_r_h(&keys, size, 0);
+    morpheus_ccl_create_vec_dense(&in, size, 1);
+    morpheus_ccl_create_vec_dense(&out, size, 0);
+    morpheus_ccl_create_vec_dense(&keys, size, 0);
 
-    morpheus_ccl_inclusive_scan_vec_dense_vec_dense_r64_i32_r_h_serial(in, out, size, 0);
+    morpheus_ccl_inclusive_scan_vec_dense_vec_dense_serial(in, out, size, 0);
 
     printf("Inclusive Scan:\n");
-    morpheus_ccl_print_vec_dense_r64_i32_r_h(out);
+    morpheus_ccl_print_vec_dense(out);
 
-    morpheus_ccl_exclusive_scan_vec_dense_vec_dense_r64_i32_r_h_serial(in, out, size, 0);
+    morpheus_ccl_exclusive_scan_vec_dense_vec_dense_serial(in, out, size, 0);
 
     printf("Exclusive Scan:\n");
-    morpheus_ccl_print_vec_dense_r64_i32_r_h(out);
+    morpheus_ccl_print_vec_dense(out);
 
-    morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(keys, 0, 0);
-    morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(keys, 1, 0);
-    morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(keys, 2, 0);
-    morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(keys, 3, 1);
-    morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(keys, 4, 1);
-    morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(keys, 5, 2);
-    morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(keys, 6, 3);
-    morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(keys, 7, 3);
-    morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(keys, 8, 3);
-    morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(keys, 9, 3);
+    morpheus_ccl_set_values_at_vec_dense(keys, 0, 0);
+    morpheus_ccl_set_values_at_vec_dense(keys, 1, 0);
+    morpheus_ccl_set_values_at_vec_dense(keys, 2, 0);
+    morpheus_ccl_set_values_at_vec_dense(keys, 3, 1);
+    morpheus_ccl_set_values_at_vec_dense(keys, 4, 1);
+    morpheus_ccl_set_values_at_vec_dense(keys, 5, 2);
+    morpheus_ccl_set_values_at_vec_dense(keys, 6, 3);
+    morpheus_ccl_set_values_at_vec_dense(keys, 7, 3);
+    morpheus_ccl_set_values_at_vec_dense(keys, 8, 3);
+    morpheus_ccl_set_values_at_vec_dense(keys, 9, 3);
 
-    morpheus_ccl_inclusive_scan_by_key_vec_dense_vec_dense_r64_i32_r_h_serial(keys, in, out, size, 0);
+    morpheus_ccl_inclusive_scan_by_key_vec_dense_vec_dense_serial(keys, in, out, size, 0);
 
     printf("Inclusive Scan by key:\n");
-    morpheus_ccl_print_vec_dense_r64_i32_r_h(out);
+    morpheus_ccl_print_vec_dense(out);
 
-    morpheus_ccl_exclusive_scan_by_key_vec_dense_vec_dense_r64_i32_r_h_serial(keys,in, out, size, 0);
+    morpheus_ccl_exclusive_scan_by_key_vec_dense_vec_dense_serial(keys,in, out, size, 0);
 
     printf("Exclusive Scan by key:\n");
-    morpheus_ccl_print_vec_dense_r64_i32_r_h(out);
+    morpheus_ccl_print_vec_dense(out);
 
-    morpheus_ccl_destroy_vec_dense_r64_i32_r_h(&in);
-    morpheus_ccl_destroy_vec_dense_r64_i32_r_h(&out);
-    morpheus_ccl_destroy_vec_dense_r64_i32_r_h(&keys);
+    morpheus_ccl_destroy_vec_dense(&in);
+    morpheus_ccl_destroy_vec_dense(&out);
+    morpheus_ccl_destroy_vec_dense(&keys);
   }
   morpheus_ccl_finalize();
 

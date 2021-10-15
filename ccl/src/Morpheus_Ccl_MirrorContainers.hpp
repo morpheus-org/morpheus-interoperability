@@ -35,53 +35,41 @@
 extern "C" {
 #endif
 
-fcl_mat_coo_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_mat_coo_r64_i32_r_h_serial(
-    fcl_mat_coo_r64_i32_r_h* src);
+ccl_mat_coo_hostmirror* morpheus_ccl_create_mirror_mat_coo_serial(
+    ccl_mat_coo* src);
 
-fcl_mat_csr_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_mat_csr_r64_i32_r_h_serial(
-    fcl_mat_csr_r64_i32_r_h* src);
+ccl_mat_csr_hostmirror* morpheus_ccl_create_mirror_mat_csr_serial(
+    ccl_mat_csr* src);
 
-fcl_mat_dia_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_mat_dia_r64_i32_r_h_serial(
-    fcl_mat_dia_r64_i32_r_h* src);
+ccl_mat_dia_hostmirror* morpheus_ccl_create_mirror_mat_dia_serial(
+    ccl_mat_dia* src);
 
-fcl_mat_dense_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_mat_dense_r64_i32_r_h_serial(
-    fcl_mat_dense_r64_i32_r_h* src);
+ccl_mat_dense_hostmirror* morpheus_ccl_create_mirror_mat_dense_serial(
+    ccl_mat_dense* src);
 
-fcl_vec_dense_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_vec_dense_r64_i32_r_h_serial(
-    fcl_vec_dense_r64_i32_r_h* src);
+ccl_vec_dense_hostmirror* morpheus_ccl_create_mirror_vec_dense_serial(
+    ccl_vec_dense* src);
 
-fcl_mat_dyn_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_mat_dyn_r64_i32_r_h_serial(
-    fcl_mat_dyn_r64_i32_r_h* src);
+ccl_mat_dyn_hostmirror* morpheus_ccl_create_mirror_mat_dyn_serial(
+    ccl_mat_dyn* src);
 
-fcl_mat_coo_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_mat_coo_r64_i32_r_h_serial(
-    fcl_mat_coo_r64_i32_r_h* src);
+ccl_mat_coo* morpheus_ccl_create_mirror_container_mat_coo_serial(
+    ccl_mat_coo* src);
 
-fcl_mat_csr_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_mat_csr_r64_i32_r_h_serial(
-    fcl_mat_csr_r64_i32_r_h* src);
+ccl_mat_csr* morpheus_ccl_create_mirror_container_mat_csr_serial(
+    ccl_mat_csr* src);
 
-fcl_mat_dia_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_mat_dia_r64_i32_r_h_serial(
-    fcl_mat_dia_r64_i32_r_h* src);
+ccl_mat_dia* morpheus_ccl_create_mirror_container_mat_dia_serial(
+    ccl_mat_dia* src);
 
-fcl_mat_dense_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_mat_dense_r64_i32_r_h_serial(
-    fcl_mat_dense_r64_i32_r_h* src);
+ccl_mat_dense* morpheus_ccl_create_mirror_container_mat_dense_serial(
+    ccl_mat_dense* src);
 
-fcl_vec_dense_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_vec_dense_r64_i32_r_h_serial(
-    fcl_vec_dense_r64_i32_r_h* src);
+ccl_vec_dense* morpheus_ccl_create_mirror_container_vec_dense_serial(
+    ccl_vec_dense* src);
 
-fcl_mat_dyn_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_mat_dyn_r64_i32_r_h_serial(
-    fcl_mat_dyn_r64_i32_r_h* src);
+ccl_mat_dyn* morpheus_ccl_create_mirror_container_mat_dyn_serial(
+    ccl_mat_dyn* src);
 
 #ifdef __cplusplus
 }

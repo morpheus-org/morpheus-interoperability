@@ -23,26 +23,14 @@
 
 #include <Morpheus_Ccl_Print.hpp>
 
-void morpheus_ccl_print_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v) {
-  Morpheus::print(*v);
-}
+void morpheus_ccl_print_vec_dense(ccl_vec_dense* v) { Morpheus::print(*v); }
 
-void morpheus_ccl_print_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A) {
-  Morpheus::print(*A);
-}
+void morpheus_ccl_print_mat_coo(ccl_mat_coo* A) { Morpheus::print(*A); }
 
-void morpheus_ccl_print_mat_csr_r64_i32_r_h(fcl_mat_csr_r64_i32_r_h* A) {
-  Morpheus::print(*A);
-}
+void morpheus_ccl_print_mat_csr(ccl_mat_csr* A) { Morpheus::print(*A); }
 
-void morpheus_ccl_print_mat_dense_r64_i32_r_h(fcl_mat_dense_r64_i32_r_h* A) {
-  Morpheus::print(*A);
-}
+void morpheus_ccl_print_mat_dense(ccl_mat_dense* A) { Morpheus::print(*A); }
 
-void morpheus_ccl_print_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A) {
-  Morpheus::print(*A);
-}
+void morpheus_ccl_print_mat_dia(ccl_mat_dia* A) { Morpheus::print(*A); }
 
-void morpheus_ccl_print_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A) {
-  Morpheus::print(*A);
-}
+void morpheus_ccl_print_mat_dyn(ccl_mat_dyn* A) { Morpheus::print(*A); }

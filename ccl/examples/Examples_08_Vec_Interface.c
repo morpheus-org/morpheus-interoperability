@@ -25,51 +25,51 @@
 
 #include <stdio.h>
 #include <string.h>
-typedef fcl_vec_dense_r64_i32_r_h vec;
+typedef ccl_vec_dense vec;
 
 int main() {
   morpheus_ccl_initialize_without_args();
   {
     vec *x, *y, *w;
 
-    morpheus_ccl_create_vec_dense_r64_i32_r_h(&x, 10, 3);
-    morpheus_ccl_create_vec_dense_r64_i32_r_h(&y, 10, 5);
-    morpheus_ccl_create_vec_dense_r64_i32_r_h(&w, 10, 0);
+    morpheus_ccl_create_vec_dense(&x, 10, 3);
+    morpheus_ccl_create_vec_dense(&y, 10, 5);
+    morpheus_ccl_create_vec_dense(&w, 10, 0);
 
-    printf("<x,y> = %f\n", morpheus_ccl_dot_vec_dense_vec_dense_r64_i32_r_h_serial(10, x, y));
-    morpheus_ccl_waxpby_vec_dense_vec_dense_r64_i32_r_h_serial(10, 1.0, x, 2.0, y, w);
-    morpheus_ccl_print_vec_dense_r64_i32_r_h(w);
+    printf("<x,y> = %f\n", morpheus_ccl_dot_vec_dense_vec_dense_serial(10, x, y));
+    morpheus_ccl_waxpby_vec_dense_vec_dense_serial(10, 1.0, x, 2.0, y, w);
+    morpheus_ccl_print_vec_dense(w);
 
-    printf("Reduced(w) = %f\n", morpheus_ccl_reduce_vec_dense_vec_dense_r64_i32_r_h_serial(w, 10));
+    printf("Reduced(w) = %f\n", morpheus_ccl_reduce_vec_dense_vec_dense_serial(w, 10));
     
-    morpheus_ccl_assign_vec_dense_r64_i32_r_h(y, 5, 2.5);
+    morpheus_ccl_assign_vec_dense(y, 5, 2.5);
 
-    morpheus_ccl_print_vec_dense_r64_i32_r_h(y);
+    morpheus_ccl_print_vec_dense(y);
 
-    ccl_index_t xsize = morpheus_ccl_size_vec_dense_r64_i32_r_h(x);
-    ccl_value_t* xdata = morpheus_ccl_data_vec_dense_r64_i32_r_h(x);
+    ccl_index_t xsize = morpheus_ccl_size_vec_dense(x);
+    ccl_value_t* xdata = morpheus_ccl_data_vec_dense(x);
 
     printf("x:: Size = %d\nx::vals::\n", xsize);
     for(int i=0; i<xsize; i++){
       printf("\t[%d] %3.1f\n", i, xdata[i]);
     }
 
-    morpheus_ccl_resize_vec_dense_r64_i32_r_h(x, 2);
-    morpheus_ccl_print_vec_dense_r64_i32_r_h(x);
+    morpheus_ccl_resize_vec_dense(x, 2);
+    morpheus_ccl_print_vec_dense(x);
 
-    morpheus_ccl_resize_fill_vec_dense_r64_i32_r_h(x, 9, -8.2);
-    morpheus_ccl_print_vec_dense_r64_i32_r_h(x);
+    morpheus_ccl_resize_fill_vec_dense(x, 9, -8.2);
+    morpheus_ccl_print_vec_dense(x);
 
     vec *z;
     
-    morpheus_ccl_create_default_vec_dense_r64_i32_r_h(&z);
-    morpheus_ccl_allocate_vec_dense_from_vec_dense_r64_i32_r_h(y, z);
-    morpheus_ccl_print_vec_dense_r64_i32_r_h(z);
+    morpheus_ccl_create_default_vec_dense(&z);
+    morpheus_ccl_allocate_vec_dense_from_vec_dense(y, z);
+    morpheus_ccl_print_vec_dense(z);
 
-    morpheus_ccl_destroy_vec_dense_r64_i32_r_h(&x);
-    morpheus_ccl_destroy_vec_dense_r64_i32_r_h(&y);
-    morpheus_ccl_destroy_vec_dense_r64_i32_r_h(&w);
-    morpheus_ccl_destroy_vec_dense_r64_i32_r_h(&z);
+    morpheus_ccl_destroy_vec_dense(&x);
+    morpheus_ccl_destroy_vec_dense(&y);
+    morpheus_ccl_destroy_vec_dense(&w);
+    morpheus_ccl_destroy_vec_dense(&z);
   }
   morpheus_ccl_finalize();
 

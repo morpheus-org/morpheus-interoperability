@@ -25,11 +25,11 @@
 
 #include <stdio.h>
 #include <string.h>
-typedef fcl_mat_dyn_r64_i32_r_h dyn;
-typedef fcl_mat_coo_r64_i32_r_h coo;
-typedef fcl_mat_csr_r64_i32_r_h csr;
-typedef fcl_mat_dia_r64_i32_r_h dia;
-typedef fcl_vec_dense_r64_i32_r_h vec;
+typedef ccl_mat_dyn dyn;
+typedef ccl_mat_coo coo;
+typedef ccl_mat_csr csr;
+typedef ccl_mat_dia dia;
+typedef ccl_vec_dense vec;
 
 int main() {
   morpheus_ccl_initialize_without_args();
@@ -39,29 +39,29 @@ int main() {
     vec *x, *y;
     dyn *A;
     
-    morpheus_ccl_create_mat_dia_r64_i32_r_h(&Adia, 4, 3, 6, 3);
+    morpheus_ccl_create_mat_dia(&Adia, 4, 3, 6, 3);
 
     // Diagonal offsets
-    morpheus_ccl_set_diagonal_offests_at_dia_r64_i32_r_h(Adia, 0, -2);
-    morpheus_ccl_set_diagonal_offests_at_dia_r64_i32_r_h(Adia, 1, 0);
-    morpheus_ccl_set_diagonal_offests_at_dia_r64_i32_r_h(Adia, 2, 1);
+    morpheus_ccl_set_diagonal_offests_at_dia(Adia, 0, -2);
+    morpheus_ccl_set_diagonal_offests_at_dia(Adia, 1, 0);
+    morpheus_ccl_set_diagonal_offests_at_dia(Adia, 2, 1);
     // First Diagonal
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 0, 0, -1);
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 1, 0, -1);
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 2, 0, 40);
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 3, 0, 60);
+    morpheus_ccl_set_values_at_dia(Adia, 0, 0, -1);
+    morpheus_ccl_set_values_at_dia(Adia, 1, 0, -1);
+    morpheus_ccl_set_values_at_dia(Adia, 2, 0, 40);
+    morpheus_ccl_set_values_at_dia(Adia, 3, 0, 60);
     // Second Diagonal
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 0, 1, 10);
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 1, 1, 0);
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 2, 1, 50);
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 3, 1, -2);
+    morpheus_ccl_set_values_at_dia(Adia, 0, 1, 10);
+    morpheus_ccl_set_values_at_dia(Adia, 1, 1, 0);
+    morpheus_ccl_set_values_at_dia(Adia, 2, 1, 50);
+    morpheus_ccl_set_values_at_dia(Adia, 3, 1, -2);
     // Third Diagonal
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 0, 2, 20);
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 1, 2, 30);
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 2, 2, -3);
-    morpheus_ccl_set_values_at_dia_r64_i32_r_h(Adia, 3, 2, -3);
+    morpheus_ccl_set_values_at_dia(Adia, 0, 2, 20);
+    morpheus_ccl_set_values_at_dia(Adia, 1, 2, 30);
+    morpheus_ccl_set_values_at_dia(Adia, 2, 2, -3);
+    morpheus_ccl_set_values_at_dia(Adia, 3, 2, -3);
 
-    morpheus_ccl_create_mat_csr_r64_i32_r_h(&Acsr, 4, 3, 6);
+    morpheus_ccl_create_mat_csr(&Acsr, 4, 3, 6);
     // Simple Matrix
     //    [10 20 00]
     //    [00 00 30]
@@ -71,42 +71,42 @@ int main() {
     // Row Offsets: [0, 2, 3, 5, 6]
     // Column Indices: [0, 1, 2, 0, 2, 1]
     // Values: [10, 20, 30, 40, 50, 60]
-    morpheus_ccl_set_row_offsets_at_csr_r64_i32_r_h(Acsr, 0, 0);
-    morpheus_ccl_set_row_offsets_at_csr_r64_i32_r_h(Acsr, 1, 2);
-    morpheus_ccl_set_row_offsets_at_csr_r64_i32_r_h(Acsr, 2, 3);
-    morpheus_ccl_set_row_offsets_at_csr_r64_i32_r_h(Acsr, 3, 5);
-    morpheus_ccl_set_row_offsets_at_csr_r64_i32_r_h(Acsr, 4, 6);
+    morpheus_ccl_set_row_offsets_at_csr(Acsr, 0, 0);
+    morpheus_ccl_set_row_offsets_at_csr(Acsr, 1, 2);
+    morpheus_ccl_set_row_offsets_at_csr(Acsr, 2, 3);
+    morpheus_ccl_set_row_offsets_at_csr(Acsr, 3, 5);
+    morpheus_ccl_set_row_offsets_at_csr(Acsr, 4, 6);
     
-    morpheus_ccl_set_column_indices_at_csr_r64_i32_r_h(Acsr, 0, 0);
-    morpheus_ccl_set_column_indices_at_csr_r64_i32_r_h(Acsr, 1, 1);
-    morpheus_ccl_set_column_indices_at_csr_r64_i32_r_h(Acsr, 2, 2);
-    morpheus_ccl_set_column_indices_at_csr_r64_i32_r_h(Acsr, 3, 0);
-    morpheus_ccl_set_column_indices_at_csr_r64_i32_r_h(Acsr, 4, 2);
-    morpheus_ccl_set_column_indices_at_csr_r64_i32_r_h(Acsr, 5, 1);
+    morpheus_ccl_set_column_indices_at_csr(Acsr, 0, 0);
+    morpheus_ccl_set_column_indices_at_csr(Acsr, 1, 1);
+    morpheus_ccl_set_column_indices_at_csr(Acsr, 2, 2);
+    morpheus_ccl_set_column_indices_at_csr(Acsr, 3, 0);
+    morpheus_ccl_set_column_indices_at_csr(Acsr, 4, 2);
+    morpheus_ccl_set_column_indices_at_csr(Acsr, 5, 1);
     
-    morpheus_ccl_set_values_at_csr_r64_i32_r_h(Acsr, 0, 10);
-    morpheus_ccl_set_values_at_csr_r64_i32_r_h(Acsr, 1, 20);
-    morpheus_ccl_set_values_at_csr_r64_i32_r_h(Acsr, 2, 30);
-    morpheus_ccl_set_values_at_csr_r64_i32_r_h(Acsr, 3, 40);
-    morpheus_ccl_set_values_at_csr_r64_i32_r_h(Acsr, 4, 50);
-    morpheus_ccl_set_values_at_csr_r64_i32_r_h(Acsr, 5, 60);
+    morpheus_ccl_set_values_at_csr(Acsr, 0, 10);
+    morpheus_ccl_set_values_at_csr(Acsr, 1, 20);
+    morpheus_ccl_set_values_at_csr(Acsr, 2, 30);
+    morpheus_ccl_set_values_at_csr(Acsr, 3, 40);
+    morpheus_ccl_set_values_at_csr(Acsr, 4, 50);
+    morpheus_ccl_set_values_at_csr(Acsr, 5, 60);
 
-    morpheus_ccl_create_vec_dense_r64_i32_r_h(&x, 3, 3);
-    morpheus_ccl_create_vec_dense_r64_i32_r_h(&y, 4, 0);
+    morpheus_ccl_create_vec_dense(&x, 3, 3);
+    morpheus_ccl_create_vec_dense(&y, 4, 0);
 
-    morpheus_ccl_create_mat_dyn_from_mat_r64_i32_r_h(Adia, DIA_FORMAT, &A);
+    morpheus_ccl_create_mat_dyn_from_mat(Adia, DIA_FORMAT, &A);
 
-    morpheus_ccl_multiply_mat_dyn_vec_dense_vec_dense_r64_i32_r_h_serial(A, x,
+    morpheus_ccl_multiply_mat_dyn_vec_dense_vec_dense_serial(A, x,
                                                                        y);
 
-    morpheus_ccl_print_mat_dyn_r64_i32_r_h(A);
+    morpheus_ccl_print_mat_dyn(A);
 
-    morpheus_ccl_assign_mat_dyn_from_mat_r64_i32_r_h(Acsr, CSR_FORMAT, A);
-    morpheus_ccl_print_mat_dyn_r64_i32_r_h(A);
+    morpheus_ccl_assign_mat_dyn_from_mat(Acsr, CSR_FORMAT, A);
+    morpheus_ccl_print_mat_dyn(A);
 
-    morpheus_ccl_destroy_mat_dia_r64_i32_r_h(&Adia);
-    morpheus_ccl_destroy_vec_dense_r64_i32_r_h(&x);
-    morpheus_ccl_destroy_vec_dense_r64_i32_r_h(&y);
+    morpheus_ccl_destroy_mat_dia(&Adia);
+    morpheus_ccl_destroy_vec_dense(&x);
+    morpheus_ccl_destroy_vec_dense(&y);
   }
   morpheus_ccl_finalize();
 

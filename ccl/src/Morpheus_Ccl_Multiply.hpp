@@ -34,21 +34,21 @@
 extern "C" {
 #endif
 
-void morpheus_ccl_multiply_mat_coo_vec_dense_vec_dense_r64_i32_r_h_serial(
-    fcl_mat_coo_r64_i32_r_h* A, fcl_vec_dense_r64_i32_r_h* x,
-    fcl_vec_dense_r64_i32_r_h* y);
+void morpheus_ccl_multiply_mat_coo_vec_dense_vec_dense_serial(ccl_mat_coo* A,
+                                                              ccl_vec_dense* x,
+                                                              ccl_vec_dense* y);
 
-void morpheus_ccl_multiply_mat_csr_vec_dense_vec_dense_r64_i32_r_h_serial(
-    fcl_mat_csr_r64_i32_r_h* A, fcl_vec_dense_r64_i32_r_h* x,
-    fcl_vec_dense_r64_i32_r_h* y);
+void morpheus_ccl_multiply_mat_csr_vec_dense_vec_dense_serial(ccl_mat_csr* A,
+                                                              ccl_vec_dense* x,
+                                                              ccl_vec_dense* y);
 
-void morpheus_ccl_multiply_mat_dia_vec_dense_vec_dense_r64_i32_r_h_serial(
-    fcl_mat_dia_r64_i32_r_h* A, fcl_vec_dense_r64_i32_r_h* x,
-    fcl_vec_dense_r64_i32_r_h* y);
+void morpheus_ccl_multiply_mat_dia_vec_dense_vec_dense_serial(ccl_mat_dia* A,
+                                                              ccl_vec_dense* x,
+                                                              ccl_vec_dense* y);
 
-void morpheus_ccl_multiply_mat_dyn_vec_dense_vec_dense_r64_i32_r_h_serial(
-    fcl_mat_dyn_r64_i32_r_h* A, fcl_vec_dense_r64_i32_r_h* x,
-    fcl_vec_dense_r64_i32_r_h* y);
+void morpheus_ccl_multiply_mat_dyn_vec_dense_vec_dense_serial(ccl_mat_dyn* A,
+                                                              ccl_vec_dense* x,
+                                                              ccl_vec_dense* y);
 
 #ifdef __cplusplus
 }

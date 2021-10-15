@@ -23,98 +23,86 @@
 
 #include <Morpheus_Ccl_MirrorContainers.hpp>
 
-fcl_mat_coo_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_mat_coo_r64_i32_r_h_serial(
-    fcl_mat_coo_r64_i32_r_h* src) {
-  fcl_mat_coo_hostmirror_r64_i32_r_h mirror = Morpheus::create_mirror(*src);
+ccl_mat_coo_hostmirror* morpheus_ccl_create_mirror_mat_coo_serial(
+    ccl_mat_coo* src) {
+  ccl_mat_coo_hostmirror mirror = Morpheus::create_mirror(*src);
 
-  return (new fcl_mat_coo_hostmirror_r64_i32_r_h(mirror));
+  return (new ccl_mat_coo_hostmirror(mirror));
 }
 
-fcl_mat_csr_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_mat_csr_r64_i32_r_h_serial(
-    fcl_mat_csr_r64_i32_r_h* src) {
-  fcl_mat_csr_hostmirror_r64_i32_r_h mirror = Morpheus::create_mirror(*src);
+ccl_mat_csr_hostmirror* morpheus_ccl_create_mirror_mat_csr_serial(
+    ccl_mat_csr* src) {
+  ccl_mat_csr_hostmirror mirror = Morpheus::create_mirror(*src);
 
-  return (new fcl_mat_csr_hostmirror_r64_i32_r_h(mirror));
+  return (new ccl_mat_csr_hostmirror(mirror));
 }
 
-fcl_mat_dia_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_mat_dia_r64_i32_r_h_serial(
-    fcl_mat_dia_r64_i32_r_h* src) {
-  fcl_mat_dia_hostmirror_r64_i32_r_h mirror = Morpheus::create_mirror(*src);
+ccl_mat_dia_hostmirror* morpheus_ccl_create_mirror_mat_dia_serial(
+    ccl_mat_dia* src) {
+  ccl_mat_dia_hostmirror mirror = Morpheus::create_mirror(*src);
 
-  return (new fcl_mat_dia_hostmirror_r64_i32_r_h(mirror));
+  return (new ccl_mat_dia_hostmirror(mirror));
 }
 
-fcl_mat_dense_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_mat_dense_r64_i32_r_h_serial(
-    fcl_mat_dense_r64_i32_r_h* src) {
-  fcl_mat_dense_hostmirror_r64_i32_r_h mirror = Morpheus::create_mirror(*src);
+ccl_mat_dense_hostmirror* morpheus_ccl_create_mirror_mat_dense_serial(
+    ccl_mat_dense* src) {
+  ccl_mat_dense_hostmirror mirror = Morpheus::create_mirror(*src);
 
-  return (new fcl_mat_dense_hostmirror_r64_i32_r_h(mirror));
+  return (new ccl_mat_dense_hostmirror(mirror));
 }
 
-fcl_vec_dense_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_vec_dense_r64_i32_r_h_serial(
-    fcl_vec_dense_r64_i32_r_h* src) {
-  fcl_vec_dense_hostmirror_r64_i32_r_h mirror = Morpheus::create_mirror(*src);
+ccl_vec_dense_hostmirror* morpheus_ccl_create_mirror_vec_dense_serial(
+    ccl_vec_dense* src) {
+  ccl_vec_dense_hostmirror mirror = Morpheus::create_mirror(*src);
 
-  return (new fcl_vec_dense_hostmirror_r64_i32_r_h(mirror));
+  return (new ccl_vec_dense_hostmirror(mirror));
 }
 
-fcl_mat_dyn_hostmirror_r64_i32_r_h*
-morpheus_ccl_create_mirror_mat_dyn_r64_i32_r_h_serial(
-    fcl_mat_dyn_r64_i32_r_h* src) {
-  fcl_mat_dyn_hostmirror_r64_i32_r_h mirror = Morpheus::create_mirror(*src);
+ccl_mat_dyn_hostmirror* morpheus_ccl_create_mirror_mat_dyn_serial(
+    ccl_mat_dyn* src) {
+  ccl_mat_dyn_hostmirror mirror = Morpheus::create_mirror(*src);
 
-  return (new fcl_mat_dyn_hostmirror_r64_i32_r_h(mirror));
+  return (new ccl_mat_dyn_hostmirror(mirror));
 }
 
-fcl_mat_coo_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_mat_coo_r64_i32_r_h_serial(
-    fcl_mat_coo_r64_i32_r_h* src) {
-  fcl_mat_coo_r64_i32_r_h mirror = Morpheus::create_mirror_container(*src);
+ccl_mat_coo* morpheus_ccl_create_mirror_container_mat_coo_serial(
+    ccl_mat_coo* src) {
+  ccl_mat_coo mirror = Morpheus::create_mirror_container(*src);
 
-  return (new fcl_mat_coo_r64_i32_r_h(mirror));
+  return (new ccl_mat_coo(mirror));
 }
 
-fcl_mat_csr_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_mat_csr_r64_i32_r_h_serial(
-    fcl_mat_csr_r64_i32_r_h* src) {
-  fcl_mat_csr_r64_i32_r_h mirror = Morpheus::create_mirror_container(*src);
+ccl_mat_csr* morpheus_ccl_create_mirror_container_mat_csr_serial(
+    ccl_mat_csr* src) {
+  ccl_mat_csr mirror = Morpheus::create_mirror_container(*src);
 
-  return (new fcl_mat_csr_r64_i32_r_h(mirror));
+  return (new ccl_mat_csr(mirror));
 }
 
-fcl_mat_dia_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_mat_dia_r64_i32_r_h_serial(
-    fcl_mat_dia_r64_i32_r_h* src) {
-  fcl_mat_dia_r64_i32_r_h mirror = Morpheus::create_mirror_container(*src);
+ccl_mat_dia* morpheus_ccl_create_mirror_container_mat_dia_serial(
+    ccl_mat_dia* src) {
+  ccl_mat_dia mirror = Morpheus::create_mirror_container(*src);
 
-  return (new fcl_mat_dia_r64_i32_r_h(mirror));
+  return (new ccl_mat_dia(mirror));
 }
 
-fcl_mat_dense_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_mat_dense_r64_i32_r_h_serial(
-    fcl_mat_dense_r64_i32_r_h* src) {
-  fcl_mat_dense_r64_i32_r_h mirror = Morpheus::create_mirror_container(*src);
+ccl_mat_dense* morpheus_ccl_create_mirror_container_mat_dense_serial(
+    ccl_mat_dense* src) {
+  ccl_mat_dense mirror = Morpheus::create_mirror_container(*src);
 
-  return (new fcl_mat_dense_r64_i32_r_h(mirror));
+  return (new ccl_mat_dense(mirror));
 }
 
-fcl_vec_dense_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_vec_dense_r64_i32_r_h_serial(
-    fcl_vec_dense_r64_i32_r_h* src) {
-  fcl_vec_dense_r64_i32_r_h mirror = Morpheus::create_mirror_container(*src);
+ccl_vec_dense* morpheus_ccl_create_mirror_container_vec_dense_serial(
+    ccl_vec_dense* src) {
+  ccl_vec_dense mirror = Morpheus::create_mirror_container(*src);
 
-  return (new fcl_vec_dense_r64_i32_r_h(mirror));
+  return (new ccl_vec_dense(mirror));
 }
 
-fcl_mat_dyn_r64_i32_r_h*
-morpheus_ccl_create_mirror_container_mat_dyn_r64_i32_r_h_serial(
-    fcl_mat_dyn_r64_i32_r_h* src) {
-  fcl_mat_dyn_r64_i32_r_h mirror = Morpheus::create_mirror_container(*src);
+ccl_mat_dyn* morpheus_ccl_create_mirror_container_mat_dyn_serial(
+    ccl_mat_dyn* src) {
+  ccl_mat_dyn mirror = Morpheus::create_mirror_container(*src);
 
-  return (new fcl_mat_dyn_r64_i32_r_h(mirror));
+  return (new ccl_mat_dyn(mirror));
 }

@@ -23,9 +23,8 @@
 
 #include <Morpheus_Ccl_WAXPBY.hpp>
 
-void morpheus_ccl_waxpby_vec_dense_vec_dense_r64_i32_r_h_serial(
-    ccl_index_t n, ccl_value_t alpha, const fcl_vec_dense_r64_i32_r_h* x,
-    ccl_value_t beta, const fcl_vec_dense_r64_i32_r_h* y,
-    fcl_vec_dense_r64_i32_r_h* w) {
+void morpheus_ccl_waxpby_vec_dense_vec_dense_serial(
+    ccl_index_t n, ccl_value_t alpha, const ccl_vec_dense* x, ccl_value_t beta,
+    const ccl_vec_dense* y, ccl_vec_dense* w) {
   Morpheus::waxpby<ccl_host_t>(n, alpha, *x, beta, *y, *w);
 }

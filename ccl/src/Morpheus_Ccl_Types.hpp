@@ -78,28 +78,4 @@ typedef struct Ccl_Device ccl_dev_t;
 #endif  // MORPHEUS_ENABLE_CUDA
 #endif  //__cplusplus
 
-// #ifdef __cplusplus
-// typedef bool fcl_bool_t;
-// typedef std::size_t fcl_index_t;
-// #else
-// typedef size_t fcl_index_t;
-// typedef _Bool fcl_bool_t;
-// #endif
-
-// #ifdef __cplusplus
-// #include <Morpheus_Core.hpp>
-// // Kokkos Types
-// typedef Kokkos::LayoutLeft fcl_left_t;
-// typedef Kokkos::LayoutRight fcl_right_t;
-
-// typedef Kokkos::Serial fcl_serial_t;
-// typedef Kokkos::HostSpace fcl_host_t;
-// #else
-// typedef struct LayoutLeft fcl_left_t;
-// typedef struct LayoutRight fcl_right_t;
-
-// typedef struct Serial fcl_serial_t;
-// typedef struct HostSpace fcl_host_t;
-// #endif
-
 #endif  // MORPHEUS_CCL_TYPES_HPP
