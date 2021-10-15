@@ -29,7 +29,7 @@ void morpheus_ccl_create_default_vec_dense_r64_i32_r_h(
 }
 
 void morpheus_ccl_create_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v,
-                                               fcl_i32_t n, fcl_r64_t val) {
+                                               fcl_i32_t n, ccl_value_t val) {
   *v = (new fcl_vec_dense_r64_i32_r_h("fcl_vec_dense_r64_i32_r_h::", n, val));
 }
 
@@ -44,13 +44,14 @@ void morpheus_ccl_allocate_vec_dense_from_vec_dense_r64_i32_r_h(
 }
 
 void morpheus_ccl_assign_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
-                                               fcl_i32_t n, fcl_r64_t val) {
+                                               fcl_i32_t n, ccl_value_t val) {
   v->assign(n, val);
 }
 
 // TODO: Assign Random
 // void morpheus_ccl_assign_random_vec_dense_r64_i32_r_h(
-//     fcl_vec_dense_r64_i32_r_h* v, fcl_r64_t range_low, fcl_r64_t range_high);
+//     fcl_vec_dense_r64_i32_r_h* v, ccl_value_t range_low, ccl_value_t
+//     range_high);
 
 void morpheus_ccl_resize_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
                                                fcl_i32_t n) {
@@ -58,7 +59,7 @@ void morpheus_ccl_resize_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
 }
 
 void morpheus_ccl_resize_fill_vec_dense_r64_i32_r_h(
-    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t n, fcl_r64_t val) {
+    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t n, ccl_value_t val) {
   v->resize(n, val);
 }
 
@@ -71,12 +72,12 @@ fcl_i32_t morpheus_ccl_size_vec_dense_r64_i32_r_h(
   return v->size();
 }
 
-fcl_r64_t* morpheus_ccl_data_vec_dense_r64_i32_r_h(
+ccl_value_t* morpheus_ccl_data_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* v) {
   return v->data();
 }
 
-fcl_r64_t morpheus_ccl_values_at_vec_dense_r64_i32_r_h(
+ccl_value_t morpheus_ccl_values_at_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i) {
   return (*v)[i];
 }

@@ -91,8 +91,8 @@ void morpheus_ccl_set_alignment_mat_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
 
 fcl_i32_t morpheus_ccl_diagonal_offests_at_dia_r64_i32_r_h(
     fcl_mat_dia_r64_i32_r_h* A, fcl_i32_t i);
-fcl_r64_t morpheus_ccl_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
-                                                 fcl_i32_t i, fcl_i32_t j);
+ccl_value_t morpheus_ccl_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
+                                                   fcl_i32_t i, fcl_i32_t j);
 
 fcl_vec_dense_i32_i32_r_h* morpheus_ccl_diagonal_offsets_dia_r64_i32_r_h(
     fcl_mat_dia_r64_i32_r_h* A);
@@ -103,7 +103,7 @@ void morpheus_ccl_set_diagonal_offests_at_dia_r64_i32_r_h(
     fcl_mat_dia_r64_i32_r_h* A, fcl_i32_t i, fcl_i32_t val);
 void morpheus_ccl_set_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
                                                 fcl_i32_t i, fcl_i32_t j,
-                                                fcl_r64_t val);
+                                                ccl_value_t val);
 
 fcl_bool_t morpheus_ccl_exceeds_tolerance_mat_dia_r64_i32_r_h(
     fcl_mat_dia_r64_i32_r_h* A, const fcl_i32_t num_rows,

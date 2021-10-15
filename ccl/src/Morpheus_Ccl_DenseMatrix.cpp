@@ -31,7 +31,7 @@ void morpheus_ccl_create_default_mat_dense_r64_i32_r_h(
 void morpheus_ccl_create_mat_dense_r64_i32_r_h(fcl_mat_dense_r64_i32_r_h** A,
                                                fcl_i32_t num_rows,
                                                fcl_i32_t num_cols,
-                                               fcl_r64_t val) {
+                                               ccl_value_t val) {
   *A = (new fcl_mat_dense_r64_i32_r_h("fcl_mat_dense_r64_i32_r_h::", num_rows,
                                       num_cols, val));
 }
@@ -49,7 +49,7 @@ void morpheus_ccl_allocate_mat_dense_from_mat_dense_r64_i32_r_h(
 void morpheus_ccl_assign_mat_dense_r64_i32_r_h(fcl_mat_dense_r64_i32_r_h* A,
                                                fcl_i32_t num_rows,
                                                fcl_i32_t num_cols,
-                                               fcl_r64_t val) {
+                                               ccl_value_t val) {
   A->assign(num_rows, num_cols, val);
 }
 
@@ -93,12 +93,12 @@ void morpheus_ccl_set_nnnz_mat_dense_r64_i32_r_h(fcl_mat_dense_r64_i32_r_h* A,
   A->set_nnnz(nnnz);
 }
 
-fcl_r64_t* morpheus_ccl_data_mat_dense_r64_i32_r_h(
+ccl_value_t* morpheus_ccl_data_mat_dense_r64_i32_r_h(
     fcl_mat_dense_r64_i32_r_h* A) {
   return A->data();
 }
 
-fcl_r64_t morpheus_ccl_values_at_mat_dense_r64_i32_r_h(
+ccl_value_t morpheus_ccl_values_at_mat_dense_r64_i32_r_h(
     fcl_mat_dense_r64_i32_r_h* A, fcl_i32_t i, fcl_i32_t j) {
   return (*A)(i, j);
 }

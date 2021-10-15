@@ -37,7 +37,7 @@ void morpheus_ccl_create_default_mat_dense_r64_i32_r_h(
 void morpheus_ccl_create_mat_dense_r64_i32_r_h(fcl_mat_dense_r64_i32_r_h** A,
                                                fcl_i32_t num_rows,
                                                fcl_i32_t num_cols,
-                                               fcl_r64_t val);
+                                               ccl_value_t val);
 
 void morpheus_ccl_create_mat_dense_from_mat_dense_r64_i32_r_h(
     fcl_mat_dense_r64_i32_r_h* src, fcl_mat_dense_r64_i32_r_h** dst);
@@ -48,7 +48,7 @@ void morpheus_ccl_allocate_mat_dense_from_mat_dense_r64_i32_r_h(
 void morpheus_ccl_assign_mat_dense_r64_i32_r_h(fcl_mat_dense_r64_i32_r_h* A,
                                                fcl_i32_t num_rows,
                                                fcl_i32_t num_cols,
-                                               fcl_r64_t val);
+                                               ccl_value_t val);
 
 void morpheus_ccl_resize_mat_dense_r64_i32_r_h(fcl_mat_dense_r64_i32_r_h* A,
                                                fcl_i32_t num_rows,
@@ -71,10 +71,10 @@ void morpheus_ccl_set_nnnz_mat_dense_r64_i32_r_h(fcl_mat_dense_r64_i32_r_h* A,
                                                  fcl_i32_t nnnz);
 
 // Format Specific Routines
-fcl_r64_t* morpheus_ccl_data_mat_dense_r64_i32_r_h(
+ccl_value_t* morpheus_ccl_data_mat_dense_r64_i32_r_h(
     fcl_mat_dense_r64_i32_r_h* A);
 
-fcl_r64_t morpheus_ccl_values_at_mat_dense_r64_i32_r_h(
+ccl_value_t morpheus_ccl_values_at_mat_dense_r64_i32_r_h(
     fcl_mat_dense_r64_i32_r_h* A, fcl_i32_t i, fcl_i32_t j);
 
 void morpheus_ccl_set_values_at_mat_dense_r64_i32_r_h(

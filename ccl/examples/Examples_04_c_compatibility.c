@@ -62,7 +62,7 @@ int main() {
 
     coo *Afromdyn;
     fcl_i32_t *Adrind, *Adcind;
-    fcl_r64_t *Adval;
+    ccl_value_t *Adval;
 
     morpheus_ccl_create_mat_coo_from_mat_dyn_r64_i32_r_h(Adyn, &Afromdyn);
     morpheus_ccl_print_mat_coo_r64_i32_r_h(Afromdyn);

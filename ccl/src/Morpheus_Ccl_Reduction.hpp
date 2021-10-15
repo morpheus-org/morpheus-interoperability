@@ -30,7 +30,7 @@
 extern "C" {
 #endif
 
-fcl_r64_t morpheus_ccl_reduce_vec_dense_vec_dense_r64_i32_r_h_serial(
+ccl_value_t morpheus_ccl_reduce_vec_dense_vec_dense_r64_i32_r_h_serial(
     const fcl_vec_dense_r64_i32_r_h* in, fcl_i32_t size);
 
 #ifdef __cplusplus

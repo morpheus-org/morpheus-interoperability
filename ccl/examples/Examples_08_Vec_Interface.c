@@ -47,7 +47,7 @@ int main() {
     morpheus_ccl_print_vec_dense_r64_i32_r_h(y);
 
     fcl_i32_t xsize = morpheus_ccl_size_vec_dense_r64_i32_r_h(x);
-    fcl_r64_t* xdata = morpheus_ccl_data_vec_dense_r64_i32_r_h(x);
+    ccl_value_t* xdata = morpheus_ccl_data_vec_dense_r64_i32_r_h(x);
 
     printf("x:: Size = %d\nx::vals::\n", xsize);
     for(int i=0; i<xsize; i++){
