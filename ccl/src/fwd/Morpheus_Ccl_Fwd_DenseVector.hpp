@@ -29,12 +29,14 @@
 #ifdef __cplusplus
 #include <Morpheus_Core.hpp>
 
-typedef Morpheus::DenseVector<fcl_r64_t, fcl_i32_t, fcl_right_t, fcl_host_t>
+typedef Morpheus::DenseVector<ccl_value_t, ccl_index_t, ccl_layout_t,
+                              ccl_host_t>
     fcl_vec_dense_r64_i32_r_h;
 typedef typename fcl_vec_dense_r64_i32_r_h::HostMirror
     fcl_vec_dense_hostmirror_r64_i32_r_h;
 
-typedef Morpheus::DenseVector<fcl_i32_t, fcl_i32_t, fcl_right_t, fcl_host_t>
+typedef Morpheus::DenseVector<ccl_index_t, ccl_index_t, ccl_layout_t,
+                              ccl_host_t>
     fcl_vec_dense_i32_i32_r_h;
 #else
 typedef struct Morpheus_DenseVector_r64_i32_r_h fcl_vec_dense_r64_i32_r_h;
