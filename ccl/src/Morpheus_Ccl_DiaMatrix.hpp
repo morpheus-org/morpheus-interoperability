@@ -108,7 +108,7 @@ void morpheus_ccl_set_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
                                                 ccl_index_t i, ccl_index_t j,
                                                 ccl_value_t val);
 
-fcl_bool_t morpheus_ccl_exceeds_tolerance_mat_dia_r64_i32_r_h(
+ccl_bool_t morpheus_ccl_exceeds_tolerance_mat_dia_r64_i32_r_h(
     fcl_mat_dia_r64_i32_r_h* A, const ccl_index_t num_rows,
     const ccl_index_t num_entries, const ccl_index_t num_diagonals);
 

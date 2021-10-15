@@ -95,9 +95,9 @@ void morpheus_ccl_set_values_at_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A,
 void morpheus_ccl_sort_by_row_mat_coo_r64_i32_r_h(fcl_mat_coo_r64_i32_r_h* A);
 void morpheus_ccl_sort_by_row_and_column_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A);
-fcl_bool_t morpheus_ccl_is_sorted_by_row_mat_coo_r64_i32_r_h(
+ccl_bool_t morpheus_ccl_is_sorted_by_row_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A);
-fcl_bool_t morpheus_ccl_is_sorted_mat_coo_r64_i32_r_h(
+ccl_bool_t morpheus_ccl_is_sorted_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A);
 
 // Other Routines

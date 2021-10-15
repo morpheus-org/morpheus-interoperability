@@ -26,5 +26,5 @@
 ccl_value_t morpheus_ccl_dot_vec_dense_vec_dense_r64_i32_r_h_serial(
     ccl_index_t n, const fcl_vec_dense_r64_i32_r_h* x,
     const fcl_vec_dense_r64_i32_r_h* y) {
-  return Morpheus::dot<fcl_serial_t>(n, *x, *y);
+  return Morpheus::dot<ccl_host_t>(n, *x, *y);
 }

@@ -146,12 +146,12 @@ void morpheus_ccl_sort_by_row_and_column_mat_coo_r64_i32_r_h(
   A->sort_by_row_and_column();
 }
 
-fcl_bool_t morpheus_ccl_is_sorted_by_row_mat_coo_r64_i32_r_h(
+ccl_bool_t morpheus_ccl_is_sorted_by_row_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A) {
   return A->is_sorted_by_row();
 }
 
-fcl_bool_t morpheus_ccl_is_sorted_mat_coo_r64_i32_r_h(
+ccl_bool_t morpheus_ccl_is_sorted_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A) {
   return A->is_sorted();
 }
