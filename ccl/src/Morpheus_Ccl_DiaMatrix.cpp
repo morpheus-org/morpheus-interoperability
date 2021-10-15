@@ -158,13 +158,13 @@ void morpheus_ccl_set_values_at_dia_r64_i32_r_h(fcl_mat_dia_r64_i32_r_h* A,
   A->values(i, j) = val;
 }
 
-// fcl_bool_t morpheus_ccl_exceeds_tolerance_mat_dia_r64_i32_r_h(
+// ccl_formats_e morpheus_ccl_exceeds_tolerance_mat_dia_r64_i32_r_h(
 //     fcl_mat_dia_r64_i32_r_h* A, const ccl_index_t num_rows,
 //     const ccl_index_t num_entries, const ccl_index_t num_diagonals) {
 //   return (*A).exceeds_tolerance(num_rows, num_entries, num_diagonals);
 // }
 
-fcl_formats_e morpheus_ccl_format_enum_mat_dia_r64_i32_r_h(
+ccl_formats_e morpheus_ccl_format_enum_mat_dia_r64_i32_r_h(
     fcl_mat_dia_r64_i32_r_h* A) {
   return A->format_enum();
 }

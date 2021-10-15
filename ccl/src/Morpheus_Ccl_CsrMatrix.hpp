@@ -93,7 +93,7 @@ void morpheus_ccl_set_values_at_csr_r64_i32_r_h(fcl_mat_csr_r64_i32_r_h* A,
                                                 ccl_index_t i, ccl_value_t val);
 
 // Other Routines
-fcl_formats_e morpheus_ccl_format_enum_mat_csr_r64_i32_r_h(
+ccl_formats_e morpheus_ccl_format_enum_mat_csr_r64_i32_r_h(
     fcl_mat_csr_r64_i32_r_h* A);
 int morpheus_ccl_format_index_mat_csr_r64_i32_r_h(fcl_mat_csr_r64_i32_r_h* A);
 

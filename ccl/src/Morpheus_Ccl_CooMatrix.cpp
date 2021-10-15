@@ -156,7 +156,7 @@ ccl_bool_t morpheus_ccl_is_sorted_mat_coo_r64_i32_r_h(
   return A->is_sorted();
 }
 
-fcl_formats_e morpheus_ccl_format_enum_mat_coo_r64_i32_r_h(
+ccl_formats_e morpheus_ccl_format_enum_mat_coo_r64_i32_r_h(
     fcl_mat_coo_r64_i32_r_h* A) {
   return A->format_enum();
 }

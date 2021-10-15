@@ -130,7 +130,7 @@ void morpheus_ccl_convert_mat_dyn_to_mat_dyn_r64_i32_r_h_serial(
 
 // in-place conversions for dynamic
 void morpheus_ccl_convert_mat_dyn_r64_i32_r_h_serial(
-    fcl_mat_dyn_r64_i32_r_h* mat, const fcl_formats_e index) {
+    fcl_mat_dyn_r64_i32_r_h* mat, const ccl_formats_e index) {
   Morpheus::convert(*mat, index);
 }
 

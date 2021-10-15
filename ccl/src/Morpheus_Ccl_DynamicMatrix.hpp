@@ -38,10 +38,10 @@ void morpheus_ccl_create_default_mat_dyn_r64_i32_r_h(
     fcl_mat_dyn_r64_i32_r_h** A);
 
 void morpheus_ccl_create_mat_dyn_from_mat_r64_i32_r_h(
-    void* src, fcl_formats_e index, fcl_mat_dyn_r64_i32_r_h** dst);
+    void* src, ccl_formats_e index, fcl_mat_dyn_r64_i32_r_h** dst);
 
 void morpheus_ccl_assign_mat_dyn_from_mat_r64_i32_r_h(
-    void* src, fcl_formats_e index, fcl_mat_dyn_r64_i32_r_h* dst);
+    void* src, ccl_formats_e index, fcl_mat_dyn_r64_i32_r_h* dst);
 
 void morpheus_ccl_resize_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
                                              const ccl_index_t num_rows,
@@ -78,17 +78,17 @@ void morpheus_ccl_set_nnnz_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
 
 // Format Specific Routines
 void morpheus_ccl_activate_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                               const fcl_formats_e index);
+                                               const ccl_formats_e index);
 
 void morpheus_ccl_activate_index_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
                                                      const int index);
 
 int morpheus_ccl_active_index_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A);
 
-fcl_formats_e morpheus_ccl_active_enum_mat_dyn_r64_i32_r_h(
+ccl_formats_e morpheus_ccl_active_enum_mat_dyn_r64_i32_r_h(
     fcl_mat_dyn_r64_i32_r_h* A);
 
-fcl_formats_e morpheus_ccl_format_enum_mat_dyn_r64_i32_r_h(
+ccl_formats_e morpheus_ccl_format_enum_mat_dyn_r64_i32_r_h(
     fcl_mat_dyn_r64_i32_r_h* A);
 
 #ifdef __cplusplus

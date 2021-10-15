@@ -29,7 +29,7 @@
 #ifdef __cplusplus
 #include <Morpheus_Core.hpp>
 
-typedef enum Morpheus::formats_e fcl_formats_e;
+typedef enum Morpheus::formats_e ccl_formats_e;
 
 typedef Morpheus::DynamicMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
                                 ccl_host_t>
@@ -39,7 +39,7 @@ typedef typename fcl_mat_dyn_r64_i32_r_h::HostMirror
 #else
 #include <Morpheus_FormatsRegistry.hpp>
 
-typedef enum formats_e fcl_formats_e;
+typedef enum formats_e ccl_formats_e;
 
 typedef struct Morpheus_DynamicMatrix_r64_i32_r_h fcl_mat_dyn_r64_i32_r_h;
 typedef fcl_mat_dyn_r64_i32_r_h fcl_mat_dyn_hostmirror_r64_i32_r_h;
