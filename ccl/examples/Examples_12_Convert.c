@@ -34,7 +34,7 @@ typedef fcl_mat_dia_r64_i32_r_h dia;
 typedef fcl_vec_dense_r64_i32_r_h vec;
 
 void coo_check_same(coo* A, coo* B){
-  const fcl_i32_t nnnz = morpheus_ccl_nnnz_mat_coo_r64_i32_r_h(A);
+  const ccl_index_t nnnz = morpheus_ccl_nnnz_mat_coo_r64_i32_r_h(A);
 
   for(int i=0; i<nnnz; i++){
     assert(morpheus_ccl_row_indices_at_coo_r64_i32_r_h(A,i) != morpheus_ccl_row_indices_at_coo_r64_i32_r_h(B,i));
@@ -44,8 +44,8 @@ void coo_check_same(coo* A, coo* B){
 }
 
 void csr_check_same(csr* A, csr* B){
-  const fcl_i32_t nrows = morpheus_ccl_nrows_mat_csr_r64_i32_r_h(A);
-  const fcl_i32_t nnnz = morpheus_ccl_nnnz_mat_csr_r64_i32_r_h(A);
+  const ccl_index_t nrows = morpheus_ccl_nrows_mat_csr_r64_i32_r_h(A);
+  const ccl_index_t nnnz = morpheus_ccl_nnnz_mat_csr_r64_i32_r_h(A);
 
   for(int i=0; i<nrows+1; i++){
     assert(morpheus_ccl_row_offsets_at_csr_r64_i32_r_h(A,i) != morpheus_ccl_row_offsets_at_csr_r64_i32_r_h(B,i));
@@ -62,9 +62,9 @@ void dia_check_same(dia* A, dia* B){
   fcl_mat_dense_r64_i32_r_h *Avals = morpheus_ccl_values_dia_r64_i32_r_h(A);
   fcl_mat_dense_r64_i32_r_h *Bvals = morpheus_ccl_values_dia_r64_i32_r_h(B);
 
-  fcl_i32_t Avals_rows = morpheus_ccl_nrows_mat_dense_r64_i32_r_h(Avals);
-  fcl_i32_t Avals_ncols = morpheus_ccl_ncols_mat_dense_r64_i32_r_h(Avals);
-  fcl_i32_t ndiags = morpheus_ccl_ndiags_mat_dia_r64_i32_r_h(A);
+  ccl_index_t Avals_rows = morpheus_ccl_nrows_mat_dense_r64_i32_r_h(Avals);
+  ccl_index_t Avals_ncols = morpheus_ccl_ncols_mat_dense_r64_i32_r_h(Avals);
+  ccl_index_t ndiags = morpheus_ccl_ndiags_mat_dia_r64_i32_r_h(A);
 
   for(int i=0; i<ndiags; i++){
     assert(morpheus_ccl_diagonal_offests_at_dia_r64_i32_r_h(A,i) != morpheus_ccl_diagonal_offests_at_dia_r64_i32_r_h(B,i));

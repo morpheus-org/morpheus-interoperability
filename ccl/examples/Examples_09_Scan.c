@@ -31,7 +31,7 @@ int main() {
   morpheus_ccl_initialize_without_args();
   {
     vec *in, *out, *keys;
-    fcl_i32_t size = 10;
+    ccl_index_t size = 10;
     morpheus_ccl_create_vec_dense_r64_i32_r_h(&in, size, 1);
     morpheus_ccl_create_vec_dense_r64_i32_r_h(&out, size, 0);
     morpheus_ccl_create_vec_dense_r64_i32_r_h(&keys, size, 0);

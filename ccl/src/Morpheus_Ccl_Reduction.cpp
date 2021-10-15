@@ -24,6 +24,6 @@
 #include <Morpheus_Ccl_Reduction.hpp>
 
 ccl_value_t morpheus_ccl_reduce_vec_dense_vec_dense_r64_i32_r_h_serial(
-    const fcl_vec_dense_r64_i32_r_h* in, fcl_i32_t size) {
+    const fcl_vec_dense_r64_i32_r_h* in, ccl_index_t size) {
   return Morpheus::reduce<fcl_serial_t>(*in, size);
 }

@@ -35,7 +35,7 @@ void morpheus_ccl_create_default_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h** v);
 
 void morpheus_ccl_create_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v,
-                                               fcl_i32_t n, ccl_value_t val);
+                                               ccl_index_t n, ccl_value_t val);
 
 void morpheus_ccl_create_vec_dense_from_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h** dst);
@@ -44,7 +44,7 @@ void morpheus_ccl_allocate_vec_dense_from_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* src, fcl_vec_dense_r64_i32_r_h* dst);
 
 void morpheus_ccl_assign_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
-                                               fcl_i32_t n, ccl_value_t val);
+                                               ccl_index_t n, ccl_value_t val);
 
 // TODO: Assign Random
 // void morpheus_ccl_assign_random_vec_dense_r64_i32_r_h(
@@ -52,23 +52,24 @@ void morpheus_ccl_assign_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
 //     range_high);
 
 void morpheus_ccl_resize_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
-                                               fcl_i32_t n);
+                                               ccl_index_t n);
 
 void morpheus_ccl_resize_fill_vec_dense_r64_i32_r_h(
-    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t n, ccl_value_t val);
+    fcl_vec_dense_r64_i32_r_h* v, ccl_index_t n, ccl_value_t val);
 
 void morpheus_ccl_destroy_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v);
 
-fcl_i32_t morpheus_ccl_size_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v);
+ccl_index_t morpheus_ccl_size_vec_dense_r64_i32_r_h(
+    fcl_vec_dense_r64_i32_r_h* v);
 
 ccl_value_t* morpheus_ccl_data_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* v);
 
 ccl_value_t morpheus_ccl_values_at_vec_dense_r64_i32_r_h(
-    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i);
+    fcl_vec_dense_r64_i32_r_h* v, ccl_index_t i);
 
 void morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(
-    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i, fcl_i32_t val);
+    fcl_vec_dense_r64_i32_r_h* v, ccl_index_t i, ccl_index_t val);
 
 #ifdef __cplusplus
 }

@@ -78,14 +78,6 @@ typedef struct Ccl_Device ccl_dev_t;
 #endif  // MORPHEUS_ENABLE_CUDA
 #endif  //__cplusplus
 
-typedef char fcl_char_t;
-
-typedef int32_t fcl_i32_t;
-typedef int64_t fcl_i64_t;
-
-typedef float fcl_r32_t;
-// typedef double fcl_r64_t;
-
 #ifdef __cplusplus
 typedef bool fcl_bool_t;
 typedef std::size_t fcl_index_t;

@@ -29,7 +29,7 @@ void morpheus_ccl_create_default_vec_dense_r64_i32_r_h(
 }
 
 void morpheus_ccl_create_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v,
-                                               fcl_i32_t n, ccl_value_t val) {
+                                               ccl_index_t n, ccl_value_t val) {
   *v = (new fcl_vec_dense_r64_i32_r_h("fcl_vec_dense_r64_i32_r_h::", n, val));
 }
 
@@ -44,7 +44,7 @@ void morpheus_ccl_allocate_vec_dense_from_vec_dense_r64_i32_r_h(
 }
 
 void morpheus_ccl_assign_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
-                                               fcl_i32_t n, ccl_value_t val) {
+                                               ccl_index_t n, ccl_value_t val) {
   v->assign(n, val);
 }
 
@@ -54,12 +54,12 @@ void morpheus_ccl_assign_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
 //     range_high);
 
 void morpheus_ccl_resize_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h* v,
-                                               fcl_i32_t n) {
+                                               ccl_index_t n) {
   v->resize(n);
 }
 
 void morpheus_ccl_resize_fill_vec_dense_r64_i32_r_h(
-    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t n, ccl_value_t val) {
+    fcl_vec_dense_r64_i32_r_h* v, ccl_index_t n, ccl_value_t val) {
   v->resize(n, val);
 }
 
@@ -67,7 +67,7 @@ void morpheus_ccl_destroy_vec_dense_r64_i32_r_h(fcl_vec_dense_r64_i32_r_h** v) {
   delete (*v);
 }
 
-fcl_i32_t morpheus_ccl_size_vec_dense_r64_i32_r_h(
+ccl_index_t morpheus_ccl_size_vec_dense_r64_i32_r_h(
     fcl_vec_dense_r64_i32_r_h* v) {
   return v->size();
 }
@@ -78,11 +78,11 @@ ccl_value_t* morpheus_ccl_data_vec_dense_r64_i32_r_h(
 }
 
 ccl_value_t morpheus_ccl_values_at_vec_dense_r64_i32_r_h(
-    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i) {
+    fcl_vec_dense_r64_i32_r_h* v, ccl_index_t i) {
   return (*v)[i];
 }
 
 void morpheus_ccl_set_values_at_vec_dense_r64_i32_r_h(
-    fcl_vec_dense_r64_i32_r_h* v, fcl_i32_t i, fcl_i32_t val) {
+    fcl_vec_dense_r64_i32_r_h* v, ccl_index_t i, ccl_index_t val) {
   (*v)[i] = val;
 }

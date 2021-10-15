@@ -44,22 +44,20 @@ void morpheus_ccl_assign_mat_dyn_from_mat_r64_i32_r_h(
     void* src, fcl_formats_e index, fcl_mat_dyn_r64_i32_r_h* dst);
 
 void morpheus_ccl_resize_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                             const fcl_i32_t num_rows,
-                                             const fcl_i32_t num_cols,
-                                             const fcl_i32_t num_nnz);
+                                             const ccl_index_t num_rows,
+                                             const ccl_index_t num_cols,
+                                             const ccl_index_t num_nnz);
 
 void morpheus_ccl_resize_diags_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                                   const fcl_i32_t num_rows,
-                                                   const fcl_i32_t num_cols,
-                                                   const fcl_i32_t num_nnz,
-                                                   const fcl_i32_t num_diags);
+                                                   const ccl_index_t num_rows,
+                                                   const ccl_index_t num_cols,
+                                                   const ccl_index_t num_nnz,
+                                                   const ccl_index_t num_diags);
 
-void morpheus_ccl_resize_aligned_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                                     const fcl_i32_t num_rows,
-                                                     const fcl_i32_t num_cols,
-                                                     const fcl_i32_t num_nnz,
-                                                     const fcl_i32_t num_diags,
-                                                     const fcl_i32_t alignment);
+void morpheus_ccl_resize_aligned_mat_dyn_r64_i32_r_h(
+    fcl_mat_dyn_r64_i32_r_h* A, const ccl_index_t num_rows,
+    const ccl_index_t num_cols, const ccl_index_t num_nnz,
+    const ccl_index_t num_diags, const ccl_index_t alignment);
 
 void morpheus_ccl_allocate_mat_dyn_from_mat_dyn_r64_i32_r_h(
     fcl_mat_dyn_r64_i32_r_h* src, fcl_mat_dyn_r64_i32_r_h* dst);
@@ -67,16 +65,16 @@ void morpheus_ccl_allocate_mat_dyn_from_mat_dyn_r64_i32_r_h(
 void morpheus_ccl_destroy_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h** A);
 
 // Base Routines
-fcl_i32_t morpheus_ccl_nrows_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A);
-fcl_i32_t morpheus_ccl_ncols_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A);
-fcl_i32_t morpheus_ccl_nnnz_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A);
+ccl_index_t morpheus_ccl_nrows_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A);
+ccl_index_t morpheus_ccl_ncols_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A);
+ccl_index_t morpheus_ccl_nnnz_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A);
 
 void morpheus_ccl_set_nrows_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                                fcl_i32_t nrows);
+                                                ccl_index_t nrows);
 void morpheus_ccl_set_ncols_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                                fcl_i32_t ncols);
+                                                ccl_index_t ncols);
 void morpheus_ccl_set_nnnz_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
-                                               fcl_i32_t nnnz);
+                                               ccl_index_t nnnz);
 
 // Format Specific Routines
 void morpheus_ccl_activate_mat_dyn_r64_i32_r_h(fcl_mat_dyn_r64_i32_r_h* A,
