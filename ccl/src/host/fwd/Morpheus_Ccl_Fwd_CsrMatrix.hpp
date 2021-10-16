@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_FWD_CSRMATRIX_HPP
-#define MORPHEUS_CCL_FWD_CSRMATRIX_HPP
+#ifndef MORPHEUS_CCL_HOST_FWD_CSRMATRIX_HPP
+#define MORPHEUS_CCL_HOST_FWD_CSRMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
@@ -37,4 +37,4 @@ typedef struct Morpheus_CsrMatrix_Host ccl_hmat_csr;
 typedef ccl_hmat_csr ccl_hmat_csr_hostmirror;
 #endif
 
-#endif  // MORPHEUS_CCL_FWD_CSRMATRIX_HPP
+#endif  // MORPHEUS_CCL_HOST_FWD_CSRMATRIX_HPP

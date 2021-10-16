@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_REDUCTION_HPP
-#define MORPHEUS_CCL_REDUCTION_HPP
+#ifndef MORPHEUS_CCL_HOST_REDUCTION_HPP
+#define MORPHEUS_CCL_HOST_REDUCTION_HPP
 
 #include <host/Morpheus_Ccl_DenseVector.hpp>
 
@@ -37,4 +37,4 @@ ccl_value_t ccl_hvec_dense_v_reduce(const ccl_hvec_dense_v* in,
 }
 #endif
 
-#endif  // MORPHEUS_CCL_REDUCTION_HPP
+#endif  // MORPHEUS_CCL_HOST_REDUCTION_HPP

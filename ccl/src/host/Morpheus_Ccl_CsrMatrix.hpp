@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_CSRMATRIX_HPP
-#define MORPHEUS_CCL_CSRMATRIX_HPP
+#ifndef MORPHEUS_CCL_HOST_CSRMATRIX_HPP
+#define MORPHEUS_CCL_HOST_CSRMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
@@ -83,4 +83,4 @@ int ccl_hmat_csr_format_index(ccl_hmat_csr* A);
 }
 #endif
 
-#endif  // MORPHEUS_CCL_CSRMATRIX_HPP
+#endif  // MORPHEUS_CCL_HOST_CSRMATRIX_HPP

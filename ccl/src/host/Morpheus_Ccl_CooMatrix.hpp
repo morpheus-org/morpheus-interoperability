@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_COOMATRIX_HPP
-#define MORPHEUS_CCL_COOMATRIX_HPP
+#ifndef MORPHEUS_CCL_HOST_COOMATRIX_HPP
+#define MORPHEUS_CCL_HOST_COOMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
@@ -88,4 +88,4 @@ int ccl_hmat_coo_format_index(ccl_hmat_coo* A);
 }
 #endif
 
-#endif  // MORPHEUS_CCL_COOMATRIX_HPP
+#endif  // MORPHEUS_CCL_HOST_COOMATRIX_HPP

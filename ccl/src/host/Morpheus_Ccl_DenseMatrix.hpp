@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_DENSEMATRIX_HPP
-#define MORPHEUS_CCL_DENSEMATRIX_HPP
+#ifndef MORPHEUS_CCL_HOST_DENSEMATRIX_HPP
+#define MORPHEUS_CCL_HOST_DENSEMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
@@ -73,4 +73,4 @@ void ccl_hmat_dense_set_values_at(ccl_hmat_dense* A, ccl_index_t i,
 }
 #endif
 
-#endif  // MORPHEUS_CCL_DENSEMATRIX_HPP
+#endif  // MORPHEUS_CCL_HOST_DENSEMATRIX_HPP

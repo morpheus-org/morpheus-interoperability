@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_DYNAMICMATRIX_HPP
-#define MORPHEUS_CCL_DYNAMICMATRIX_HPP
+#ifndef MORPHEUS_CCL_HOST_DYNAMICMATRIX_HPP
+#define MORPHEUS_CCL_HOST_DYNAMICMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
@@ -85,4 +85,4 @@ ccl_formats_e ccl_hmat_dyn_format_enum(ccl_hmat_dyn* A);
 }
 #endif
 
-#endif  // MORPHEUS_CCL_DYNAMICMATRIX_HPP
+#endif  // MORPHEUS_CCL_HOST_DYNAMICMATRIX_HPP

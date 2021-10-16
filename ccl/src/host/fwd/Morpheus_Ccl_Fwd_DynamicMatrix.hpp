@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_FWD_DYNAMICMATRIX_HPP
-#define MORPHEUS_CCL_FWD_DYNAMICMATRIX_HPP
+#ifndef MORPHEUS_CCL_HOST_FWD_DYNAMICMATRIX_HPP
+#define MORPHEUS_CCL_HOST_FWD_DYNAMICMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
@@ -38,4 +38,4 @@ typedef struct Morpheus_DynamicMatrix_Host ccl_hmat_dyn;
 typedef ccl_hmat_dyn ccl_hmat_dyn_hostmirror;
 #endif
 
-#endif  // MORPHEUS_CCL_FWD_DYNAMICMATRIX_HPP
+#endif  // MORPHEUS_CCL_HOST_FWD_DYNAMICMATRIX_HPP

@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_FWD_DENSEVECTOR_HPP
-#define MORPHEUS_CCL_FWD_DENSEVECTOR_HPP
+#ifndef MORPHEUS_CCL_HOST_FWD_DENSEVECTOR_HPP
+#define MORPHEUS_CCL_HOST_FWD_DENSEVECTOR_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
@@ -46,4 +46,4 @@ typedef struct Morpheus_DenseVector_Host_i ccl_hvec_dense_i;
 typedef ccl_hvec_dense_i ccl_hvec_dense_i_hostmirror;
 #endif
 
-#endif  // MORPHEUS_CCL_FWD_DENSEVECTOR_HPP
+#endif  // MORPHEUS_CCL_HOST_FWD_DENSEVECTOR_HPP

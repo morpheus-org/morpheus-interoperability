@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_DOT_HPP
-#define MORPHEUS_CCL_DOT_HPP
+#ifndef MORPHEUS_CCL_HOST_DOT_HPP
+#define MORPHEUS_CCL_HOST_DOT_HPP
 
 #include <host/Morpheus_Ccl_DenseVector.hpp>
 
@@ -37,4 +37,4 @@ ccl_value_t ccl_hvec_dense_v_dot(ccl_index_t n, const ccl_hvec_dense_v* x,
 }
 #endif
 
-#endif  // MORPHEUS_CCL_DOT_HPP
+#endif  // MORPHEUS_CCL_HOST_DOT_HPP

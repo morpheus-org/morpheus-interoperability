@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_DIAMATRIX_HPP
-#define MORPHEUS_CCL_DIAMATRIX_HPP
+#ifndef MORPHEUS_CCL_HOST_DIAMATRIX_HPP
+#define MORPHEUS_CCL_HOST_DIAMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
@@ -103,4 +103,4 @@ int ccl_hmat_dia_format_index(ccl_hmat_dia* A);
 }
 #endif
 
-#endif  // MORPHEUS_CCL_DIAMATRIX_HPP
+#endif  // MORPHEUS_CCL_HOST_DIAMATRIX_HPP

@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_DENSEVECTOR_HPP
-#define MORPHEUS_CCL_DENSEVECTOR_HPP
+#ifndef MORPHEUS_CCL_HOST_DENSEVECTOR_HPP
+#define MORPHEUS_CCL_HOST_DENSEVECTOR_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
@@ -71,4 +71,4 @@ void ccl_hvec_dense_v_set_values_at(ccl_hvec_dense_v* v, ccl_index_t i,
 }
 #endif
 
-#endif  // MORPHEUS_CCL_DENSEVECTOR_HPP
+#endif  // MORPHEUS_CCL_HOST_DENSEVECTOR_HPP

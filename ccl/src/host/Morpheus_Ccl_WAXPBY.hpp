@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_WAXPBY_HPP
-#define MORPHEUS_CCL_WAXPBY_HPP
+#ifndef MORPHEUS_CCL_HOST_WAXPBY_HPP
+#define MORPHEUS_CCL_HOST_WAXPBY_HPP
 
 #include <host/Morpheus_Ccl_DenseVector.hpp>
 
@@ -38,4 +38,4 @@ void ccl_hvec_dense_v_waxpby(ccl_index_t n, ccl_value_t alpha,
 }
 #endif
 
-#endif  // MORPHEUS_CCL_WAXPBY_HPP
+#endif  // MORPHEUS_CCL_HOST_WAXPBY_HPP

@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_HOST_HPP
-#define MORPHEUS_CCL_HOST_HPP
+#ifndef MORPHEUS_CCL_HOST_HOST_HPP
+#define MORPHEUS_CCL_HOST_HOST_HPP
 
 #include <host/Morpheus_Ccl_CooMatrix.hpp>
 #include <host/Morpheus_Ccl_CsrMatrix.hpp>
@@ -41,4 +41,4 @@
 #include <host/Morpheus_Ccl_Scan.hpp>
 #include <host/Morpheus_Ccl_WAXPBY.hpp>
 
-#endif  // MORPHEUS_CCL_HOST_HPP
+#endif  // MORPHEUS_CCL_HOST_HOST_HPP

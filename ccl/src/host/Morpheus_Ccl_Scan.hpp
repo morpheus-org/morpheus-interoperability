@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_SCAN_HPP
-#define MORPHEUS_CCL_SCAN_HPP
+#ifndef MORPHEUS_CCL_HOST_SCAN_HPP
+#define MORPHEUS_CCL_HOST_SCAN_HPP
 
 #include <host/Morpheus_Ccl_DenseVector.hpp>
 
@@ -54,4 +54,4 @@ void ccl_hvec_dense_v_exclusive_scan_by_key(const ccl_hvec_dense_v* keys,
 }
 #endif
 
-#endif  // MORPHEUS_CCL_SCAN_HPP
+#endif  // MORPHEUS_CCL_HOST_SCAN_HPP

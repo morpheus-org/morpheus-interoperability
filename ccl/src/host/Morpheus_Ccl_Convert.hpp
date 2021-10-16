@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_CONVERT_HPP
-#define MORPHEUS_CCL_CONVERT_HPP
+#ifndef MORPHEUS_CCL_HOST_CONVERT_HPP
+#define MORPHEUS_CCL_HOST_CONVERT_HPP
 
 #include <host/Morpheus_Ccl_CooMatrix.hpp>
 #include <host/Morpheus_Ccl_CsrMatrix.hpp>
@@ -112,4 +112,4 @@ void ccl_hvec_dense_v_convert_to_hvec_dense_v(const ccl_hvec_dense_v* src,
 }
 #endif
 
-#endif  // MORPHEUS_CCL_CONVERT_HPP
+#endif  // MORPHEUS_CCL_HOST_CONVERT_HPP

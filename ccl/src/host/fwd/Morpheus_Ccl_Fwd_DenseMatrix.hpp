@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_FWD_DENSEMATRIX_HPP
-#define MORPHEUS_CCL_FWD_DENSEMATRIX_HPP
+#ifndef MORPHEUS_CCL_HOST_FWD_DENSEMATRIX_HPP
+#define MORPHEUS_CCL_HOST_FWD_DENSEMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
@@ -38,4 +38,4 @@ typedef struct Morpheus_DenseMatrix_Host ccl_hmat_dense;
 typedef ccl_hmat_dense ccl_hmat_dense_hostmirror;
 #endif
 
-#endif  // MORPHEUS_CCL_FWD_DENSEMATRIX_HPP
+#endif  // MORPHEUS_CCL_HOST_FWD_DENSEMATRIX_HPP

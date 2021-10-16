@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_FWD_DIAMATRIX_HPP
-#define MORPHEUS_CCL_FWD_DIAMATRIX_HPP
+#ifndef MORPHEUS_CCL_HOST_FWD_DIAMATRIX_HPP
+#define MORPHEUS_CCL_HOST_FWD_DIAMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
@@ -37,4 +37,4 @@ typedef struct Morpheus_DiaMatrix_Host ccl_hmat_dia;
 typedef ccl_hmat_dia ccl_hmat_dia_hostmirror;
 #endif
 
-#endif  // MORPHEUS_CCL_FWD_DIAMATRIX_HPP
+#endif  // MORPHEUS_CCL_HOST_FWD_DIAMATRIX_HPP

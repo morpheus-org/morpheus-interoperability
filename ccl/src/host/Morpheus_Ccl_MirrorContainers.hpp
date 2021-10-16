@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_MIRRORCONTAINERS_HPP
-#define MORPHEUS_CCL_MIRRORCONTAINERS_HPP
+#ifndef MORPHEUS_CCL_HOST_MIRRORCONTAINERS_HPP
+#define MORPHEUS_CCL_HOST_MIRRORCONTAINERS_HPP
 
 #include <host/Morpheus_Ccl_CooMatrix.hpp>
 #include <host/Morpheus_Ccl_CsrMatrix.hpp>
@@ -65,4 +65,4 @@ ccl_hmat_dyn* ccl_hmat_dyn_create_mirror_container(ccl_hmat_dyn* src);
 }
 #endif
 
-#endif  // MORPHEUS_CCL_MIRRORCONTAINERS_HPP
+#endif  // MORPHEUS_CCL_HOST_MIRRORCONTAINERS_HPP
