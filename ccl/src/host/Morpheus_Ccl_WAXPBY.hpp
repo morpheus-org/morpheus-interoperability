@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl_Dot.hpp
+ * Morpheus_Ccl_WAXPBY.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,21 +21,23 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_DOT_HPP
-#define MORPHEUS_CCL_DOT_HPP
+#ifndef MORPHEUS_CCL_WAXPBY_HPP
+#define MORPHEUS_CCL_WAXPBY_HPP
 
-#include <Morpheus_Ccl_DenseVector.hpp>
+#include <host/Morpheus_Ccl_DenseVector.hpp>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-ccl_value_t morpheus_ccl_dot_hvec_dense_hvec_dense(ccl_index_t n,
-                                                   const ccl_hvec_dense* x,
-                                                   const ccl_hvec_dense* y);
+void morpheus_ccl_waxpby_hvec_dense_hvec_dense(ccl_index_t n, ccl_value_t alpha,
+                                               const ccl_hvec_dense* x,
+                                               ccl_value_t beta,
+                                               const ccl_hvec_dense* y,
+                                               ccl_hvec_dense* w);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif  // MORPHEUS_CCL_DOT_HPP
+#endif  // MORPHEUS_CCL_WAXPBY_HPP

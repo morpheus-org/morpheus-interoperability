@@ -25,9 +25,10 @@
 #define MORPHEUS_CCL_CSRMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
-#include <fwd/Morpheus_Ccl_Fwd_CsrMatrix.hpp>
-#include <fwd/Morpheus_Ccl_Fwd_DynamicMatrix.hpp>
-#include <fwd/Morpheus_Ccl_Fwd_DenseVector.hpp>
+
+#include <host/fwd/Morpheus_Ccl_Fwd_CsrMatrix.hpp>
+#include <host/fwd/Morpheus_Ccl_Fwd_DynamicMatrix.hpp>
+#include <host/fwd/Morpheus_Ccl_Fwd_DenseVector.hpp>
 
 #ifdef __cplusplus
 extern "C" {

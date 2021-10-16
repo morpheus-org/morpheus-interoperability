@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl_Reduction.cpp
+ * Morpheus_Ccl_Reduction.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,9 +21,20 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl_Reduction.hpp>
+#ifndef MORPHEUS_CCL_REDUCTION_HPP
+#define MORPHEUS_CCL_REDUCTION_HPP
+
+#include <host/Morpheus_Ccl_DenseVector.hpp>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 ccl_value_t morpheus_ccl_reduce_hvec_dense_hvec_dense(const ccl_hvec_dense* in,
-                                                      ccl_index_t size) {
-  return Morpheus::reduce<ccl_host_t>(*in, size);
+                                                      ccl_index_t size);
+
+#ifdef __cplusplus
 }
+#endif
+
+#endif  // MORPHEUS_CCL_REDUCTION_HPP

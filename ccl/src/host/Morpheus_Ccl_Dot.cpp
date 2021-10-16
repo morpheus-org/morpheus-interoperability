@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl_WAXPBY.cpp
+ * Morpheus_Ccl_Dot.cpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,12 +21,10 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl_WAXPBY.hpp>
+#include <host/Morpheus_Ccl_Dot.hpp>
 
-void morpheus_ccl_waxpby_hvec_dense_hvec_dense(ccl_index_t n, ccl_value_t alpha,
-                                               const ccl_hvec_dense* x,
-                                               ccl_value_t beta,
-                                               const ccl_hvec_dense* y,
-                                               ccl_hvec_dense* w) {
-  Morpheus::waxpby<ccl_host_t>(n, alpha, *x, beta, *y, *w);
+ccl_value_t morpheus_ccl_dot_hvec_dense_hvec_dense(ccl_index_t n,
+                                                   const ccl_hvec_dense* x,
+                                                   const ccl_hvec_dense* y) {
+  return Morpheus::dot<ccl_host_t>(n, *x, *y);
 }

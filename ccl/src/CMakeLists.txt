@@ -21,16 +21,19 @@ append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/fwd/*.hpp)
 
 if(MORPHEUS_ENABLE_SERIAL)
   append_glob(CCL_CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/host/*.cpp)
+  append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/host/fwd/*.hpp)
   append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/host/*.hpp)
 endif()
 
 if(MORPHEUS_ENABLE_OPENMP)
   append_glob(CCL_CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/phost/*.cpp)
+  append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/phost/fwd/*.hpp)
   append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/phost/*.hpp)
 endif()
 
 if(MORPHEUS_ENABLE_CUDA)
   append_glob(CCL_CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/dev/*.cpp)
+  append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/dev/fwd/*.hpp)
   append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/dev/*.hpp)
 endif()
 

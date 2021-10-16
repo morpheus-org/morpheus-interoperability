@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl_CsrMatrix.hpp>
+#include <host/Morpheus_Ccl_CsrMatrix.hpp>
 
 void morpheus_ccl_create_default_hmat_csr(ccl_hmat_csr** A) {
   *A = (new ccl_hmat_csr());

@@ -24,12 +24,12 @@
 #ifndef MORPHEUS_CCL_MIRRORCONTAINERS_HPP
 #define MORPHEUS_CCL_MIRRORCONTAINERS_HPP
 
-#include <Morpheus_Ccl_CooMatrix.hpp>
-#include <Morpheus_Ccl_CsrMatrix.hpp>
-#include <Morpheus_Ccl_DiaMatrix.hpp>
-#include <Morpheus_Ccl_DynamicMatrix.hpp>
-#include <Morpheus_Ccl_DenseMatrix.hpp>
-#include <Morpheus_Ccl_DenseVector.hpp>
+#include <host/Morpheus_Ccl_CooMatrix.hpp>
+#include <host/Morpheus_Ccl_CsrMatrix.hpp>
+#include <host/Morpheus_Ccl_DiaMatrix.hpp>
+#include <host/Morpheus_Ccl_DynamicMatrix.hpp>
+#include <host/Morpheus_Ccl_DenseMatrix.hpp>
+#include <host/Morpheus_Ccl_DenseVector.hpp>
 
 #ifdef __cplusplus
 extern "C" {

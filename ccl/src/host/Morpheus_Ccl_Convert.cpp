@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl_Convert.hpp>
+#include <host/Morpheus_Ccl_Convert.hpp>
 
 // coo -> coo
 void morpheus_ccl_convert_hmat_coo_to_hmat_coo(const ccl_hmat_coo* src,

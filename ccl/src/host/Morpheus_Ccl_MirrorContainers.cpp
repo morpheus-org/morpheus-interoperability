@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl_MirrorContainers.hpp>
+#include <host/Morpheus_Ccl_MirrorContainers.hpp>
 
 ccl_hmat_coo_hostmirror* morpheus_ccl_create_mirror_hmat_coo(
     ccl_hmat_coo* src) {

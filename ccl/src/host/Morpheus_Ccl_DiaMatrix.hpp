@@ -25,10 +25,11 @@
 #define MORPHEUS_CCL_DIAMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
-#include <fwd/Morpheus_Ccl_Fwd_DiaMatrix.hpp>
-#include <fwd/Morpheus_Ccl_Fwd_DynamicMatrix.hpp>
-#include <fwd/Morpheus_Ccl_Fwd_DenseVector.hpp>
-#include <fwd/Morpheus_Ccl_Fwd_DenseMatrix.hpp>
+
+#include <host/fwd/Morpheus_Ccl_Fwd_DiaMatrix.hpp>
+#include <host/fwd/Morpheus_Ccl_Fwd_DynamicMatrix.hpp>
+#include <host/fwd/Morpheus_Ccl_Fwd_DenseVector.hpp>
+#include <host/fwd/Morpheus_Ccl_Fwd_DenseMatrix.hpp>
 
 #ifdef __cplusplus
 extern "C" {

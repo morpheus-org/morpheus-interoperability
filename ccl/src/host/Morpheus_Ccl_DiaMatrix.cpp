@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl_DiaMatrix.hpp>
+#include <host/Morpheus_Ccl_DiaMatrix.hpp>
 
 void morpheus_ccl_create_default_hmat_dia(ccl_hmat_dia** A) {
   *A = (new ccl_hmat_dia());

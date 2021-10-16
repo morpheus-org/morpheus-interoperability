@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl_Scan.hpp
+ * Morpheus_Ccl_Scan.cpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,35 +21,30 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_SCAN_HPP
-#define MORPHEUS_CCL_SCAN_HPP
-
-#include <Morpheus_Ccl_DenseVector.hpp>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include <host/Morpheus_Ccl_Scan.hpp>
 
 void morpheus_ccl_inclusive_scan_hvec_dense_hvec_dense(const ccl_hvec_dense* in,
                                                        ccl_hvec_dense* out,
                                                        ccl_index_t size,
-                                                       ccl_index_t start);
+                                                       ccl_index_t start) {
+  Morpheus::inclusive_scan<ccl_host_t>(*in, *out, size, start);
+}
 
 void morpheus_ccl_exclusive_scan_hvec_dense_hvec_dense(const ccl_hvec_dense* in,
                                                        ccl_hvec_dense* out,
                                                        ccl_index_t size,
-                                                       ccl_index_t start);
+                                                       ccl_index_t start) {
+  Morpheus::exclusive_scan<ccl_host_t>(*in, *out, size, start);
+}
 
 void morpheus_ccl_inclusive_scan_by_key_hvec_dense_hvec_dense(
     const ccl_hvec_dense* keys, const ccl_hvec_dense* in, ccl_hvec_dense* out,
-    ccl_index_t size, ccl_index_t start);
+    ccl_index_t size, ccl_index_t start) {
+  Morpheus::inclusive_scan_by_key<ccl_host_t>(*keys, *in, *out, size, start);
+}
 
 void morpheus_ccl_exclusive_scan_by_key_hvec_dense_hvec_dense(
     const ccl_hvec_dense* keys, const ccl_hvec_dense* in, ccl_hvec_dense* out,
-    ccl_index_t size, ccl_index_t start);
-
-#ifdef __cplusplus
+    ccl_index_t size, ccl_index_t start) {
+  Morpheus::exclusive_scan_by_key<ccl_host_t>(*keys, *in, *out, size, start);
 }
-#endif
-
-#endif  // MORPHEUS_CCL_SCAN_HPP

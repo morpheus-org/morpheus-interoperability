@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl_CooMatrix.hpp>
+#include <host/Morpheus_Ccl_CooMatrix.hpp>
 
 void morpheus_ccl_create_default_hmat_coo(ccl_hmat_coo** A) {
   *A = (new ccl_hmat_coo());

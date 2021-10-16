@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl_Reduction.hpp
+ * Morpheus_Ccl_Print.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,20 +21,34 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_REDUCTION_HPP
-#define MORPHEUS_CCL_REDUCTION_HPP
+#ifndef MORPHEUS_CCL_PRINT_HPP
+#define MORPHEUS_CCL_PRINT_HPP
 
-#include <Morpheus_Ccl_DenseVector.hpp>
+#include <host/Morpheus_Ccl_CooMatrix.hpp>
+#include <host/Morpheus_Ccl_CsrMatrix.hpp>
+#include <host/Morpheus_Ccl_DenseMatrix.hpp>
+#include <host/Morpheus_Ccl_DiaMatrix.hpp>
+#include <host/Morpheus_Ccl_DynamicMatrix.hpp>
+#include <host/Morpheus_Ccl_DenseVector.hpp>
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-ccl_value_t morpheus_ccl_reduce_hvec_dense_hvec_dense(const ccl_hvec_dense* in,
-                                                      ccl_index_t size);
+void morpheus_ccl_print_hvec_dense(ccl_hvec_dense* v);
+
+void morpheus_ccl_print_hmat_coo(ccl_hmat_coo* A);
+
+void morpheus_ccl_print_hmat_csr(ccl_hmat_csr* A);
+
+void morpheus_ccl_print_hmat_dense(ccl_hmat_dense* A);
+
+void morpheus_ccl_print_hmat_dia(ccl_hmat_dia* A);
+
+void morpheus_ccl_print_hmat_dyn(ccl_hmat_dyn* A);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif  // MORPHEUS_CCL_REDUCTION_HPP
+#endif  // MORPHEUS_CCL_PRINT_HPP

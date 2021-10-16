@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl_WAXPBY.hpp
+ * Morpheus_Ccl_Host.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,23 +21,24 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_WAXPBY_HPP
-#define MORPHEUS_CCL_WAXPBY_HPP
+#ifndef MORPHEUS_CCL_HOST_HPP
+#define MORPHEUS_CCL_HOST_HPP
 
-#include <Morpheus_Ccl_DenseVector.hpp>
+#include <host/Morpheus_Ccl_CooMatrix.hpp>
+#include <host/Morpheus_Ccl_CsrMatrix.hpp>
+#include <host/Morpheus_Ccl_DiaMatrix.hpp>
+#include <host/Morpheus_Ccl_DenseVector.hpp>
+#include <host/Morpheus_Ccl_DynamicMatrix.hpp>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
+#include <host/Morpheus_Ccl_MirrorContainers.hpp>
 
-void morpheus_ccl_waxpby_hvec_dense_hvec_dense(ccl_index_t n, ccl_value_t alpha,
-                                               const ccl_hvec_dense* x,
-                                               ccl_value_t beta,
-                                               const ccl_hvec_dense* y,
-                                               ccl_hvec_dense* w);
+#include <host/Morpheus_Ccl_Convert.hpp>
+#include <host/Morpheus_Ccl_Copy.hpp>
+#include <host/Morpheus_Ccl_Dot.hpp>
+#include <host/Morpheus_Ccl_Multiply.hpp>
+#include <host/Morpheus_Ccl_Print.hpp>
+#include <host/Morpheus_Ccl_Reduction.hpp>
+#include <host/Morpheus_Ccl_Scan.hpp>
+#include <host/Morpheus_Ccl_WAXPBY.hpp>
 
-#ifdef __cplusplus
-}
-#endif
-
-#endif  // MORPHEUS_CCL_WAXPBY_HPP
+#endif  // MORPHEUS_CCL_HOST_HPP

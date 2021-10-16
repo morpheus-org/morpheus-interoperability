@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl_Dot.cpp
+ * Morpheus_Ccl_Print.cpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,10 +21,16 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl_Dot.hpp>
+#include <host/Morpheus_Ccl_Print.hpp>
 
-ccl_value_t morpheus_ccl_dot_hvec_dense_hvec_dense(ccl_index_t n,
-                                                   const ccl_hvec_dense* x,
-                                                   const ccl_hvec_dense* y) {
-  return Morpheus::dot<ccl_host_t>(n, *x, *y);
-}
+void morpheus_ccl_print_hvec_dense(ccl_hvec_dense* v) { Morpheus::print(*v); }
+
+void morpheus_ccl_print_hmat_coo(ccl_hmat_coo* A) { Morpheus::print(*A); }
+
+void morpheus_ccl_print_hmat_csr(ccl_hmat_csr* A) { Morpheus::print(*A); }
+
+void morpheus_ccl_print_hmat_dense(ccl_hmat_dense* A) { Morpheus::print(*A); }
+
+void morpheus_ccl_print_hmat_dia(ccl_hmat_dia* A) { Morpheus::print(*A); }
+
+void morpheus_ccl_print_hmat_dyn(ccl_hmat_dyn* A) { Morpheus::print(*A); }

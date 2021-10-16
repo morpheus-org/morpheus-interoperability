@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl_DenseMatrix.hpp>
+#include <host/Morpheus_Ccl_DenseMatrix.hpp>
 
 void morpheus_ccl_create_default_hmat_dense(ccl_hmat_dense** A) {
   *A = (new ccl_hmat_dense());

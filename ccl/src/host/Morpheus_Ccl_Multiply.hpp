@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl_Multiply.cpp
+ * Morpheus_Ccl_Multiply.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,28 +21,37 @@
  * limitations under the License.
  */
 
-#include <Morpheus_Ccl_Multiply.hpp>
+#ifndef MORPHEUS_CCL_MULTIPLY_HPP
+#define MORPHEUS_CCL_MULTIPLY_HPP
+
+#include <host/Morpheus_Ccl_CooMatrix.hpp>
+#include <host/Morpheus_Ccl_CsrMatrix.hpp>
+#include <host/Morpheus_Ccl_DiaMatrix.hpp>
+#include <host/Morpheus_Ccl_DynamicMatrix.hpp>
+#include <host/Morpheus_Ccl_DenseVector.hpp>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 void morpheus_ccl_multiply_hmat_coo_hvec_dense_hvec_dense(ccl_hmat_coo* A,
                                                           ccl_hvec_dense* x,
-                                                          ccl_hvec_dense* y) {
-  Morpheus::multiply<ccl_host_t>(*A, *x, *y);
-}
+                                                          ccl_hvec_dense* y);
 
 void morpheus_ccl_multiply_hmat_csr_hvec_dense_hvec_dense(ccl_hmat_csr* A,
                                                           ccl_hvec_dense* x,
-                                                          ccl_hvec_dense* y) {
-  Morpheus::multiply<ccl_host_t>(*A, *x, *y);
-}
+                                                          ccl_hvec_dense* y);
 
 void morpheus_ccl_multiply_hmat_dia_hvec_dense_hvec_dense(ccl_hmat_dia* A,
                                                           ccl_hvec_dense* x,
-                                                          ccl_hvec_dense* y) {
-  Morpheus::multiply<ccl_host_t>(*A, *x, *y);
-}
+                                                          ccl_hvec_dense* y);
 
 void morpheus_ccl_multiply_hmat_dyn_hvec_dense_hvec_dense(ccl_hmat_dyn* A,
                                                           ccl_hvec_dense* x,
-                                                          ccl_hvec_dense* y) {
-  Morpheus::multiply<ccl_host_t>(*A, *x, *y);
+                                                          ccl_hvec_dense* y);
+
+#ifdef __cplusplus
 }
+#endif
+
+#endif  // MORPHEUS_CCL_MULTIPLY_HPP
