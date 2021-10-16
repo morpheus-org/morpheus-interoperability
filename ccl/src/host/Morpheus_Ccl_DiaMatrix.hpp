@@ -35,77 +35,69 @@
 extern "C" {
 #endif
 
-void morpheus_ccl_create_default_hmat_dia(ccl_hmat_dia** A);
+void ccl_hmat_dia_create_default(ccl_hmat_dia** A);
 
-void morpheus_ccl_create_hmat_dia(ccl_hmat_dia** A, ccl_index_t nrows,
-                                  ccl_index_t ncols, ccl_index_t nnnz,
-                                  ccl_index_t ndiags);
+void ccl_hmat_dia_create(ccl_hmat_dia** A, ccl_index_t nrows, ccl_index_t ncols,
+                         ccl_index_t nnnz, ccl_index_t ndiags);
 
-void morpheus_ccl_create_aligned_hmat_dia(ccl_hmat_dia** A, ccl_index_t nrows,
-                                          ccl_index_t ncols, ccl_index_t nnnz,
-                                          ccl_index_t ndiags,
-                                          ccl_index_t alginment);
+void ccl_hmat_dia_create_aligned(ccl_hmat_dia** A, ccl_index_t nrows,
+                                 ccl_index_t ncols, ccl_index_t nnnz,
+                                 ccl_index_t ndiags, ccl_index_t alginment);
 
-void morpheus_ccl_create_hmat_dia_from_hmat_dia(ccl_hmat_dia* src,
-                                                ccl_hmat_dia** dst);
+void ccl_hmat_dia_create_from_hmat_dia(ccl_hmat_dia* src, ccl_hmat_dia** dst);
 
-void morpheus_ccl_create_hmat_dia_from_hmat_dyn(ccl_hmat_dyn* src,
-                                                ccl_hmat_dia** dst);
+void ccl_hmat_dia_create_from_hmat_dyn(ccl_hmat_dyn* src, ccl_hmat_dia** dst);
 
-void morpheus_ccl_resize_hmat_dia(ccl_hmat_dia* A, const ccl_index_t num_rows,
-                                  const ccl_index_t num_cols,
-                                  const ccl_index_t num_nnz,
-                                  const ccl_index_t num_diagonals);
+void ccl_hmat_dia_resize(ccl_hmat_dia* A, const ccl_index_t num_rows,
+                         const ccl_index_t num_cols, const ccl_index_t num_nnz,
+                         const ccl_index_t num_diagonals);
 
-void morpheus_ccl_resize_aligned_hmat_dia(ccl_hmat_dia* A,
-                                          const ccl_index_t num_rows,
-                                          const ccl_index_t num_cols,
-                                          const ccl_index_t num_nnz,
-                                          const ccl_index_t num_diagonals,
-                                          const ccl_index_t alginment);
+void ccl_hmat_dia_resize_aligned(ccl_hmat_dia* A, const ccl_index_t num_rows,
+                                 const ccl_index_t num_cols,
+                                 const ccl_index_t num_nnz,
+                                 const ccl_index_t num_diagonals,
+                                 const ccl_index_t alginment);
 
-void morpheus_ccl_allocate_hmat_dia_from_hmat_dia(ccl_hmat_dia* src,
-                                                  ccl_hmat_dia* dst);
+void ccl_hmat_dia_allocate_from_hmat_dia(ccl_hmat_dia* src, ccl_hmat_dia* dst);
 
-void morpheus_ccl_destroy_hmat_dia(ccl_hmat_dia** A);
+void ccl_hmat_dia_destroy(ccl_hmat_dia** A);
 
 // Base Routines
-ccl_index_t morpheus_ccl_nrows_hmat_dia(ccl_hmat_dia* A);
-ccl_index_t morpheus_ccl_ncols_hmat_dia(ccl_hmat_dia* A);
-ccl_index_t morpheus_ccl_nnnz_hmat_dia(ccl_hmat_dia* A);
+ccl_index_t ccl_hmat_dia_nrows(ccl_hmat_dia* A);
+ccl_index_t ccl_hmat_dia_ncols(ccl_hmat_dia* A);
+ccl_index_t ccl_hmat_dia_nnnz(ccl_hmat_dia* A);
 
-void morpheus_ccl_set_nrows_hmat_dia(ccl_hmat_dia* A, ccl_index_t nrows);
-void morpheus_ccl_set_ncols_hmat_dia(ccl_hmat_dia* A, ccl_index_t ncols);
-void morpheus_ccl_set_nnnz_hmat_dia(ccl_hmat_dia* A, ccl_index_t nnnz);
+void ccl_hmat_dia_set_nrows(ccl_hmat_dia* A, ccl_index_t nrows);
+void ccl_hmat_dia_set_ncols(ccl_hmat_dia* A, ccl_index_t ncols);
+void ccl_hmat_dia_set_nnnz(ccl_hmat_dia* A, ccl_index_t nnnz);
 
 // Format Specific Routines
-ccl_index_t morpheus_ccl_ndiags_hmat_dia(ccl_hmat_dia* A);
-ccl_index_t morpheus_ccl_alignment_hmat_dia(ccl_hmat_dia* A);
+ccl_index_t ccl_hmat_dia_ndiags(ccl_hmat_dia* A);
+ccl_index_t ccl_hmat_dia_alignment(ccl_hmat_dia* A);
 
-void morpheus_ccl_set_ndiags_hmat_dia(ccl_hmat_dia* A, ccl_index_t ndiags);
-void morpheus_ccl_set_alignment_hmat_dia(ccl_hmat_dia* A,
-                                         ccl_index_t alignment);
+void ccl_hmat_dia_set_ndiags(ccl_hmat_dia* A, ccl_index_t ndiags);
+void ccl_hmat_dia_set_alignment(ccl_hmat_dia* A, ccl_index_t alignment);
 
-ccl_index_t morpheus_ccl_diagonal_offests_at_dia(ccl_hmat_dia* A,
-                                                 ccl_index_t i);
-ccl_value_t morpheus_ccl_values_at_dia(ccl_hmat_dia* A, ccl_index_t i,
-                                       ccl_index_t j);
+ccl_index_t ccl_hmat_dia_diagonal_offests_at(ccl_hmat_dia* A, ccl_index_t i);
+ccl_value_t ccl_hmat_dia_values_at(ccl_hmat_dia* A, ccl_index_t i,
+                                   ccl_index_t j);
 
-ccl_hvec_dense_i32_i32_r_h* morpheus_ccl_diagonal_offsets_dia(ccl_hmat_dia* A);
-ccl_hmat_dense* morpheus_ccl_values_dia(ccl_hmat_dia* A);
+ccl_hvec_dense_i* ccl_hmat_dia_diagonal_offsets(ccl_hmat_dia* A);
+ccl_hmat_dense* ccl_hmat_dia_values(ccl_hmat_dia* A);
 
-void morpheus_ccl_set_diagonal_offests_at_dia(ccl_hmat_dia* A, ccl_index_t i,
-                                              ccl_index_t val);
-void morpheus_ccl_set_values_at_dia(ccl_hmat_dia* A, ccl_index_t i,
-                                    ccl_index_t j, ccl_value_t val);
+void ccl_hmat_dia_set_diagonal_offests_at(ccl_hmat_dia* A, ccl_index_t i,
+                                          ccl_index_t val);
+void ccl_hmat_dia_set_values_at(ccl_hmat_dia* A, ccl_index_t i, ccl_index_t j,
+                                ccl_value_t val);
 
-ccl_bool_t morpheus_ccl_exceeds_tolerance_hmat_dia(
-    ccl_hmat_dia* A, const ccl_index_t num_rows, const ccl_index_t num_entries,
-    const ccl_index_t num_diagonals);
+ccl_bool_t ccl_hmat_dia_exceeds_tolerance(ccl_hmat_dia* A,
+                                          const ccl_index_t num_rows,
+                                          const ccl_index_t num_entries,
+                                          const ccl_index_t num_diagonals);
 
 // Other Routines
-ccl_formats_e morpheus_ccl_format_enum_hmat_dia(ccl_hmat_dia* A);
-int morpheus_ccl_format_index_hmat_dia(ccl_hmat_dia* A);
+ccl_formats_e ccl_hmat_dia_format_enum(ccl_hmat_dia* A);
+int ccl_hmat_dia_format_index(ccl_hmat_dia* A);
 
 #ifdef __cplusplus
 }

@@ -25,52 +25,52 @@
 
 using dyn = ccl_hmat_dyn;
 using coo = ccl_hmat_coo;
-using vec = ccl_hvec_dense;
+using vec = ccl_hvec_dense_v;
 
 extern "C" {
 
 int main() {
-  morpheus_ccl_initialize_without_args();
+  ccl_initialize_without_args();
   {
     dyn *Adyn;
     coo *A;
     vec *x, *y;
 
-    morpheus_ccl_create_hmat_coo(&A, 5, 3, 3);
+    ccl_hmat_coo_create(&A, 5, 3, 3);
 
-    morpheus_ccl_set_row_indices_at_coo(A, 0, 0);
-    morpheus_ccl_set_column_indices_at_coo(A, 0, 0);
-    morpheus_ccl_set_values_at_coo(A, 0, 4);
+    ccl_hmat_coo_set_row_indices_at(A, 0, 0);
+    ccl_hmat_coo_set_column_indices_at(A, 0, 0);
+    ccl_hmat_coo_set_values_at(A, 0, 4);
 
-    morpheus_ccl_set_row_indices_at_coo(A, 1, 2);
-    morpheus_ccl_set_column_indices_at_coo(A, 1, 1);
-    morpheus_ccl_set_values_at_coo(A, 1, -2);
+    ccl_hmat_coo_set_row_indices_at(A, 1, 2);
+    ccl_hmat_coo_set_column_indices_at(A, 1, 1);
+    ccl_hmat_coo_set_values_at(A, 1, -2);
 
-    morpheus_ccl_set_row_indices_at_coo(A, 2, 4);
-    morpheus_ccl_set_column_indices_at_coo(A, 2, 2);
-    morpheus_ccl_set_values_at_coo(A, 2, 2.5);
+    ccl_hmat_coo_set_row_indices_at(A, 2, 4);
+    ccl_hmat_coo_set_column_indices_at(A, 2, 2);
+    ccl_hmat_coo_set_values_at(A, 2, 2.5);
 
-    morpheus_ccl_create_hvec_dense(&x, 3, 3);
-    morpheus_ccl_create_hvec_dense(&y, 5, 0);
+    ccl_hvec_dense_v_create(&x, 3, 3);
+    ccl_hvec_dense_v_create(&y, 5, 0);
 
-    morpheus_ccl_create_hmat_dyn_from_hmat(A, Morpheus::COO_FORMAT, &Adyn);
-    morpheus_ccl_print_hmat_dyn(Adyn);
+    ccl_hmat_dyn_create_from_hmat(A, Morpheus::COO_FORMAT, &Adyn);
+    ccl_hmat_dyn_print(Adyn);
 
-    morpheus_ccl_multiply_hmat_dyn_hvec_dense_hvec_dense(Adyn, x, y);
+    ccl_hmat_dyn_hvec_dense_v_multiply(Adyn, x, y);
 
-    morpheus_ccl_print_hmat_dyn(Adyn);
-    morpheus_ccl_print_hvec_dense(x);
-    morpheus_ccl_print_hvec_dense(y);
+    ccl_hmat_dyn_print(Adyn);
+    ccl_hvec_dense_v_print(x);
+    ccl_hvec_dense_v_print(y);
 
-    morpheus_ccl_activate_hmat_dyn(Adyn, Morpheus::CSR_FORMAT);
-    morpheus_ccl_print_hmat_dyn(Adyn);
+    ccl_hmat_dyn_activate(Adyn, Morpheus::CSR_FORMAT);
+    ccl_hmat_dyn_print(Adyn);
 
-    morpheus_ccl_destroy_hmat_dyn(&Adyn);
-    morpheus_ccl_destroy_hmat_coo(&A);
-    morpheus_ccl_destroy_hvec_dense(&x);
-    morpheus_ccl_destroy_hvec_dense(&y);
+    ccl_hmat_dyn_destroy(&Adyn);
+    ccl_hmat_coo_destroy(&A);
+    ccl_hvec_dense_v_destroy(&x);
+    ccl_hvec_dense_v_destroy(&y);
   }
-  morpheus_ccl_finalize();
+  ccl_finalize();
 
   return 0;
 }

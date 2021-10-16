@@ -26,53 +26,53 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef ccl_hvec_dense vec;
+typedef ccl_hvec_dense_v vec;
 
 int main() {
-  morpheus_ccl_initialize_without_args();
+  ccl_initialize_without_args();
   {
     vec *in, *out, *keys;
     ccl_index_t size = 10;
-    morpheus_ccl_create_hvec_dense(&in, size, 1);
-    morpheus_ccl_create_hvec_dense(&out, size, 0);
-    morpheus_ccl_create_hvec_dense(&keys, size, 0);
+    ccl_hvec_dense_v_create(&in, size, 1);
+    ccl_hvec_dense_v_create(&out, size, 0);
+    ccl_hvec_dense_v_create(&keys, size, 0);
 
-    morpheus_ccl_inclusive_scan_hvec_dense_hvec_dense(in, out, size, 0);
+    ccl_hvec_dense_v_inclusive_scan(in, out, size, 0);
 
     printf("Inclusive Scan:\n");
-    morpheus_ccl_print_hvec_dense(out);
+    ccl_hvec_dense_v_print(out);
 
-    morpheus_ccl_exclusive_scan_hvec_dense_hvec_dense(in, out, size, 0);
+    ccl_hvec_dense_v_exclusive_scan(in, out, size, 0);
 
     printf("Exclusive Scan:\n");
-    morpheus_ccl_print_hvec_dense(out);
+    ccl_hvec_dense_v_print(out);
 
-    morpheus_ccl_set_values_at_hvec_dense(keys, 0, 0);
-    morpheus_ccl_set_values_at_hvec_dense(keys, 1, 0);
-    morpheus_ccl_set_values_at_hvec_dense(keys, 2, 0);
-    morpheus_ccl_set_values_at_hvec_dense(keys, 3, 1);
-    morpheus_ccl_set_values_at_hvec_dense(keys, 4, 1);
-    morpheus_ccl_set_values_at_hvec_dense(keys, 5, 2);
-    morpheus_ccl_set_values_at_hvec_dense(keys, 6, 3);
-    morpheus_ccl_set_values_at_hvec_dense(keys, 7, 3);
-    morpheus_ccl_set_values_at_hvec_dense(keys, 8, 3);
-    morpheus_ccl_set_values_at_hvec_dense(keys, 9, 3);
+    ccl_hvec_dense_v_set_values_at(keys, 0, 0);
+    ccl_hvec_dense_v_set_values_at(keys, 1, 0);
+    ccl_hvec_dense_v_set_values_at(keys, 2, 0);
+    ccl_hvec_dense_v_set_values_at(keys, 3, 1);
+    ccl_hvec_dense_v_set_values_at(keys, 4, 1);
+    ccl_hvec_dense_v_set_values_at(keys, 5, 2);
+    ccl_hvec_dense_v_set_values_at(keys, 6, 3);
+    ccl_hvec_dense_v_set_values_at(keys, 7, 3);
+    ccl_hvec_dense_v_set_values_at(keys, 8, 3);
+    ccl_hvec_dense_v_set_values_at(keys, 9, 3);
 
-    morpheus_ccl_inclusive_scan_by_key_hvec_dense_hvec_dense(keys, in, out, size, 0);
+    ccl_hvec_dense_v_inclusive_scan_by_key(keys, in, out, size, 0);
 
     printf("Inclusive Scan by key:\n");
-    morpheus_ccl_print_hvec_dense(out);
+    ccl_hvec_dense_v_print(out);
 
-    morpheus_ccl_exclusive_scan_by_key_hvec_dense_hvec_dense(keys,in, out, size, 0);
+    ccl_hvec_dense_v_exclusive_scan_by_key(keys,in, out, size, 0);
 
     printf("Exclusive Scan by key:\n");
-    morpheus_ccl_print_hvec_dense(out);
+    ccl_hvec_dense_v_print(out);
 
-    morpheus_ccl_destroy_hvec_dense(&in);
-    morpheus_ccl_destroy_hvec_dense(&out);
-    morpheus_ccl_destroy_hvec_dense(&keys);
+    ccl_hvec_dense_v_destroy(&in);
+    ccl_hvec_dense_v_destroy(&out);
+    ccl_hvec_dense_v_destroy(&keys);
   }
-  morpheus_ccl_finalize();
+  ccl_finalize();
 
   return 0;
 }

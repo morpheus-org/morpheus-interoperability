@@ -26,53 +26,53 @@
 #include <stdio.h>
 #include <string.h>
 
-typedef ccl_hvec_dense vec;
+typedef ccl_hvec_dense_v vec;
 
 int main() {
-  morpheus_ccl_initialize_without_args();
+  ccl_initialize_without_args();
   {
     vec *x, *y, *w;
 
-    morpheus_ccl_create_hvec_dense(&x, 10, 3);
-    morpheus_ccl_create_hvec_dense(&y, 10, 5);
-    morpheus_ccl_create_hvec_dense(&w, 10, 0);
+    ccl_hvec_dense_v_create(&x, 10, 3);
+    ccl_hvec_dense_v_create(&y, 10, 5);
+    ccl_hvec_dense_v_create(&w, 10, 0);
 
-    printf("<x,y> = %f\n", morpheus_ccl_dot_hvec_dense_hvec_dense(10, x, y));
-    morpheus_ccl_waxpby_hvec_dense_hvec_dense(10, 1.0, x, 2.0, y, w);
-    morpheus_ccl_print_hvec_dense(w);
+    printf("<x,y> = %f\n", ccl_hvec_dense_v_dot(10, x, y));
+    ccl_hvec_dense_v_waxpby(10, 1.0, x, 2.0, y, w);
+    ccl_hvec_dense_v_print(w);
 
-    printf("Reduced(w) = %f\n", morpheus_ccl_reduce_hvec_dense_hvec_dense(w, 10));
+    printf("Reduced(w) = %f\n", ccl_hvec_dense_v_reduce(w, 10));
     
-    morpheus_ccl_assign_hvec_dense(y, 5, 2.5);
+    ccl_hvec_dense_v_assign(y, 5, 2.5);
 
-    morpheus_ccl_print_hvec_dense(y);
+    ccl_hvec_dense_v_print(y);
 
-    ccl_index_t xsize = morpheus_ccl_size_hvec_dense(x);
-    ccl_value_t* xdata = morpheus_ccl_data_hvec_dense(x);
+    ccl_index_t xsize = ccl_hvec_dense_v_size(x);
+    ccl_value_t* xdata = ccl_hvec_dense_v_data(x);
 
     printf("x:: Size = %d\nx::vals::\n", xsize);
     for(int i=0; i<xsize; i++){
       printf("\t[%d] %3.1f\n", i, xdata[i]);
     }
 
-    morpheus_ccl_resize_hvec_dense(x, 2);
-    morpheus_ccl_print_hvec_dense(x);
+    ccl_hvec_dense_v_resize(x, 2);
+    ccl_hvec_dense_v_print(x);
 
-    morpheus_ccl_resize_fill_hvec_dense(x, 9, -8.2);
-    morpheus_ccl_print_hvec_dense(x);
+    ccl_hvec_dense_v_resize_fill(x, 9, -8.2);
+    ccl_hvec_dense_v_print(x);
 
     vec *z;
     
-    morpheus_ccl_create_default_hvec_dense(&z);
-    morpheus_ccl_allocate_hvec_dense_from_hvec_dense(y, z);
-    morpheus_ccl_print_hvec_dense(z);
+    ccl_hvec_dense_v_create_default(&z);
+    ccl_hvec_dense_v_allocate_from_hvec_dense_v(y, z);
+    ccl_hvec_dense_v_print(z);
 
-    morpheus_ccl_destroy_hvec_dense(&x);
-    morpheus_ccl_destroy_hvec_dense(&y);
-    morpheus_ccl_destroy_hvec_dense(&w);
-    morpheus_ccl_destroy_hvec_dense(&z);
+    ccl_hvec_dense_v_destroy(&x);
+    ccl_hvec_dense_v_destroy(&y);
+    ccl_hvec_dense_v_destroy(&w);
+    ccl_hvec_dense_v_destroy(&z);
   }
-  morpheus_ccl_finalize();
+  ccl_finalize();
 
   return 0;
 }

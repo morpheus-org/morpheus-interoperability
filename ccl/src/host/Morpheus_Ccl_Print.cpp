@@ -23,14 +23,14 @@
 
 #include <host/Morpheus_Ccl_Print.hpp>
 
-void morpheus_ccl_print_hvec_dense(ccl_hvec_dense* v) { Morpheus::print(*v); }
+void ccl_hvec_dense_v_print(ccl_hvec_dense_v* v) { Morpheus::print(*v); }
 
-void morpheus_ccl_print_hmat_coo(ccl_hmat_coo* A) { Morpheus::print(*A); }
+void ccl_hmat_coo_print(ccl_hmat_coo* A) { Morpheus::print(*A); }
 
-void morpheus_ccl_print_hmat_csr(ccl_hmat_csr* A) { Morpheus::print(*A); }
+void ccl_hmat_csr_print(ccl_hmat_csr* A) { Morpheus::print(*A); }
 
-void morpheus_ccl_print_hmat_dense(ccl_hmat_dense* A) { Morpheus::print(*A); }
+void ccl_hmat_dense_print(ccl_hmat_dense* A) { Morpheus::print(*A); }
 
-void morpheus_ccl_print_hmat_dia(ccl_hmat_dia* A) { Morpheus::print(*A); }
+void ccl_hmat_dia_print(ccl_hmat_dia* A) { Morpheus::print(*A); }
 
-void morpheus_ccl_print_hmat_dyn(ccl_hmat_dyn* A) { Morpheus::print(*A); }
+void ccl_hmat_dyn_print(ccl_hmat_dyn* A) { Morpheus::print(*A); }

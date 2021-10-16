@@ -35,33 +35,31 @@
 extern "C" {
 #endif
 
-ccl_hmat_coo_hostmirror* morpheus_ccl_create_mirror_hmat_coo(ccl_hmat_coo* src);
+ccl_hmat_coo_hostmirror* ccl_hmat_coo_create_mirror(ccl_hmat_coo* src);
 
-ccl_hmat_csr_hostmirror* morpheus_ccl_create_mirror_hmat_csr(ccl_hmat_csr* src);
+ccl_hmat_csr_hostmirror* ccl_hmat_csr_create_mirror(ccl_hmat_csr* src);
 
-ccl_hmat_dia_hostmirror* morpheus_ccl_create_mirror_hmat_dia(ccl_hmat_dia* src);
+ccl_hmat_dia_hostmirror* ccl_hmat_dia_create_mirror(ccl_hmat_dia* src);
 
-ccl_hmat_dense_hostmirror* morpheus_ccl_create_mirror_hmat_dense(
-    ccl_hmat_dense* src);
+ccl_hmat_dense_hostmirror* ccl_hmat_dense_create_mirror(ccl_hmat_dense* src);
 
-ccl_hvec_dense_hostmirror* morpheus_ccl_create_mirror_hvec_dense(
-    ccl_hvec_dense* src);
+ccl_hvec_dense_v_hostmirror* ccl_hvec_dense_v_create_mirror(
+    ccl_hvec_dense_v* src);
 
-ccl_hmat_dyn_hostmirror* morpheus_ccl_create_mirror_hmat_dyn(ccl_hmat_dyn* src);
+ccl_hmat_dyn_hostmirror* ccl_hmat_dyn_create_mirror(ccl_hmat_dyn* src);
 
-ccl_hmat_coo* morpheus_ccl_create_mirror_container_hmat_coo(ccl_hmat_coo* src);
+ccl_hmat_coo* ccl_hmat_coo_create_mirror_container(ccl_hmat_coo* src);
 
-ccl_hmat_csr* morpheus_ccl_create_mirror_container_hmat_csr(ccl_hmat_csr* src);
+ccl_hmat_csr* ccl_hmat_csr_create_mirror_container(ccl_hmat_csr* src);
 
-ccl_hmat_dia* morpheus_ccl_create_mirror_container_hmat_dia(ccl_hmat_dia* src);
+ccl_hmat_dia* ccl_hmat_dia_create_mirror_container(ccl_hmat_dia* src);
 
-ccl_hmat_dense* morpheus_ccl_create_mirror_container_hmat_dense(
-    ccl_hmat_dense* src);
+ccl_hmat_dense* ccl_hmat_dense_create_mirror_container(ccl_hmat_dense* src);
 
-ccl_hvec_dense* morpheus_ccl_create_mirror_container_hvec_dense(
-    ccl_hvec_dense* src);
+ccl_hvec_dense_v* ccl_hvec_dense_v_create_mirror_container(
+    ccl_hvec_dense_v* src);
 
-ccl_hmat_dyn* morpheus_ccl_create_mirror_container_hmat_dyn(ccl_hmat_dyn* src);
+ccl_hmat_dyn* ccl_hmat_dyn_create_mirror_container(ccl_hmat_dyn* src);
 
 #ifdef __cplusplus
 }

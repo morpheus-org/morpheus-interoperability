@@ -28,15 +28,15 @@
 
 typedef ccl_hmat_dyn dyn;
 typedef ccl_hmat_csr csr;
-typedef ccl_hvec_dense vec;
+typedef ccl_hvec_dense_v vec;
 
 int main() {
-  morpheus_ccl_initialize_without_args();
+  ccl_initialize_without_args();
   {
     csr *A, *B;
     vec *x, *y;
 
-    morpheus_ccl_create_hmat_csr(&A, 4, 3, 6);
+    ccl_hmat_csr_create(&A, 4, 3, 6);
     // Simple Matrix
     //    [10 20 00]
     //    [00 00 30]
@@ -46,36 +46,35 @@ int main() {
     // Row Offsets: [0, 2, 3, 5, 6]
     // Column Indices: [0, 1, 2, 0, 2, 1]
     // Values: [10, 20, 30, 40, 50, 60]
-    morpheus_ccl_set_row_offsets_at_csr(A, 0, 0);
-    morpheus_ccl_set_row_offsets_at_csr(A, 1, 2);
-    morpheus_ccl_set_row_offsets_at_csr(A, 2, 3);
-    morpheus_ccl_set_row_offsets_at_csr(A, 3, 5);
-    morpheus_ccl_set_row_offsets_at_csr(A, 4, 6);
+    ccl_hmat_csr_set_row_offsets_at(A, 0, 0);
+    ccl_hmat_csr_set_row_offsets_at(A, 1, 2);
+    ccl_hmat_csr_set_row_offsets_at(A, 2, 3);
+    ccl_hmat_csr_set_row_offsets_at(A, 3, 5);
+    ccl_hmat_csr_set_row_offsets_at(A, 4, 6);
     
-    morpheus_ccl_set_column_indices_at_csr(A, 0, 0);
-    morpheus_ccl_set_column_indices_at_csr(A, 1, 1);
-    morpheus_ccl_set_column_indices_at_csr(A, 2, 2);
-    morpheus_ccl_set_column_indices_at_csr(A, 3, 0);
-    morpheus_ccl_set_column_indices_at_csr(A, 4, 2);
-    morpheus_ccl_set_column_indices_at_csr(A, 5, 1);
+    ccl_hmat_csr_set_column_indices_at(A, 0, 0);
+    ccl_hmat_csr_set_column_indices_at(A, 1, 1);
+    ccl_hmat_csr_set_column_indices_at(A, 2, 2);
+    ccl_hmat_csr_set_column_indices_at(A, 3, 0);
+    ccl_hmat_csr_set_column_indices_at(A, 4, 2);
+    ccl_hmat_csr_set_column_indices_at(A, 5, 1);
     
-    morpheus_ccl_set_values_at_csr(A, 0, 10);
-    morpheus_ccl_set_values_at_csr(A, 1, 20);
-    morpheus_ccl_set_values_at_csr(A, 2, 30);
-    morpheus_ccl_set_values_at_csr(A, 3, 40);
-    morpheus_ccl_set_values_at_csr(A, 4, 50);
-    morpheus_ccl_set_values_at_csr(A, 5, 60);
+    ccl_hmat_csr_set_values_at(A, 0, 10);
+    ccl_hmat_csr_set_values_at(A, 1, 20);
+    ccl_hmat_csr_set_values_at(A, 2, 30);
+    ccl_hmat_csr_set_values_at(A, 3, 40);
+    ccl_hmat_csr_set_values_at(A, 4, 50);
+    ccl_hmat_csr_set_values_at(A, 5, 60);
 
-    morpheus_ccl_create_hvec_dense(&x, 3, 3);
-    morpheus_ccl_create_hvec_dense(&y, 6, 0);
+    ccl_hvec_dense_v_create(&x, 3, 3);
+    ccl_hvec_dense_v_create(&y, 6, 0);
 
-    morpheus_ccl_multiply_hmat_csr_hvec_dense_hvec_dense(A, x,
-                                                                       y);
+    ccl_hmat_csr_hvec_dense_v_multiply(A, x, y);
 
-    morpheus_ccl_resize_hmat_csr(A, 5, 5, 13);
+    ccl_hmat_csr_resize(A, 5, 5, 13);
 
-    morpheus_ccl_create_hmat_csr(&B, 0, 0, 0);
-    morpheus_ccl_allocate_hmat_csr_from_hmat_csr(A, B);
+    ccl_hmat_csr_create(&B, 0, 0, 0);
+    ccl_hmat_csr_allocate_from_hmat_csr(A, B);
 
     // Medium matrix
     // [ 1, -1, -3,  0,  0]
@@ -87,58 +86,58 @@ int main() {
     // Row Offsets: [0, 3, 5, 8, 11, 13]
     // Column Indices: [0, 1, 2, 0, 1, 2, 3, 4, 0, 2, 3, 1, 4]
     // Values: [1, -1, -3, -2, 5, 4, 6, 4, -4, 2, 7, 8, -5]
-    morpheus_ccl_set_row_offsets_at_csr(A, 0, 0);
-    morpheus_ccl_set_row_offsets_at_csr(A, 1, 3);
-    morpheus_ccl_set_row_offsets_at_csr(A, 2, 5);
-    morpheus_ccl_set_row_offsets_at_csr(A, 3, 8);
-    morpheus_ccl_set_row_offsets_at_csr(A, 4, 11);
-    morpheus_ccl_set_row_offsets_at_csr(A, 5, 13);
+    ccl_hmat_csr_set_row_offsets_at(A, 0, 0);
+    ccl_hmat_csr_set_row_offsets_at(A, 1, 3);
+    ccl_hmat_csr_set_row_offsets_at(A, 2, 5);
+    ccl_hmat_csr_set_row_offsets_at(A, 3, 8);
+    ccl_hmat_csr_set_row_offsets_at(A, 4, 11);
+    ccl_hmat_csr_set_row_offsets_at(A, 5, 13);
 
-    morpheus_ccl_set_column_indices_at_csr(A, 0, 0);
-    morpheus_ccl_set_column_indices_at_csr(A, 1, 1);
-    morpheus_ccl_set_column_indices_at_csr(A, 2, 2);
-    morpheus_ccl_set_column_indices_at_csr(A, 3, 0);
-    morpheus_ccl_set_column_indices_at_csr(A, 4, 1);
-    morpheus_ccl_set_column_indices_at_csr(A, 5, 2);
-    morpheus_ccl_set_column_indices_at_csr(A, 6, 3);
-    morpheus_ccl_set_column_indices_at_csr(A, 7, 4);
-    morpheus_ccl_set_column_indices_at_csr(A, 8, 0);
-    morpheus_ccl_set_column_indices_at_csr(A, 9, 2);
-    morpheus_ccl_set_column_indices_at_csr(A, 10, 3);
-    morpheus_ccl_set_column_indices_at_csr(A, 11, 1);
-    morpheus_ccl_set_column_indices_at_csr(A, 12, 4);
+    ccl_hmat_csr_set_column_indices_at(A, 0, 0);
+    ccl_hmat_csr_set_column_indices_at(A, 1, 1);
+    ccl_hmat_csr_set_column_indices_at(A, 2, 2);
+    ccl_hmat_csr_set_column_indices_at(A, 3, 0);
+    ccl_hmat_csr_set_column_indices_at(A, 4, 1);
+    ccl_hmat_csr_set_column_indices_at(A, 5, 2);
+    ccl_hmat_csr_set_column_indices_at(A, 6, 3);
+    ccl_hmat_csr_set_column_indices_at(A, 7, 4);
+    ccl_hmat_csr_set_column_indices_at(A, 8, 0);
+    ccl_hmat_csr_set_column_indices_at(A, 9, 2);
+    ccl_hmat_csr_set_column_indices_at(A, 10, 3);
+    ccl_hmat_csr_set_column_indices_at(A, 11, 1);
+    ccl_hmat_csr_set_column_indices_at(A, 12, 4);
     
-    morpheus_ccl_set_values_at_csr(A, 0, 1);
-    morpheus_ccl_set_values_at_csr(A, 1, -1);
-    morpheus_ccl_set_values_at_csr(A, 2, -3);
-    morpheus_ccl_set_values_at_csr(A, 3, -2);
-    morpheus_ccl_set_values_at_csr(A, 4, 5);
-    morpheus_ccl_set_values_at_csr(A, 5, 4);
-    morpheus_ccl_set_values_at_csr(A, 6, 6);
-    morpheus_ccl_set_values_at_csr(A, 7, 4);
-    morpheus_ccl_set_values_at_csr(A, 8, -4);
-    morpheus_ccl_set_values_at_csr(A, 9, 2);
-    morpheus_ccl_set_values_at_csr(A, 10, 7);
-    morpheus_ccl_set_values_at_csr(A, 11, 8);
-    morpheus_ccl_set_values_at_csr(A, 12, -5);
+    ccl_hmat_csr_set_values_at(A, 0, 1);
+    ccl_hmat_csr_set_values_at(A, 1, -1);
+    ccl_hmat_csr_set_values_at(A, 2, -3);
+    ccl_hmat_csr_set_values_at(A, 3, -2);
+    ccl_hmat_csr_set_values_at(A, 4, 5);
+    ccl_hmat_csr_set_values_at(A, 5, 4);
+    ccl_hmat_csr_set_values_at(A, 6, 6);
+    ccl_hmat_csr_set_values_at(A, 7, 4);
+    ccl_hmat_csr_set_values_at(A, 8, -4);
+    ccl_hmat_csr_set_values_at(A, 9, 2);
+    ccl_hmat_csr_set_values_at(A, 10, 7);
+    ccl_hmat_csr_set_values_at(A, 11, 8);
+    ccl_hmat_csr_set_values_at(A, 12, -5);
 
-    morpheus_ccl_print_hmat_csr(B);
-    morpheus_ccl_print_hmat_csr(A);
+    ccl_hmat_csr_print(B);
+    ccl_hmat_csr_print(A);
     
-    morpheus_ccl_set_nrows_hmat_csr(A, 15);
-    morpheus_ccl_set_ncols_hmat_csr(A, 22);
-    morpheus_ccl_set_nnnz_hmat_csr(A, 111);
+    ccl_hmat_csr_set_nrows(A, 15);
+    ccl_hmat_csr_set_ncols(A, 22);
+    ccl_hmat_csr_set_nnnz(A, 111);
 
-    printf("Csr Enum: %d\n", morpheus_ccl_format_enum_hmat_csr(A));
+    printf("Csr Enum: %d\n", ccl_hmat_csr_format_enum(A));
 
-    printf("Csr Index: %d\n", morpheus_ccl_format_index_hmat_csr(A));
+    printf("Csr Index: %d\n", ccl_hmat_csr_format_index(A));
 
-    morpheus_ccl_destroy_hmat_csr(&A);
-    morpheus_ccl_destroy_hmat_csr(&B);
-    morpheus_ccl_destroy_hvec_dense(&x);
-    morpheus_ccl_destroy_hvec_dense(&y);
+    ccl_hmat_csr_destroy(&A);
+    ccl_hmat_csr_destroy(&B);
+    ccl_hvec_dense_v_destroy(&x);
+    ccl_hvec_dense_v_destroy(&y);
   }
-  morpheus_ccl_finalize();
+  ccl_finalize();
 
   return 0;
 }

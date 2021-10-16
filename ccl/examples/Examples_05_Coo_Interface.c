@@ -28,59 +28,58 @@
 
 typedef ccl_hmat_dyn dyn;
 typedef ccl_hmat_coo coo;
-typedef ccl_hvec_dense vec;
+typedef ccl_hvec_dense_v vec;
 
 int main() {
-  morpheus_ccl_initialize_without_args();
+  ccl_initialize_without_args();
   {
     coo *A, *B;
     vec *x, *y;
 
-    morpheus_ccl_create_hmat_coo(&A, 5, 3, 3);
+    ccl_hmat_coo_create(&A, 5, 3, 3);
 
     int i;
     for(i=0; i<3; i++){
-      morpheus_ccl_set_row_indices_at_coo(A, i, i);
-      morpheus_ccl_set_column_indices_at_coo(A, i, i);
-      morpheus_ccl_set_values_at_coo(A, i, i);
+      ccl_hmat_coo_set_row_indices_at(A, i, i);
+      ccl_hmat_coo_set_column_indices_at(A, i, i);
+      ccl_hmat_coo_set_values_at(A, i, i);
     }
-    morpheus_ccl_set_row_indices_at_coo(A, 0, 15);
+    ccl_hmat_coo_set_row_indices_at(A, 0, 15);
 
-    morpheus_ccl_create_hvec_dense(&x, 3, 3);
-    morpheus_ccl_create_hvec_dense(&y, 5, 0);
+    ccl_hvec_dense_v_create(&x, 3, 3);
+    ccl_hvec_dense_v_create(&y, 5, 0);
 
-    morpheus_ccl_multiply_hmat_coo_hvec_dense_hvec_dense(A, x,
-                                                                       y);
+    ccl_hmat_coo_hvec_dense_v_multiply(A, x, y);
 
-    morpheus_ccl_resize_hmat_coo(A, 10, 10, 64);
+    ccl_hmat_coo_resize(A, 10, 10, 64);
 
-    morpheus_ccl_create_hmat_coo(&B, 0,0,0);
-    morpheus_ccl_allocate_hmat_coo_from_hmat_coo(A, B);
+    ccl_hmat_coo_create(&B, 0,0,0);
+    ccl_hmat_coo_allocate_from_hmat_coo(A, B);
 
     for(i=0; i<64; i++){
-      morpheus_ccl_set_row_indices_at_coo(B, i, i);
-      morpheus_ccl_set_column_indices_at_coo(B, i, i);
-      morpheus_ccl_set_values_at_coo(B, i, i);
+      ccl_hmat_coo_set_row_indices_at(B, i, i);
+      ccl_hmat_coo_set_column_indices_at(B, i, i);
+      ccl_hmat_coo_set_values_at(B, i, i);
     }
-    morpheus_ccl_set_values_at_coo(B, 63, -55);
+    ccl_hmat_coo_set_values_at(B, 63, -55);
 
-    morpheus_ccl_print_hmat_coo(B);
-    morpheus_ccl_print_hmat_coo(A);
+    ccl_hmat_coo_print(B);
+    ccl_hmat_coo_print(A);
     
-    morpheus_ccl_set_nrows_hmat_coo(A, 15);
-    morpheus_ccl_set_ncols_hmat_coo(A, 22);
-    morpheus_ccl_set_nnnz_hmat_coo(A, 111);
+    ccl_hmat_coo_set_nrows(A, 15);
+    ccl_hmat_coo_set_ncols(A, 22);
+    ccl_hmat_coo_set_nnnz(A, 111);
 
-    printf("Coo Enum: %d\n", morpheus_ccl_format_enum_hmat_coo(A));
+    printf("Coo Enum: %d\n", ccl_hmat_coo_format_enum(A));
 
-    printf("Coo Index: %d\n", morpheus_ccl_format_index_hmat_coo(A));
+    printf("Coo Index: %d\n", ccl_hmat_coo_format_index(A));
 
-    morpheus_ccl_destroy_hmat_coo(&A);
-    morpheus_ccl_destroy_hmat_coo(&B);
-    morpheus_ccl_destroy_hvec_dense(&x);
-    morpheus_ccl_destroy_hvec_dense(&y);
+    ccl_hmat_coo_destroy(&A);
+    ccl_hmat_coo_destroy(&B);
+    ccl_hvec_dense_v_destroy(&x);
+    ccl_hvec_dense_v_destroy(&y);
   }
-  morpheus_ccl_finalize();
+  ccl_finalize();
 
   return 0;
 }

@@ -30,23 +30,25 @@
 extern "C" {
 #endif
 
-void morpheus_ccl_inclusive_scan_hvec_dense_hvec_dense(const ccl_hvec_dense* in,
-                                                       ccl_hvec_dense* out,
-                                                       ccl_index_t size,
-                                                       ccl_index_t start);
+void ccl_hvec_dense_v_inclusive_scan(const ccl_hvec_dense_v* in,
+                                     ccl_hvec_dense_v* out, ccl_index_t size,
+                                     ccl_index_t start);
 
-void morpheus_ccl_exclusive_scan_hvec_dense_hvec_dense(const ccl_hvec_dense* in,
-                                                       ccl_hvec_dense* out,
-                                                       ccl_index_t size,
-                                                       ccl_index_t start);
+void ccl_hvec_dense_v_exclusive_scan(const ccl_hvec_dense_v* in,
+                                     ccl_hvec_dense_v* out, ccl_index_t size,
+                                     ccl_index_t start);
 
-void morpheus_ccl_inclusive_scan_by_key_hvec_dense_hvec_dense(
-    const ccl_hvec_dense* keys, const ccl_hvec_dense* in, ccl_hvec_dense* out,
-    ccl_index_t size, ccl_index_t start);
+void ccl_hvec_dense_v_inclusive_scan_by_key(const ccl_hvec_dense_v* keys,
+                                            const ccl_hvec_dense_v* in,
+                                            ccl_hvec_dense_v* out,
+                                            ccl_index_t size,
+                                            ccl_index_t start);
 
-void morpheus_ccl_exclusive_scan_by_key_hvec_dense_hvec_dense(
-    const ccl_hvec_dense* keys, const ccl_hvec_dense* in, ccl_hvec_dense* out,
-    ccl_index_t size, ccl_index_t start);
+void ccl_hvec_dense_v_exclusive_scan_by_key(const ccl_hvec_dense_v* keys,
+                                            const ccl_hvec_dense_v* in,
+                                            ccl_hvec_dense_v* out,
+                                            ccl_index_t size,
+                                            ccl_index_t start);
 
 #ifdef __cplusplus
 }

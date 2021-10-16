@@ -30,26 +30,26 @@ typedef ccl_hmat_dyn dyn;
 typedef ccl_hmat_dense mat;
 
 int main() {
-  morpheus_ccl_initialize_without_args();
+  ccl_initialize_without_args();
   {
     mat *A, *B;
 
-    morpheus_ccl_create_hmat_dense(&A, 2,3, 5);
+    ccl_hmat_dense_create(&A, 2,3, 5);
 
-    morpheus_ccl_create_hmat_dense_from_hmat_dense(A, &B);
+    ccl_hmat_dense_create_from_hmat_dense(A, &B);
 
-    morpheus_ccl_set_values_at_hmat_dense(A, 0, 2, -10);
+    ccl_hmat_dense_set_values_at(A, 0, 2, -10);
 
-    morpheus_ccl_resize_hmat_dense(B, 3, 4);
-    morpheus_ccl_assign_hmat_dense(B, 3, 4, 10);
+    ccl_hmat_dense_resize(B, 3, 4);
+    ccl_hmat_dense_assign(B, 3, 4, 10);
 
-    morpheus_ccl_print_hmat_dense(A);
-    morpheus_ccl_print_hmat_dense(B);
+    ccl_hmat_dense_print(A);
+    ccl_hmat_dense_print(B);
 
-    morpheus_ccl_destroy_hmat_dense(&A);
-    morpheus_ccl_destroy_hmat_dense(&B);
+    ccl_hmat_dense_destroy(&A);
+    ccl_hmat_dense_destroy(&B);
   }
-  morpheus_ccl_finalize();
+  ccl_finalize();
 
   return 0;
 }

@@ -30,11 +30,9 @@
 extern "C" {
 #endif
 
-void morpheus_ccl_waxpby_hvec_dense_hvec_dense(ccl_index_t n, ccl_value_t alpha,
-                                               const ccl_hvec_dense* x,
-                                               ccl_value_t beta,
-                                               const ccl_hvec_dense* y,
-                                               ccl_hvec_dense* w);
+void ccl_hvec_dense_v_waxpby(ccl_index_t n, ccl_value_t alpha,
+                             const ccl_hvec_dense_v* x, ccl_value_t beta,
+                             const ccl_hvec_dense_v* y, ccl_hvec_dense_v* w);
 
 #ifdef __cplusplus
 }

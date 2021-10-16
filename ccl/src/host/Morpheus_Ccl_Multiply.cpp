@@ -23,26 +23,22 @@
 
 #include <host/Morpheus_Ccl_Multiply.hpp>
 
-void morpheus_ccl_multiply_hmat_coo_hvec_dense_hvec_dense(ccl_hmat_coo* A,
-                                                          ccl_hvec_dense* x,
-                                                          ccl_hvec_dense* y) {
+void ccl_hmat_coo_hvec_dense_v_multiply(ccl_hmat_coo* A, ccl_hvec_dense_v* x,
+                                        ccl_hvec_dense_v* y) {
   Morpheus::multiply<ccl_host_t>(*A, *x, *y);
 }
 
-void morpheus_ccl_multiply_hmat_csr_hvec_dense_hvec_dense(ccl_hmat_csr* A,
-                                                          ccl_hvec_dense* x,
-                                                          ccl_hvec_dense* y) {
+void ccl_hmat_csr_hvec_dense_v_multiply(ccl_hmat_csr* A, ccl_hvec_dense_v* x,
+                                        ccl_hvec_dense_v* y) {
   Morpheus::multiply<ccl_host_t>(*A, *x, *y);
 }
 
-void morpheus_ccl_multiply_hmat_dia_hvec_dense_hvec_dense(ccl_hmat_dia* A,
-                                                          ccl_hvec_dense* x,
-                                                          ccl_hvec_dense* y) {
+void ccl_hmat_dia_hvec_dense_v_multiply(ccl_hmat_dia* A, ccl_hvec_dense_v* x,
+                                        ccl_hvec_dense_v* y) {
   Morpheus::multiply<ccl_host_t>(*A, *x, *y);
 }
 
-void morpheus_ccl_multiply_hmat_dyn_hvec_dense_hvec_dense(ccl_hmat_dyn* A,
-                                                          ccl_hvec_dense* x,
-                                                          ccl_hvec_dense* y) {
+void ccl_hmat_dyn_hvec_dense_v_multiply(ccl_hmat_dyn* A, ccl_hvec_dense_v* x,
+                                        ccl_hvec_dense_v* y) {
   Morpheus::multiply<ccl_host_t>(*A, *x, *y);
 }

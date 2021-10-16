@@ -30,9 +30,8 @@
 extern "C" {
 #endif
 
-ccl_value_t morpheus_ccl_dot_hvec_dense_hvec_dense(ccl_index_t n,
-                                                   const ccl_hvec_dense* x,
-                                                   const ccl_hvec_dense* y);
+ccl_value_t ccl_hvec_dense_v_dot(ccl_index_t n, const ccl_hvec_dense_v* x,
+                                 const ccl_hvec_dense_v* y);
 
 #ifdef __cplusplus
 }

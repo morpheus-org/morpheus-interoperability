@@ -31,17 +31,19 @@
 
 typedef Morpheus::DenseVector<ccl_value_t, ccl_index_t, ccl_layout_t,
                               ccl_host_t>
-    ccl_hvec_dense;  // make ccl_hvec_dense_v
-typedef typename ccl_hvec_dense::HostMirror ccl_hvec_dense_hostmirror;
+    ccl_hvec_dense_v;
+typedef typename ccl_hvec_dense_v::HostMirror ccl_hvec_dense_v_hostmirror;
 
 typedef Morpheus::DenseVector<ccl_index_t, ccl_index_t, ccl_layout_t,
                               ccl_host_t>
-    ccl_hvec_dense_i32_i32_r_h;  // make ccl_hvec_dense_i
+    ccl_hvec_dense_i;
+typedef typename ccl_hvec_dense_i::HostMirror ccl_hvec_dense_i_hostmirror;
 #else
-typedef struct Morpheus_DenseVector_Host ccl_hvec_dense;
-typedef ccl_hvec_dense ccl_hvec_dense_hostmirror;
+typedef struct Morpheus_DenseVector_Host_v ccl_hvec_dense_v;
+typedef ccl_hvec_dense_v ccl_hvec_dense_v_hostmirror;
 
-typedef struct Morpheus_DenseVector_i32_i32_r_h ccl_hvec_dense_i32_i32_r_h;
+typedef struct Morpheus_DenseVector_Host_i ccl_hvec_dense_i;
+typedef ccl_hvec_dense_i ccl_hvec_dense_i_hostmirror;
 #endif
 
 #endif  // MORPHEUS_CCL_FWD_DENSEVECTOR_HPP

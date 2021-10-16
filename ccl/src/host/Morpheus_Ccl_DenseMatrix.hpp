@@ -32,42 +32,42 @@
 extern "C" {
 #endif
 
-void morpheus_ccl_create_default_hmat_dense(ccl_hmat_dense** A);
+void ccl_hmat_dense_create_default(ccl_hmat_dense** A);
 
-void morpheus_ccl_create_hmat_dense(ccl_hmat_dense** A, ccl_index_t num_rows,
-                                    ccl_index_t num_cols, ccl_value_t val);
+void ccl_hmat_dense_create(ccl_hmat_dense** A, ccl_index_t num_rows,
+                           ccl_index_t num_cols, ccl_value_t val);
 
-void morpheus_ccl_create_hmat_dense_from_hmat_dense(ccl_hmat_dense* src,
-                                                    ccl_hmat_dense** dst);
+void ccl_hmat_dense_create_from_hmat_dense(ccl_hmat_dense* src,
+                                           ccl_hmat_dense** dst);
 
-void morpheus_ccl_allocate_hmat_dense_from_hmat_dense(ccl_hmat_dense* src,
-                                                      ccl_hmat_dense* dst);
+void ccl_hmat_dense_allocate_from_hmat_dense(ccl_hmat_dense* src,
+                                             ccl_hmat_dense* dst);
 
-void morpheus_ccl_assign_hmat_dense(ccl_hmat_dense* A, ccl_index_t num_rows,
-                                    ccl_index_t num_cols, ccl_value_t val);
+void ccl_hmat_dense_assign(ccl_hmat_dense* A, ccl_index_t num_rows,
+                           ccl_index_t num_cols, ccl_value_t val);
 
-void morpheus_ccl_resize_hmat_dense(ccl_hmat_dense* A, ccl_index_t num_rows,
-                                    ccl_index_t num_cols);
+void ccl_hmat_dense_resize(ccl_hmat_dense* A, ccl_index_t num_rows,
+                           ccl_index_t num_cols);
 
-void morpheus_ccl_destroy_hmat_dense(ccl_hmat_dense** A);
+void ccl_hmat_dense_destroy(ccl_hmat_dense** A);
 
 // Base Routines
-ccl_index_t morpheus_ccl_nrows_hmat_dense(ccl_hmat_dense* A);
-ccl_index_t morpheus_ccl_ncols_hmat_dense(ccl_hmat_dense* A);
-ccl_index_t morpheus_ccl_nnnz_hmat_dense(ccl_hmat_dense* A);
+ccl_index_t ccl_hmat_dense_nrows(ccl_hmat_dense* A);
+ccl_index_t ccl_hmat_dense_ncols(ccl_hmat_dense* A);
+ccl_index_t ccl_hmat_dense_nnnz(ccl_hmat_dense* A);
 
-void morpheus_ccl_set_nrows_hmat_dense(ccl_hmat_dense* A, ccl_index_t nrows);
-void morpheus_ccl_set_ncols_hmat_dense(ccl_hmat_dense* A, ccl_index_t ncols);
-void morpheus_ccl_set_nnnz_hmat_dense(ccl_hmat_dense* A, ccl_index_t nnnz);
+void ccl_hmat_dense_set_nrows(ccl_hmat_dense* A, ccl_index_t nrows);
+void ccl_hmat_dense_set_ncols(ccl_hmat_dense* A, ccl_index_t ncols);
+void ccl_hmat_dense_set_nnnz(ccl_hmat_dense* A, ccl_index_t nnnz);
 
 // Format Specific Routines
-ccl_value_t* morpheus_ccl_data_hmat_dense(ccl_hmat_dense* A);
+ccl_value_t* ccl_hmat_dense_data(ccl_hmat_dense* A);
 
-ccl_value_t morpheus_ccl_values_at_hmat_dense(ccl_hmat_dense* A, ccl_index_t i,
-                                              ccl_index_t j);
+ccl_value_t ccl_hmat_dense_values_at(ccl_hmat_dense* A, ccl_index_t i,
+                                     ccl_index_t j);
 
-void morpheus_ccl_set_values_at_hmat_dense(ccl_hmat_dense* A, ccl_index_t i,
-                                           ccl_index_t j, ccl_index_t val);
+void ccl_hmat_dense_set_values_at(ccl_hmat_dense* A, ccl_index_t i,
+                                  ccl_index_t j, ccl_index_t val);
 
 #ifdef __cplusplus
 }

@@ -23,60 +23,55 @@
 
 #include <host/Morpheus_Ccl_DenseVector.hpp>
 
-void morpheus_ccl_create_default_hvec_dense(ccl_hvec_dense** v) {
-  *v = (new ccl_hvec_dense());
+void ccl_hvec_dense_v_create_default(ccl_hvec_dense_v** v) {
+  *v = (new ccl_hvec_dense_v());
 }
 
-void morpheus_ccl_create_hvec_dense(ccl_hvec_dense** v, ccl_index_t n,
-                                    ccl_value_t val) {
-  *v = (new ccl_hvec_dense("ccl_hvec_dense::", n, val));
+void ccl_hvec_dense_v_create(ccl_hvec_dense_v** v, ccl_index_t n,
+                             ccl_value_t val) {
+  *v = (new ccl_hvec_dense_v("ccl_hvec_dense_v::", n, val));
 }
 
-void morpheus_ccl_create_hvec_dense_from_hvec_dense(ccl_hvec_dense* src,
-                                                    ccl_hvec_dense** dst) {
-  *dst = (new ccl_hvec_dense(*src));
+void ccl_hvec_dense_v_create_from_hvec_dense_v(ccl_hvec_dense_v* src,
+                                               ccl_hvec_dense_v** dst) {
+  *dst = (new ccl_hvec_dense_v(*src));
 }
 
-void morpheus_ccl_allocate_hvec_dense_from_hvec_dense(ccl_hvec_dense* src,
-                                                      ccl_hvec_dense* dst) {
-  dst->allocate("ccl_hvec_dense::allocate::", *src);
+void ccl_hvec_dense_v_allocate_from_hvec_dense_v(ccl_hvec_dense_v* src,
+                                                 ccl_hvec_dense_v* dst) {
+  dst->allocate("ccl_hvec_dense_v::allocate::", *src);
 }
 
-void morpheus_ccl_assign_hvec_dense(ccl_hvec_dense* v, ccl_index_t n,
-                                    ccl_value_t val) {
+void ccl_hvec_dense_v_assign(ccl_hvec_dense_v* v, ccl_index_t n,
+                             ccl_value_t val) {
   v->assign(n, val);
 }
 
 // TODO: Assign Random
-// void morpheus_ccl_assign_random_hvec_dense(
-//     ccl_hvec_dense* v, ccl_value_t range_low, ccl_value_t
+// void ccl_hvec_dense_v_assign_random(
+//     ccl_hvec_dense_v* v, ccl_value_t range_low, ccl_value_t
 //     range_high);
 
-void morpheus_ccl_resize_hvec_dense(ccl_hvec_dense* v, ccl_index_t n) {
+void ccl_hvec_dense_v_resize(ccl_hvec_dense_v* v, ccl_index_t n) {
   v->resize(n);
 }
 
-void morpheus_ccl_resize_fill_hvec_dense(ccl_hvec_dense* v, ccl_index_t n,
-                                         ccl_value_t val) {
+void ccl_hvec_dense_v_resize_fill(ccl_hvec_dense_v* v, ccl_index_t n,
+                                  ccl_value_t val) {
   v->resize(n, val);
 }
 
-void morpheus_ccl_destroy_hvec_dense(ccl_hvec_dense** v) { delete (*v); }
+void ccl_hvec_dense_v_destroy(ccl_hvec_dense_v** v) { delete (*v); }
 
-ccl_index_t morpheus_ccl_size_hvec_dense(ccl_hvec_dense* v) {
-  return v->size();
-}
+ccl_index_t ccl_hvec_dense_v_size(ccl_hvec_dense_v* v) { return v->size(); }
 
-ccl_value_t* morpheus_ccl_data_hvec_dense(ccl_hvec_dense* v) {
-  return v->data();
-}
+ccl_value_t* ccl_hvec_dense_v_data(ccl_hvec_dense_v* v) { return v->data(); }
 
-ccl_value_t morpheus_ccl_values_at_hvec_dense(ccl_hvec_dense* v,
-                                              ccl_index_t i) {
+ccl_value_t ccl_hvec_dense_v_values_at(ccl_hvec_dense_v* v, ccl_index_t i) {
   return (*v)[i];
 }
 
-void morpheus_ccl_set_values_at_hvec_dense(ccl_hvec_dense* v, ccl_index_t i,
-                                           ccl_index_t val) {
+void ccl_hvec_dense_v_set_values_at(ccl_hvec_dense_v* v, ccl_index_t i,
+                                    ccl_index_t val) {
   (*v)[i] = val;
 }
