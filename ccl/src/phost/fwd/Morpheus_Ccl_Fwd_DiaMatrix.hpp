@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl.hpp
+ * Morpheus_Ccl_Fwd_DiaMatrix.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,24 +21,20 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_HPP
-#define MORPHEUS_CCL_HPP
+#ifndef MORPHEUS_CCL_PHOST_FWD_DIAMATRIX_HPP
+#define MORPHEUS_CCL_PHOST_FWD_DIAMATRIX_HPP
 
-#include <host/Morpheus_Ccl_Host.hpp>
-#include <phost/Morpheus_Ccl_pHost.hpp>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-void ccl_initialize(int* argc, char** argv);
-void ccl_initialize_without_args(void);
-void ccl_finalize(void);
-void ccl_print_configuration(const char* prepend_name_in,
-                             const char* file_name_in);
+#include <Morpheus_Ccl_Types.hpp>
 
 #ifdef __cplusplus
-}  // extern "C"
+#include <Morpheus_Core.hpp>
+
+typedef Morpheus::DiaMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_phost_t>
+    ccl_phmat_dia;
+typedef typename ccl_phmat_dia::HostMirror ccl_phmat_dia_hostmirror;
+#else
+typedef struct Morpheus_DiaMatrix_Host ccl_phmat_dia;
+typedef ccl_phmat_dia ccl_phmat_dia_hostmirror;
 #endif
 
-#endif  // MORPHEUS_CCL_HPP
+#endif  // MORPHEUS_CCL_PHOST_FWD_DIAMATRIX_HPP

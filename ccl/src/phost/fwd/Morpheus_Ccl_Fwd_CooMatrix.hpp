@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl.hpp
+ * Morpheus_Ccl_Fwd_CooMatrix.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,24 +21,20 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_HPP
-#define MORPHEUS_CCL_HPP
+#ifndef MORPHEUS_CCL_PHOST_FWD_COOMATRIX_HPP
+#define MORPHEUS_CCL_PHOST_FWD_COOMATRIX_HPP
 
-#include <host/Morpheus_Ccl_Host.hpp>
-#include <phost/Morpheus_Ccl_pHost.hpp>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-void ccl_initialize(int* argc, char** argv);
-void ccl_initialize_without_args(void);
-void ccl_finalize(void);
-void ccl_print_configuration(const char* prepend_name_in,
-                             const char* file_name_in);
+#include <Morpheus_Ccl_Types.hpp>
 
 #ifdef __cplusplus
-}  // extern "C"
+#include <Morpheus_Core.hpp>
+
+typedef Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_phost_t>
+    ccl_phmat_coo;
+typedef typename ccl_phmat_coo::HostMirror ccl_phmat_coo_hostmirror;
+#else
+typedef struct Morpheus_CooMatrix_pHost ccl_phmat_coo;
+typedef ccl_phmat_coo ccl_phmat_coo_hostmirror;
 #endif
 
-#endif  // MORPHEUS_CCL_HPP
+#endif  // MORPHEUS_CCL_PHOST_FWD_COOMATRIX_HPP

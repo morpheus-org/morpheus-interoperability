@@ -23,3 +23,5 @@ mcl_add_executable(Examples_11_Dynamic_Interface SOURCES
                    Examples_11_Dynamic_Interface.c)
 mcl_add_executable(Examples_12_Convert SOURCES Examples_12_Convert.c)
 mcl_add_executable(Examples_13_Mirroring SOURCES Examples_13_Mirroring.c)
+mcl_add_executable(Examples_14_Mirroring_Omp SOURCES
+                   Examples_14_Mirroring_Omp.c)

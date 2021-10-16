@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl.hpp
+ * Morpheus_Ccl_WAXPBY.cpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,24 +21,11 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_HPP
-#define MORPHEUS_CCL_HPP
+#include <phost/Morpheus_Ccl_WAXPBY.hpp>
 
-#include <host/Morpheus_Ccl_Host.hpp>
-#include <phost/Morpheus_Ccl_pHost.hpp>
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-void ccl_initialize(int* argc, char** argv);
-void ccl_initialize_without_args(void);
-void ccl_finalize(void);
-void ccl_print_configuration(const char* prepend_name_in,
-                             const char* file_name_in);
-
-#ifdef __cplusplus
-}  // extern "C"
-#endif
-
-#endif  // MORPHEUS_CCL_HPP
+void ccl_phvec_dense_v_waxpby(ccl_index_t n, ccl_value_t alpha,
+                              const ccl_phvec_dense_v* x, ccl_value_t beta,
+                              const ccl_phvec_dense_v* y,
+                              ccl_phvec_dense_v* w) {
+  Morpheus::waxpby<ccl_host_t>(n, alpha, *x, beta, *y, *w);
+}
