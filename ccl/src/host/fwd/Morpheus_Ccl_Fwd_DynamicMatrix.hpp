@@ -29,17 +29,11 @@
 #ifdef __cplusplus
 #include <Morpheus_Core.hpp>
 
-typedef enum Morpheus::formats_e ccl_formats_e;
-
 typedef Morpheus::DynamicMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
                                 ccl_host_t>
     ccl_hmat_dyn;
 typedef typename ccl_hmat_dyn::HostMirror ccl_hmat_dyn_hostmirror;
 #else
-#include <Morpheus_FormatsRegistry.hpp>
-
-typedef enum formats_e ccl_formats_e;
-
 typedef struct Morpheus_DynamicMatrix_Host ccl_hmat_dyn;
 typedef ccl_hmat_dyn ccl_hmat_dyn_hostmirror;
 #endif

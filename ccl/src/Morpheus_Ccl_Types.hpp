@@ -48,6 +48,9 @@ typedef char ccl_char_t;
 
 #ifdef __cplusplus
 #include <Morpheus_Core.hpp>
+// Enum for supported Sparse Matrix Formats
+typedef enum Morpheus::formats_e ccl_formats_e;
+
 // Kokkos Types
 typedef Mcl_LAYOUT ccl_layout_t;
 
@@ -62,7 +65,13 @@ typedef Kokkos::OpenMP ccl_phost_t;
 #if defined MORPHEUS_ENABLE_CUDA
 typedef Kokkos::Cuda ccl_dev_t;
 #endif  // MORPHEUS_ENABLE_CUDA
+
 #else
+
+#include <Morpheus_FormatsRegistry.hpp>
+// Enum for supported Sparse Matrix Formats
+typedef enum formats_e ccl_formats_e;
+
 typedef struct Ccl_Layout ccl_layout_t;
 
 #if defined MORPHEUS_ENABLE_SERIAL
@@ -76,6 +85,7 @@ typedef struct Ccl_pHost ccl_phost_t;
 #if defined MORPHEUS_ENABLE_CUDA
 typedef struct Ccl_Device ccl_dev_t;
 #endif  // MORPHEUS_ENABLE_CUDA
+
 #endif  //__cplusplus
 
 #endif  // MORPHEUS_CCL_TYPES_HPP
