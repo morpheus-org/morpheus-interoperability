@@ -33,15 +33,15 @@ typedef enum Morpheus::formats_e ccl_formats_e;
 
 typedef Morpheus::DynamicMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
                                 ccl_host_t>
-    ccl_mat_dyn;
-typedef typename ccl_mat_dyn::HostMirror ccl_mat_dyn_hostmirror;
+    ccl_hmat_dyn;
+typedef typename ccl_hmat_dyn::HostMirror ccl_hmat_dyn_hostmirror;
 #else
 #include <Morpheus_FormatsRegistry.hpp>
 
 typedef enum formats_e ccl_formats_e;
 
-typedef struct Morpheus_DynamicMatrix ccl_mat_dyn;
-typedef ccl_mat_dyn ccl_mat_dyn_hostmirror;
+typedef struct Morpheus_DynamicMatrix_Host ccl_hmat_dyn;
+typedef ccl_hmat_dyn ccl_hmat_dyn_hostmirror;
 #endif
 
 #endif  // MORPHEUS_CCL_FWD_DYNAMICMATRIX_HPP

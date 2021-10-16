@@ -31,11 +31,11 @@
 
 typedef Morpheus::DenseMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
                               ccl_host_t>
-    ccl_mat_dense;
-typedef typename ccl_mat_dense::HostMirror ccl_mat_dense_hostmirror;
+    ccl_hmat_dense;
+typedef typename ccl_hmat_dense::HostMirror ccl_hmat_dense_hostmirror;
 #else
-typedef struct Morpheus_DenseMatrix ccl_mat_dense;
-typedef ccl_mat_dense ccl_mat_dense_hostmirror;
+typedef struct Morpheus_DenseMatrix_Host ccl_hmat_dense;
+typedef ccl_hmat_dense ccl_hmat_dense_hostmirror;
 #endif
 
 #endif  // MORPHEUS_CCL_FWD_DENSEMATRIX_HPP

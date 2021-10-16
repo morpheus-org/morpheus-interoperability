@@ -25,9 +25,10 @@
 
 #include <stdio.h>
 #include <string.h>
-typedef ccl_mat_dyn dyn;
-typedef ccl_mat_csr csr;
-typedef ccl_vec_dense vec;
+
+typedef ccl_hmat_dyn dyn;
+typedef ccl_hmat_csr csr;
+typedef ccl_hvec_dense vec;
 
 int main() {
   morpheus_ccl_initialize_without_args();
@@ -35,7 +36,7 @@ int main() {
     csr *A, *B;
     vec *x, *y;
 
-    morpheus_ccl_create_mat_csr(&A, 4, 3, 6);
+    morpheus_ccl_create_hmat_csr(&A, 4, 3, 6);
     // Simple Matrix
     //    [10 20 00]
     //    [00 00 30]
@@ -65,16 +66,16 @@ int main() {
     morpheus_ccl_set_values_at_csr(A, 4, 50);
     morpheus_ccl_set_values_at_csr(A, 5, 60);
 
-    morpheus_ccl_create_vec_dense(&x, 3, 3);
-    morpheus_ccl_create_vec_dense(&y, 6, 0);
+    morpheus_ccl_create_hvec_dense(&x, 3, 3);
+    morpheus_ccl_create_hvec_dense(&y, 6, 0);
 
-    morpheus_ccl_multiply_mat_csr_vec_dense_vec_dense_serial(A, x,
+    morpheus_ccl_multiply_hmat_csr_hvec_dense_hvec_dense(A, x,
                                                                        y);
 
-    morpheus_ccl_resize_mat_csr(A, 5, 5, 13);
+    morpheus_ccl_resize_hmat_csr(A, 5, 5, 13);
 
-    morpheus_ccl_create_mat_csr(&B, 0, 0, 0);
-    morpheus_ccl_allocate_mat_csr_from_mat_csr(A, B);
+    morpheus_ccl_create_hmat_csr(&B, 0, 0, 0);
+    morpheus_ccl_allocate_hmat_csr_from_hmat_csr(A, B);
 
     // Medium matrix
     // [ 1, -1, -3,  0,  0]
@@ -121,21 +122,21 @@ int main() {
     morpheus_ccl_set_values_at_csr(A, 11, 8);
     morpheus_ccl_set_values_at_csr(A, 12, -5);
 
-    morpheus_ccl_print_mat_csr(B);
-    morpheus_ccl_print_mat_csr(A);
+    morpheus_ccl_print_hmat_csr(B);
+    morpheus_ccl_print_hmat_csr(A);
     
-    morpheus_ccl_set_nrows_mat_csr(A, 15);
-    morpheus_ccl_set_ncols_mat_csr(A, 22);
-    morpheus_ccl_set_nnnz_mat_csr(A, 111);
+    morpheus_ccl_set_nrows_hmat_csr(A, 15);
+    morpheus_ccl_set_ncols_hmat_csr(A, 22);
+    morpheus_ccl_set_nnnz_hmat_csr(A, 111);
 
-    printf("Csr Enum: %d\n", morpheus_ccl_format_enum_mat_csr(A));
+    printf("Csr Enum: %d\n", morpheus_ccl_format_enum_hmat_csr(A));
 
-    printf("Csr Index: %d\n", morpheus_ccl_format_index_mat_csr(A));
+    printf("Csr Index: %d\n", morpheus_ccl_format_index_hmat_csr(A));
 
-    morpheus_ccl_destroy_mat_csr(&A);
-    morpheus_ccl_destroy_mat_csr(&B);
-    morpheus_ccl_destroy_vec_dense(&x);
-    morpheus_ccl_destroy_vec_dense(&y);
+    morpheus_ccl_destroy_hmat_csr(&A);
+    morpheus_ccl_destroy_hmat_csr(&B);
+    morpheus_ccl_destroy_hvec_dense(&x);
+    morpheus_ccl_destroy_hvec_dense(&y);
   }
   morpheus_ccl_finalize();
 

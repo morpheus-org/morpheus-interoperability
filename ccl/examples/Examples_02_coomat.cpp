@@ -23,8 +23,8 @@
 
 #include <Morpheus_Ccl.hpp>
 
-using coo = ccl_mat_coo;
-using vec = ccl_vec_dense;
+using coo = ccl_hmat_coo;
+using vec = ccl_hvec_dense;
 
 extern "C" {
 
@@ -34,7 +34,7 @@ int main() {
     coo *A;
     vec *x, *y;
 
-    morpheus_ccl_create_mat_coo(&A, 5, 3, 3);
+    morpheus_ccl_create_hmat_coo(&A, 5, 3, 3);
 
     morpheus_ccl_set_row_indices_at_coo(A, 0, 0);
     morpheus_ccl_set_column_indices_at_coo(A, 0, 0);
@@ -48,27 +48,27 @@ int main() {
     morpheus_ccl_set_column_indices_at_coo(A, 2, 2);
     morpheus_ccl_set_values_at_coo(A, 2, 2.5);
 
-    morpheus_ccl_create_vec_dense(&x, 3, 3);
-    morpheus_ccl_create_vec_dense(&y, 5, 0);
+    morpheus_ccl_create_hvec_dense(&x, 3, 3);
+    morpheus_ccl_create_hvec_dense(&y, 5, 0);
 
-    morpheus_ccl_multiply_mat_coo_vec_dense_vec_dense_serial(A, x, y);
+    morpheus_ccl_multiply_hmat_coo_hvec_dense_hvec_dense(A, x, y);
 
-    morpheus_ccl_print_mat_coo(A);
-    morpheus_ccl_print_vec_dense(x);
-    morpheus_ccl_print_vec_dense(y);
+    morpheus_ccl_print_hmat_coo(A);
+    morpheus_ccl_print_hvec_dense(x);
+    morpheus_ccl_print_hvec_dense(y);
 
     // shallow copy matrix
     coo *A_shallow;
-    morpheus_ccl_create_mat_coo_from_mat_coo(A, &A_shallow);
+    morpheus_ccl_create_hmat_coo_from_hmat_coo(A, &A_shallow);
     // Change value to ensure shallow copy was made
     morpheus_ccl_set_values_at_coo(A, 2, -2.5);
 
-    morpheus_ccl_print_mat_coo(A_shallow);
+    morpheus_ccl_print_hmat_coo(A_shallow);
 
-    morpheus_ccl_destroy_mat_coo(&A);
-    morpheus_ccl_destroy_mat_coo(&A_shallow);
-    morpheus_ccl_destroy_vec_dense(&x);
-    morpheus_ccl_destroy_vec_dense(&y);
+    morpheus_ccl_destroy_hmat_coo(&A);
+    morpheus_ccl_destroy_hmat_coo(&A_shallow);
+    morpheus_ccl_destroy_hvec_dense(&x);
+    morpheus_ccl_destroy_hvec_dense(&y);
   }
   morpheus_ccl_finalize();
 

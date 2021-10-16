@@ -30,11 +30,11 @@
 #include <Morpheus_Core.hpp>
 
 typedef Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_host_t>
-    ccl_mat_coo;
-typedef typename ccl_mat_coo::HostMirror ccl_mat_coo_hostmirror;
+    ccl_hmat_coo;
+typedef typename ccl_hmat_coo::HostMirror ccl_hmat_coo_hostmirror;
 #else
-typedef struct Morpheus_CooMatrix ccl_mat_coo;
-typedef ccl_mat_coo ccl_mat_coo_hostmirror;
+typedef struct Morpheus_CooMatrix_Host ccl_hmat_coo;
+typedef ccl_hmat_coo ccl_hmat_coo_hostmirror;
 #endif
 
 #endif  // MORPHEUS_CCL_FWD_COOMATRIX_HPP

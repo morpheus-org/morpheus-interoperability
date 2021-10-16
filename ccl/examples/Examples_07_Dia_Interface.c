@@ -25,9 +25,10 @@
 
 #include <stdio.h>
 #include <string.h>
-typedef ccl_mat_dyn dyn;
-typedef ccl_mat_dia dia;
-typedef ccl_vec_dense vec;
+
+typedef ccl_hmat_dyn dyn;
+typedef ccl_hmat_dia dia;
+typedef ccl_hvec_dense vec;
 
 int main() {
   morpheus_ccl_initialize_without_args();
@@ -35,7 +36,7 @@ int main() {
     dia *A, *B;
     vec *x, *y;
     
-    morpheus_ccl_create_mat_dia(&A, 4, 3, 6, 3);
+    morpheus_ccl_create_hmat_dia(&A, 4, 3, 6, 3);
 
     // Diagonal offsets
     morpheus_ccl_set_diagonal_offests_at_dia(A, 0, -2);
@@ -57,15 +58,15 @@ int main() {
     morpheus_ccl_set_values_at_dia(A, 2, 2, -3);
     morpheus_ccl_set_values_at_dia(A, 3, 2, -3);
 
-    morpheus_ccl_create_vec_dense(&x, 3, 3);
-    morpheus_ccl_create_vec_dense(&y, 4, 0);
+    morpheus_ccl_create_hvec_dense(&x, 3, 3);
+    morpheus_ccl_create_hvec_dense(&y, 4, 0);
 
-    morpheus_ccl_multiply_mat_dia_vec_dense_vec_dense_serial(A, x,
+    morpheus_ccl_multiply_hmat_dia_hvec_dense_hvec_dense(A, x,
                                                                        y);
 
-    morpheus_ccl_print_mat_dia(A);
+    morpheus_ccl_print_hmat_dia(A);
 
-    morpheus_ccl_resize_mat_dia(A, 4, 3, 6, 5);
+    morpheus_ccl_resize_hmat_dia(A, 4, 3, 6, 5);
 
      // Diagonal offsets
     morpheus_ccl_set_diagonal_offests_at_dia(A, 0, -3);
@@ -99,11 +100,11 @@ int main() {
     morpheus_ccl_set_values_at_dia(A, 2, 4, -5);
     morpheus_ccl_set_values_at_dia(A, 3, 4, -5);
 
-    morpheus_ccl_print_mat_dia(A);
+    morpheus_ccl_print_hmat_dia(A);
 
 
-    morpheus_ccl_create_mat_dia(&B, 0, 0, 0, 0);
-    morpheus_ccl_allocate_mat_dia_from_mat_dia(A, B);
+    morpheus_ccl_create_hmat_dia(&B, 0, 0, 0, 0);
+    morpheus_ccl_allocate_hmat_dia_from_hmat_dia(A, B);
     // Make sure offsets are same in order to get same positional values
     morpheus_ccl_set_diagonal_offests_at_dia(B, 0, -3);
     morpheus_ccl_set_diagonal_offests_at_dia(B, 1, -2);
@@ -112,41 +113,41 @@ int main() {
     morpheus_ccl_set_diagonal_offests_at_dia(B, 4, 2);
     morpheus_ccl_set_values_at_dia(B, 0, 4, 120);
 
-    morpheus_ccl_print_mat_dia(B);
-    morpheus_ccl_print_mat_dia(A);
+    morpheus_ccl_print_hmat_dia(B);
+    morpheus_ccl_print_hmat_dia(A);
 
-    printf("%d\t%d\t%d\t%d\t%d\n", morpheus_ccl_nrows_mat_dia(A),
-                                   morpheus_ccl_ncols_mat_dia(A),
-                                   morpheus_ccl_nnnz_mat_dia(A),
-                                   morpheus_ccl_ndiags_mat_dia(A),
-                                   morpheus_ccl_alignment_mat_dia(A));
+    printf("%d\t%d\t%d\t%d\t%d\n", morpheus_ccl_nrows_hmat_dia(A),
+                                   morpheus_ccl_ncols_hmat_dia(A),
+                                   morpheus_ccl_nnnz_hmat_dia(A),
+                                   morpheus_ccl_ndiags_hmat_dia(A),
+                                   morpheus_ccl_alignment_hmat_dia(A));
 
-    printf("%d\t%d\t%d\t%d\t%d\n", morpheus_ccl_nrows_mat_dia(B),
-                                   morpheus_ccl_ncols_mat_dia(B),
-                                   morpheus_ccl_nnnz_mat_dia(B),
-                                   morpheus_ccl_ndiags_mat_dia(B),
-                                   morpheus_ccl_alignment_mat_dia(B));
+    printf("%d\t%d\t%d\t%d\t%d\n", morpheus_ccl_nrows_hmat_dia(B),
+                                   morpheus_ccl_ncols_hmat_dia(B),
+                                   morpheus_ccl_nnnz_hmat_dia(B),
+                                   morpheus_ccl_ndiags_hmat_dia(B),
+                                   morpheus_ccl_alignment_hmat_dia(B));
     
-    morpheus_ccl_set_nrows_mat_dia(A, 15);
-    morpheus_ccl_set_ncols_mat_dia(A, 22);
-    morpheus_ccl_set_nnnz_mat_dia(A, 111);
-    morpheus_ccl_set_ndiags_mat_dia(A, 8);
-    morpheus_ccl_set_alignment_mat_dia(A, 64);
+    morpheus_ccl_set_nrows_hmat_dia(A, 15);
+    morpheus_ccl_set_ncols_hmat_dia(A, 22);
+    morpheus_ccl_set_nnnz_hmat_dia(A, 111);
+    morpheus_ccl_set_ndiags_hmat_dia(A, 8);
+    morpheus_ccl_set_alignment_hmat_dia(A, 64);
 
-    printf("%d\t%d\t%d\t%d\t%d\n", morpheus_ccl_nrows_mat_dia(A),
-                                   morpheus_ccl_ncols_mat_dia(A),
-                                   morpheus_ccl_nnnz_mat_dia(A),
-                                   morpheus_ccl_ndiags_mat_dia(A),
-                                   morpheus_ccl_alignment_mat_dia(A));
+    printf("%d\t%d\t%d\t%d\t%d\n", morpheus_ccl_nrows_hmat_dia(A),
+                                   morpheus_ccl_ncols_hmat_dia(A),
+                                   morpheus_ccl_nnnz_hmat_dia(A),
+                                   morpheus_ccl_ndiags_hmat_dia(A),
+                                   morpheus_ccl_alignment_hmat_dia(A));
 
-    printf("dia Enum: %d\n", morpheus_ccl_format_enum_mat_dia(A));
+    printf("dia Enum: %d\n", morpheus_ccl_format_enum_hmat_dia(A));
 
-    printf("dia Index: %d\n", morpheus_ccl_format_index_mat_dia(A));
+    printf("dia Index: %d\n", morpheus_ccl_format_index_hmat_dia(A));
 
-    morpheus_ccl_destroy_mat_dia(&A);
-    morpheus_ccl_destroy_mat_dia(&B);
-    morpheus_ccl_destroy_vec_dense(&x);
-    morpheus_ccl_destroy_vec_dense(&y);
+    morpheus_ccl_destroy_hmat_dia(&A);
+    morpheus_ccl_destroy_hmat_dia(&B);
+    morpheus_ccl_destroy_hvec_dense(&x);
+    morpheus_ccl_destroy_hvec_dense(&y);
   }
   morpheus_ccl_finalize();
 

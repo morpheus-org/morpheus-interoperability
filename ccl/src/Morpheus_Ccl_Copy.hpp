@@ -36,160 +36,160 @@ extern "C" {
 #endif
 
 // coo -> coo
-void morpheus_ccl_copy_mat_coo_to_mat_coo_serial(const ccl_mat_coo* src,
-                                                 ccl_mat_coo* dst);
+void morpheus_ccl_copy_hmat_coo_to_hmat_coo(const ccl_hmat_coo* src,
+                                            ccl_hmat_coo* dst);
 // coo -> coo_hostmirror
-void morpheus_ccl_copy_mat_coo_to_mat_coo_hostmirror_serial(
-    const ccl_mat_coo* src, ccl_mat_coo_hostmirror* dst);
+void morpheus_ccl_copy_hmat_coo_to_hmat_coo_hostmirror(
+    const ccl_hmat_coo* src, ccl_hmat_coo_hostmirror* dst);
 // coo_hostmirror -> coo
-void morpheus_ccl_copy_mat_coo_hostmirror_to_mat_coo_serial(
-    const ccl_mat_coo_hostmirror* src, ccl_mat_coo* dst);
+void morpheus_ccl_copy_hmat_coo_hostmirror_to_hmat_coo(
+    const ccl_hmat_coo_hostmirror* src, ccl_hmat_coo* dst);
 // coo_hostmirror -> coo_hostmirror
-void morpheus_ccl_copy_mat_coo_hostmirror_to_mat_coo_hostmirror_serial(
-    const ccl_mat_coo_hostmirror* src, ccl_mat_coo_hostmirror* dst);
+void morpheus_ccl_copy_hmat_coo_hostmirror_to_hmat_coo_hostmirror(
+    const ccl_hmat_coo_hostmirror* src, ccl_hmat_coo_hostmirror* dst);
 
 // csr -> csr
-void morpheus_ccl_copy_mat_csr_to_mat_csr_serial(const ccl_mat_csr* src,
-                                                 ccl_mat_csr* dst);
+void morpheus_ccl_copy_hmat_csr_to_hmat_csr(const ccl_hmat_csr* src,
+                                            ccl_hmat_csr* dst);
 // csr -> csr_hostmirror
-void morpheus_ccl_copy_mat_csr_to_mat_csr_hostmirror_serial(
-    const ccl_mat_csr* src, ccl_mat_csr_hostmirror* dst);
+void morpheus_ccl_copy_hmat_csr_to_hmat_csr_hostmirror(
+    const ccl_hmat_csr* src, ccl_hmat_csr_hostmirror* dst);
 // csr_hostmirror -> csr
-void morpheus_ccl_copy_mat_csr_hostmirror_to_mat_csr_serial(
-    const ccl_mat_csr_hostmirror* src, ccl_mat_csr* dst);
+void morpheus_ccl_copy_hmat_csr_hostmirror_to_hmat_csr(
+    const ccl_hmat_csr_hostmirror* src, ccl_hmat_csr* dst);
 // csr_hostmirror -> csr_hostmirror
-void morpheus_ccl_copy_mat_csr_hostmirror_to_mat_csr_hostmirror_serial(
-    const ccl_mat_csr_hostmirror* src, ccl_mat_csr_hostmirror* dst);
+void morpheus_ccl_copy_hmat_csr_hostmirror_to_hmat_csr_hostmirror(
+    const ccl_hmat_csr_hostmirror* src, ccl_hmat_csr_hostmirror* dst);
 
 // dia -> dia
-void morpheus_ccl_copy_mat_dia_to_mat_dia_serial(const ccl_mat_dia* src,
-                                                 ccl_mat_dia* dst);
+void morpheus_ccl_copy_hmat_dia_to_hmat_dia(const ccl_hmat_dia* src,
+                                            ccl_hmat_dia* dst);
 // dia -> dia_hostmirror
-void morpheus_ccl_copy_mat_dia_to_mat_dia_hostmirror_serial(
-    const ccl_mat_dia* src, ccl_mat_dia_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dia_to_hmat_dia_hostmirror(
+    const ccl_hmat_dia* src, ccl_hmat_dia_hostmirror* dst);
 // dia_hostmirror -> dia
-void morpheus_ccl_copy_mat_dia_hostmirror_to_mat_dia_serial(
-    const ccl_mat_dia_hostmirror* src, ccl_mat_dia* dst);
+void morpheus_ccl_copy_hmat_dia_hostmirror_to_hmat_dia(
+    const ccl_hmat_dia_hostmirror* src, ccl_hmat_dia* dst);
 // dia_hostmirror -> dia_hostmirror
-void morpheus_ccl_copy_mat_dia_hostmirror_to_mat_dia_hostmirror_serial(
-    const ccl_mat_dia_hostmirror* src, ccl_mat_dia_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dia_hostmirror_to_hmat_dia_hostmirror(
+    const ccl_hmat_dia_hostmirror* src, ccl_hmat_dia_hostmirror* dst);
 
 // mat dense -> mat dense
-void morpheus_ccl_copy_mat_dense_to_mat_dense_serial(const ccl_mat_dense* src,
-                                                     ccl_mat_dense* dst);
+void morpheus_ccl_copy_hmat_dense_to_hmat_dense(const ccl_hmat_dense* src,
+                                                ccl_hmat_dense* dst);
 // mat dense -> mat dense_hostmirror
-void morpheus_ccl_copy_mat_dense_to_mat_dense_hostmirror_serial(
-    const ccl_mat_dense* src, ccl_mat_dense_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dense_to_hmat_dense_hostmirror(
+    const ccl_hmat_dense* src, ccl_hmat_dense_hostmirror* dst);
 // mat dense_hostmirror -> mat dense
-void morpheus_ccl_copy_mat_dense_hostmirror_to_mat_dense_serial(
-    const ccl_mat_dense_hostmirror* src, ccl_mat_dense* dst);
+void morpheus_ccl_copy_hmat_dense_hostmirror_to_hmat_dense(
+    const ccl_hmat_dense_hostmirror* src, ccl_hmat_dense* dst);
 // mat dense_hostmirror -> mat dense_hostmirror
-void morpheus_ccl_copy_mat_dense_hostmirror_to_mat_dense_hostmirror_serial(
-    const ccl_mat_dense_hostmirror* src, ccl_mat_dense_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dense_hostmirror_to_hmat_dense_hostmirror(
+    const ccl_hmat_dense_hostmirror* src, ccl_hmat_dense_hostmirror* dst);
 
 // vec dense -> vec dense
-void morpheus_ccl_copy_vec_dense_to_vec_dense_serial(const ccl_vec_dense* src,
-                                                     ccl_vec_dense* dst);
+void morpheus_ccl_copy_hvec_dense_to_hvec_dense(const ccl_hvec_dense* src,
+                                                ccl_hvec_dense* dst);
 // vec dense -> vec dense_hostmirror
-void morpheus_ccl_copy_vec_dense_to_vec_dense_hostmirror_serial(
-    const ccl_vec_dense* src, ccl_vec_dense_hostmirror* dst);
+void morpheus_ccl_copy_hvec_dense_to_hvec_dense_hostmirror(
+    const ccl_hvec_dense* src, ccl_hvec_dense_hostmirror* dst);
 // vec dense_hostmirror -> vec dense
-void morpheus_ccl_copy_vec_dense_hostmirror_to_vec_dense_serial(
-    const ccl_vec_dense_hostmirror* src, ccl_vec_dense* dst);
+void morpheus_ccl_copy_hvec_dense_hostmirror_to_hvec_dense(
+    const ccl_hvec_dense_hostmirror* src, ccl_hvec_dense* dst);
 // vec dense_hostmirror -> vec dense_hostmirror
-void morpheus_ccl_copy_vec_dense_hostmirror_to_vec_dense_hostmirror_serial(
-    const ccl_vec_dense_hostmirror* src, ccl_vec_dense_hostmirror* dst);
+void morpheus_ccl_copy_hvec_dense_hostmirror_to_hvec_dense_hostmirror(
+    const ccl_hvec_dense_hostmirror* src, ccl_hvec_dense_hostmirror* dst);
 
 // dyn -> dyn
-void morpheus_ccl_copy_mat_dyn_to_mat_dyn_serial(const ccl_mat_dyn* src,
-                                                 ccl_mat_dyn* dst);
+void morpheus_ccl_copy_hmat_dyn_to_hmat_dyn(const ccl_hmat_dyn* src,
+                                            ccl_hmat_dyn* dst);
 // dyn -> dyn_hostmirror
-void morpheus_ccl_copy_mat_dyn_to_mat_dyn_hostmirror_serial(
-    const ccl_mat_dyn* src, ccl_mat_dyn_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dyn_to_hmat_dyn_hostmirror(
+    const ccl_hmat_dyn* src, ccl_hmat_dyn_hostmirror* dst);
 // dyn_hostmirror -> dyn
-void morpheus_ccl_copy_mat_dyn_hostmirror_to_mat_dyn_serial(
-    const ccl_mat_dyn_hostmirror* src, ccl_mat_dyn* dst);
+void morpheus_ccl_copy_hmat_dyn_hostmirror_to_hmat_dyn(
+    const ccl_hmat_dyn_hostmirror* src, ccl_hmat_dyn* dst);
 // dyn_hostmirror -> dyn_hostmirror
-void morpheus_ccl_copy_mat_dyn_hostmirror_to_mat_dyn_hostmirror_serial(
-    const ccl_mat_dyn_hostmirror* src, ccl_mat_dyn_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dyn_hostmirror_to_hmat_dyn_hostmirror(
+    const ccl_hmat_dyn_hostmirror* src, ccl_hmat_dyn_hostmirror* dst);
 
 // coo -> dyn
-void morpheus_ccl_copy_mat_coo_to_mat_dyn_serial(const ccl_mat_coo* src,
-                                                 ccl_mat_dyn* dst);
+void morpheus_ccl_copy_hmat_coo_to_hmat_dyn(const ccl_hmat_coo* src,
+                                            ccl_hmat_dyn* dst);
 // dyn -> coo
-void morpheus_ccl_copy_mat_dyn_to_mat_coo_serial(const ccl_mat_dyn* src,
-                                                 ccl_mat_coo* dst);
+void morpheus_ccl_copy_hmat_dyn_to_hmat_coo(const ccl_hmat_dyn* src,
+                                            ccl_hmat_coo* dst);
 // coo_hostmirror -> dyn
-void morpheus_ccl_copy_mat_coo_hostmirror_to_mat_dyn_serial(
-    const ccl_mat_coo_hostmirror* src, ccl_mat_dyn* dst);
+void morpheus_ccl_copy_hmat_coo_hostmirror_to_hmat_dyn(
+    const ccl_hmat_coo_hostmirror* src, ccl_hmat_dyn* dst);
 // dyn -> coo_hostmirror
-void morpheus_ccl_copy_mat_dyn_to_mat_coo_hostmirror_serial(
-    const ccl_mat_dyn* src, ccl_mat_coo_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dyn_to_hmat_coo_hostmirror(
+    const ccl_hmat_dyn* src, ccl_hmat_coo_hostmirror* dst);
 
 // coo -> dyn_hostmirror
-void morpheus_ccl_copy_mat_coo_to_mat_dyn_hostmirror_serial(
-    const ccl_mat_coo* src, ccl_mat_dyn_hostmirror* dst);
+void morpheus_ccl_copy_hmat_coo_to_hmat_dyn_hostmirror(
+    const ccl_hmat_coo* src, ccl_hmat_dyn_hostmirror* dst);
 // dyn_hostmirror -> coo
-void morpheus_ccl_copy_mat_dyn_hostmirror_to_mat_coo_serial(
-    const ccl_mat_dyn_hostmirror* src, ccl_mat_coo* dst);
+void morpheus_ccl_copy_hmat_dyn_hostmirror_to_hmat_coo(
+    const ccl_hmat_dyn_hostmirror* src, ccl_hmat_coo* dst);
 // coo_hostmirror -> dyn_hostmirror
-void morpheus_ccl_copy_mat_coo_hostmirror_to_mat_dyn_hostmirror_serial(
-    const ccl_mat_coo_hostmirror* src, ccl_mat_dyn_hostmirror* dst);
+void morpheus_ccl_copy_hmat_coo_hostmirror_to_hmat_dyn_hostmirror(
+    const ccl_hmat_coo_hostmirror* src, ccl_hmat_dyn_hostmirror* dst);
 // dyn_hostmirror -> coo_hostmirror
-void morpheus_ccl_copy_mat_dyn_hostmirror_to_mat_coo_hostmirror_serial(
-    const ccl_mat_dyn_hostmirror* src, ccl_mat_coo_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dyn_hostmirror_to_hmat_coo_hostmirror(
+    const ccl_hmat_dyn_hostmirror* src, ccl_hmat_coo_hostmirror* dst);
 
 // csr -> dyn
-void morpheus_ccl_copy_mat_csr_to_mat_dyn_serial(const ccl_mat_csr* src,
-                                                 ccl_mat_dyn* dst);
+void morpheus_ccl_copy_hmat_csr_to_hmat_dyn(const ccl_hmat_csr* src,
+                                            ccl_hmat_dyn* dst);
 // dyn -> csr
-void morpheus_ccl_copy_mat_dyn_to_mat_csr_serial(const ccl_mat_dyn* src,
-                                                 ccl_mat_csr* dst);
+void morpheus_ccl_copy_hmat_dyn_to_hmat_csr(const ccl_hmat_dyn* src,
+                                            ccl_hmat_csr* dst);
 // csr_hostmirror -> dyn
-void morpheus_ccl_copy_mat_csr_hostmirror_to_mat_dyn_serial(
-    const ccl_mat_csr_hostmirror* src, ccl_mat_dyn* dst);
+void morpheus_ccl_copy_hmat_csr_hostmirror_to_hmat_dyn(
+    const ccl_hmat_csr_hostmirror* src, ccl_hmat_dyn* dst);
 // dyn -> csr_hostmirror
-void morpheus_ccl_copy_mat_dyn_to_mat_csr_hostmirror_serial(
-    const ccl_mat_dyn* src, ccl_mat_csr_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dyn_to_hmat_csr_hostmirror(
+    const ccl_hmat_dyn* src, ccl_hmat_csr_hostmirror* dst);
 
 // csr -> dyn_hostmirror
-void morpheus_ccl_copy_mat_csr_to_mat_dyn_hostmirror_serial(
-    const ccl_mat_csr* src, ccl_mat_dyn_hostmirror* dst);
+void morpheus_ccl_copy_hmat_csr_to_hmat_dyn_hostmirror(
+    const ccl_hmat_csr* src, ccl_hmat_dyn_hostmirror* dst);
 // dyn_hostmirror -> csr
-void morpheus_ccl_copy_mat_dyn_hostmirror_to_mat_csr_serial(
-    const ccl_mat_dyn_hostmirror* src, ccl_mat_csr* dst);
+void morpheus_ccl_copy_hmat_dyn_hostmirror_to_hmat_csr(
+    const ccl_hmat_dyn_hostmirror* src, ccl_hmat_csr* dst);
 // csr_hostmirror -> dyn_hostmirror
-void morpheus_ccl_copy_mat_csr_hostmirror_to_mat_dyn_hostmirror_serial(
-    const ccl_mat_csr_hostmirror* src, ccl_mat_dyn_hostmirror* dst);
+void morpheus_ccl_copy_hmat_csr_hostmirror_to_hmat_dyn_hostmirror(
+    const ccl_hmat_csr_hostmirror* src, ccl_hmat_dyn_hostmirror* dst);
 // dyn_hostmirror -> csr_hostmirror
-void morpheus_ccl_copy_mat_dyn_hostmirror_to_mat_csr_hostmirror_serial(
-    const ccl_mat_dyn_hostmirror* src, ccl_mat_csr_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dyn_hostmirror_to_hmat_csr_hostmirror(
+    const ccl_hmat_dyn_hostmirror* src, ccl_hmat_csr_hostmirror* dst);
 
 // dia -> dyn
-void morpheus_ccl_copy_mat_dia_to_mat_dyn_serial(const ccl_mat_dia* src,
-                                                 ccl_mat_dyn* dst);
+void morpheus_ccl_copy_hmat_dia_to_hmat_dyn(const ccl_hmat_dia* src,
+                                            ccl_hmat_dyn* dst);
 // dyn -> dia
-void morpheus_ccl_copy_mat_dyn_to_mat_dia_serial(const ccl_mat_dyn* src,
-                                                 ccl_mat_dia* dst);
+void morpheus_ccl_copy_hmat_dyn_to_hmat_dia(const ccl_hmat_dyn* src,
+                                            ccl_hmat_dia* dst);
 // dia_hostmirror -> dyn
-void morpheus_ccl_copy_mat_dia_hostmirror_to_mat_dyn_serial(
-    const ccl_mat_dia_hostmirror* src, ccl_mat_dyn* dst);
+void morpheus_ccl_copy_hmat_dia_hostmirror_to_hmat_dyn(
+    const ccl_hmat_dia_hostmirror* src, ccl_hmat_dyn* dst);
 // dyn -> dia_hostmirror
-void morpheus_ccl_copy_mat_dyn_to_mat_dia_hostmirror_serial(
-    const ccl_mat_dyn* src, ccl_mat_dia_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dyn_to_hmat_dia_hostmirror(
+    const ccl_hmat_dyn* src, ccl_hmat_dia_hostmirror* dst);
 
 // dia -> dyn_hostmirror
-void morpheus_ccl_copy_mat_dia_to_mat_dyn_hostmirror_serial(
-    const ccl_mat_dia* src, ccl_mat_dyn_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dia_to_hmat_dyn_hostmirror(
+    const ccl_hmat_dia* src, ccl_hmat_dyn_hostmirror* dst);
 // dyn_hostmirror -> dia
-void morpheus_ccl_copy_mat_dyn_hostmirror_to_mat_dia_serial(
-    const ccl_mat_dyn_hostmirror* src, ccl_mat_dia* dst);
+void morpheus_ccl_copy_hmat_dyn_hostmirror_to_hmat_dia(
+    const ccl_hmat_dyn_hostmirror* src, ccl_hmat_dia* dst);
 // dia_hostmirror -> dyn_hostmirror
-void morpheus_ccl_copy_mat_dia_hostmirror_to_mat_dyn_hostmirror_serial(
-    const ccl_mat_dia_hostmirror* src, ccl_mat_dyn_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dia_hostmirror_to_hmat_dyn_hostmirror(
+    const ccl_hmat_dia_hostmirror* src, ccl_hmat_dyn_hostmirror* dst);
 // dyn_hostmirror -> dia_hostmirror
-void morpheus_ccl_copy_mat_dyn_hostmirror_to_mat_dia_hostmirror_serial(
-    const ccl_mat_dyn_hostmirror* src, ccl_mat_dia_hostmirror* dst);
+void morpheus_ccl_copy_hmat_dyn_hostmirror_to_hmat_dia_hostmirror(
+    const ccl_hmat_dyn_hostmirror* src, ccl_hmat_dia_hostmirror* dst);
 
 #ifdef __cplusplus
 }

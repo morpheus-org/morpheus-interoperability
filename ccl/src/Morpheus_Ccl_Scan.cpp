@@ -23,26 +23,28 @@
 
 #include <Morpheus_Ccl_Scan.hpp>
 
-void morpheus_ccl_inclusive_scan_vec_dense_vec_dense_serial(
-    const ccl_vec_dense* in, ccl_vec_dense* out, ccl_index_t size,
-    ccl_index_t start) {
+void morpheus_ccl_inclusive_scan_hvec_dense_hvec_dense(const ccl_hvec_dense* in,
+                                                       ccl_hvec_dense* out,
+                                                       ccl_index_t size,
+                                                       ccl_index_t start) {
   Morpheus::inclusive_scan<ccl_host_t>(*in, *out, size, start);
 }
 
-void morpheus_ccl_exclusive_scan_vec_dense_vec_dense_serial(
-    const ccl_vec_dense* in, ccl_vec_dense* out, ccl_index_t size,
-    ccl_index_t start) {
+void morpheus_ccl_exclusive_scan_hvec_dense_hvec_dense(const ccl_hvec_dense* in,
+                                                       ccl_hvec_dense* out,
+                                                       ccl_index_t size,
+                                                       ccl_index_t start) {
   Morpheus::exclusive_scan<ccl_host_t>(*in, *out, size, start);
 }
 
-void morpheus_ccl_inclusive_scan_by_key_vec_dense_vec_dense_serial(
-    const ccl_vec_dense* keys, const ccl_vec_dense* in, ccl_vec_dense* out,
+void morpheus_ccl_inclusive_scan_by_key_hvec_dense_hvec_dense(
+    const ccl_hvec_dense* keys, const ccl_hvec_dense* in, ccl_hvec_dense* out,
     ccl_index_t size, ccl_index_t start) {
   Morpheus::inclusive_scan_by_key<ccl_host_t>(*keys, *in, *out, size, start);
 }
 
-void morpheus_ccl_exclusive_scan_by_key_vec_dense_vec_dense_serial(
-    const ccl_vec_dense* keys, const ccl_vec_dense* in, ccl_vec_dense* out,
+void morpheus_ccl_exclusive_scan_by_key_hvec_dense_hvec_dense(
+    const ccl_hvec_dense* keys, const ccl_hvec_dense* in, ccl_hvec_dense* out,
     ccl_index_t size, ccl_index_t start) {
   Morpheus::exclusive_scan_by_key<ccl_host_t>(*keys, *in, *out, size, start);
 }

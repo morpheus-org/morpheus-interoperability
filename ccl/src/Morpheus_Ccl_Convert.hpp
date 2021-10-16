@@ -36,77 +36,76 @@ extern "C" {
 #endif
 
 // coo -> coo
-void morpheus_ccl_convert_mat_coo_to_mat_coo_serial(const ccl_mat_coo* src,
-                                                    ccl_mat_coo* dst);
+void morpheus_ccl_convert_hmat_coo_to_hmat_coo(const ccl_hmat_coo* src,
+                                               ccl_hmat_coo* dst);
 
 // csr -> csr
-void morpheus_ccl_convert_mat_csr_to_mat_csr_serial(const ccl_mat_csr* src,
-                                                    ccl_mat_csr* dst);
+void morpheus_ccl_convert_hmat_csr_to_hmat_csr(const ccl_hmat_csr* src,
+                                               ccl_hmat_csr* dst);
 // csr -> coo
-void morpheus_ccl_convert_mat_csr_to_mat_coo_serial(const ccl_mat_csr* src,
-                                                    ccl_mat_coo* dst);
+void morpheus_ccl_convert_hmat_csr_to_hmat_coo(const ccl_hmat_csr* src,
+                                               ccl_hmat_coo* dst);
 // coo -> csr
-void morpheus_ccl_convert_mat_coo_to_mat_csr_serial(const ccl_mat_coo* src,
-                                                    ccl_mat_csr* dst);
+void morpheus_ccl_convert_hmat_coo_to_hmat_csr(const ccl_hmat_coo* src,
+                                               ccl_hmat_csr* dst);
 // csr -> dia
-void morpheus_ccl_convert_mat_csr_to_mat_dia_serial(const ccl_mat_csr* src,
-                                                    ccl_mat_dia* dst);
+void morpheus_ccl_convert_hmat_csr_to_hmat_dia(const ccl_hmat_csr* src,
+                                               ccl_hmat_dia* dst);
 
 // dia -> dia
-void morpheus_ccl_convert_mat_dia_to_mat_dia_serial(const ccl_mat_dia* src,
-                                                    ccl_mat_dia* dst);
+void morpheus_ccl_convert_hmat_dia_to_hmat_dia(const ccl_hmat_dia* src,
+                                               ccl_hmat_dia* dst);
 // dia -> coo
-void morpheus_ccl_convert_mat_dia_to_mat_coo_serial(const ccl_mat_dia* src,
-                                                    ccl_mat_coo* dst);
+void morpheus_ccl_convert_hmat_dia_to_hmat_coo(const ccl_hmat_dia* src,
+                                               ccl_hmat_coo* dst);
 // coo -> dia
-void morpheus_ccl_convert_mat_coo_to_mat_dia_serial(const ccl_mat_coo* src,
-                                                    ccl_mat_dia* dst);
+void morpheus_ccl_convert_hmat_coo_to_hmat_dia(const ccl_hmat_coo* src,
+                                               ccl_hmat_dia* dst);
 // dia -> csr
-void morpheus_ccl_convert_mat_dia_to_mat_csr_serial(const ccl_mat_dia* src,
-                                                    ccl_mat_csr* dst);
+void morpheus_ccl_convert_hmat_dia_to_hmat_csr(const ccl_hmat_dia* src,
+                                               ccl_hmat_csr* dst);
 
 // dense mat -> dense mat
-void morpheus_ccl_convert_mat_dense_to_mat_dense_serial(
-    const ccl_mat_dense* src, ccl_mat_dense* dst);
+void morpheus_ccl_convert_hmat_dense_to_hmat_dense(const ccl_hmat_dense* src,
+                                                   ccl_hmat_dense* dst);
 // dense mat -> dense vec
-void morpheus_ccl_convert_mat_dense_to_vec_dense_serial(
-    const ccl_mat_dense* src, ccl_vec_dense* dst);
+void morpheus_ccl_convert_hmat_dense_to_hvec_dense(const ccl_hmat_dense* src,
+                                                   ccl_hvec_dense* dst);
 // dense mat -> coo
-void morpheus_ccl_convert_mat_dense_to_mat_coo_serial(const ccl_mat_dense* src,
-                                                      ccl_mat_coo* dst);
+void morpheus_ccl_convert_hmat_dense_to_hmat_coo(const ccl_hmat_dense* src,
+                                                 ccl_hmat_coo* dst);
 // coo -> dense mat
-void morpheus_ccl_convert_mat_coo_to_mat_dense_serial(const ccl_mat_coo* src,
-                                                      ccl_mat_dense* dst);
+void morpheus_ccl_convert_hmat_coo_to_hmat_dense(const ccl_hmat_coo* src,
+                                                 ccl_hmat_dense* dst);
 
 // dynamic -> concrete
-void morpheus_ccl_convert_mat_dyn_to_mat_coo_serial(const ccl_mat_dyn* src,
-                                                    ccl_mat_coo* dst);
-void morpheus_ccl_convert_mat_dyn_to_mat_csr_serial(const ccl_mat_dyn* src,
-                                                    ccl_mat_csr* dst);
-void morpheus_ccl_convert_mat_dyn_to_mat_dia_serial(const ccl_mat_dyn* src,
-                                                    ccl_mat_dia* dst);
+void morpheus_ccl_convert_hmat_dyn_to_hmat_coo(const ccl_hmat_dyn* src,
+                                               ccl_hmat_coo* dst);
+void morpheus_ccl_convert_hmat_dyn_to_hmat_csr(const ccl_hmat_dyn* src,
+                                               ccl_hmat_csr* dst);
+void morpheus_ccl_convert_hmat_dyn_to_hmat_dia(const ccl_hmat_dyn* src,
+                                               ccl_hmat_dia* dst);
 
 // concrete -> dynamic
-void morpheus_ccl_convert_mat_coo_to_mat_dyn_serial(const ccl_mat_coo* src,
-                                                    ccl_mat_dyn* dst);
-void morpheus_ccl_convert_mat_csr_to_mat_dyn_serial(const ccl_mat_csr* src,
-                                                    ccl_mat_dyn* dst);
-void morpheus_ccl_convert_mat_dia_to_mat_dyn_serial(const ccl_mat_dia* src,
-                                                    ccl_mat_dyn* dst);
+void morpheus_ccl_convert_hmat_coo_to_hmat_dyn(const ccl_hmat_coo* src,
+                                               ccl_hmat_dyn* dst);
+void morpheus_ccl_convert_hmat_csr_to_hmat_dyn(const ccl_hmat_csr* src,
+                                               ccl_hmat_dyn* dst);
+void morpheus_ccl_convert_hmat_dia_to_hmat_dyn(const ccl_hmat_dia* src,
+                                               ccl_hmat_dyn* dst);
 
 // dynamic -> dynamic
-void morpheus_ccl_convert_mat_dyn_to_mat_dyn_serial(const ccl_mat_dyn* src,
-                                                    ccl_mat_dyn* dst);
+void morpheus_ccl_convert_hmat_dyn_to_hmat_dyn(const ccl_hmat_dyn* src,
+                                               ccl_hmat_dyn* dst);
 
 // in-place conversions for dynamic
-void morpheus_ccl_convert_mat_dyn_serial(ccl_mat_dyn* mat,
-                                         const ccl_formats_e index);
-void morpheus_ccl_convert_index_mat_dyn_serial(ccl_mat_dyn* mat,
-                                               const int index);
+void morpheus_ccl_convert_hmat_dyn(ccl_hmat_dyn* mat,
+                                   const ccl_formats_e index);
+void morpheus_ccl_convert_index_hmat_dyn(ccl_hmat_dyn* mat, const int index);
 
 // desne vec -> dense vec
-void morpheus_ccl_convert_vec_dense_to_vec_dense_serial(
-    const ccl_vec_dense* src, ccl_vec_dense* dst);
+void morpheus_ccl_convert_hvec_dense_to_hvec_dense(const ccl_hvec_dense* src,
+                                                   ccl_hvec_dense* dst);
 #ifdef __cplusplus
 }
 #endif

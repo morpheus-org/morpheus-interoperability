@@ -27,21 +27,21 @@
 #include <string.h>
 #include <assert.h>
 
-typedef ccl_mat_dyn dyn;
-typedef ccl_mat_coo coo;
-typedef ccl_mat_csr csr;
-typedef ccl_mat_dia dia;
-typedef ccl_vec_dense vec;
+typedef ccl_hmat_dyn dyn;
+typedef ccl_hmat_coo coo;
+typedef ccl_hmat_csr csr;
+typedef ccl_hmat_dia dia;
+typedef ccl_hvec_dense vec;
 
-typedef ccl_mat_coo_hostmirror mirror_coo;
-typedef ccl_mat_csr_hostmirror mirror_csr;
-typedef ccl_mat_dia_hostmirror mirror_dia;
-typedef ccl_vec_dense_hostmirror mirror_vec;
-typedef ccl_mat_dyn_hostmirror mirror_dyn;
+typedef ccl_hmat_coo_hostmirror mirror_coo;
+typedef ccl_hmat_csr_hostmirror mirror_csr;
+typedef ccl_hmat_dia_hostmirror mirror_dia;
+typedef ccl_hvec_dense_hostmirror mirror_hvec;
+typedef ccl_hmat_dyn_hostmirror mirror_dyn;
 
 coo* ref_coo(){
   coo *A;
-  morpheus_ccl_create_mat_coo(&A, 4, 3, 6);
+  morpheus_ccl_create_hmat_coo(&A, 4, 3, 6);
   // COO Equivalent:
   // Row Offsets: [0, 1, 2, 0, 2, 1]
   // Column Indices: [0, 1, 2, 0, 2, 1]
@@ -72,7 +72,7 @@ coo* ref_coo(){
 
 csr* ref_csr(){
   csr *A;
-  morpheus_ccl_create_mat_csr(&A, 4, 3, 6);
+  morpheus_ccl_create_hmat_csr(&A, 4, 3, 6);
   // CSR Equivalent:
   // Row Offsets: [0, 2, 3, 5, 6]
   // Column Indices: [0, 1, 2, 0, 2, 1]
@@ -103,7 +103,7 @@ csr* ref_csr(){
 dia* ref_dia(){
   dia *A;
 
-  morpheus_ccl_create_mat_dia(&A, 4, 3, 6, 3);
+  morpheus_ccl_create_hmat_dia(&A, 4, 3, 6, 3);
 
   // Diagonal offsets
   morpheus_ccl_set_diagonal_offests_at_dia(A, 0, -2);
@@ -142,58 +142,58 @@ int main() {
     dia *refdia = ref_dia();
     
     { 
-      mirror_coo *mirror = morpheus_ccl_create_mirror_mat_coo_serial(refcoo);
-      coo *shallow_mirror = morpheus_ccl_create_mirror_container_mat_coo_serial(refcoo);
+      mirror_coo *mirror = morpheus_ccl_create_mirror_hmat_coo(refcoo);
+      coo *shallow_mirror = morpheus_ccl_create_mirror_container_hmat_coo(refcoo);
 
-      morpheus_ccl_copy_mat_coo_to_mat_coo_hostmirror_serial(refcoo, mirror);
-      morpheus_ccl_copy_mat_coo_to_mat_coo_hostmirror_serial(refcoo, shallow_mirror);
+      morpheus_ccl_copy_hmat_coo_to_hmat_coo_hostmirror(refcoo, mirror);
+      morpheus_ccl_copy_hmat_coo_to_hmat_coo_hostmirror(refcoo, shallow_mirror);
 
       morpheus_ccl_set_values_at_coo(refcoo, 5, -15);
-      morpheus_ccl_print_mat_coo(mirror);
-      morpheus_ccl_print_mat_coo(shallow_mirror);
+      morpheus_ccl_print_hmat_coo(mirror);
+      morpheus_ccl_print_hmat_coo(shallow_mirror);
       morpheus_ccl_set_values_at_coo(refcoo, 5, 60);
       
-      morpheus_ccl_destroy_mat_coo(&mirror);
-      morpheus_ccl_destroy_mat_coo(&shallow_mirror);
+      morpheus_ccl_destroy_hmat_coo(&mirror);
+      morpheus_ccl_destroy_hmat_coo(&shallow_mirror);
     }
 
     { 
-      mirror_csr *mirror = morpheus_ccl_create_mirror_mat_csr_serial(refcsr);
+      mirror_csr *mirror = morpheus_ccl_create_mirror_hmat_csr(refcsr);
 
-      morpheus_ccl_copy_mat_csr_to_mat_csr_hostmirror_serial(refcsr, mirror);
+      morpheus_ccl_copy_hmat_csr_to_hmat_csr_hostmirror(refcsr, mirror);
       morpheus_ccl_set_values_at_csr(refcsr, 5, -15);
-      morpheus_ccl_print_mat_csr(mirror);
+      morpheus_ccl_print_hmat_csr(mirror);
       morpheus_ccl_set_values_at_csr(refcsr, 5, 60);
-      morpheus_ccl_destroy_mat_csr(&mirror);
+      morpheus_ccl_destroy_hmat_csr(&mirror);
     }
 
     { 
-      mirror_dia *mirror = morpheus_ccl_create_mirror_mat_dia_serial(refdia);
+      mirror_dia *mirror = morpheus_ccl_create_mirror_hmat_dia(refdia);
 
-      morpheus_ccl_copy_mat_dia_to_mat_dia_hostmirror_serial(refdia, mirror);
+      morpheus_ccl_copy_hmat_dia_to_hmat_dia_hostmirror(refdia, mirror);
       morpheus_ccl_set_values_at_dia(refdia, 3, 0, -15);
-      morpheus_ccl_print_mat_dia(mirror);
+      morpheus_ccl_print_hmat_dia(mirror);
       morpheus_ccl_set_values_at_dia(refdia, 3, 0, 60);
-      morpheus_ccl_destroy_mat_dia(&mirror);
+      morpheus_ccl_destroy_hmat_dia(&mirror);
     }
 
     {
       dyn *A;
-      morpheus_ccl_create_mat_dyn_from_mat(refcsr, CSR_FORMAT, &A);
-      mirror_dyn *mirror = morpheus_ccl_create_mirror_mat_dyn_serial(A);
+      morpheus_ccl_create_hmat_dyn_from_hmat(refcsr, CSR_FORMAT, &A);
+      mirror_dyn *mirror = morpheus_ccl_create_mirror_hmat_dyn(A);
 
-      morpheus_ccl_copy_mat_csr_to_mat_dyn_hostmirror_serial(refcsr, mirror);
+      morpheus_ccl_copy_hmat_csr_to_hmat_dyn_hostmirror(refcsr, mirror);
       morpheus_ccl_set_values_at_csr(refcsr, 5, -15);
-      morpheus_ccl_print_mat_dyn(mirror);
+      morpheus_ccl_print_hmat_dyn(mirror);
       morpheus_ccl_set_values_at_csr(refcsr, 5, 60);
 
-      morpheus_ccl_destroy_mat_dyn(&A);
-      morpheus_ccl_destroy_mat_dyn(&mirror);
+      morpheus_ccl_destroy_hmat_dyn(&A);
+      morpheus_ccl_destroy_hmat_dyn(&mirror);
     }
 
-    morpheus_ccl_destroy_mat_coo(&refcoo);
-    morpheus_ccl_destroy_mat_csr(&refcsr);
-    morpheus_ccl_destroy_mat_dia(&refdia);
+    morpheus_ccl_destroy_hmat_coo(&refcoo);
+    morpheus_ccl_destroy_hmat_csr(&refcsr);
+    morpheus_ccl_destroy_hmat_dia(&refdia);
     
   }
   morpheus_ccl_finalize();

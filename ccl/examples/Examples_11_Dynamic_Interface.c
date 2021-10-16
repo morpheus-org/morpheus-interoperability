@@ -25,11 +25,12 @@
 
 #include <stdio.h>
 #include <string.h>
-typedef ccl_mat_dyn dyn;
-typedef ccl_mat_coo coo;
-typedef ccl_mat_csr csr;
-typedef ccl_mat_dia dia;
-typedef ccl_vec_dense vec;
+
+typedef ccl_hmat_dyn dyn;
+typedef ccl_hmat_coo coo;
+typedef ccl_hmat_csr csr;
+typedef ccl_hmat_dia dia;
+typedef ccl_hvec_dense vec;
 
 int main() {
   morpheus_ccl_initialize_without_args();
@@ -39,7 +40,7 @@ int main() {
     vec *x, *y;
     dyn *A;
     
-    morpheus_ccl_create_mat_dia(&Adia, 4, 3, 6, 3);
+    morpheus_ccl_create_hmat_dia(&Adia, 4, 3, 6, 3);
 
     // Diagonal offsets
     morpheus_ccl_set_diagonal_offests_at_dia(Adia, 0, -2);
@@ -61,7 +62,7 @@ int main() {
     morpheus_ccl_set_values_at_dia(Adia, 2, 2, -3);
     morpheus_ccl_set_values_at_dia(Adia, 3, 2, -3);
 
-    morpheus_ccl_create_mat_csr(&Acsr, 4, 3, 6);
+    morpheus_ccl_create_hmat_csr(&Acsr, 4, 3, 6);
     // Simple Matrix
     //    [10 20 00]
     //    [00 00 30]
@@ -91,22 +92,22 @@ int main() {
     morpheus_ccl_set_values_at_csr(Acsr, 4, 50);
     morpheus_ccl_set_values_at_csr(Acsr, 5, 60);
 
-    morpheus_ccl_create_vec_dense(&x, 3, 3);
-    morpheus_ccl_create_vec_dense(&y, 4, 0);
+    morpheus_ccl_create_hvec_dense(&x, 3, 3);
+    morpheus_ccl_create_hvec_dense(&y, 4, 0);
 
-    morpheus_ccl_create_mat_dyn_from_mat(Adia, DIA_FORMAT, &A);
+    morpheus_ccl_create_hmat_dyn_from_hmat(Adia, DIA_FORMAT, &A);
 
-    morpheus_ccl_multiply_mat_dyn_vec_dense_vec_dense_serial(A, x,
+    morpheus_ccl_multiply_hmat_dyn_hvec_dense_hvec_dense(A, x,
                                                                        y);
 
-    morpheus_ccl_print_mat_dyn(A);
+    morpheus_ccl_print_hmat_dyn(A);
 
-    morpheus_ccl_assign_mat_dyn_from_mat(Acsr, CSR_FORMAT, A);
-    morpheus_ccl_print_mat_dyn(A);
+    morpheus_ccl_assign_hmat_dyn_from_hmat(Acsr, CSR_FORMAT, A);
+    morpheus_ccl_print_hmat_dyn(A);
 
-    morpheus_ccl_destroy_mat_dia(&Adia);
-    morpheus_ccl_destroy_vec_dense(&x);
-    morpheus_ccl_destroy_vec_dense(&y);
+    morpheus_ccl_destroy_hmat_dia(&Adia);
+    morpheus_ccl_destroy_hvec_dense(&x);
+    morpheus_ccl_destroy_hvec_dense(&y);
   }
   morpheus_ccl_finalize();
 

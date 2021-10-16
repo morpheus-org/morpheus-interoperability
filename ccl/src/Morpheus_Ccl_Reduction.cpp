@@ -23,7 +23,7 @@
 
 #include <Morpheus_Ccl_Reduction.hpp>
 
-ccl_value_t morpheus_ccl_reduce_vec_dense_vec_dense_serial(
-    const ccl_vec_dense* in, ccl_index_t size) {
+ccl_value_t morpheus_ccl_reduce_hvec_dense_hvec_dense(const ccl_hvec_dense* in,
+                                                      ccl_index_t size) {
   return Morpheus::reduce<ccl_host_t>(*in, size);
 }

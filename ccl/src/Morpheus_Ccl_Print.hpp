@@ -35,17 +35,17 @@
 extern "C" {
 #endif
 
-void morpheus_ccl_print_vec_dense(ccl_vec_dense* v);
+void morpheus_ccl_print_hvec_dense(ccl_hvec_dense* v);
 
-void morpheus_ccl_print_mat_coo(ccl_mat_coo* A);
+void morpheus_ccl_print_hmat_coo(ccl_hmat_coo* A);
 
-void morpheus_ccl_print_mat_csr(ccl_mat_csr* A);
+void morpheus_ccl_print_hmat_csr(ccl_hmat_csr* A);
 
-void morpheus_ccl_print_mat_dense(ccl_mat_dense* A);
+void morpheus_ccl_print_hmat_dense(ccl_hmat_dense* A);
 
-void morpheus_ccl_print_mat_dia(ccl_mat_dia* A);
+void morpheus_ccl_print_hmat_dia(ccl_hmat_dia* A);
 
-void morpheus_ccl_print_mat_dyn(ccl_mat_dyn* A);
+void morpheus_ccl_print_hmat_dyn(ccl_hmat_dyn* A);
 
 #ifdef __cplusplus
 }
