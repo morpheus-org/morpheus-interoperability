@@ -27,3 +27,18 @@ ccl_value_t ccl_hvec_dense_v_reduce(const ccl_hvec_dense_v* in,
                                     ccl_index_t size) {
   return Morpheus::reduce<ccl_host_t>(*in, size);
 }
+
+ccl_value_t ccl_hvec_dense_i_reduce(const ccl_hvec_dense_i* in,
+                                    ccl_index_t size) {
+  return Morpheus::reduce<ccl_host_t>(*in, size);
+}
+
+ccl_value_t ccl_hvec_dense_v_hostmirror_reduce(
+    const ccl_hvec_dense_v_hostmirror* in, ccl_index_t size) {
+  return Morpheus::reduce<ccl_host_t>(*in, size);
+}
+
+ccl_value_t ccl_hvec_dense_i_hostmirror_reduce(
+    const ccl_hvec_dense_i_hostmirror* in, ccl_index_t size) {
+  return Morpheus::reduce<ccl_host_t>(*in, size);
+}

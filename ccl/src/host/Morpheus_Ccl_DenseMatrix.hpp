@@ -69,6 +69,51 @@ ccl_value_t ccl_hmat_dense_values_at(ccl_hmat_dense* A, ccl_index_t i,
 void ccl_hmat_dense_set_values_at(ccl_hmat_dense* A, ccl_index_t i,
                                   ccl_index_t j, ccl_index_t val);
 
+// HostMirror Interface
+void ccl_hmat_dense_hostmirror_create_default(ccl_hmat_dense_hostmirror** A);
+
+void ccl_hmat_dense_hostmirror_create(ccl_hmat_dense_hostmirror** A,
+                                      ccl_index_t num_rows,
+                                      ccl_index_t num_cols, ccl_value_t val);
+
+void ccl_hmat_dense_hostmirror_create_from_hmat_dense_hostmirror(
+    ccl_hmat_dense_hostmirror* src, ccl_hmat_dense_hostmirror** dst);
+
+void ccl_hmat_dense_hostmirror_allocate_from_hmat_dense_hostmirror(
+    ccl_hmat_dense_hostmirror* src, ccl_hmat_dense_hostmirror* dst);
+
+void ccl_hmat_dense_hostmirror_assign(ccl_hmat_dense_hostmirror* A,
+                                      ccl_index_t num_rows,
+                                      ccl_index_t num_cols, ccl_value_t val);
+
+void ccl_hmat_dense_hostmirror_resize(ccl_hmat_dense_hostmirror* A,
+                                      ccl_index_t num_rows,
+                                      ccl_index_t num_cols);
+
+void ccl_hmat_dense_hostmirror_destroy(ccl_hmat_dense_hostmirror** A);
+
+// Base Routines
+ccl_index_t ccl_hmat_dense_hostmirror_nrows(ccl_hmat_dense_hostmirror* A);
+ccl_index_t ccl_hmat_dense_hostmirror_ncols(ccl_hmat_dense_hostmirror* A);
+ccl_index_t ccl_hmat_dense_hostmirror_nnnz(ccl_hmat_dense_hostmirror* A);
+
+void ccl_hmat_dense_hostmirror_set_nrows(ccl_hmat_dense_hostmirror* A,
+                                         ccl_index_t nrows);
+void ccl_hmat_dense_hostmirror_set_ncols(ccl_hmat_dense_hostmirror* A,
+                                         ccl_index_t ncols);
+void ccl_hmat_dense_hostmirror_set_nnnz(ccl_hmat_dense_hostmirror* A,
+                                        ccl_index_t nnnz);
+
+// Format Specific Routines
+ccl_value_t* ccl_hmat_dense_hostmirror_data(ccl_hmat_dense_hostmirror* A);
+
+ccl_value_t ccl_hmat_dense_hostmirror_values_at(ccl_hmat_dense_hostmirror* A,
+                                                ccl_index_t i, ccl_index_t j);
+
+void ccl_hmat_dense_hostmirror_set_values_at(ccl_hmat_dense_hostmirror* A,
+                                             ccl_index_t i, ccl_index_t j,
+                                             ccl_index_t val);
+
 #ifdef __cplusplus
 }
 #endif

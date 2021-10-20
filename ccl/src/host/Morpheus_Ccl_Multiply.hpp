@@ -46,6 +46,22 @@ void ccl_hmat_dia_hvec_dense_v_multiply(ccl_hmat_dia* A, ccl_hvec_dense_v* x,
 void ccl_hmat_dyn_hvec_dense_v_multiply(ccl_hmat_dyn* A, ccl_hvec_dense_v* x,
                                         ccl_hvec_dense_v* y);
 
+void ccl_hmat_coo_hostmirror_hvec_dense_v_hostmirror_multiply(
+    ccl_hmat_coo_hostmirror* A, ccl_hvec_dense_v_hostmirror* x,
+    ccl_hvec_dense_v_hostmirror* y);
+
+void ccl_hmat_csr_hostmirror_hvec_dense_v_hostmirror_multiply(
+    ccl_hmat_csr_hostmirror* A, ccl_hvec_dense_v_hostmirror* x,
+    ccl_hvec_dense_v_hostmirror* y);
+
+void ccl_hmat_dia_hostmirror_hvec_dense_v_hostmirror_multiply(
+    ccl_hmat_dia_hostmirror* A, ccl_hvec_dense_v_hostmirror* x,
+    ccl_hvec_dense_v_hostmirror* y);
+
+void ccl_hmat_dyn_hostmirror_hvec_dense_v_hostmirror_multiply(
+    ccl_hmat_dyn_hostmirror* A, ccl_hvec_dense_v_hostmirror* x,
+    ccl_hvec_dense_v_hostmirror* y);
+
 #ifdef __cplusplus
 }
 #endif

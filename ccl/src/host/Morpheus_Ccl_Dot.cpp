@@ -27,3 +27,20 @@ ccl_value_t ccl_hvec_dense_v_dot(ccl_index_t n, const ccl_hvec_dense_v* x,
                                  const ccl_hvec_dense_v* y) {
   return Morpheus::dot<ccl_host_t>(n, *x, *y);
 }
+
+ccl_value_t ccl_hvec_dense_i_dot(ccl_index_t n, const ccl_hvec_dense_i* x,
+                                 const ccl_hvec_dense_i* y) {
+  return Morpheus::dot<ccl_host_t>(n, *x, *y);
+}
+
+ccl_value_t ccl_hvec_dense_v_hostmirror_dot(
+    ccl_index_t n, const ccl_hvec_dense_v_hostmirror* x,
+    const ccl_hvec_dense_v_hostmirror* y) {
+  return Morpheus::dot<ccl_host_t>(n, *x, *y);
+}
+
+ccl_value_t ccl_hvec_dense_i_hostmirror_dot(
+    ccl_index_t n, const ccl_hvec_dense_i_hostmirror* x,
+    const ccl_hvec_dense_i_hostmirror* y) {
+  return Morpheus::dot<ccl_host_t>(n, *x, *y);
+}

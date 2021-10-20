@@ -83,3 +83,82 @@ void ccl_hmat_dense_set_values_at(ccl_hmat_dense* A, ccl_index_t i,
                                   ccl_index_t j, ccl_index_t val) {
   (*A)(i, j) = val;
 }
+
+void ccl_hmat_dense_hostmirror_create_default(ccl_hmat_dense_hostmirror** A) {
+  *A = (new ccl_hmat_dense_hostmirror());
+}
+
+void ccl_hmat_dense_hostmirror_create(ccl_hmat_dense_hostmirror** A,
+                                      ccl_index_t num_rows,
+                                      ccl_index_t num_cols, ccl_value_t val) {
+  *A = (new ccl_hmat_dense_hostmirror("ccl_hmat_dense_hostmirror::", num_rows,
+                                      num_cols, val));
+}
+
+void ccl_hmat_dense_hostmirror_create_from_hmat_dense_hostmirror(
+    ccl_hmat_dense_hostmirror* src, ccl_hmat_dense_hostmirror** dst) {
+  *dst = (new ccl_hmat_dense_hostmirror(*src));
+}
+
+void ccl_hmat_dense_hostmirror_allocate_from_hmat_dense_hostmirror(
+    ccl_hmat_dense_hostmirror* src, ccl_hmat_dense_hostmirror* dst) {
+  dst->allocate("ccl_hmat_dense_hostmirror::allocate::", *src);
+}
+
+void ccl_hmat_dense_hostmirror_assign(ccl_hmat_dense_hostmirror* A,
+                                      ccl_index_t num_rows,
+                                      ccl_index_t num_cols, ccl_value_t val) {
+  A->assign(num_rows, num_cols, val);
+}
+
+void ccl_hmat_dense_hostmirror_resize(ccl_hmat_dense_hostmirror* A,
+                                      ccl_index_t num_rows,
+                                      ccl_index_t num_cols) {
+  A->resize(num_rows, num_cols);
+}
+
+void ccl_hmat_dense_hostmirror_destroy(ccl_hmat_dense_hostmirror** A) {
+  delete (*A);
+}
+
+ccl_index_t ccl_hmat_dense_hostmirror_nrows(ccl_hmat_dense_hostmirror* A) {
+  return A->nrows();
+}
+
+ccl_index_t ccl_hmat_dense_hostmirror_ncols(ccl_hmat_dense_hostmirror* A) {
+  return A->ncols();
+}
+
+ccl_index_t ccl_hmat_dense_hostmirror_nnnz(ccl_hmat_dense_hostmirror* A) {
+  return A->nnnz();
+}
+
+void ccl_hmat_dense_hostmirror_set_nrows(ccl_hmat_dense_hostmirror* A,
+                                         ccl_index_t nrows) {
+  A->set_nrows(nrows);
+}
+
+void ccl_hmat_dense_hostmirror_set_ncols(ccl_hmat_dense_hostmirror* A,
+                                         ccl_index_t ncols) {
+  A->set_ncols(ncols);
+}
+
+void ccl_hmat_dense_hostmirror_set_nnnz(ccl_hmat_dense_hostmirror* A,
+                                        ccl_index_t nnnz) {
+  A->set_nnnz(nnnz);
+}
+
+ccl_value_t* ccl_hmat_dense_hostmirror_data(ccl_hmat_dense_hostmirror* A) {
+  return A->data();
+}
+
+ccl_value_t ccl_hmat_dense_hostmirror_values_at(ccl_hmat_dense_hostmirror* A,
+                                                ccl_index_t i, ccl_index_t j) {
+  return (*A)(i, j);
+}
+
+void ccl_hmat_dense_hostmirror_set_values_at(ccl_hmat_dense_hostmirror* A,
+                                             ccl_index_t i, ccl_index_t j,
+                                             ccl_index_t val) {
+  (*A)(i, j) = val;
+}

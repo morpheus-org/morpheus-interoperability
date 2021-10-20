@@ -115,3 +115,123 @@ ccl_formats_e ccl_hmat_csr_format_enum(ccl_hmat_csr* A) {
 }
 
 int ccl_hmat_csr_format_index(ccl_hmat_csr* A) { return A->format_index(); }
+
+void ccl_hmat_csr_hostmirror_create_default(ccl_hmat_csr_hostmirror** A) {
+  *A = (new ccl_hmat_csr_hostmirror());
+}
+
+void ccl_hmat_csr_hostmirror_create(ccl_hmat_csr_hostmirror** A,
+                                    ccl_index_t nrows, ccl_index_t ncols,
+                                    ccl_index_t nnnz) {
+  *A = (new ccl_hmat_csr_hostmirror("ccl_hmat_csr_hostmirror::", nrows, ncols,
+                                    nnnz));
+}
+
+void ccl_hmat_csr_hostmirror_create_from_hmat_csr_hostmirror(
+    ccl_hmat_csr_hostmirror* src, ccl_hmat_csr_hostmirror** dst) {
+  *dst = (new ccl_hmat_csr_hostmirror(*src));
+}
+
+void ccl_hmat_csr_hostmirror_create_from_hmat_dyn(
+    ccl_hmat_dyn* src, ccl_hmat_csr_hostmirror** dst) {
+  *dst = (new ccl_hmat_csr_hostmirror(*src));
+}
+
+void ccl_hmat_csr_hostmirror_resize(ccl_hmat_csr_hostmirror* A,
+                                    const ccl_index_t num_rows,
+                                    const ccl_index_t num_cols,
+                                    const ccl_index_t num_nnz) {
+  A->resize(num_rows, num_cols, num_nnz);
+}
+
+// Assumes dst matrix is always created
+void ccl_hmat_csr_hostmirror_allocate_from_hmat_csr_hostmirror(
+    ccl_hmat_csr_hostmirror* src, ccl_hmat_csr_hostmirror* dst) {
+  dst->allocate("ccl_hmat_csr_hostmirror::allocate::", *src);
+}
+
+void ccl_hmat_csr_hostmirror_destroy(ccl_hmat_csr_hostmirror** A) {
+  delete (*A);
+}
+
+ccl_index_t ccl_hmat_csr_hostmirror_nrows(ccl_hmat_csr_hostmirror* A) {
+  return A->nrows();
+}
+
+ccl_index_t ccl_hmat_csr_hostmirror_ncols(ccl_hmat_csr_hostmirror* A) {
+  return A->ncols();
+}
+
+ccl_index_t ccl_hmat_csr_hostmirror_nnnz(ccl_hmat_csr_hostmirror* A) {
+  return A->nnnz();
+}
+
+void ccl_hmat_csr_hostmirror_set_nrows(ccl_hmat_csr_hostmirror* A,
+                                       ccl_index_t nrows) {
+  A->set_nrows(nrows);
+}
+
+void ccl_hmat_csr_hostmirror_set_ncols(ccl_hmat_csr_hostmirror* A,
+                                       ccl_index_t ncols) {
+  A->set_ncols(ncols);
+}
+
+void ccl_hmat_csr_hostmirror_set_nnnz(ccl_hmat_csr_hostmirror* A,
+                                      ccl_index_t nnnz) {
+  A->set_nnnz(nnnz);
+}
+
+ccl_index_t ccl_hmat_csr_hostmirror_row_offsets_at(ccl_hmat_csr_hostmirror* A,
+                                                   ccl_index_t i) {
+  return A->row_offsets(i);
+}
+
+ccl_index_t ccl_hmat_csr_hostmirror_column_indices_at(
+    ccl_hmat_csr_hostmirror* A, ccl_index_t i) {
+  return A->column_indices(i);
+}
+
+ccl_value_t ccl_hmat_csr_hostmirror_values_at(ccl_hmat_csr_hostmirror* A,
+                                              ccl_index_t i) {
+  return A->values(i);
+}
+
+ccl_hvec_dense_i_hostmirror* ccl_hmat_csr_hostmirror_row_offsets(
+    ccl_hmat_csr_hostmirror* A) {
+  return &(A->row_offsets());
+}
+
+ccl_hvec_dense_i_hostmirror* ccl_hmat_csr_hostmirror_column_indices(
+    ccl_hmat_csr_hostmirror* A) {
+  return &(A->column_indices());
+}
+
+ccl_hvec_dense_v_hostmirror* ccl_hmat_csr_hostmirror_values(
+    ccl_hmat_csr_hostmirror* A) {
+  return &(A->values());
+}
+
+void ccl_hmat_csr_hostmirror_set_row_offsets_at(ccl_hmat_csr_hostmirror* A,
+                                                ccl_index_t i,
+                                                ccl_index_t val) {
+  A->row_offsets(i) = val;
+}
+
+void ccl_hmat_csr_hostmirror_set_column_indices_at(ccl_hmat_csr_hostmirror* A,
+                                                   ccl_index_t i,
+                                                   ccl_index_t val) {
+  A->column_indices(i) = val;
+}
+
+void ccl_hmat_csr_hostmirror_set_values_at(ccl_hmat_csr_hostmirror* A,
+                                           ccl_index_t i, ccl_value_t val) {
+  A->values(i) = val;
+}
+
+ccl_formats_e ccl_hmat_csr_hostmirror_format_enum(ccl_hmat_csr_hostmirror* A) {
+  return A->format_enum();
+}
+
+int ccl_hmat_csr_hostmirror_format_index(ccl_hmat_csr_hostmirror* A) {
+  return A->format_index();
+}

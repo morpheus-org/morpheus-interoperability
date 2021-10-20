@@ -65,7 +65,118 @@ ccl_value_t* ccl_hvec_dense_v_data(ccl_hvec_dense_v* v);
 ccl_value_t ccl_hvec_dense_v_values_at(ccl_hvec_dense_v* v, ccl_index_t i);
 
 void ccl_hvec_dense_v_set_values_at(ccl_hvec_dense_v* v, ccl_index_t i,
+                                    ccl_value_t val);
+
+void ccl_hvec_dense_i_create_default(ccl_hvec_dense_i** v);
+
+void ccl_hvec_dense_i_create(ccl_hvec_dense_i** v, ccl_index_t n,
+                             ccl_index_t val);
+
+void ccl_hvec_dense_i_create_from_hvec_dense_i(ccl_hvec_dense_i* src,
+                                               ccl_hvec_dense_i** dst);
+
+void ccl_hvec_dense_i_allocate_from_hvec_dense_i(ccl_hvec_dense_i* src,
+                                                 ccl_hvec_dense_i* dst);
+
+void ccl_hvec_dense_i_assign(ccl_hvec_dense_i* v, ccl_index_t n,
+                             ccl_index_t val);
+
+// TODO: Assign Random
+// void ccl_hvec_dense_i_assign_random(
+//     ccl_hvec_dense_i* v, ccl_index_t range_low, ccl_index_t
+//     range_high);
+
+void ccl_hvec_dense_i_resize(ccl_hvec_dense_i* v, ccl_index_t n);
+
+void ccl_hvec_dense_i_resize_fill(ccl_hvec_dense_i* v, ccl_index_t n,
+                                  ccl_index_t val);
+
+void ccl_hvec_dense_i_destroy(ccl_hvec_dense_i** v);
+
+ccl_index_t ccl_hvec_dense_i_size(ccl_hvec_dense_i* v);
+
+ccl_index_t* ccl_hvec_dense_i_data(ccl_hvec_dense_i* v);
+
+ccl_index_t ccl_hvec_dense_i_values_at(ccl_hvec_dense_i* v, ccl_index_t i);
+
+void ccl_hvec_dense_i_set_values_at(ccl_hvec_dense_i* v, ccl_index_t i,
                                     ccl_index_t val);
+
+void ccl_hvec_dense_v_hostmirror_create_default(
+    ccl_hvec_dense_v_hostmirror** v);
+
+void ccl_hvec_dense_v_hostmirror_create(ccl_hvec_dense_v_hostmirror** v,
+                                        ccl_index_t n, ccl_value_t val);
+
+void ccl_hvec_dense_v_hostmirror_create_from_hvec_dense_v_hostmirror(
+    ccl_hvec_dense_v_hostmirror* src, ccl_hvec_dense_v_hostmirror** dst);
+
+void ccl_hvec_dense_v_hostmirror_allocate_from_hvec_dense_v_hostmirror(
+    ccl_hvec_dense_v_hostmirror* src, ccl_hvec_dense_v_hostmirror* dst);
+
+void ccl_hvec_dense_v_hostmirror_assign(ccl_hvec_dense_v_hostmirror* v,
+                                        ccl_index_t n, ccl_value_t val);
+
+// TODO: Assign Random
+// void ccl_hvec_dense_v_hostmirror_assign_random(
+//     ccl_hvec_dense_v_hostmirror* v, ccl_value_t range_low, ccl_value_t
+//     range_high);
+
+void ccl_hvec_dense_v_hostmirror_resize(ccl_hvec_dense_v_hostmirror* v,
+                                        ccl_index_t n);
+
+void ccl_hvec_dense_v_hostmirror_resize_fill(ccl_hvec_dense_v_hostmirror* v,
+                                             ccl_index_t n, ccl_value_t val);
+
+void ccl_hvec_dense_v_hostmirror_destroy(ccl_hvec_dense_v_hostmirror** v);
+
+ccl_index_t ccl_hvec_dense_v_hostmirror_size(ccl_hvec_dense_v_hostmirror* v);
+
+ccl_value_t* ccl_hvec_dense_v_hostmirror_data(ccl_hvec_dense_v_hostmirror* v);
+
+ccl_value_t ccl_hvec_dense_v_hostmirror_values_at(
+    ccl_hvec_dense_v_hostmirror* v, ccl_index_t i);
+
+void ccl_hvec_dense_v_hostmirror_set_values_at(ccl_hvec_dense_v_hostmirror* v,
+                                               ccl_index_t i, ccl_value_t val);
+
+void ccl_hvec_dense_i_hostmirror_create_default(
+    ccl_hvec_dense_i_hostmirror** v);
+
+void ccl_hvec_dense_i_hostmirror_create(ccl_hvec_dense_i_hostmirror** v,
+                                        ccl_index_t n, ccl_index_t val);
+
+void ccl_hvec_dense_i_hostmirror_create_from_hvec_dense_i_hostmirror(
+    ccl_hvec_dense_i_hostmirror* src, ccl_hvec_dense_i_hostmirror** dst);
+
+void ccl_hvec_dense_i_hostmirror_allocate_from_hvec_dense_i_hostmirror(
+    ccl_hvec_dense_i_hostmirror* src, ccl_hvec_dense_i_hostmirror* dst);
+
+void ccl_hvec_dense_i_hostmirror_assign(ccl_hvec_dense_i_hostmirror* v,
+                                        ccl_index_t n, ccl_index_t val);
+
+// TODO: Assign Random
+// void ccl_hvec_dense_i_hostmirror_assign_random(
+//     ccl_hvec_dense_i_hostmirror* v, ccl_index_t range_low, ccl_index_t
+//     range_high);
+
+void ccl_hvec_dense_i_hostmirror_resize(ccl_hvec_dense_i_hostmirror* v,
+                                        ccl_index_t n);
+
+void ccl_hvec_dense_i_hostmirror_resize_fill(ccl_hvec_dense_i_hostmirror* v,
+                                             ccl_index_t n, ccl_index_t val);
+
+void ccl_hvec_dense_i_hostmirror_destroy(ccl_hvec_dense_i_hostmirror** v);
+
+ccl_index_t ccl_hvec_dense_i_hostmirror_size(ccl_hvec_dense_i_hostmirror* v);
+
+ccl_index_t* ccl_hvec_dense_i_hostmirror_data(ccl_hvec_dense_i_hostmirror* v);
+
+ccl_index_t ccl_hvec_dense_i_hostmirror_values_at(
+    ccl_hvec_dense_i_hostmirror* v, ccl_index_t i);
+
+void ccl_hvec_dense_i_hostmirror_set_values_at(ccl_hvec_dense_i_hostmirror* v,
+                                               ccl_index_t i, ccl_index_t val);
 
 #ifdef __cplusplus
 }
