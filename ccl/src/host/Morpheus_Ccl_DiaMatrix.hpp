@@ -162,9 +162,10 @@ ccl_index_t ccl_hmat_dia_hostmirror_diagonal_offests_at(
 ccl_value_t ccl_hmat_dia_hostmirror_values_at(ccl_hmat_dia_hostmirror* A,
                                               ccl_index_t i, ccl_index_t j);
 
-ccl_hvec_dense_i* ccl_hmat_dia_hostmirror_diagonal_offsets(
+ccl_hvec_dense_i_hostmirror* ccl_hmat_dia_hostmirror_diagonal_offsets(
     ccl_hmat_dia_hostmirror* A);
-ccl_hmat_dense* ccl_hmat_dia_hostmirror_values(ccl_hmat_dia_hostmirror* A);
+ccl_hmat_dense_hostmirror* ccl_hmat_dia_hostmirror_values(
+    ccl_hmat_dia_hostmirror* A);
 
 void ccl_hmat_dia_hostmirror_set_diagonal_offests_at(ccl_hmat_dia_hostmirror* A,
                                                      ccl_index_t i,

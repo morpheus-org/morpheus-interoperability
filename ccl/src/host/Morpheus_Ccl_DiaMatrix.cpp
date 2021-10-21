@@ -137,13 +137,14 @@ int ccl_hmat_dia_format_index(ccl_hmat_dia* A) { return A->format_index(); }
 
 // HostMirror Interface
 void ccl_hmat_dia_hostmirror_create_default(ccl_hmat_dia_hostmirror** A) {
-  *A = (new ccl_hmat_dia());
+  *A = (new ccl_hmat_dia_hostmirror());
 }
 
 void ccl_hmat_dia_hostmirror_create(ccl_hmat_dia_hostmirror** A,
                                     ccl_index_t nrows, ccl_index_t ncols,
                                     ccl_index_t nnnz, ccl_index_t ndiags) {
-  *A = (new ccl_hmat_dia("ccl_hmat_dia::", nrows, ncols, nnnz, ndiags));
+  *A = (new ccl_hmat_dia_hostmirror("ccl_hmat_dia_hostmirror::", nrows, ncols,
+                                    nnnz, ndiags));
 }
 
 void ccl_hmat_dia_hostmirror_create_aligned(ccl_hmat_dia_hostmirror** A,
@@ -151,18 +152,18 @@ void ccl_hmat_dia_hostmirror_create_aligned(ccl_hmat_dia_hostmirror** A,
                                             ccl_index_t ncols, ccl_index_t nnnz,
                                             ccl_index_t ndiags,
                                             ccl_index_t alginment) {
-  *A = (new ccl_hmat_dia("ccl_hmat_dia::", nrows, ncols, nnnz, ndiags,
-                         alginment));
+  *A = (new ccl_hmat_dia_hostmirror("ccl_hmat_dia_hostmirror::", nrows, ncols,
+                                    nnnz, ndiags, alginment));
 }
 
 void ccl_hmat_dia_hostmirror_create_from_hmat_dia(
     ccl_hmat_dia_hostmirror* src, ccl_hmat_dia_hostmirror** dst) {
-  *dst = (new ccl_hmat_dia(*src));
+  *dst = (new ccl_hmat_dia_hostmirror(*src));
 }
 
 void ccl_hmat_dia_hostmirror_create_from_hmat_dyn(
     ccl_hmat_dyn* src, ccl_hmat_dia_hostmirror** dst) {
-  *dst = (new ccl_hmat_dia(*src));
+  *dst = (new ccl_hmat_dia_hostmirror(*src));
 }
 
 void ccl_hmat_dia_hostmirror_resize(ccl_hmat_dia_hostmirror* A,
@@ -185,7 +186,7 @@ void ccl_hmat_dia_hostmirror_resize_aligned(ccl_hmat_dia_hostmirror* A,
 // Assumes dst matrix is always created
 void ccl_hmat_dia_hostmirror_allocate_from_hmat_dia(
     ccl_hmat_dia_hostmirror* src, ccl_hmat_dia_hostmirror* dst) {
-  dst->allocate("ccl_hmat_dia::allocate::", *src);
+  dst->allocate("ccl_hmat_dia_hostmirror::allocate::", *src);
 }
 
 void ccl_hmat_dia_hostmirror_destroy(ccl_hmat_dia_hostmirror** A) {
@@ -247,12 +248,13 @@ ccl_value_t ccl_hmat_dia_hostmirror_values_at(ccl_hmat_dia_hostmirror* A,
   return A->values(i, j);
 }
 
-ccl_hvec_dense_i* ccl_hmat_dia_hostmirror_diagonal_offsets(
+ccl_hvec_dense_i_hostmirror* ccl_hmat_dia_hostmirror_diagonal_offsets(
     ccl_hmat_dia_hostmirror* A) {
   return &(A->diagonal_offsets());
 }
 
-ccl_hmat_dense* ccl_hmat_dia_hostmirror_values(ccl_hmat_dia_hostmirror* A) {
+ccl_hmat_dense_hostmirror* ccl_hmat_dia_hostmirror_values(
+    ccl_hmat_dia_hostmirror* A) {
   return &(A->values());
 }
 

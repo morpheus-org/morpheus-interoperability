@@ -127,30 +127,25 @@ void ccl_hmat_dyn_hostmirror_create_from_hmat(void* src, ccl_formats_e index,
                                               ccl_hmat_dyn_hostmirror** dst) {
   if (index == Morpheus::COO_FORMAT) {
     ccl_hmat_coo* src_cast = (ccl_hmat_coo*)src;
-    *dst = new ccl_hmat_dyn_hostmirror(ccl_hmat_coo(*src_cast));
+    *dst = new ccl_hmat_dyn_hostmirror(ccl_hmat_coo_hostmirror(*src_cast));
   } else if (index == Morpheus::CSR_FORMAT) {
     ccl_hmat_csr* src_cast = (ccl_hmat_csr*)src;
-    *dst = new ccl_hmat_dyn_hostmirror(ccl_hmat_csr(*src_cast));
+    *dst = new ccl_hmat_dyn_hostmirror(ccl_hmat_csr_hostmirror(*src_cast));
   } else if (index == Morpheus::DIA_FORMAT) {
     ccl_hmat_dia* src_cast = (ccl_hmat_dia*)src;
-    *dst = new ccl_hmat_dyn_hostmirror(ccl_hmat_dia(*src_cast));
+    *dst = new ccl_hmat_dyn_hostmirror(ccl_hmat_dia_hostmirror(*src_cast));
   }
 }
 
 void ccl_hmat_dyn_hostmirror_assign_from_hmat(void* src, ccl_formats_e index,
                                               ccl_hmat_dyn_hostmirror* dst) {
   if (index == Morpheus::COO_FORMAT) {
-    *dst = *(ccl_hmat_coo*)src;
+    *dst = *(ccl_hmat_coo_hostmirror*)src;
   } else if (index == Morpheus::CSR_FORMAT) {
-    *dst = *(ccl_hmat_csr*)src;
+    *dst = *(ccl_hmat_csr_hostmirror*)src;
   } else if (index == Morpheus::DIA_FORMAT) {
-    *dst = *(ccl_hmat_dia*)src;
+    *dst = *(ccl_hmat_dia_hostmirror*)src;
   }
-}
-
-void ccl_hmat_dyn_hostmirror_assign_from_hmat_dia(
-    ccl_hmat_dia* src, ccl_hmat_dyn_hostmirror* dst) {
-  *dst = *src;
 }
 
 void ccl_hmat_dyn_hostmirror_resize(ccl_hmat_dyn_hostmirror* A,

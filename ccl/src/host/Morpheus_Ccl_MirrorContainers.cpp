@@ -58,7 +58,7 @@ ccl_hvec_dense_i_hostmirror* ccl_hvec_dense_i_create_mirror(
     ccl_hvec_dense_i* src) {
   ccl_hvec_dense_i_hostmirror mirror = Morpheus::create_mirror(*src);
 
-  return (new ccl_hvec_dense_v_hostmirror(mirror));
+  return (new ccl_hvec_dense_i_hostmirror(mirror));
 }
 
 ccl_hmat_dyn_hostmirror* ccl_hmat_dyn_create_mirror(ccl_hmat_dyn* src) {
