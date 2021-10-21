@@ -20,6 +20,9 @@ $ make install
 * Mcl_ENABLE_TESTS: BOOL
   * Whether to build tests.
   * Default: OFF
+* Mcl_ENABLE_INDIVIDUAL_TESTS: BOOL
+  * Whether to build individual tests.
+  * Default: OFF
 * Mcl_ENABLE_EXAMPLES: BOOL
   * Whether to build examples.
   * Default: OFF
