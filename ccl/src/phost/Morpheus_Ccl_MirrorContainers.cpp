@@ -55,45 +55,64 @@ ccl_phvec_dense_v_hostmirror* ccl_phvec_dense_v_create_mirror(
   return (new ccl_phvec_dense_v_hostmirror(mirror));
 }
 
+ccl_phvec_dense_i_hostmirror* ccl_phvec_dense_i_create_mirror(
+    ccl_phvec_dense_i* src) {
+  ccl_phvec_dense_i_hostmirror mirror = Morpheus::create_mirror(*src);
+
+  return (new ccl_phvec_dense_i_hostmirror(mirror));
+}
+
 ccl_phmat_dyn_hostmirror* ccl_phmat_dyn_create_mirror(ccl_phmat_dyn* src) {
   ccl_phmat_dyn_hostmirror mirror = Morpheus::create_mirror(*src);
 
   return (new ccl_phmat_dyn_hostmirror(mirror));
 }
 
-ccl_phmat_coo* ccl_phmat_coo_create_mirror_container(ccl_phmat_coo* src) {
-  ccl_phmat_coo mirror = Morpheus::create_mirror_container(*src);
+ccl_phmat_coo_hostmirror* ccl_phmat_coo_create_mirror_container(
+    ccl_phmat_coo* src) {
+  ccl_phmat_coo_hostmirror mirror = Morpheus::create_mirror_container(*src);
 
-  return (new ccl_phmat_coo(mirror));
+  return (new ccl_phmat_coo_hostmirror(mirror));
 }
 
-ccl_phmat_csr* ccl_phmat_csr_create_mirror_container(ccl_phmat_csr* src) {
-  ccl_phmat_csr mirror = Morpheus::create_mirror_container(*src);
+ccl_phmat_csr_hostmirror* ccl_phmat_csr_create_mirror_container(
+    ccl_phmat_csr* src) {
+  ccl_phmat_csr_hostmirror mirror = Morpheus::create_mirror_container(*src);
 
-  return (new ccl_phmat_csr(mirror));
+  return (new ccl_phmat_csr_hostmirror(mirror));
 }
 
-ccl_phmat_dia* ccl_phmat_dia_create_mirror_container(ccl_phmat_dia* src) {
-  ccl_phmat_dia mirror = Morpheus::create_mirror_container(*src);
+ccl_phmat_dia_hostmirror* ccl_phmat_dia_create_mirror_container(
+    ccl_phmat_dia* src) {
+  ccl_phmat_dia_hostmirror mirror = Morpheus::create_mirror_container(*src);
 
-  return (new ccl_phmat_dia(mirror));
+  return (new ccl_phmat_dia_hostmirror(mirror));
 }
 
-ccl_phmat_dense* ccl_phmat_dense_create_mirror_container(ccl_phmat_dense* src) {
-  ccl_phmat_dense mirror = Morpheus::create_mirror_container(*src);
+ccl_phmat_dense_hostmirror* ccl_phmat_dense_create_mirror_container(
+    ccl_phmat_dense* src) {
+  ccl_phmat_dense_hostmirror mirror = Morpheus::create_mirror_container(*src);
 
-  return (new ccl_phmat_dense(mirror));
+  return (new ccl_phmat_dense_hostmirror(mirror));
 }
 
-ccl_phvec_dense_v* ccl_phvec_dense_v_create_mirror_container(
+ccl_phvec_dense_v_hostmirror* ccl_phvec_dense_v_create_mirror_container(
     ccl_phvec_dense_v* src) {
-  ccl_phvec_dense_v mirror = Morpheus::create_mirror_container(*src);
+  ccl_phvec_dense_v_hostmirror mirror = Morpheus::create_mirror_container(*src);
 
-  return (new ccl_phvec_dense_v(mirror));
+  return (new ccl_phvec_dense_v_hostmirror(mirror));
 }
 
-ccl_phmat_dyn* ccl_phmat_dyn_create_mirror_container(ccl_phmat_dyn* src) {
-  ccl_phmat_dyn mirror = Morpheus::create_mirror_container(*src);
+ccl_phvec_dense_i_hostmirror* ccl_phvec_dense_v_create_mirror_container(
+    ccl_phvec_dense_i* src) {
+  ccl_phvec_dense_i_hostmirror mirror = Morpheus::create_mirror_container(*src);
 
-  return (new ccl_phmat_dyn(mirror));
+  return (new ccl_phvec_dense_i_hostmirror(mirror));
+}
+
+ccl_phmat_dyn_hostmirror* ccl_phmat_dyn_create_mirror_container(
+    ccl_phmat_dyn* src) {
+  ccl_phmat_dyn_hostmirror mirror = Morpheus::create_mirror_container(*src);
+
+  return (new ccl_phmat_dyn_hostmirror(mirror));
 }

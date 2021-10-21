@@ -72,6 +72,190 @@ ccl_value_t ccl_phvec_dense_v_values_at(ccl_phvec_dense_v* v, ccl_index_t i) {
 }
 
 void ccl_phvec_dense_v_set_values_at(ccl_phvec_dense_v* v, ccl_index_t i,
+                                     ccl_value_t val) {
+  (*v)[i] = val;
+}
+
+void ccl_phvec_dense_i_create_default(ccl_phvec_dense_i** v) {
+  *v = (new ccl_phvec_dense_i());
+}
+
+void ccl_phvec_dense_i_create(ccl_phvec_dense_i** v, ccl_index_t n,
+                              ccl_index_t val) {
+  *v = (new ccl_phvec_dense_i("ccl_phvec_dense_i::", n, val));
+}
+
+void ccl_phvec_dense_i_create_from_phvec_dense_i(ccl_phvec_dense_i* src,
+                                                 ccl_phvec_dense_i** dst) {
+  *dst = (new ccl_phvec_dense_i(*src));
+}
+
+void ccl_phvec_dense_i_allocate_from_phvec_dense_i(ccl_phvec_dense_i* src,
+                                                   ccl_phvec_dense_i* dst) {
+  dst->allocate("ccl_phvec_dense_i::allocate::", *src);
+}
+
+void ccl_phvec_dense_i_assign(ccl_phvec_dense_i* v, ccl_index_t n,
+                              ccl_index_t val) {
+  v->assign(n, val);
+}
+
+// TODO: Assign Random
+// void ccl_phvec_dense_i_assign_random(
+//     ccl_phvec_dense_i* v, ccl_index_t range_low, ccl_index_t
+//     range_high);
+
+void ccl_phvec_dense_i_resize(ccl_phvec_dense_i* v, ccl_index_t n) {
+  v->resize(n);
+}
+
+void ccl_phvec_dense_i_resize_fill(ccl_phvec_dense_i* v, ccl_index_t n,
+                                   ccl_index_t val) {
+  v->resize(n, val);
+}
+
+void ccl_phvec_dense_i_destroy(ccl_phvec_dense_i** v) { delete (*v); }
+
+ccl_index_t ccl_phvec_dense_i_size(ccl_phvec_dense_i* v) { return v->size(); }
+
+ccl_index_t* ccl_phvec_dense_i_data(ccl_phvec_dense_i* v) { return v->data(); }
+
+ccl_index_t ccl_phvec_dense_i_values_at(ccl_phvec_dense_i* v, ccl_index_t i) {
+  return (*v)[i];
+}
+
+void ccl_phvec_dense_i_set_values_at(ccl_phvec_dense_i* v, ccl_index_t i,
                                      ccl_index_t val) {
+  (*v)[i] = val;
+}
+
+// HostMirror Interface
+void ccl_phvec_dense_v_hostmirror_create_default(
+    ccl_phvec_dense_v_hostmirror** v) {
+  *v = (new ccl_phvec_dense_v_hostmirror());
+}
+
+void ccl_phvec_dense_v_hostmirror_create(ccl_phvec_dense_v_hostmirror** v,
+                                         ccl_index_t n, ccl_value_t val) {
+  *v = (new ccl_phvec_dense_v_hostmirror("ccl_phvec_dense_v_hostmirror::", n,
+                                         val));
+}
+
+void ccl_phvec_dense_v_hostmirror_create_from_phvec_dense_v_hostmirror(
+    ccl_phvec_dense_v_hostmirror* src, ccl_phvec_dense_v_hostmirror** dst) {
+  *dst = (new ccl_phvec_dense_v_hostmirror(*src));
+}
+
+void ccl_phvec_dense_v_hostmirror_allocate_from_phvec_dense_v_hostmirror(
+    ccl_phvec_dense_v_hostmirror* src, ccl_phvec_dense_v_hostmirror* dst) {
+  dst->allocate("ccl_phvec_dense_v_hostmirror::allocate::", *src);
+}
+
+void ccl_phvec_dense_v_hostmirror_assign(ccl_phvec_dense_v_hostmirror* v,
+                                         ccl_index_t n, ccl_value_t val) {
+  v->assign(n, val);
+}
+
+// TODO: Assign Random
+// void ccl_phvec_dense_v_hostmirror_assign_random(
+//     ccl_phvec_dense_v_hostmirror* v, ccl_value_t range_low, ccl_value_t
+//     range_high);
+
+void ccl_phvec_dense_v_hostmirror_resize(ccl_phvec_dense_v_hostmirror* v,
+                                         ccl_index_t n) {
+  v->resize(n);
+}
+
+void ccl_phvec_dense_v_hostmirror_resize_fill(ccl_phvec_dense_v_hostmirror* v,
+                                              ccl_index_t n, ccl_value_t val) {
+  v->resize(n, val);
+}
+
+void ccl_phvec_dense_v_hostmirror_destroy(ccl_phvec_dense_v_hostmirror** v) {
+  delete (*v);
+}
+
+ccl_index_t ccl_phvec_dense_v_hostmirror_size(ccl_phvec_dense_v_hostmirror* v) {
+  return v->size();
+}
+
+ccl_value_t* ccl_phvec_dense_v_hostmirror_data(
+    ccl_phvec_dense_v_hostmirror* v) {
+  return v->data();
+}
+
+ccl_value_t ccl_phvec_dense_v_hostmirror_values_at(
+    ccl_phvec_dense_v_hostmirror* v, ccl_index_t i) {
+  return (*v)[i];
+}
+
+void ccl_phvec_dense_v_hostmirror_set_values_at(ccl_phvec_dense_v_hostmirror* v,
+                                                ccl_index_t i,
+                                                ccl_value_t val) {
+  (*v)[i] = val;
+}
+
+void ccl_phvec_dense_i_hostmirror_create_default(
+    ccl_phvec_dense_i_hostmirror** v) {
+  *v = (new ccl_phvec_dense_i_hostmirror());
+}
+
+void ccl_phvec_dense_i_hostmirror_create(ccl_phvec_dense_i_hostmirror** v,
+                                         ccl_index_t n, ccl_index_t val) {
+  *v = (new ccl_phvec_dense_i_hostmirror("ccl_phvec_dense_i_hostmirror::", n,
+                                         val));
+}
+
+void ccl_phvec_dense_i_hostmirror_create_from_phvec_dense_i_hostmirror(
+    ccl_phvec_dense_i_hostmirror* src, ccl_phvec_dense_i_hostmirror** dst) {
+  *dst = (new ccl_phvec_dense_i_hostmirror(*src));
+}
+
+void ccl_phvec_dense_i_hostmirror_allocate_from_phvec_dense_i_hostmirror(
+    ccl_phvec_dense_i_hostmirror* src, ccl_phvec_dense_i_hostmirror* dst) {
+  dst->allocate("ccl_phvec_dense_i_hostmirror::allocate::", *src);
+}
+
+void ccl_phvec_dense_i_hostmirror_assign(ccl_phvec_dense_i_hostmirror* v,
+                                         ccl_index_t n, ccl_index_t val) {
+  v->assign(n, val);
+}
+
+// TODO: Assign Random
+// void ccl_phvec_dense_i_hostmirror_assign_random(
+//     ccl_phvec_dense_i_hostmirror* v, ccl_index_t range_low, ccl_index_t
+//     range_high);
+
+void ccl_phvec_dense_i_hostmirror_resize(ccl_phvec_dense_i_hostmirror* v,
+                                         ccl_index_t n) {
+  v->resize(n);
+}
+
+void ccl_phvec_dense_i_hostmirror_resize_fill(ccl_phvec_dense_i_hostmirror* v,
+                                              ccl_index_t n, ccl_index_t val) {
+  v->resize(n, val);
+}
+
+void ccl_phvec_dense_i_hostmirror_destroy(ccl_phvec_dense_i_hostmirror** v) {
+  delete (*v);
+}
+
+ccl_index_t ccl_phvec_dense_i_hostmirror_size(ccl_phvec_dense_i_hostmirror* v) {
+  return v->size();
+}
+
+ccl_index_t* ccl_phvec_dense_i_hostmirror_data(
+    ccl_phvec_dense_i_hostmirror* v) {
+  return v->data();
+}
+
+ccl_index_t ccl_phvec_dense_i_hostmirror_values_at(
+    ccl_phvec_dense_i_hostmirror* v, ccl_index_t i) {
+  return (*v)[i];
+}
+
+void ccl_phvec_dense_i_hostmirror_set_values_at(ccl_phvec_dense_i_hostmirror* v,
+                                                ccl_index_t i,
+                                                ccl_index_t val) {
   (*v)[i] = val;
 }

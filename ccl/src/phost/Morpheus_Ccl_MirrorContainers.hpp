@@ -46,20 +46,31 @@ ccl_phmat_dense_hostmirror* ccl_phmat_dense_create_mirror(ccl_phmat_dense* src);
 ccl_phvec_dense_v_hostmirror* ccl_phvec_dense_v_create_mirror(
     ccl_phvec_dense_v* src);
 
+ccl_phvec_dense_i_hostmirror* ccl_phvec_dense_i_create_mirror(
+    ccl_phvec_dense_i* src);
+
 ccl_phmat_dyn_hostmirror* ccl_phmat_dyn_create_mirror(ccl_phmat_dyn* src);
 
-ccl_phmat_coo* ccl_phmat_coo_create_mirror_container(ccl_phmat_coo* src);
+ccl_phmat_coo_hostmirror* ccl_phmat_coo_create_mirror_container(
+    ccl_phmat_coo* src);
 
-ccl_phmat_csr* ccl_phmat_csr_create_mirror_container(ccl_phmat_csr* src);
+ccl_phmat_csr_hostmirror* ccl_phmat_csr_create_mirror_container(
+    ccl_phmat_csr* src);
 
-ccl_phmat_dia* ccl_phmat_dia_create_mirror_container(ccl_phmat_dia* src);
+ccl_phmat_dia_hostmirror* ccl_phmat_dia_create_mirror_container(
+    ccl_phmat_dia* src);
 
-ccl_phmat_dense* ccl_phmat_dense_create_mirror_container(ccl_phmat_dense* src);
+ccl_phmat_dense_hostmirror* ccl_phmat_dense_create_mirror_container(
+    ccl_phmat_dense* src);
 
-ccl_phvec_dense_v* ccl_phvec_dense_v_create_mirror_container(
+ccl_phvec_dense_v_hostmirror* ccl_phvec_dense_v_create_mirror_container(
     ccl_phvec_dense_v* src);
 
-ccl_phmat_dyn* ccl_phmat_dyn_create_mirror_container(ccl_phmat_dyn* src);
+ccl_phvec_dense_i_hostmirror* ccl_phvec_dense_i_create_mirror_container(
+    ccl_phvec_dense_i* src);
+
+ccl_phmat_dyn_hostmirror* ccl_phmat_dyn_create_mirror_container(
+    ccl_phmat_dyn* src);
 
 #ifdef __cplusplus
 }

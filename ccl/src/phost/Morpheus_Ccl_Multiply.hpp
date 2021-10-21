@@ -50,6 +50,22 @@ void ccl_phmat_dyn_phvec_dense_v_multiply(ccl_phmat_dyn* A,
                                           ccl_phvec_dense_v* x,
                                           ccl_phvec_dense_v* y);
 
+void ccl_phmat_coo_hostmirror_phvec_dense_v_hostmirror_multiply(
+    ccl_phmat_coo_hostmirror* A, ccl_phvec_dense_v_hostmirror* x,
+    ccl_phvec_dense_v_hostmirror* y);
+
+void ccl_phmat_csr_hostmirror_phvec_dense_v_hostmirror_multiply(
+    ccl_phmat_csr_hostmirror* A, ccl_phvec_dense_v_hostmirror* x,
+    ccl_phvec_dense_v_hostmirror* y);
+
+void ccl_phmat_dia_hostmirror_phvec_dense_v_hostmirror_multiply(
+    ccl_phmat_dia_hostmirror* A, ccl_phvec_dense_v_hostmirror* x,
+    ccl_phvec_dense_v_hostmirror* y);
+
+void ccl_phmat_dyn_hostmirror_phvec_dense_v_hostmirror_multiply(
+    ccl_phmat_dyn_hostmirror* A, ccl_phvec_dense_v_hostmirror* x,
+    ccl_phvec_dense_v_hostmirror* y);
+
 #ifdef __cplusplus
 }
 #endif

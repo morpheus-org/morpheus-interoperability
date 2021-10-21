@@ -83,6 +83,69 @@ void ccl_phmat_csr_set_values_at(ccl_phmat_csr* A, ccl_index_t i,
 ccl_formats_e ccl_phmat_csr_format_enum(ccl_phmat_csr* A);
 int ccl_phmat_csr_format_index(ccl_phmat_csr* A);
 
+// HostMirror Interface
+void ccl_phmat_csr_hostmirror_create_default(ccl_phmat_csr_hostmirror** A);
+
+void ccl_phmat_csr_hostmirror_create(ccl_phmat_csr_hostmirror** A,
+                                     ccl_index_t nrows, ccl_index_t ncols,
+                                     ccl_index_t nnnz);
+
+void ccl_phmat_csr_hostmirror_create_from_phmat_csr_hostmirror(
+    ccl_phmat_csr_hostmirror* src, ccl_phmat_csr_hostmirror** dst);
+
+void ccl_phmat_csr_hostmirror_create_from_phmat_dyn(
+    ccl_phmat_dyn* src, ccl_phmat_csr_hostmirror** dst);
+
+void ccl_phmat_csr_hostmirror_resize(ccl_phmat_csr_hostmirror* A,
+                                     const ccl_index_t num_rows,
+                                     const ccl_index_t num_cols,
+                                     const ccl_index_t num_nnz);
+
+void ccl_phmat_csr_hostmirror_allocate_from_phmat_csr_hostmirror(
+    ccl_phmat_csr_hostmirror* src, ccl_phmat_csr_hostmirror* dst);
+
+void ccl_phmat_csr_hostmirror_destroy(ccl_phmat_csr_hostmirror** A);
+
+// Base Routines
+ccl_index_t ccl_phmat_csr_hostmirror_nrows(ccl_phmat_csr_hostmirror* A);
+ccl_index_t ccl_phmat_csr_hostmirror_ncols(ccl_phmat_csr_hostmirror* A);
+ccl_index_t ccl_phmat_csr_hostmirror_nnnz(ccl_phmat_csr_hostmirror* A);
+
+void ccl_phmat_csr_hostmirror_set_nrows(ccl_phmat_csr_hostmirror* A,
+                                        ccl_index_t nrows);
+void ccl_phmat_csr_hostmirror_set_ncols(ccl_phmat_csr_hostmirror* A,
+                                        ccl_index_t ncols);
+void ccl_phmat_csr_hostmirror_set_nnnz(ccl_phmat_csr_hostmirror* A,
+                                       ccl_index_t nnnz);
+
+// Format Specific Routines
+ccl_index_t ccl_phmat_csr_hostmirror_row_offsets_at(ccl_phmat_csr_hostmirror* A,
+                                                    ccl_index_t i);
+ccl_index_t ccl_phmat_csr_hostmirror_column_indices_at(
+    ccl_phmat_csr_hostmirror* A, ccl_index_t i);
+ccl_value_t ccl_phmat_csr_hostmirror_values_at(ccl_phmat_csr_hostmirror* A,
+                                               ccl_index_t i);
+
+ccl_phvec_dense_i_hostmirror* ccl_phmat_csr_hostmirror_row_offsets(
+    ccl_phmat_csr_hostmirror* A);
+ccl_phvec_dense_i_hostmirror* ccl_phmat_csr_hostmirror_column_indices(
+    ccl_phmat_csr_hostmirror* A);
+ccl_phvec_dense_v_hostmirror* ccl_phmat_csr_hostmirror_values(
+    ccl_phmat_csr_hostmirror* A);
+
+void ccl_phmat_csr_hostmirror_set_row_offsets_at(ccl_phmat_csr_hostmirror* A,
+                                                 ccl_index_t i,
+                                                 ccl_index_t val);
+void ccl_phmat_csr_hostmirror_set_column_indices_at(ccl_phmat_csr_hostmirror* A,
+                                                    ccl_index_t i,
+                                                    ccl_index_t val);
+void ccl_phmat_csr_hostmirror_set_values_at(ccl_phmat_csr_hostmirror* A,
+                                            ccl_index_t i, ccl_value_t val);
+
+// Other Routines
+ccl_formats_e ccl_phmat_csr_hostmirror_format_enum(ccl_phmat_csr_hostmirror* A);
+int ccl_phmat_csr_hostmirror_format_index(ccl_phmat_csr_hostmirror* A);
+
 #ifdef __cplusplus
 }
 #endif

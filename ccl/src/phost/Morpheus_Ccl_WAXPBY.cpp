@@ -27,5 +27,13 @@ void ccl_phvec_dense_v_waxpby(ccl_index_t n, ccl_value_t alpha,
                               const ccl_phvec_dense_v* x, ccl_value_t beta,
                               const ccl_phvec_dense_v* y,
                               ccl_phvec_dense_v* w) {
-  Morpheus::waxpby<ccl_host_t>(n, alpha, *x, beta, *y, *w);
+  Morpheus::waxpby<ccl_phost_t>(n, alpha, *x, beta, *y, *w);
+}
+
+void ccl_phvec_dense_v_hostmirror_waxpby(ccl_index_t n, ccl_value_t alpha,
+                                         const ccl_phvec_dense_v_hostmirror* x,
+                                         ccl_value_t beta,
+                                         const ccl_phvec_dense_v_hostmirror* y,
+                                         ccl_phvec_dense_v_hostmirror* w) {
+  Morpheus::waxpby<ccl_hostspace_t>(n, alpha, *x, beta, *y, *w);
 }

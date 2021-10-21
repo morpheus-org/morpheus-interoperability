@@ -26,23 +26,47 @@
 void ccl_phmat_coo_phvec_dense_v_multiply(ccl_phmat_coo* A,
                                           ccl_phvec_dense_v* x,
                                           ccl_phvec_dense_v* y) {
-  Morpheus::multiply<ccl_host_t>(*A, *x, *y);
+  Morpheus::multiply<ccl_phost_t>(*A, *x, *y);
 }
 
 void ccl_phmat_csr_phvec_dense_v_multiply(ccl_phmat_csr* A,
                                           ccl_phvec_dense_v* x,
                                           ccl_phvec_dense_v* y) {
-  Morpheus::multiply<ccl_host_t>(*A, *x, *y);
+  Morpheus::multiply<ccl_phost_t>(*A, *x, *y);
 }
 
 void ccl_phmat_dia_phvec_dense_v_multiply(ccl_phmat_dia* A,
                                           ccl_phvec_dense_v* x,
                                           ccl_phvec_dense_v* y) {
-  Morpheus::multiply<ccl_host_t>(*A, *x, *y);
+  Morpheus::multiply<ccl_phost_t>(*A, *x, *y);
 }
 
 void ccl_phmat_dyn_phvec_dense_v_multiply(ccl_phmat_dyn* A,
                                           ccl_phvec_dense_v* x,
                                           ccl_phvec_dense_v* y) {
-  Morpheus::multiply<ccl_host_t>(*A, *x, *y);
+  Morpheus::multiply<ccl_phost_t>(*A, *x, *y);
+}
+
+void ccl_phmat_coo_hostmirror_phvec_dense_v_hostmirror_multiply(
+    ccl_phmat_coo_hostmirror* A, ccl_phvec_dense_v_hostmirror* x,
+    ccl_phvec_dense_v_hostmirror* y) {
+  Morpheus::multiply<ccl_hostspace_t>(*A, *x, *y);
+}
+
+void ccl_phmat_csr_hostmirror_phvec_dense_v_hostmirror_multiply(
+    ccl_phmat_csr_hostmirror* A, ccl_phvec_dense_v_hostmirror* x,
+    ccl_phvec_dense_v_hostmirror* y) {
+  Morpheus::multiply<ccl_hostspace_t>(*A, *x, *y);
+}
+
+void ccl_phmat_dia_hostmirror_phvec_dense_v_hostmirror_multiply(
+    ccl_phmat_dia_hostmirror* A, ccl_phvec_dense_v_hostmirror* x,
+    ccl_phvec_dense_v_hostmirror* y) {
+  Morpheus::multiply<ccl_hostspace_t>(*A, *x, *y);
+}
+
+void ccl_phmat_dyn_hostmirror_phvec_dense_v_hostmirror_multiply(
+    ccl_phmat_dyn_hostmirror* A, ccl_phvec_dense_v_hostmirror* x,
+    ccl_phvec_dense_v_hostmirror* y) {
+  Morpheus::multiply<ccl_hostspace_t>(*A, *x, *y);
 }

@@ -120,3 +120,116 @@ ccl_formats_e ccl_phmat_dyn_active_enum(ccl_phmat_dyn* A) {
 ccl_formats_e ccl_phmat_dyn_format_enum(ccl_phmat_dyn* A) {
   return A->format_enum();
 }
+
+void ccl_phmat_dyn_hostmirror_create_default(ccl_phmat_dyn_hostmirror** A) {
+  *A = (new ccl_phmat_dyn_hostmirror());
+}
+
+void ccl_phmat_dyn_hostmirror_create_from_phmat(
+    void* src, ccl_formats_e index, ccl_phmat_dyn_hostmirror** dst) {
+  if (index == Morpheus::COO_FORMAT) {
+    ccl_phmat_coo* src_cast = (ccl_phmat_coo*)src;
+    *dst = new ccl_phmat_dyn_hostmirror(ccl_phmat_coo_hostmirror(*src_cast));
+  } else if (index == Morpheus::CSR_FORMAT) {
+    ccl_phmat_csr* src_cast = (ccl_phmat_csr*)src;
+    *dst = new ccl_phmat_dyn_hostmirror(ccl_phmat_csr_hostmirror(*src_cast));
+  } else if (index == Morpheus::DIA_FORMAT) {
+    ccl_phmat_dia* src_cast = (ccl_phmat_dia*)src;
+    *dst = new ccl_phmat_dyn_hostmirror(ccl_phmat_dia_hostmirror(*src_cast));
+  }
+}
+
+void ccl_phmat_dyn_hostmirror_assign_from_phmat(void* src, ccl_formats_e index,
+                                                ccl_phmat_dyn_hostmirror* dst) {
+  if (index == Morpheus::COO_FORMAT) {
+    *dst = *(ccl_phmat_coo_hostmirror*)src;
+  } else if (index == Morpheus::CSR_FORMAT) {
+    *dst = *(ccl_phmat_csr_hostmirror*)src;
+  } else if (index == Morpheus::DIA_FORMAT) {
+    *dst = *(ccl_phmat_dia_hostmirror*)src;
+  }
+}
+
+void ccl_phmat_dyn_hostmirror_resize(ccl_phmat_dyn_hostmirror* A,
+                                     const ccl_index_t num_rows,
+                                     const ccl_index_t num_cols,
+                                     const ccl_index_t num_nnz) {
+  A->resize(num_rows, num_cols, num_nnz);
+}
+
+void ccl_phmat_dyn_hostmirror_resize_diags(ccl_phmat_dyn_hostmirror* A,
+                                           const ccl_index_t num_rows,
+                                           const ccl_index_t num_cols,
+                                           const ccl_index_t num_nnz,
+                                           const ccl_index_t num_diags) {
+  A->resize(num_rows, num_cols, num_nnz, num_diags);
+}
+
+void ccl_phmat_dyn_hostmirror_resize_aligned(ccl_phmat_dyn_hostmirror* A,
+                                             const ccl_index_t num_rows,
+                                             const ccl_index_t num_cols,
+                                             const ccl_index_t num_nnz,
+                                             const ccl_index_t num_diags,
+                                             const ccl_index_t alignment) {
+  A->resize(num_rows, num_cols, num_nnz, num_diags, alignment);
+}
+
+void ccl_phmat_dyn_hostmirror_allocate_from_phmat_dyn_hostmirror(
+    ccl_phmat_dyn_hostmirror* src, ccl_phmat_dyn_hostmirror* dst) {
+  dst->allocate("ccl_phmat_dyn_hostmirror::allocate::", *src);
+}
+
+void ccl_phmat_dyn_hostmirror_destroy(ccl_phmat_dyn_hostmirror** A) {
+  delete (*A);
+}
+
+ccl_index_t ccl_phmat_dyn_hostmirror_nrows(ccl_phmat_dyn_hostmirror* A) {
+  return A->nrows();
+}
+
+ccl_index_t ccl_phmat_dyn_hostmirror_ncols(ccl_phmat_dyn_hostmirror* A) {
+  return A->ncols();
+}
+
+ccl_index_t ccl_phmat_dyn_hostmirror_nnnz(ccl_phmat_dyn_hostmirror* A) {
+  return A->nnnz();
+}
+
+void ccl_phmat_dyn_hostmirror_set_nrows(ccl_phmat_dyn_hostmirror* A,
+                                        ccl_index_t nrows) {
+  A->set_nrows(nrows);
+}
+
+void ccl_phmat_dyn_hostmirror_set_ncols(ccl_phmat_dyn_hostmirror* A,
+                                        ccl_index_t ncols) {
+  A->set_ncols(ncols);
+}
+
+void ccl_phmat_dyn_hostmirror_set_nnnz(ccl_phmat_dyn_hostmirror* A,
+                                       ccl_index_t nnnz) {
+  A->set_nnnz(nnnz);
+}
+
+void ccl_phmat_dyn_hostmirror_activate(ccl_phmat_dyn_hostmirror* A,
+                                       const ccl_formats_e index) {
+  A->activate(index);
+}
+
+void ccl_phmat_dyn_hostmirror_activate_index(ccl_phmat_dyn_hostmirror* A,
+                                             const int index) {
+  A->activate(index);
+}
+
+int ccl_phmat_dyn_hostmirror_active_index(ccl_phmat_dyn_hostmirror* A) {
+  return A->active_index();
+}
+
+ccl_formats_e ccl_phmat_dyn_hostmirror_active_enum(
+    ccl_phmat_dyn_hostmirror* A) {
+  return A->active_enum();
+}
+
+ccl_formats_e ccl_phmat_dyn_hostmirror_format_enum(
+    ccl_phmat_dyn_hostmirror* A) {
+  return A->format_enum();
+}

@@ -33,6 +33,17 @@ extern "C" {
 ccl_value_t ccl_phvec_dense_v_dot(ccl_index_t n, const ccl_phvec_dense_v* x,
                                   const ccl_phvec_dense_v* y);
 
+ccl_value_t ccl_phvec_dense_i_dot(ccl_index_t n, const ccl_phvec_dense_i* x,
+                                  const ccl_phvec_dense_i* y);
+
+ccl_value_t ccl_phvec_dense_v_hostmirror_dot(
+    ccl_index_t n, const ccl_phvec_dense_v_hostmirror* x,
+    const ccl_phvec_dense_v_hostmirror* y);
+
+ccl_value_t ccl_phvec_dense_i_hostmirror_dot(
+    ccl_index_t n, const ccl_phvec_dense_i_hostmirror* x,
+    const ccl_phvec_dense_i_hostmirror* y);
+
 #ifdef __cplusplus
 }
 #endif

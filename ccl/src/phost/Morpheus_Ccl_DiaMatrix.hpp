@@ -103,6 +103,86 @@ ccl_bool_t ccl_phmat_dia_exceeds_tolerance(ccl_phmat_dia* A,
 ccl_formats_e ccl_phmat_dia_format_enum(ccl_phmat_dia* A);
 int ccl_phmat_dia_format_index(ccl_phmat_dia* A);
 
+// HostMirror Interface
+void ccl_phmat_dia_hostmirror_create_default(ccl_phmat_dia_hostmirror** A);
+
+void ccl_phmat_dia_hostmirror_create(ccl_phmat_dia_hostmirror** A,
+                                     ccl_index_t nrows, ccl_index_t ncols,
+                                     ccl_index_t nnnz, ccl_index_t ndiags);
+
+void ccl_phmat_dia_hostmirror_create_aligned(
+    ccl_phmat_dia_hostmirror** A, ccl_index_t nrows, ccl_index_t ncols,
+    ccl_index_t nnnz, ccl_index_t ndiags, ccl_index_t alginment);
+
+void ccl_phmat_dia_hostmirror_create_from_phmat_dia(
+    ccl_phmat_dia_hostmirror* src, ccl_phmat_dia_hostmirror** dst);
+
+void ccl_phmat_dia_hostmirror_create_from_phmat_dyn(
+    ccl_phmat_dyn* src, ccl_phmat_dia_hostmirror** dst);
+
+void ccl_phmat_dia_hostmirror_resize(ccl_phmat_dia_hostmirror* A,
+                                     const ccl_index_t num_rows,
+                                     const ccl_index_t num_cols,
+                                     const ccl_index_t num_nnz,
+                                     const ccl_index_t num_diagonals);
+
+void ccl_phmat_dia_hostmirror_resize_aligned(ccl_phmat_dia_hostmirror* A,
+                                             const ccl_index_t num_rows,
+                                             const ccl_index_t num_cols,
+                                             const ccl_index_t num_nnz,
+                                             const ccl_index_t num_diagonals,
+                                             const ccl_index_t alginment);
+
+void ccl_phmat_dia_hostmirror_allocate_from_phmat_dia(
+    ccl_phmat_dia_hostmirror* src, ccl_phmat_dia_hostmirror* dst);
+
+void ccl_phmat_dia_hostmirror_destroy(ccl_phmat_dia_hostmirror** A);
+
+// Base Routines
+ccl_index_t ccl_phmat_dia_hostmirror_nrows(ccl_phmat_dia_hostmirror* A);
+ccl_index_t ccl_phmat_dia_hostmirror_ncols(ccl_phmat_dia_hostmirror* A);
+ccl_index_t ccl_phmat_dia_hostmirror_nnnz(ccl_phmat_dia_hostmirror* A);
+
+void ccl_phmat_dia_hostmirror_set_nrows(ccl_phmat_dia_hostmirror* A,
+                                        ccl_index_t nrows);
+void ccl_phmat_dia_hostmirror_set_ncols(ccl_phmat_dia_hostmirror* A,
+                                        ccl_index_t ncols);
+void ccl_phmat_dia_hostmirror_set_nnnz(ccl_phmat_dia_hostmirror* A,
+                                       ccl_index_t nnnz);
+
+// Format Specific Routines
+ccl_index_t ccl_phmat_dia_hostmirror_ndiags(ccl_phmat_dia_hostmirror* A);
+ccl_index_t ccl_phmat_dia_hostmirror_alignment(ccl_phmat_dia_hostmirror* A);
+
+void ccl_phmat_dia_hostmirror_set_ndiags(ccl_phmat_dia_hostmirror* A,
+                                         ccl_index_t ndiags);
+void ccl_phmat_dia_hostmirror_set_alignment(ccl_phmat_dia_hostmirror* A,
+                                            ccl_index_t alignment);
+
+ccl_index_t ccl_phmat_dia_hostmirror_diagonal_offests_at(
+    ccl_phmat_dia_hostmirror* A, ccl_index_t i);
+ccl_value_t ccl_phmat_dia_hostmirror_values_at(ccl_phmat_dia_hostmirror* A,
+                                               ccl_index_t i, ccl_index_t j);
+
+ccl_phvec_dense_i_hostmirror* ccl_phmat_dia_hostmirror_diagonal_offsets(
+    ccl_phmat_dia_hostmirror* A);
+ccl_phmat_dense_hostmirror* ccl_phmat_dia_hostmirror_values(
+    ccl_phmat_dia_hostmirror* A);
+
+void ccl_phmat_dia_hostmirror_set_diagonal_offests_at(
+    ccl_phmat_dia_hostmirror* A, ccl_index_t i, ccl_index_t val);
+void ccl_phmat_dia_hostmirror_set_values_at(ccl_phmat_dia_hostmirror* A,
+                                            ccl_index_t i, ccl_index_t j,
+                                            ccl_value_t val);
+
+ccl_bool_t ccl_phmat_dia_hostmirror_exceeds_tolerance(
+    ccl_phmat_dia_hostmirror* A, const ccl_index_t num_rows,
+    const ccl_index_t num_entries, const ccl_index_t num_diagonals);
+
+// Other Routines
+ccl_formats_e ccl_phmat_dia_hostmirror_format_enum(ccl_phmat_dia_hostmirror* A);
+int ccl_phmat_dia_hostmirror_format_index(ccl_phmat_dia_hostmirror* A);
+
 #ifdef __cplusplus
 }
 #endif

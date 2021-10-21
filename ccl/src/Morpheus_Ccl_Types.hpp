@@ -66,6 +66,8 @@ typedef Kokkos::OpenMP ccl_phost_t;
 typedef Kokkos::Cuda ccl_dev_t;
 #endif  // MORPHEUS_ENABLE_CUDA
 
+typedef typename Kokkos::HostSpace::execution_space ccl_hostspace_t;
+
 #else
 
 #include <Morpheus_FormatsRegistry.hpp>
@@ -85,6 +87,8 @@ typedef struct Ccl_pHost ccl_phost_t;
 #if defined MORPHEUS_ENABLE_CUDA
 typedef struct Ccl_Device ccl_dev_t;
 #endif  // MORPHEUS_ENABLE_CUDA
+
+typedef struct Ccl_HostSpace ccl_hostspace_t;
 
 #endif  //__cplusplus
 
