@@ -21,20 +21,46 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_PHOST_FWD_COOMATRIX_HPP
-#define MORPHEUS_CCL_PHOST_FWD_COOMATRIX_HPP
+#ifndef MORPHEUS_CCL_FWD_COOMATRIX_HPP
+#define MORPHEUS_CCL_FWD_COOMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
 
 #ifdef __cplusplus
 #include <Morpheus_Core.hpp>
 
+#if defined MORPHEUS_ENABLE_SERIAL
+typedef Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_host_t>
+    ccl_hmat_coo;
+typedef typename ccl_hmat_coo::HostMirror ccl_hmat_coo_hostmirror;
+#endif  // MORPHEUS_ENABLE_SERIAL
+
+#if defined MORPHEUS_ENABLE_OPENMP
 typedef Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_phost_t>
     ccl_phmat_coo;
 typedef typename ccl_phmat_coo::HostMirror ccl_phmat_coo_hostmirror;
+#endif  // MORPHEUS_ENABLE_OPENMP
+
+#if defined MORPHEUS_ENABLE_CUDA
+typedef Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_dev_t>
+    ccl_dmat_coo;
+typedef typename ccl_dmat_coo::HostMirror ccl_dmat_coo_hostmirror;
+#endif  // MORPHEUS_ENABLE_CUDA
 #else
+#if defined MORPHEUS_ENABLE_SERIAL
+typedef struct Morpheus_CooMatrix_Host ccl_hmat_coo;
+typedef ccl_hmat_coo ccl_hmat_coo_hostmirror;
+#endif  // MORPHEUS_ENABLE_SERIAL
+
+#if defined MORPHEUS_ENABLE_OPENMP
 typedef struct Morpheus_CooMatrix_pHost ccl_phmat_coo;
 typedef ccl_phmat_coo ccl_phmat_coo_hostmirror;
-#endif
+#endif  // MORPHEUS_ENABLE_OPENMP
 
-#endif  // MORPHEUS_CCL_PHOST_FWD_COOMATRIX_HPP
+#if defined MORPHEUS_ENABLE_CUDA
+typedef struct Morpheus_CooMatrix_Dev ccl_dmat_coo;
+typedef ccl_dmat_coo ccl_dmat_coo_hostmirror;
+#endif  // MORPHEUS_ENABLE_CUDA
+#endif  // __cplusplus
+
+#endif  // MORPHEUS_CCL_HOST_FWD_COOMATRIX_HPP

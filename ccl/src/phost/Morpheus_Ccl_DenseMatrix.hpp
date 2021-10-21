@@ -26,7 +26,7 @@
 
 #include <Morpheus_Ccl_Types.hpp>
 
-#include <phost/fwd/Morpheus_Ccl_Fwd_DenseMatrix.hpp>
+#include <fwd/Morpheus_Ccl_Fwd_DenseMatrix.hpp>
 
 #ifdef __cplusplus
 extern "C" {
