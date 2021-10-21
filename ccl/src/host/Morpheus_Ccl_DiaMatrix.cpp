@@ -161,8 +161,8 @@ void ccl_hmat_dia_hostmirror_create_from_hmat_dia(
   *dst = (new ccl_hmat_dia_hostmirror(*src));
 }
 
-void ccl_hmat_dia_hostmirror_create_from_hmat_dyn(
-    ccl_hmat_dyn* src, ccl_hmat_dia_hostmirror** dst) {
+void ccl_hmat_dia_hostmirror_create_from_hmat_dyn_hostmirror(
+    ccl_hmat_dyn_hostmirror* src, ccl_hmat_dia_hostmirror** dst) {
   *dst = (new ccl_hmat_dia_hostmirror(*src));
 }
 

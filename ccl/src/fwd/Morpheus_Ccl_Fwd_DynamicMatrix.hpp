@@ -50,20 +50,20 @@ typedef Morpheus::DynamicMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
 typedef typename ccl_dmat_dyn::HostMirror ccl_dmat_dyn_hostmirror;
 #endif  // MORPHEUS_ENABLE_CUDA
 #else
-#if defined MORPHEUS_ENABLE_SERIAL
+#if defined MCL_ENABLE_SERIAL
 typedef struct Morpheus_DynamicMatrix_Host ccl_hmat_dyn;
-typedef ccl_hmat_dyn ccl_hmat_dyn_hostmirror;
-#endif  // MORPHEUS_ENABLE_SERIAL
+typedef struct Morpheus_DynamicMatrix_Host_HostMirror ccl_hmat_dyn_hostmirror;
+#endif  // MCL_ENABLE_SERIAL
 
-#if defined MORPHEUS_ENABLE_OPENMP
+#if defined MCL_ENABLE_OPENMP
 typedef struct Morpheus_DynamicMatrix_pHost ccl_phmat_dyn;
-typedef ccl_phmat_dyn ccl_phmat_dyn_hostmirror;
-#endif  // MORPHEUS_ENABLE_OPENMP
+typedef struct Morpheus_DynamicMatrix_pHost_HostMirror ccl_phmat_dyn_hostmirror;
+#endif  // MCL_ENABLE_OPENMP
 
-#if defined MORPHEUS_ENABLE_CUDA
+#if defined MCL_ENABLE_CUDA
 typedef struct Morpheus_DynamicMatrix_Dev ccl_dmat_dyn;
-typedef ccl_dmat_dyn ccl_dmat_dyn_hostmirror;
-#endif  // MORPHEUS_ENABLE_CUDA
+typedef struct Morpheus_DynamicMatrix_Dev_HostMirror ccl_dmat_dyn_hostmirror;
+#endif  // MCL_ENABLE_CUDA
 #endif  // __cplusplus
 
 #endif  // MORPHEUS_CCL_FWD_DYNAMICMATRIX_HPP

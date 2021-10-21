@@ -162,9 +162,9 @@ int main() {
 
       ccl_phmat_csr_copy_to_phmat_csr_hostmirror(refcsr, mirror);
       ccl_phmat_csr_set_values_at(refcsr, 5, -15);
-      ccl_phmat_csr_print(mirror);
+      ccl_phmat_csr_hostmirror_print(mirror);
       ccl_phmat_csr_set_values_at(refcsr, 5, 60);
-      ccl_phmat_csr_destroy(&mirror);
+      ccl_phmat_csr_hostmirror_destroy(&mirror);
     }
 
     { 
@@ -172,9 +172,9 @@ int main() {
 
       ccl_phmat_dia_copy_to_phmat_dia_hostmirror(refdia, mirror);
       ccl_phmat_dia_set_values_at(refdia, 3, 0, -15);
-      ccl_phmat_dia_print(mirror);
+      ccl_phmat_dia_hostmirror_print(mirror);
       ccl_phmat_dia_set_values_at(refdia, 3, 0, 60);
-      ccl_phmat_dia_destroy(&mirror);
+      ccl_phmat_dia_hostmirror_destroy(&mirror);
     }
 
     {
@@ -184,11 +184,11 @@ int main() {
 
       ccl_phmat_csr_copy_to_phmat_dyn_hostmirror(refcsr, mirror);
       ccl_phmat_csr_set_values_at(refcsr, 5, -15);
-      ccl_phmat_dyn_print(mirror);
+      ccl_phmat_dyn_hostmirror_print(mirror);
       ccl_phmat_csr_set_values_at(refcsr, 5, 60);
 
       ccl_phmat_dyn_destroy(&A);
-      ccl_phmat_dyn_destroy(&mirror);
+      ccl_phmat_dyn_hostmirror_destroy(&mirror);
     }
 
     ccl_phmat_coo_destroy(&refcoo);

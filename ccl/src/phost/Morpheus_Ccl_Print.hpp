@@ -47,6 +47,18 @@ void ccl_phmat_dia_print(ccl_phmat_dia* A);
 
 void ccl_phmat_dyn_print(ccl_phmat_dyn* A);
 
+void ccl_phvec_dense_v_hostmirror_print(ccl_phvec_dense_v_hostmirror* v);
+
+void ccl_phmat_coo_hostmirror_print(ccl_phmat_coo_hostmirror* A);
+
+void ccl_phmat_csr_hostmirror_print(ccl_phmat_csr_hostmirror* A);
+
+void ccl_phmat_dense_hostmirror_print(ccl_phmat_dense_hostmirror* A);
+
+void ccl_phmat_dia_hostmirror_print(ccl_phmat_dia_hostmirror* A);
+
+void ccl_phmat_dyn_hostmirror_print(ccl_phmat_dyn_hostmirror* A);
+
 #ifdef __cplusplus
 }
 #endif

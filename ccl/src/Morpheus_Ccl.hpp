@@ -26,6 +26,7 @@
 
 #include <host/Morpheus_Ccl_Host.hpp>
 #include <phost/Morpheus_Ccl_pHost.hpp>
+#include <dev/Morpheus_Ccl_Dev.hpp>
 
 #ifdef __cplusplus
 extern "C" {

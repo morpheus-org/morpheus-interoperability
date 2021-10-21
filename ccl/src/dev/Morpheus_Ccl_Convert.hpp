@@ -27,7 +27,7 @@
 #include <dev/Morpheus_Ccl_CooMatrix.hpp>
 #include <dev/Morpheus_Ccl_CsrMatrix.hpp>
 #include <dev/Morpheus_Ccl_DiaMatrix.hpp>
-#include <dev/Morpheus_Ccl_DynMatrix.hpp>
+#include <dev/Morpheus_Ccl_DynamicMatrix.hpp>
 #include <dev/Morpheus_Ccl_DenseMatrix.hpp>
 #include <dev/Morpheus_Ccl_DenseVector.hpp>
 

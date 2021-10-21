@@ -18,6 +18,12 @@
 #define Mcl_VERSION_MAJOR 0
 #endif
 
+/* Execution Spaces */
+#cmakedefine MCL_ENABLE_SERIAL     // Kokkos::Serial execution and memory spaces
+#cmakedefine MCL_ENABLE_OPENMP     // Kokkos::OpenMP execution and memory spaces
+#cmakedefine MCL_ENABLE_CUDA       // Kokkos::Cuda execution and memory spaces
+#cmakedefine MCL_ENABLE_HIP        // Kokkos::HIP execution and memory spaces
+
 #cmakedefine Mcl_VALUETYPE @Mcl_VALUETYPE@
 #cmakedefine Mcl_INDEXTYPE @Mcl_INDEXTYPE@
 #cmakedefine Mcl_LAYOUT @Mcl_LAYOUT@

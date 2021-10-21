@@ -135,8 +135,8 @@ void ccl_phmat_csr_hostmirror_create_from_phmat_csr_hostmirror(
   *dst = (new ccl_phmat_csr_hostmirror(*src));
 }
 
-void ccl_phmat_csr_hostmirror_create_from_phmat_dyn(
-    ccl_phmat_dyn* src, ccl_phmat_csr_hostmirror** dst) {
+void ccl_phmat_csr_hostmirror_create_from_phmat_dyn_hostmirror(
+    ccl_phmat_dyn_hostmirror* src, ccl_phmat_csr_hostmirror** dst) {
   *dst = (new ccl_phmat_csr_hostmirror(*src));
 }
 

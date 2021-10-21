@@ -26,7 +26,9 @@
 using coo = ccl_hmat_coo;
 using vec = ccl_hvec_dense_v;
 
+#ifdef __cplusplus
 extern "C" {
+#endif
 
 int main() {
   ccl_initialize_without_args();
@@ -74,4 +76,7 @@ int main() {
 
   return 0;
 }
+
+#ifdef __cplusplus
 }
+#endif

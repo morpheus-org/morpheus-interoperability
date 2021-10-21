@@ -115,8 +115,8 @@ void ccl_hmat_dia_hostmirror_create_aligned(ccl_hmat_dia_hostmirror** A,
 void ccl_hmat_dia_hostmirror_create_from_hmat_dia(
     ccl_hmat_dia_hostmirror* src, ccl_hmat_dia_hostmirror** dst);
 
-void ccl_hmat_dia_hostmirror_create_from_hmat_dyn(
-    ccl_hmat_dyn* src, ccl_hmat_dia_hostmirror** dst);
+void ccl_hmat_dia_hostmirror_create_from_hmat_dyn_hostmirror(
+    ccl_hmat_dyn_hostmirror* src, ccl_hmat_dia_hostmirror** dst);
 
 void ccl_hmat_dia_hostmirror_resize(ccl_hmat_dia_hostmirror* A,
                                     const ccl_index_t num_rows,

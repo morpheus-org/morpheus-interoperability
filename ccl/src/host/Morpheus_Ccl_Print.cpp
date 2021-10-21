@@ -34,3 +34,27 @@ void ccl_hmat_dense_print(ccl_hmat_dense* A) { Morpheus::print(*A); }
 void ccl_hmat_dia_print(ccl_hmat_dia* A) { Morpheus::print(*A); }
 
 void ccl_hmat_dyn_print(ccl_hmat_dyn* A) { Morpheus::print(*A); }
+
+void ccl_hvec_dense_v_hostmirror_print(ccl_hvec_dense_v_hostmirror* v) {
+  Morpheus::print(*v);
+}
+
+void ccl_hmat_coo_hostmirror_print(ccl_hmat_coo_hostmirror* A) {
+  Morpheus::print(*A);
+}
+
+void ccl_hmat_csr_hostmirror_print(ccl_hmat_csr_hostmirror* A) {
+  Morpheus::print(*A);
+}
+
+void ccl_hmat_dense_hostmirror_print(ccl_hmat_dense_hostmirror* A) {
+  Morpheus::print(*A);
+}
+
+void ccl_hmat_dia_hostmirror_print(ccl_hmat_dia_hostmirror* A) {
+  Morpheus::print(*A);
+}
+
+void ccl_hmat_dyn_hostmirror_print(ccl_hmat_dyn_hostmirror* A) {
+  Morpheus::print(*A);
+}

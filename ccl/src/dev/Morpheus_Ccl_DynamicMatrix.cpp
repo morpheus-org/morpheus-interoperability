@@ -126,13 +126,13 @@ void ccl_dmat_dyn_hostmirror_create_default(ccl_dmat_dyn_hostmirror** A) {
 void ccl_dmat_dyn_hostmirror_create_from_dmat(void* src, ccl_formats_e index,
                                               ccl_dmat_dyn_hostmirror** dst) {
   if (index == Morpheus::COO_FORMAT) {
-    ccl_dmat_coo* src_cast = (ccl_dmat_coo*)src;
+    ccl_dmat_coo_hostmirror* src_cast = (ccl_dmat_coo_hostmirror*)src;
     *dst = new ccl_dmat_dyn_hostmirror(ccl_dmat_coo_hostmirror(*src_cast));
   } else if (index == Morpheus::CSR_FORMAT) {
-    ccl_dmat_csr* src_cast = (ccl_dmat_csr*)src;
+    ccl_dmat_csr_hostmirror* src_cast = (ccl_dmat_csr_hostmirror*)src;
     *dst = new ccl_dmat_dyn_hostmirror(ccl_dmat_csr_hostmirror(*src_cast));
   } else if (index == Morpheus::DIA_FORMAT) {
-    ccl_dmat_dia* src_cast = (ccl_dmat_dia*)src;
+    ccl_dmat_dia_hostmirror* src_cast = (ccl_dmat_dia_hostmirror*)src;
     *dst = new ccl_dmat_dyn_hostmirror(ccl_dmat_dia_hostmirror(*src_cast));
   }
 }

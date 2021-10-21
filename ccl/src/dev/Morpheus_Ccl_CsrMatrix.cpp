@@ -105,8 +105,8 @@ void ccl_dmat_csr_hostmirror_create_from_dmat_csr_hostmirror(
   *dst = (new ccl_dmat_csr_hostmirror(*src));
 }
 
-void ccl_dmat_csr_hostmirror_create_from_dmat_dyn(
-    ccl_dmat_dyn* src, ccl_dmat_csr_hostmirror** dst) {
+void ccl_dmat_csr_hostmirror_create_from_dmat_dyn_hostmirror(
+    ccl_dmat_dyn_hostmirror* src, ccl_dmat_csr_hostmirror** dst) {
   *dst = (new ccl_dmat_csr_hostmirror(*src));
 }
 

@@ -40,6 +40,9 @@ macro(MCL_SETUP_BUILD_ENVIRONMENT)
     # We are NOT going build Mcl but instead look for an installed Mcl then
     # build examples and tests against that installed Mcl
     find_package(Mcl REQUIRED)
+
+    # Still need to figure out which backends
+    include(cmake/kokkos_backends.cmake)
   else()
     # Regular build, not install testing
     if(NOT Mcl_HAS_PARENT)
@@ -47,6 +50,8 @@ macro(MCL_SETUP_BUILD_ENVIRONMENT)
       find_package(Morpheus REQUIRED)
       message(STATUS "Found Morpheus at ${Morpheus_DIR}")
     endif()
+    # Still need to figure out which backends
+    include(cmake/kokkos_backends.cmake)
 
   endif()
 endmacro()

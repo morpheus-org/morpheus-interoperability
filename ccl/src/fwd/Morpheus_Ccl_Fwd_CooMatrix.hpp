@@ -47,20 +47,20 @@ typedef Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_dev_t>
 typedef typename ccl_dmat_coo::HostMirror ccl_dmat_coo_hostmirror;
 #endif  // MORPHEUS_ENABLE_CUDA
 #else
-#if defined MORPHEUS_ENABLE_SERIAL
+#if defined MCL_ENABLE_SERIAL
 typedef struct Morpheus_CooMatrix_Host ccl_hmat_coo;
-typedef ccl_hmat_coo ccl_hmat_coo_hostmirror;
+typedef struct Morpheus_CooMatrix_Host_HostMirror ccl_hmat_coo_hostmirror;
 #endif  // MORPHEUS_ENABLE_SERIAL
 
-#if defined MORPHEUS_ENABLE_OPENMP
-typedef struct Morpheus_CooMatrix_pHost ccl_phmat_coo;
-typedef ccl_phmat_coo ccl_phmat_coo_hostmirror;
-#endif  // MORPHEUS_ENABLE_OPENMP
+#if defined MCL_ENABLE_OPENMP
+typedef struct Morpheus_CooMatrix_pHost_HostMirror ccl_phmat_coo;
+typedef struct Morpheus_CooMatrix_pHost_HostMirror ccl_phmat_coo_hostmirror;
+#endif  // MCL_ENABLE_OPENMP
 
-#if defined MORPHEUS_ENABLE_CUDA
+#if defined MCL_ENABLE_CUDA
 typedef struct Morpheus_CooMatrix_Dev ccl_dmat_coo;
-typedef ccl_dmat_coo ccl_dmat_coo_hostmirror;
-#endif  // MORPHEUS_ENABLE_CUDA
+typedef struct Morpheus_CooMatrix_Dev_HostMirror ccl_dmat_coo_hostmirror;
+#endif  // MCL_ENABLE_CUDA
 #endif  // __cplusplus
 
 #endif  // MORPHEUS_CCL_HOST_FWD_COOMATRIX_HPP

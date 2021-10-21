@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_HOST_PRINT_HPP
-#define MORPHEUS_CCL_HOST_PRINT_HPP
+#ifndef MORPHEUS_CCL_DEV_PRINT_HPP
+#define MORPHEUS_CCL_DEV_PRINT_HPP
 
 #include <dev/Morpheus_Ccl_CooMatrix.hpp>
 #include <dev/Morpheus_Ccl_CsrMatrix.hpp>
@@ -51,4 +51,4 @@ void ccl_dmat_dyn_hostmirror_print(ccl_dmat_dyn_hostmirror* A);
 }
 #endif
 
-#endif  // MORPHEUS_CCL_HOST_PRINT_HPP
+#endif  // MORPHEUS_CCL_DEV_PRINT_HPP

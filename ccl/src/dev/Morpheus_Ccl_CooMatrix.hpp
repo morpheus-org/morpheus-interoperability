@@ -78,8 +78,8 @@ void ccl_dmat_coo_hostmirror_create(ccl_dmat_coo_hostmirror** A,
 void ccl_dmat_coo_hostmirror_create_from_dmat_coo_hostmirror(
     ccl_dmat_coo_hostmirror* src, ccl_dmat_coo_hostmirror** dst);
 
-void ccl_dmat_coo_hostmirror_create_from_dmat_dyn(
-    ccl_dmat_dyn* src, ccl_dmat_coo_hostmirror** dst);
+void ccl_dmat_coo_hostmirror_create_from_dmat_dyn_hostmirror(
+    ccl_dmat_dyn_hostmirror* src, ccl_dmat_coo_hostmirror** dst);
 
 void ccl_dmat_coo_hostmirror_resize(ccl_dmat_coo_hostmirror* A,
                                     const ccl_index_t num_rows,

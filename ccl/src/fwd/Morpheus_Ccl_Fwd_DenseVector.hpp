@@ -63,29 +63,35 @@ typedef Morpheus::DenseVector<ccl_index_t, ccl_index_t, ccl_layout_t, ccl_dev_t>
 typedef typename ccl_dvec_dense_i::HostMirror ccl_dvec_dense_i_hostmirror;
 #endif  // MORPHEUS_ENABLE_CUDA
 #else
-#if defined MORPHEUS_ENABLE_SERIAL
-typedef struct Morpheus_DenseVector_Host_v ccl_hvec_dense_v;
-typedef ccl_hvec_dense_v ccl_hvec_dense_v_hostmirror;
+#if defined MCL_ENABLE_SERIAL
+typedef struct Morpheus_DenseVector_v_Host ccl_hvec_dense_v;
+typedef struct Morpheus_DenseVector_v_Host_HostMirror
+    ccl_hvec_dense_v_hostmirror;
 
-typedef struct Morpheus_DenseVector_Host_i ccl_hvec_dense_i;
-typedef ccl_hvec_dense_i ccl_hvec_dense_i_hostmirror;
-#endif  // MORPHEUS_ENABLE_SERIAL
+typedef struct Morpheus_DenseVector_i_Host ccl_hvec_dense_i;
+typedef struct Morpheus_DenseVector_i_Host_HostMirror
+    ccl_hvec_dense_i_hostmirror;
+#endif  // MCL_ENABLE_SERIAL
 
-#if defined MORPHEUS_ENABLE_OPENMP
-typedef struct Morpheus_DenseVector_pHost_v ccl_phvec_dense_v;
-typedef ccl_phvec_dense_v ccl_phvec_dense_v_hostmirror;
+#if defined MCL_ENABLE_OPENMP
+typedef struct Morpheus_DenseVector_v_pHost ccl_phvec_dense_v;
+typedef struct Morpheus_DenseVector_v_pHost_HostMirror
+    ccl_phvec_dense_v_hostmirror;
 
-typedef struct Morpheus_DenseVector_pHost_i ccl_phvec_dense_i;
-typedef ccl_phvec_dense_i ccl_phvec_dense_i_hostmirror;
-#endif  // MORPHEUS_ENABLE_OPENMP
+typedef struct Morpheus_DenseVector_i_pHost ccl_phvec_dense_i;
+typedef struct Morpheus_DenseVector_i_pHost_HostMirror
+    ccl_phvec_dense_i_hostmirror;
+#endif  // MCL_ENABLE_OPENMP
 
-#if defined MORPHEUS_ENABLE_CUDA
-typedef struct Morpheus_DenseVector_Dev_v ccl_dvec_dense_v;
-typedef ccl_dvec_dense_v ccl_dvec_dense_v_hostmirror;
+#if defined MCL_ENABLE_CUDA
+typedef struct Morpheus_DenseVector_v_Dev ccl_dvec_dense_v;
+typedef struct Morpheus_DenseVector_v_Dev_HostMirror
+    ccl_dvec_dense_v_hostmirror;
 
-typedef struct Morpheus_DenseVector_Dev_i ccl_dvec_dense_i;
-typedef ccl_dvec_dense_i ccl_dvec_dense_i_hostmirror;
-#endif  // MORPHEUS_ENABLE_CUDA
+typedef struct Morpheus_DenseVector_i_Dev ccl_dvec_dense_i;
+typedef struct Morpheus_DenseVector_i_Dev_HostMirror
+    ccl_dvec_dense_i_hostmirror;
+#endif  // MCL_ENABLE_CUDA
 #endif  // __cplusplus
 
 #endif  // MORPHEUS_CCL_FWD_DENSEVECTOR_HPP

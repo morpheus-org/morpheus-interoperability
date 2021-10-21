@@ -143,18 +143,18 @@ int main() {
     
     { 
       mirror_coo *mirror = ccl_hmat_coo_create_mirror(refcoo);
-      coo *shallow_mirror = ccl_hmat_coo_create_mirror_container(refcoo);
+      mirror_coo *shallow_mirror = ccl_hmat_coo_create_mirror_container(refcoo);
 
       ccl_hmat_coo_copy_to_hmat_coo_hostmirror(refcoo, mirror);
       ccl_hmat_coo_copy_to_hmat_coo_hostmirror(refcoo, shallow_mirror);
 
       ccl_hmat_coo_set_values_at(refcoo, 5, -15);
-      ccl_hmat_coo_print(mirror);
-      ccl_hmat_coo_print(shallow_mirror);
+      ccl_hmat_coo_hostmirror_print(mirror);
+      ccl_hmat_coo_hostmirror_print(shallow_mirror);
       ccl_hmat_coo_set_values_at(refcoo, 5, 60);
       
-      ccl_hmat_coo_destroy(&mirror);
-      ccl_hmat_coo_destroy(&shallow_mirror);
+      ccl_hmat_coo_hostmirror_destroy(&mirror);
+      ccl_hmat_coo_hostmirror_destroy(&shallow_mirror);
     }
 
     { 
@@ -162,9 +162,9 @@ int main() {
 
       ccl_hmat_csr_copy_to_hmat_csr_hostmirror(refcsr, mirror);
       ccl_hmat_csr_set_values_at(refcsr, 5, -15);
-      ccl_hmat_csr_print(mirror);
+      ccl_hmat_csr_hostmirror_print(mirror);
       ccl_hmat_csr_set_values_at(refcsr, 5, 60);
-      ccl_hmat_csr_destroy(&mirror);
+      ccl_hmat_csr_hostmirror_destroy(&mirror);
     }
 
     { 
@@ -172,9 +172,9 @@ int main() {
 
       ccl_hmat_dia_copy_to_hmat_dia_hostmirror(refdia, mirror);
       ccl_hmat_dia_set_values_at(refdia, 3, 0, -15);
-      ccl_hmat_dia_print(mirror);
+      ccl_hmat_dia_hostmirror_print(mirror);
       ccl_hmat_dia_set_values_at(refdia, 3, 0, 60);
-      ccl_hmat_dia_destroy(&mirror);
+      ccl_hmat_dia_hostmirror_destroy(&mirror);
     }
 
     {
@@ -184,11 +184,11 @@ int main() {
 
       ccl_hmat_csr_copy_to_hmat_dyn_hostmirror(refcsr, mirror);
       ccl_hmat_csr_set_values_at(refcsr, 5, -15);
-      ccl_hmat_dyn_print(mirror);
+      ccl_hmat_dyn_hostmirror_print(mirror);
       ccl_hmat_csr_set_values_at(refcsr, 5, 60);
 
       ccl_hmat_dyn_destroy(&A);
-      ccl_hmat_dyn_destroy(&mirror);
+      ccl_hmat_dyn_hostmirror_destroy(&mirror);
     }
 
     ccl_hmat_coo_destroy(&refcoo);
