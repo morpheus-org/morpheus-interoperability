@@ -1,0 +1,29 @@
+
+#if !defined(MORPHEUS_CCL_MACROS_HPP) || defined(MORPHEUS_CCL_CONFIG_H)
+#error \
+    "Do not include MorpheusCcl_config.hpp directly; include MoprheusCcl_Macros.hpp instead."
+#else
+#define MORPHEUS_CCL_CONFIG_HPP
+#endif
+
+// MCL_VERSION % 100 is the patch level
+// MCL_VERSION / 100 % 100 is the minor version
+// MCL_VERSION / 10000 is the major version
+#cmakedefine MCL_VERSION @MCL_VERSION@
+#cmakedefine Mcl_VERSION_MAJOR @Mcl_VERSION_MAJOR@
+#cmakedefine Mcl_VERSION_MINOR @Mcl_VERSION_MINOR@
+#cmakedefine Mcl_VERSION_PATCH @Mcl_VERSION_PATCH@
+
+#ifndef Mcl_VERSION_MAJOR
+#define Mcl_VERSION_MAJOR 0
+#endif
+
+/* Execution Spaces */
+#cmakedefine MCL_ENABLE_SERIAL     // Kokkos::Serial execution and memory spaces
+#cmakedefine MCL_ENABLE_OPENMP     // Kokkos::OpenMP execution and memory spaces
+#cmakedefine MCL_ENABLE_CUDA       // Kokkos::Cuda execution and memory spaces
+#cmakedefine MCL_ENABLE_HIP        // Kokkos::HIP execution and memory spaces
+
+#cmakedefine Mcl_VALUETYPE @Mcl_VALUETYPE@
+#cmakedefine Mcl_INDEXTYPE @Mcl_INDEXTYPE@
+#cmakedefine Mcl_LAYOUT @Mcl_LAYOUT@
