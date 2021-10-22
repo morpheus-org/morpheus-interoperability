@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-#include <host/Morpheus_Ccl_DynamicMatrix.hpp>
+#include <dev/Morpheus_Ccl_DynamicMatrix.hpp>
 
 void ccl_dmat_dyn_create_default(ccl_dmat_dyn** A) {
   *A = (new ccl_dmat_dyn());

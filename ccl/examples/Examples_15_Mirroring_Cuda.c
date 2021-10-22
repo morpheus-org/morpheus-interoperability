@@ -171,39 +171,49 @@ int main() {
       ccl_dmat_coo_hostmirror_destroy(&shallow_mirror);
     }
 
-    // { 
-    //   mirror_csr *mirror = ccl_dmat_csr_create_mirror(refcsr);
+    { 
+      mirror_csr *mirror = ccl_dmat_csr_create_mirror(refcsr);
+      mirror_csr *shallow_mirror = ccl_dmat_csr_create_mirror_container(refcsr);
 
-    //   ccl_dmat_csr_copy_to_dmat_csr_hostmirror(refcsr, mirror);
-    //   ccl_dmat_csr_set_values_at(refcsr, 5, -15);
-    //   ccl_dmat_csr_hostmirror_print(mirror);
-    //   ccl_dmat_csr_set_values_at(refcsr, 5, 60);
-    //   ccl_dmat_csr_hostmirror_destroy(&mirror);
-    // }
+      ccl_dmat_csr_copy_to_dmat_csr_hostmirror(refcsr, mirror);
+      ccl_dmat_csr_copy_to_dmat_csr_hostmirror(refcsr, shallow_mirror);
 
-    // { 
-    //   mirror_dia *mirror = ccl_dmat_dia_create_mirror(refdia);
+      ccl_dmat_csr_hostmirror_print(mirror);
+      ccl_dmat_csr_hostmirror_print(shallow_mirror);
+      
+      ccl_dmat_csr_hostmirror_destroy(&mirror);
+      ccl_dmat_csr_hostmirror_destroy(&shallow_mirror);
+    }
 
-    //   ccl_dmat_dia_copy_to_dmat_dia_hostmirror(refdia, mirror);
-    //   ccl_dmat_dia_set_values_at(refdia, 3, 0, -15);
-    //   ccl_dmat_dia_hostmirror_print(mirror);
-    //   ccl_dmat_dia_set_values_at(refdia, 3, 0, 60);
-    //   ccl_dmat_dia_hostmirror_destroy(&mirror);
-    // }
+    { 
+      mirror_dia *mirror = ccl_dmat_dia_create_mirror(refdia);
+      mirror_dia *shallow_mirror = ccl_dmat_dia_create_mirror_container(refdia);
 
-    // {
-    //   dyn *A;
-    //   ccl_dmat_dyn_create_from_dmat(refcsr, CSR_FORMAT, &A);
-    //   mirror_dyn *mirror = ccl_dmat_dyn_create_mirror(A);
+      ccl_dmat_dia_copy_to_dmat_dia_hostmirror(refdia, mirror);
+      ccl_dmat_dia_copy_to_dmat_dia_hostmirror(refdia, shallow_mirror);
 
-    //   ccl_dmat_csr_copy_to_dmat_dyn_hostmirror(refcsr, mirror);
-    //   ccl_dmat_csr_set_values_at(refcsr, 5, -15);
-    //   ccl_dmat_dyn_hostmirror_print(mirror);
-    //   ccl_dmat_csr_set_values_at(refcsr, 5, 60);
+      ccl_dmat_dia_hostmirror_print(mirror);
+      ccl_dmat_dia_hostmirror_print(shallow_mirror);
+      
+      ccl_dmat_dia_hostmirror_destroy(&mirror);
+      ccl_dmat_dia_hostmirror_destroy(&shallow_mirror);
+    }
 
-    //   ccl_dmat_dyn_destroy(&A);
-    //   ccl_dmat_dyn_hostmirror_destroy(&mirror);
-    // }
+    {
+      dyn *A;
+      ccl_dmat_dyn_create_from_dmat(refcsr, CSR_FORMAT, &A);
+      mirror_dyn *mirror = ccl_dmat_dyn_create_mirror(A);
+
+      mirror_csr *mirror_csr = ccl_dmat_csr_create_mirror(refcsr);
+      ccl_dmat_csr_copy_to_dmat_csr_hostmirror(refcsr, mirror_csr);
+
+      ccl_dmat_csr_hostmirror_copy_to_dmat_dyn_hostmirror(mirror_csr, mirror);
+      ccl_dmat_dyn_hostmirror_print(mirror);
+
+      ccl_dmat_dyn_destroy(&A);
+      ccl_dmat_dyn_hostmirror_destroy(&mirror);
+      ccl_dmat_csr_hostmirror_destroy(&mirror_csr);
+    }
 
     ccl_dmat_coo_destroy(&refcoo);
     ccl_dmat_csr_destroy(&refcsr);

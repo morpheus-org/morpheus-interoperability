@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl_Host.hpp
+ * Morpheus_Ccl.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,24 +21,24 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_HOST_HOST_HPP
-#define MORPHEUS_CCL_HOST_HOST_HPP
+#ifndef MORPHEUS_CCL_PHOST_HPP
+#define MORPHEUS_CCL_PHOST_HPP
 
-#include <host/Morpheus_Ccl_CooMatrix.hpp>
-#include <host/Morpheus_Ccl_CsrMatrix.hpp>
-#include <host/Morpheus_Ccl_DiaMatrix.hpp>
-#include <host/Morpheus_Ccl_DenseVector.hpp>
-#include <host/Morpheus_Ccl_DynamicMatrix.hpp>
+#include <phost/Morpheus_Ccl_CooMatrix.hpp>
+#include <phost/Morpheus_Ccl_CsrMatrix.hpp>
+#include <phost/Morpheus_Ccl_DiaMatrix.hpp>
+#include <phost/Morpheus_Ccl_DenseVector.hpp>
+#include <phost/Morpheus_Ccl_DynamicMatrix.hpp>
 
-#include <host/Morpheus_Ccl_MirrorContainers.hpp>
+#include <phost/Morpheus_Ccl_MirrorContainers.hpp>
 
-#include <host/Morpheus_Ccl_Convert.hpp>
-#include <host/Morpheus_Ccl_Copy.hpp>
-#include <host/Morpheus_Ccl_Dot.hpp>
-#include <host/Morpheus_Ccl_Multiply.hpp>
-#include <host/Morpheus_Ccl_Print.hpp>
-#include <host/Morpheus_Ccl_Reduction.hpp>
-#include <host/Morpheus_Ccl_Scan.hpp>
-#include <host/Morpheus_Ccl_WAXPBY.hpp>
+#include <phost/Morpheus_Ccl_Convert.hpp>
+#include <phost/Morpheus_Ccl_Copy.hpp>
+#include <phost/Morpheus_Ccl_Dot.hpp>
+#include <phost/Morpheus_Ccl_Multiply.hpp>
+#include <phost/Morpheus_Ccl_Print.hpp>
+#include <phost/Morpheus_Ccl_Reduction.hpp>
+#include <phost/Morpheus_Ccl_Scan.hpp>
+#include <phost/Morpheus_Ccl_WAXPBY.hpp>
 
-#endif  // MORPHEUS_CCL_HOST_HOST_HPP
+#endif  // MORPHEUS_CCL_PHOST_HPP

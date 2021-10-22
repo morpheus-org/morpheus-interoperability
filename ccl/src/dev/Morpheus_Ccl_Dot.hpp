@@ -24,7 +24,7 @@
 #ifndef MORPHEUS_CCL_DEV_DOT_HPP
 #define MORPHEUS_CCL_DEV_DOT_HPP
 
-#include <host/Morpheus_Ccl_DenseVector.hpp>
+#include <dev/Morpheus_Ccl_DenseVector.hpp>
 
 #ifdef __cplusplus
 extern "C" {

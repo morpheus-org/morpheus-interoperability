@@ -21,35 +21,24 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_HPP
-#define MORPHEUS_CCL_HPP
+#ifndef MORPHEUS_CCL_HOST_HPP
+#define MORPHEUS_CCL_HOST_HPP
 
-#include <Morpheus_Ccl_Macros.hpp>
+#include <host/Morpheus_Ccl_CooMatrix.hpp>
+#include <host/Morpheus_Ccl_CsrMatrix.hpp>
+#include <host/Morpheus_Ccl_DiaMatrix.hpp>
+#include <host/Morpheus_Ccl_DenseVector.hpp>
+#include <host/Morpheus_Ccl_DynamicMatrix.hpp>
 
-#if defined MCL_ENABLE_SERIAL
-#include <host/Morpheus_Ccl.hpp>
-#endif
+#include <host/Morpheus_Ccl_MirrorContainers.hpp>
 
-#if defined MCL_ENABLE_OPENMP
-#include <phost/Morpheus_Ccl.hpp>
-#endif  // MCL_ENABLE_OPENMP
+#include <host/Morpheus_Ccl_Convert.hpp>
+#include <host/Morpheus_Ccl_Copy.hpp>
+#include <host/Morpheus_Ccl_Dot.hpp>
+#include <host/Morpheus_Ccl_Multiply.hpp>
+#include <host/Morpheus_Ccl_Print.hpp>
+#include <host/Morpheus_Ccl_Reduction.hpp>
+#include <host/Morpheus_Ccl_Scan.hpp>
+#include <host/Morpheus_Ccl_WAXPBY.hpp>
 
-#if defined MCL_ENABLE_CUDA
-#include <dev/Morpheus_Ccl.hpp>
-#endif  // MCL_ENABLE_CUDA
-
-#ifdef __cplusplus
-extern "C" {
-#endif
-
-void ccl_initialize(int* argc, char** argv);
-void ccl_initialize_without_args(void);
-void ccl_finalize(void);
-void ccl_print_configuration(const char* prepend_name_in,
-                             const char* file_name_in);
-
-#ifdef __cplusplus
-}  // extern "C"
-#endif
-
-#endif  // MORPHEUS_CCL_HPP
+#endif  // MORPHEUS_CCL_HOST_HPP

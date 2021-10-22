@@ -21,7 +21,7 @@
  * limitations under the License.
  */
 
-#include <host/Morpheus_Ccl_Dot.hpp>
+#include <dev/Morpheus_Ccl_Dot.hpp>
 
 ccl_value_t ccl_dvec_dense_v_dot(ccl_index_t n, const ccl_dvec_dense_v* x,
                                  const ccl_dvec_dense_v* y) {

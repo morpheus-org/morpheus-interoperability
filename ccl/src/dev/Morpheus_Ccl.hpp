@@ -1,5 +1,5 @@
 /**
- * Morpheus_Ccl_Host.hpp
+ * Morpheus_Ccl.hpp
  *
  * EPCC, The University of Edinburgh
  *
@@ -21,8 +21,8 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_DEV_DEV_HPP
-#define MORPHEUS_CCL_DEV_DEV_HPP
+#ifndef MORPHEUS_CCL_DEV_HPP
+#define MORPHEUS_CCL_DEV_HPP
 
 #include <dev/Morpheus_Ccl_CooMatrix.hpp>
 #include <dev/Morpheus_Ccl_CsrMatrix.hpp>
@@ -40,4 +40,4 @@
 #include <dev/Morpheus_Ccl_Reduction.hpp>
 #include <dev/Morpheus_Ccl_WAXPBY.hpp>
 
-#endif  // MORPHEUS_CCL_DEV_DEV_HPP
+#endif  // MORPHEUS_CCL_DEV_HPP
