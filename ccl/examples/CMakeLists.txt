@@ -23,7 +23,13 @@ mcl_add_executable(Examples_11_Dynamic_Interface SOURCES
                    Examples_11_Dynamic_Interface.c)
 mcl_add_executable(Examples_12_Convert SOURCES Examples_12_Convert.c)
 mcl_add_executable(Examples_13_Mirroring SOURCES Examples_13_Mirroring.c)
-mcl_add_executable(Examples_14_Mirroring_Omp SOURCES
-                   Examples_14_Mirroring_Omp.c)
-mcl_add_executable(Examples_15_Mirroring_Cuda SOURCES
-                   Examples_15_Mirroring_Cuda.c)
+
+if(MORPHEUS_ENABLE_OPENMP)
+  mcl_add_executable(Examples_14_Mirroring_Omp SOURCES
+                     Examples_14_Mirroring_Omp.c)
+endif()
+
+if(MORPHEUS_ENABLE_CUDA)
+  mcl_add_executable(Examples_15_Mirroring_Cuda SOURCES
+                     Examples_15_Mirroring_Cuda.c)
+endif()

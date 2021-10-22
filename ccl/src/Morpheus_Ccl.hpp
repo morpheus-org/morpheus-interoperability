@@ -24,9 +24,19 @@
 #ifndef MORPHEUS_CCL_HPP
 #define MORPHEUS_CCL_HPP
 
+#include <Morpheus_Ccl_Macros.hpp>
+
+#if defined MCL_ENABLE_SERIAL
 #include <host/Morpheus_Ccl_Host.hpp>
+#endif
+
+#if defined MCL_ENABLE_OPENMP
 #include <phost/Morpheus_Ccl_pHost.hpp>
+#endif  // MCL_ENABLE_OPENMP
+
+#if defined MCL_ENABLE_CUDA
 #include <dev/Morpheus_Ccl_Dev.hpp>
+#endif  // MCL_ENABLE_CUDA
 
 #ifdef __cplusplus
 extern "C" {
