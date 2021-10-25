@@ -328,5 +328,5 @@ function(MCL_ADD_EXECUTABLE ROOT_NAME)
   verify_empty(MCL_ADD_EXECUTABLE ${PARSE_UNPARSED_ARGUMENTS})
   # All executables must link to all the morpheus targets This is just private
   # linkage because exe is final
-  target_link_libraries(${EXE_NAME} PRIVATE Morpheus::mcl)
+  target_link_libraries(${EXE_NAME} PRIVATE Morpheus::interoperability)
 endfunction()

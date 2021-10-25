@@ -113,16 +113,17 @@ mcl_setup_build_environment()
 
 set(BUILD_SHARED_LIBS OFF)
 
-set(MCL_EXT_LIBRARIES Morpheus::mcl Morpheus::ccl)
-set(MCL_INT_LIBRARIES morpheus-mcl morpheus-ccl)
+set(MCL_EXT_LIBRARIES Morpheus::interoperability Morpheus::morpheus-ccl)
+set(MCL_INT_LIBRARIES morpheus-interoperability morpheus-ccl)
 set_property(GLOBAL PROPERTY MCL_INT_LIBRARIES ${MCL_INT_LIBRARIES})
 
 include(GNUInstallDirs)
 if(MCL_HAS_PARENT)
-  set(MCL_HEADER_INSTALL_DIR "include/mcl")
+  set(MCL_HEADER_INSTALL_DIR "include/morpheus/morpheus-interoperability")
   set(MCL_IS_SUBDIRECTORY TRUE)
 else()
-  set(MCL_HEADER_INSTALL_DIR "${CMAKE_INSTALL_INCLUDEDIR}")
+  set(MCL_HEADER_INSTALL_DIR
+      "${CMAKE_INSTALL_INCLUDEDIR}/morpheus/morpheus-interoperability")
   set(MCL_IS_SUBDIRECTORY FALSE)
 endif()
 
@@ -134,14 +135,14 @@ mcl_process_subpackages()
 
 # If Morpheus itself is enabled, process the Morpheus package
 if(NOT Mcl_INSTALL_TESTING)
-  add_library(morpheus-mcl INTERFACE)
+  add_library(morpheus-interoperability INTERFACE)
   # ~~~
   # Make sure in-tree projects can reference this as Morpheus::
   # to match the installed target names
   # ~~~
-  add_library(Morpheus::mcl ALIAS morpheus-mcl)
-  target_link_libraries(morpheus-mcl INTERFACE morpheus-ccl)
-  mcl_internal_add_library_install(morpheus-mcl)
+  add_library(Morpheus::interoperability ALIAS morpheus-interoperability)
+  target_link_libraries(morpheus-interoperability INTERFACE morpheus-ccl)
+  mcl_internal_add_library_install(morpheus-interoperability)
 endif()
 
 mcl_package_postprocess()

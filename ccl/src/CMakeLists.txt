@@ -10,7 +10,7 @@ set(Mcl_ENABLE_INDIVIDUAL_TESTS
 
 install(
   DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/"
-  DESTINATION ${MCL_HEADER_INSTALL_DIR}
+  DESTINATION ${MCL_HEADER_INSTALL_DIR}/ccl
   FILES_MATCHING
   PATTERN "*.hpp"
   PATTERN "*.h")
@@ -48,7 +48,7 @@ mcl_add_library(morpheus-ccl SOURCES ${CCL_CORE_SOURCES} HEADERS
                 ${CCL_CORE_HEADERS} ADD_BUILD_OPTIONS)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/MorpheusCcl_config.hpp
-        DESTINATION ${MCL_HEADER_INSTALL_DIR})
+        DESTINATION ${MCL_HEADER_INSTALL_DIR}/ccl)
 
 mcl_lib_include_directories(
   morpheus-ccl ${MCL_TOP_BUILD_DIR} ${CMAKE_CURRENT_BINARY_DIR}
@@ -62,4 +62,4 @@ foreach(HEADER ${CCL_CORE_HEADERS})
   target_include_directories(morpheus-ccl PUBLIC $<BUILD_INTERFACE:${dirname}>)
 endforeach()
 target_include_directories(
-  morpheus-ccl PUBLIC $<INSTALL_INTERFACE:${MCL_HEADER_INSTALL_DIR}>)
+  morpheus-ccl PUBLIC $<INSTALL_INTERFACE:${MCL_HEADER_INSTALL_DIR}/ccl>)
