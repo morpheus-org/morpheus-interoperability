@@ -35,7 +35,7 @@ void ccl_initialize(int* argc, char** argv) {
 
 void ccl_initialize_without_args() { Morpheus::initialize(); }
 
-void ccl_finalize() { Kokkos::finalize(); }
+void ccl_finalize() { Morpheus::finalize(); }
 
 void ccl_print_configuration(const char* prepend_name_in,
                              const char* file_name_in) {
