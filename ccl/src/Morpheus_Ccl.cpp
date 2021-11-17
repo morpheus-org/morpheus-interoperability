@@ -29,8 +29,8 @@
 #include <cstdio>
 #include <stddef.h>
 
-void ccl_initialize(int* argc, char** argv) {
-  Morpheus::initialize(*argc, argv);
+void ccl_initialize(int* argc, char** argv[]) {
+  Morpheus::initialize(*argc, *argv);
 }
 
 void ccl_initialize_without_args() { Morpheus::initialize(); }

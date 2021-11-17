@@ -42,7 +42,7 @@
 extern "C" {
 #endif
 
-void ccl_initialize(int* argc, char** argv);
+void ccl_initialize(int* argc, char** argv[]);
 void ccl_initialize_without_args(void);
 void ccl_finalize(void);
 void ccl_print_configuration(const char* prepend_name_in,
