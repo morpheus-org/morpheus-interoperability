@@ -30,20 +30,20 @@
 #include <Morpheus_Core.hpp>
 
 #if defined MORPHEUS_ENABLE_SERIAL
-typedef Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_host_t>
-    ccl_hmat_coo;
+typedef typename Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                     ccl_host_t>::type ccl_hmat_coo;
 typedef typename ccl_hmat_coo::HostMirror ccl_hmat_coo_hostmirror;
 #endif  // MORPHEUS_ENABLE_SERIAL
 
 #if defined MORPHEUS_ENABLE_OPENMP
-typedef Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_phost_t>
-    ccl_phmat_coo;
+typedef typename Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                     ccl_phost_t>::type ccl_phmat_coo;
 typedef typename ccl_phmat_coo::HostMirror ccl_phmat_coo_hostmirror;
 #endif  // MORPHEUS_ENABLE_OPENMP
 
 #if defined MORPHEUS_ENABLE_CUDA
-typedef Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_dev_t>
-    ccl_dmat_coo;
+typedef typename Morpheus::CooMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                     ccl_dev_t>::type ccl_dmat_coo;
 typedef typename ccl_dmat_coo::HostMirror ccl_dmat_coo_hostmirror;
 #endif  // MORPHEUS_ENABLE_CUDA
 #else

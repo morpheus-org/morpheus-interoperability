@@ -30,36 +30,32 @@
 #include <Morpheus_Core.hpp>
 
 #if defined MORPHEUS_ENABLE_SERIAL
-typedef Morpheus::DenseVector<ccl_value_t, ccl_index_t, ccl_layout_t,
-                              ccl_host_t>
-    ccl_hvec_dense_v;
+typedef typename Morpheus::DenseVector<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                       ccl_host_t>::type ccl_hvec_dense_v;
 typedef typename ccl_hvec_dense_v::HostMirror ccl_hvec_dense_v_hostmirror;
 
-typedef Morpheus::DenseVector<ccl_index_t, ccl_index_t, ccl_layout_t,
-                              ccl_host_t>
-    ccl_hvec_dense_i;
+typedef typename Morpheus::DenseVector<ccl_index_t, ccl_index_t, ccl_layout_t,
+                                       ccl_host_t>::type ccl_hvec_dense_i;
 typedef typename ccl_hvec_dense_i::HostMirror ccl_hvec_dense_i_hostmirror;
 #endif  // MORPHEUS_ENABLE_SERIAL
 
 #if defined MORPHEUS_ENABLE_OPENMP
-typedef Morpheus::DenseVector<ccl_value_t, ccl_index_t, ccl_layout_t,
-                              ccl_phost_t>
-    ccl_phvec_dense_v;
+typedef typename Morpheus::DenseVector<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                       ccl_phost_t>::type ccl_phvec_dense_v;
 typedef typename ccl_phvec_dense_v::HostMirror ccl_phvec_dense_v_hostmirror;
 
-typedef Morpheus::DenseVector<ccl_index_t, ccl_index_t, ccl_layout_t,
-                              ccl_phost_t>
-    ccl_phvec_dense_i;
+typedef typename Morpheus::DenseVector<ccl_index_t, ccl_index_t, ccl_layout_t,
+                                       ccl_phost_t>::type ccl_phvec_dense_i;
 typedef typename ccl_phvec_dense_i::HostMirror ccl_phvec_dense_i_hostmirror;
 #endif  // MORPHEUS_ENABLE_OPENMP
 
 #if defined MORPHEUS_ENABLE_CUDA
-typedef Morpheus::DenseVector<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_dev_t>
-    ccl_dvec_dense_v;
+typedef typename Morpheus::DenseVector<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                       ccl_dev_t>::type ccl_dvec_dense_v;
 typedef typename ccl_dvec_dense_v::HostMirror ccl_dvec_dense_v_hostmirror;
 
-typedef Morpheus::DenseVector<ccl_index_t, ccl_index_t, ccl_layout_t, ccl_dev_t>
-    ccl_dvec_dense_i;
+typedef typename Morpheus::DenseVector<ccl_index_t, ccl_index_t, ccl_layout_t,
+                                       ccl_dev_t>::type ccl_dvec_dense_i;
 typedef typename ccl_dvec_dense_i::HostMirror ccl_dvec_dense_i_hostmirror;
 #endif  // MORPHEUS_ENABLE_CUDA
 #else

@@ -2,10 +2,10 @@
 
 ### Setup Environment
 ```sh
-$ MCL_INSTALL_DIR=/Volumes/PhD/Code/Libraries/install/morpheus-fortran-interop/g++-11-debug
+$ MCL_INSTALL_DIR=/Volumes/work/libs/morpheus/debug
 $ CXX_COMPILER=/usr/local/bin/g++-11
 $ C_COMPILER=/usr/local/bin/gcc-11
-$ MORPHEUS_INSTALL_DIR=/Volumes/PhD/Code/Libraries/install/morpheus/g++-11-debug
+$ MORPHEUS_INSTALL_DIR=/Volumes/work/libs/morpheus/debug
 ```
 
 ```sh

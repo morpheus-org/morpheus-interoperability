@@ -30,23 +30,20 @@
 #include <Morpheus_Core.hpp>
 
 #if defined MORPHEUS_ENABLE_SERIAL
-typedef Morpheus::DynamicMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
-                                ccl_host_t>
-    ccl_hmat_dyn;
+typedef typename Morpheus::DynamicMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                         ccl_host_t>::type ccl_hmat_dyn;
 typedef typename ccl_hmat_dyn::HostMirror ccl_hmat_dyn_hostmirror;
 #endif  // MORPHEUS_ENABLE_SERIAL
 
 #if defined MORPHEUS_ENABLE_OPENMP
-typedef Morpheus::DynamicMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
-                                ccl_phost_t>
-    ccl_phmat_dyn;
+typedef typename Morpheus::DynamicMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                         ccl_phost_t>::type ccl_phmat_dyn;
 typedef typename ccl_phmat_dyn::HostMirror ccl_phmat_dyn_hostmirror;
 #endif  // MORPHEUS_ENABLE_OPENMP
 
 #if defined MORPHEUS_ENABLE_CUDA
-typedef Morpheus::DynamicMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
-                                ccl_dev_t>
-    ccl_dmat_dyn;
+typedef typename Morpheus::DynamicMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                         ccl_dev_t>::type ccl_dmat_dyn;
 typedef typename ccl_dmat_dyn::HostMirror ccl_dmat_dyn_hostmirror;
 #endif  // MORPHEUS_ENABLE_CUDA
 #else

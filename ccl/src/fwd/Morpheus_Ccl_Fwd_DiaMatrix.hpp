@@ -30,20 +30,20 @@
 #include <Morpheus_Core.hpp>
 
 #if defined MORPHEUS_ENABLE_SERIAL
-typedef Morpheus::DiaMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_host_t>
-    ccl_hmat_dia;
+typedef typename Morpheus::DiaMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                     ccl_host_t>::type ccl_hmat_dia;
 typedef typename ccl_hmat_dia::HostMirror ccl_hmat_dia_hostmirror;
 #endif  // MORPHEUS_ENABLE_SERIAL
 
 #if defined MORPHEUS_ENABLE_OPENMP
-typedef Morpheus::DiaMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_phost_t>
-    ccl_phmat_dia;
+typedef typename Morpheus::DiaMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                     ccl_phost_t>::type ccl_phmat_dia;
 typedef typename ccl_phmat_dia::HostMirror ccl_phmat_dia_hostmirror;
 #endif  // MORPHEUS_ENABLE_OPENMP
 
 #if defined MORPHEUS_ENABLE_CUDA
-typedef Morpheus::DiaMatrix<ccl_value_t, ccl_index_t, ccl_layout_t, ccl_dev_t>
-    ccl_dmat_dia;
+typedef typename Morpheus::DiaMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
+                                     ccl_dev_t>::type ccl_dmat_dia;
 typedef typename ccl_dmat_dia::HostMirror ccl_dmat_dia_hostmirror;
 #endif  // MORPHEUS_ENABLE_CUDA
 #else
