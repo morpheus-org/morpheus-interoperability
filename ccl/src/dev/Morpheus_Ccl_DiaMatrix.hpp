@@ -26,10 +26,10 @@
 
 #include <Morpheus_Ccl_Types.hpp>
 
-#include <fwd/Morpheus_Ccl_Fwd_DiaMatrix.hpp>
-#include <fwd/Morpheus_Ccl_Fwd_DynamicMatrix.hpp>
-#include <fwd/Morpheus_Ccl_Fwd_DenseVector.hpp>
-#include <fwd/Morpheus_Ccl_Fwd_DenseMatrix.hpp>
+#include <dev/fwd/Morpheus_Ccl_Fwd_DiaMatrix.hpp>
+#include <dev/fwd/Morpheus_Ccl_Fwd_DynamicMatrix.hpp>
+#include <dev/fwd/Morpheus_Ccl_Fwd_DenseVector.hpp>
+#include <dev/fwd/Morpheus_Ccl_Fwd_DenseMatrix.hpp>
 
 #ifdef __cplusplus
 extern "C" {

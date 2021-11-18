@@ -21,46 +21,25 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_FWD_DENSEMATRIX_HPP
-#define MORPHEUS_CCL_FWD_DENSEMATRIX_HPP
+#ifndef MORPHEUS_CCL_HOST_FWD_DENSEMATRIX_HPP
+#define MORPHEUS_CCL_HOST_FWD_DENSEMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
+
+#if defined MCL_ENABLE_SERIAL
 
 #ifdef __cplusplus
 #include <Morpheus_Core.hpp>
 
-#if defined MORPHEUS_ENABLE_SERIAL
 typedef typename Morpheus::DenseMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
                                        ccl_host_t>::type ccl_hmat_dense;
 typedef typename ccl_hmat_dense::HostMirror ccl_hmat_dense_hostmirror;
-#endif  // MORPHEUS_ENABLE_SERIAL
-
-#if defined MORPHEUS_ENABLE_OPENMP
-typedef typename Morpheus::DenseMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
-                                       ccl_phost_t>::type ccl_phmat_dense;
-typedef typename ccl_phmat_dense::HostMirror ccl_phmat_dense_hostmirror;
-#endif  // MORPHEUS_ENABLE_OPENMP
-
-#if defined MORPHEUS_ENABLE_CUDA
-typedef typename Morpheus::DenseMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
-                                       ccl_dev_t>::type ccl_dmat_dense;
-typedef typename ccl_dmat_dense::HostMirror ccl_dmat_dense_hostmirror;
-#endif  // MORPHEUS_ENABLE_CUDA
 #else
-#if defined MCL_ENABLE_SERIAL
+
 typedef struct Morpheus_DenseMatrix_Host ccl_hmat_dense;
 typedef struct Morpheus_DenseMatrix_Host_HostMirror ccl_hmat_dense_hostmirror;
-#endif  // MORPHEUS_ENABLE_SERIAL
-
-#if defined MCL_ENABLE_OPENMP
-typedef struct Morpheus_DenseMatrix_pHost ccl_phmat_dense;
-typedef struct Morpheus_DenseMatrix_pHost_HostMirror ccl_phmat_dense_hostmirror;
-#endif  // MCL_ENABLE_OPENMP
-
-#if defined MCL_ENABLE_CUDA
-typedef struct Morpheus_DenseMatrix_Dev ccl_dmat_dense;
-typedef struct Morpheus_DenseMatrix_Dev_HostMirror ccl_dmat_dense_hostmirror;
-#endif  // MCL_ENABLE_CUDA
 #endif  // __cplusplus
 
-#endif  // MORPHEUS_CCL_FWD_DENSEMATRIX_HPP
+#endif  // MCL_ENABLE_SERIAL
+
+#endif  // MORPHEUS_CCL_HOST_FWD_DENSEMATRIX_HPP

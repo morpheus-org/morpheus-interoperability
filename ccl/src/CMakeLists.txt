@@ -17,37 +17,40 @@ install(
   PATTERN "*.hpp"
   PATTERN "*.h")
 
-set(CCL_CORE_SOURCES)
-append_glob(CCL_CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
+set(MCL_CCL_SOURCES)
+append_glob(MCL_CCL_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 
-set(CCL_CORE_HEADERS)
-append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
-append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/fwd/*.hpp)
+set(MCL_CCL_HEADERS)
+append_glob(MCL_CCL_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/*.hpp)
+append_glob(MCL_CCL_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/fwd/*.hpp)
 
 if(MORPHEUS_ENABLE_SERIAL)
-  append_glob(CCL_CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/host/*.cpp)
-  append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/host/*.hpp)
+  append_glob(MCL_CCL_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/host/*.cpp)
+  append_glob(MCL_CCL_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/host/*.hpp)
+  append_glob(MCL_CCL_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/host/fwd/*.hpp)
 endif()
 
 if(MORPHEUS_ENABLE_OPENMP)
-  append_glob(CCL_CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/phost/*.cpp)
-  append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/phost/*.hpp)
+  append_glob(MCL_CCL_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/phost/*.cpp)
+  append_glob(MCL_CCL_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/phost/*.hpp)
+  append_glob(MCL_CCL_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/phost/fwd/*.hpp)
 endif()
 
 if(MORPHEUS_ENABLE_CUDA)
-  append_glob(CCL_CORE_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/dev/*.cpp)
-  append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/dev/*.hpp)
+  append_glob(MCL_CCL_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/dev/*.cpp)
+  append_glob(MCL_CCL_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/dev/*.hpp)
+  append_glob(MCL_CCL_HEADERS ${CMAKE_CURRENT_SOURCE_DIR}/dev/fwd/*.hpp)
 endif()
 
-append_glob(CCL_CORE_HEADERS ${CMAKE_CURRENT_BINARY_DIR}/MorpheusCcl_config.hpp)
+append_glob(MCL_CCL_HEADERS ${CMAKE_CURRENT_BINARY_DIR}/MorpheusCcl_config.hpp)
 
-foreach(HEADER ${CCL_CORE_HEADERS})
+foreach(HEADER ${MCL_CCL_HEADERS})
   get_filename_component(dirname ${HEADER} DIRECTORY)
   mcl_include_directories(${dirname})
 endforeach()
 
-mcl_add_library(morpheus-ccl SOURCES ${CCL_CORE_SOURCES} HEADERS
-                ${CCL_CORE_HEADERS} ADD_BUILD_OPTIONS)
+mcl_add_library(morpheus-ccl SOURCES ${MCL_CCL_SOURCES} HEADERS
+                ${MCL_CCL_HEADERS} ADD_BUILD_OPTIONS)
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/MorpheusCcl_config.hpp
         DESTINATION ${CCL_HEADER_INSTALL_DIR})
@@ -59,7 +62,7 @@ mcl_lib_include_directories(
 # Link with Morpheus
 target_link_libraries(morpheus-ccl PUBLIC Morpheus::morpheus)
 
-foreach(HEADER ${CCL_CORE_HEADERS})
+foreach(HEADER ${MCL_CCL_HEADERS})
   get_filename_component(dirname ${HEADER} DIRECTORY)
   target_include_directories(morpheus-ccl PUBLIC $<BUILD_INTERFACE:${dirname}>)
 endforeach()

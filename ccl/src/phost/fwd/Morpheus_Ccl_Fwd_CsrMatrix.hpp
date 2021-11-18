@@ -21,46 +21,25 @@
  * limitations under the License.
  */
 
-#ifndef MORPHEUS_CCL_FWD_CSRMATRIX_HPP
-#define MORPHEUS_CCL_FWD_CSRMATRIX_HPP
+#ifndef MORPHEUS_CCL_PHOST_FWD_CSRMATRIX_HPP
+#define MORPHEUS_CCL_PHOST_FWD_CSRMATRIX_HPP
 
 #include <Morpheus_Ccl_Types.hpp>
+
+#if defined MCL_ENABLE_OPENMP
 
 #ifdef __cplusplus
 #include <Morpheus_Core.hpp>
 
-#if defined MORPHEUS_ENABLE_SERIAL
-typedef typename Morpheus::CsrMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
-                                     ccl_host_t>::type ccl_hmat_csr;
-typedef typename ccl_hmat_csr::HostMirror ccl_hmat_csr_hostmirror;
-#endif  // MORPHEUS_ENABLE_SERIAL
-
-#if defined MORPHEUS_ENABLE_OPENMP
 typedef typename Morpheus::CsrMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
                                      ccl_phost_t>::type ccl_phmat_csr;
 typedef typename ccl_phmat_csr::HostMirror ccl_phmat_csr_hostmirror;
-#endif  // MORPHEUS_ENABLE_OPENMP
-
-#if defined MORPHEUS_ENABLE_CUDA
-typedef typename Morpheus::CsrMatrix<ccl_value_t, ccl_index_t, ccl_layout_t,
-                                     ccl_dev_t>::type ccl_dmat_csr;
-typedef typename ccl_dmat_csr::HostMirror ccl_dmat_csr_hostmirror;
-#endif  // MORPHEUS_ENABLE_CUDA
 #else
-#if defined MCL_ENABLE_SERIAL
-typedef struct Morpheus_CsrMatrix_Host ccl_hmat_csr;
-typedef struct Morpheus_CsrMatrix_Host_HostMirror ccl_hmat_csr_hostmirror;
-#endif  // MCL_ENABLE_SERIAL
 
-#if defined MCL_ENABLE_OPENMP
 typedef struct Morpheus_CsrMatrix_Host ccl_phmat_csr;
 typedef struct Morpheus_CsrMatrix_Host_HostMirror ccl_phmat_csr_hostmirror;
-#endif  // MCL_ENABLE_OPENMP
-
-#if defined MCL_ENABLE_CUDA
-typedef struct Morpheus_CsrMatrix_Dev ccl_dmat_csr;
-typedef struct Morpheus_CsrMatrix_Dev_HostMirror ccl_dmat_csr_hostmirror;
-#endif  // MCL_ENABLE_CUDA
 #endif  // __cplusplus
 
-#endif  // MORPHEUS_CCL_FWD_CSRMATRIX_HPP
+#endif  // MCL_ENABLE_OPENMP
+
+#endif  // MORPHEUS_CCL_PHOST_FWD_CSRMATRIX_HPP
