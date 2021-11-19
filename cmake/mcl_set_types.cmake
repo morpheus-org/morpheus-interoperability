@@ -35,15 +35,15 @@ set(Mcl_LAYOUT_LEFT
           "Whether to enable left (Column-major) layout type. Default is OFF.")
 
 if(Mcl_VALUETYPE_DOUBLE)
-  set(Mcl_VALUETYPE "double")
+  global_set(Mcl_VALUETYPE "double")
 elseif(Mcl_VALUETYPE_FLOAT)
-  set(Mcl_VALUETYPE "float")
+  global_set(Mcl_VALUETYPE "float")
 elseif(Mcl_VALUETYPE_INT)
-  set(Mcl_VALUETYPE "int32_t")
+  global_set(Mcl_VALUETYPE "int32_t")
 elseif(Mcl_VALUETYPE_INT64)
-  set(Mcl_VALUETYPE "int64_t")
+  global_set(Mcl_VALUETYPE "int64_t")
 else()
-  set(Mcl_VALUETYPE "double")
+  global_set(Mcl_VALUETYPE "double")
   message(
     WARNING
       "Mcl_VALUETYPE was not specified.\n\tFalling back to default (${Mcl_VALUETYPE})."
@@ -51,11 +51,11 @@ else()
 endif()
 
 if(Mcl_INDEXTYPE_INT)
-  set(Mcl_INDEXTYPE "int32_t")
+  global_set(Mcl_INDEXTYPE "int32_t")
 elseif(Mcl_INDEXTYPE_INT64)
-  set(Mcl_INDEXTYPE "int64_t")
+  global_set(Mcl_INDEXTYPE "int64_t")
 else()
-  set(Mcl_INDEXTYPE "int32_t")
+  global_set(Mcl_INDEXTYPE "int32_t")
   message(
     WARNING
       "Mcl_INDEXTYPE was not specified.\n\tFalling back to default (${Mcl_INDEXTYPE})."
@@ -63,11 +63,11 @@ else()
 endif()
 
 if(Mcl_LAYOUT_RIGHT)
-  set(Mcl_LAYOUT "Kokkos::LayoutRight")
+  global_set(Mcl_LAYOUT "Kokkos::LayoutRight")
 elseif(Mcl_LAYOUT_LEFT)
-  set(Mcl_LAYOUT "Kokkos::LayoutLeft")
+  global_set(Mcl_LAYOUT "Kokkos::LayoutLeft")
 else()
-  set(Mcl_LAYOUT "Kokkos::LayoutRight")
+  global_set(Mcl_LAYOUT "Kokkos::LayoutRight")
   message(
     WARNING
       "Mcl_LAYOUT was not specified.\n\tFalling back to default (${Mcl_LAYOUT})."

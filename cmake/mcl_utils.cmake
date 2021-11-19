@@ -42,7 +42,7 @@ macro(MCL_SETUP_BUILD_ENVIRONMENT)
     find_package(Mcl REQUIRED)
 
     # Still need to figure out which backends
-    include(cmake/kokkos_backends.cmake)
+    include(cmake/mcl_backends.cmake)
   else()
     # Regular build, not install testing
     if(NOT Mcl_HAS_PARENT)
@@ -51,7 +51,7 @@ macro(MCL_SETUP_BUILD_ENVIRONMENT)
       message(STATUS "Found Morpheus at ${Morpheus_DIR}")
     endif()
     # Still need to figure out which backends
-    include(cmake/kokkos_backends.cmake)
+    include(cmake/mcl_backends.cmake)
 
   endif()
 endmacro()
@@ -101,7 +101,7 @@ endmacro()
 macro(MCL_SUBPACKAGE NAME)
   set(PACKAGE_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
   set(PARENT_PACKAGE_NAME ${PACKAGE_NAME})
-  set(PACKAGE_NAME ${PACKAGE_NAME}${NAME})
+  set(PACKAGE_NAME ${PACKAGE_NAME}_${NAME})
   string(TOUPPER ${PACKAGE_NAME} PACKAGE_NAME_UC)
   set(${PACKAGE_NAME}_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 endmacro()
