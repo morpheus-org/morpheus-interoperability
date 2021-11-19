@@ -54,17 +54,17 @@ typedef enum Morpheus::formats_e ccl_formats_e;
 // Kokkos Types
 typedef Mcl_LAYOUT ccl_layout_t;
 
-#if defined MORPHEUS_ENABLE_SERIAL
+#if defined MCL_ENABLE_SERIAL
 typedef Kokkos::Serial ccl_host_t;
-#endif  // MORPHEUS_ENABLE_SERIAL
+#endif  // MCL_ENABLE_SERIAL
 
-#if defined MORPHEUS_ENABLE_OPENMP
+#if defined MCL_ENABLE_OPENMP
 typedef Kokkos::OpenMP ccl_phost_t;
-#endif  // MORPHEUS_ENABLE_OPENMP
+#endif  // MCL_ENABLE_OPENMP
 
-#if defined MORPHEUS_ENABLE_CUDA
+#if defined MCL_ENABLE_CUDA
 typedef Kokkos::Cuda ccl_dev_t;
-#endif  // MORPHEUS_ENABLE_CUDA
+#endif  // MCL_ENABLE_CUDA
 
 typedef typename Kokkos::HostSpace::execution_space ccl_hostspace_t;
 
@@ -76,17 +76,17 @@ typedef enum formats_e ccl_formats_e;
 
 typedef struct Ccl_Layout ccl_layout_t;
 
-#if defined MORPHEUS_ENABLE_SERIAL
+#if defined MCL_ENABLE_SERIAL
 typedef struct Ccl_Host ccl_host_t;
-#endif  // MORPHEUS_ENABLE_SERIAL
+#endif  // MCL_ENABLE_SERIAL
 
-#if defined MORPHEUS_ENABLE_OPENMP
+#if defined MCL_ENABLE_OPENMP
 typedef struct Ccl_pHost ccl_phost_t;
-#endif  // MORPHEUS_ENABLE_OPENMP
+#endif  // MCL_ENABLE_OPENMP
 
-#if defined MORPHEUS_ENABLE_CUDA
+#if defined MCL_ENABLE_CUDA
 typedef struct Ccl_Device ccl_dev_t;
-#endif  // MORPHEUS_ENABLE_CUDA
+#endif  // MCL_ENABLE_CUDA
 
 typedef struct Ccl_HostSpace ccl_hostspace_t;
 
